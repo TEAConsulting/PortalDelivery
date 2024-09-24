@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ZPIDI_PORTAL.Models.C_Delivery_Plataformas_Configuracion>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            @*<th>Tipo de cobro</th>*@
+            <th>Tipo de comisión</th>
+            <th>Bloqueo de repartidores</th>
+            <th>Porcentajes de comisión</th>
+            <th>Moneda base</th>
+            <th>Editar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.C_Delivery_Plataformas.nombre_plataforma</td>
+                <td>
+                    @if (item.id_tipo_comision == 1)
+                    {
+                        <strong>Fija</strong>
+                    }
+                    else
+                    {
+                        <strong>Variable</strong>
+                    }
+                </td>
+                <td>
+                    @if (item.politica_bloqueo_usuario == 0)
+                    {
+                        <strong><i class="fa fa-remove"></i></strong>
+                    }
+                    else
+                    {
+                        <strong><i class="fa fa-check"></i></strong>
+                    }
+                </td>
+                <td>
+                    <span>ZPIDI: </span><strong> @item.porcentaje_comision_plat %</strong><br />
+                    <span>Mensajeria: </span><strong>@item.porcentaje_comision_mens %</strong><br />
+                    <span>Repartidor: </span><strong>@item.porcentaje_comision_repa %</strong>
+                </td>
+                <td>@item.C_Delivery_Pais_Moneda.nombre (@item.C_Delivery_Pais_Moneda.clave)</td>
+
+                <td><button class="btn btn-zpidi" onclick="EditarConfiguracionPlataforma(@item.id_pataforma_configuracion)"><i class="fa fa-bars"></i></button></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

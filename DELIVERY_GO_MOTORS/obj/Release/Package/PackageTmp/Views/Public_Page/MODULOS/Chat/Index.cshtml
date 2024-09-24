@@ -1,0 +1,515 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Public_Page/MainLayout.cshtml";
+}
+<style>
+
+    /*-------------------CHAT--------------*/
+    .chat_box {
+        background-color: white !important;
+        border-bottom: 1px solid black;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+        border-radius: 5%;
+        color: black !important;
+        padding: 8%;
+        height: 65vh;
+    }
+
+    .header_chat {
+        /*background-color: #06A8DC !important;*/
+        border-radius: 10%;
+        color: white !important;
+        padding: 2%;
+        width: 100%;
+    }
+
+    .msjs_box {
+        overflow: scroll;
+        overflow-x: hidden;
+        /*height: 100%;*/
+        height: 50vh;
+        padding: 3%;
+    }
+
+    #input_msj {
+        display: block;
+        width: 100%;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+        box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+        -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    }
+
+        #input_msj:focus {
+            border: 1px solid dodgerblue;
+        }
+
+    .msjChatYou,
+    .msjChatMe {
+        background: #F05907;
+        color: white;
+        padding: 3%;
+        border-radius: 90px;
+        margin-bottom: 1%;
+    }
+
+    .msjChatYou {
+        background: #656565;
+    }
+
+    .buttonChat {
+        border-radius: 100px;
+        background: #F05907 !important;
+        color: white;
+    }
+</style>
+
+
+<div class="container">
+    @*<p>TOKEN REPA: @Session["ses_token"]</p>*@
+
+    <div class="chat_box" style="padding:0px;">
+
+        <center><h3 class="header_chat btn-zpidi" id="label_client">SOPORTE</h3></center>
+        <br />
+
+        <label id="token_client" style="display: none;"></label>
+
+        <div id="divChatConversacion" style="height: 100%; height: 50vh;">
+            <div class='msjs_box row' id='DivMsj'></div>
+        </div>
+
+        <div id="divButtonInput" style="background-color: gray;padding-bottom: 20px;" class="row">
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $(window).on("load", function () {
+        VerConversacionInicio("@Session["ses_token"]", "0");
+
+        var myInterval = window.setInterval(function () {
+            VerConversacionExistenteRefresh("@Session["ses_token"]", "0");
+        }, 8000);
+    });
+
+    //var myInterval = window.setInterval(function () {
+    //    alert("OK");
+    //}, 8000);
+
+    function myStopFunction() {
+        clearInterval(myInterval);
+    }
+
+    function EnviarMensaje(token, email) {
+        var input = $("#input_msj");
+        var mensaje = input.val();
+        $.ajax({
+            type: "POST",
+            url: "http://gomosystem-001-site4.etempurl.com/api/[Delivery_SetMessage]/Find",
+            dataType: 'text json',
+            data: {
+                "TokenSender": token,
+                "TokenClient": "0",
+                "PhoneNumberClient": "0",
+                "IdClient": "0",
+                "Message": mensaje
+            },
+            success: function (response) {
+                input.val("");
+                var response;
+                if (response.Activo == 1) {
+                    VerConversacionExistente(token, $("#token_client").text());
+                    //VerConversacion(token, response.data[]);
+                }
+            }
+        });
+    }
+
+
+    function EnviarMensajeInput(token, email) {
+        var input = $("#input_msj");
+        var mensaje = input.val();
+        $.ajax({
+            type: "POST",
+            url: "http://gomosystem-001-site4.etempurl.com/api/[Delivery_SetMessage]/Find",
+            dataType: 'text json',
+            data: {
+                "TokenSender": token,
+                "TokenClient": "0",
+                "PhoneNumberClient": "0",
+                "IdClient": "0",
+                "Message": mensaje
+            },
+            success: function (response) {
+                input.val("");
+                var response;
+                if (response.Activo == 1) {
+                    VerConversacionExistente(token, $("#token_client").text());
+                    //VerConversacion(token, response.data[]);
+                }
+            }
+        });
+    }
+
+    function VerConversacionInicio(token, email) {
+        //$("#DivMsj").remove();
+        $.ajax({
+            type: "POST",
+            url: "http://gomosystem-001-site4.etempurl.com/api/[Delivery_GetChatData]/Find",
+            dataType: 'text json',
+            data: {
+                "TokenSender": token,
+                "TokenClient": email,
+                "IdClient": 0 //ViewBag.id_cliente
+            },
+
+            success: function (response) {
+                //var DivMsj = "<div class='msjs_box' id='DivMsj'></div>";
+                //$("#divChatConversacion").append(DivMsj);
+
+                var VarDivMsj = $("#DivMsj");
+                VarDivMsj.html("");
+                $("#token_client").text("0");
+                $("#label_client").text("SOPORTE");
+                if (response.data != null) {
+                    $.each(response.data, function (i, item) {
+                        var msj = "<div style=' width:100%'>";
+                        if (item.messageClient != "" && item.messageClient != undefined) {
+                            msj += "<label style='float:left; width:auto;' class='msjChatYou'>" + item.messageClient + "</label><br />";
+                        }
+                        if (item.messageSender != "" && item.messageSender != undefined) {
+                            msj += "<label style='float:right; width:auto;' class='msjChatMe'>" + item.messageSender + "</label><br />";
+                        }
+                        msj += "</div>";
+
+                        VarDivMsj.append(msj);
+                    });
+                    $("#token_client").text(response.data[0].tokenClient);
+                    $("#label_client").text("SOPORTE - " + response.data[0].tokenClient + " ");
+
+                    if (response.data[0].tokenClient != undefined || response.data[0].tokenClient != null) {
+                        var tok_client = response.data[0].tokenClient;
+                        VerConversacionExistente(token, tok_client);
+                    }
+                    else {
+                        var input = "<br /><div class='col-md-10'><input name='" + token + "' type='text' class='form-control' id='input_msj' placeholder='Escriba un mensaje...'/></div>";
+                        $("#divChatConversacion").append(input);
+                    }
+
+                    //$('#input_msj').keypress(function (event) {
+                    //    var keycode = (event.keyCode ? event.keyCode : event.which);
+                    //    if (keycode == '13') {
+                    //        var email = $("#labelEmail").text();
+                    //        var token = $("#input_msj").attr("name");
+                    //        var token_client = "";
+                    //        try {
+                    //            token_client = response.data[0].TokenClient;
+                    //        } catch (e) {
+
+                    //        }
+                    //        EnviarMensaje(token, token_client);
+                    //    }
+                    //});
+                }
+                else {
+                    var input = "<br /><div class='column_responsive_10'><input name='" + token + "' type='text' class='form-control' id='input_msj' placeholder='Escriba un mensaje...'/></div>";
+                    $("#divButtonInput").append(input);
+                    //$('#input_msj').keypress(function (event) {
+                    //    var keycode = (event.keyCode ? event.keyCode : event.which);
+                    //    if (keycode == '13') {
+                    //        var email = $("#labelEmail").text();
+                    //        var token = $("#input_msj").attr("name");
+                    //        EnviarMensaje(token, "0");
+                    //    }
+                    //});
+                }
+
+                var token_sender = $("#input_msj").attr("name");
+                var token_client = "0";
+                try {
+                    token_client = response.data[0].TokenClient;
+                } catch (e) {
+                }
+
+                VarDivMsj.scrollTop(VarDivMsj.prop("scrollHeight"));
+                var input_btn =
+                    //"<div class='col-md-10'><input name='" + token + "' type='text' class='form-control' id='input_msj' /></div>" +
+                    "<div class='column_responsive_2'><button onclick='EnviarMensajeInput(\"" + token_sender + "\",\"" + token_client + "\")' class='btn buttonChat'><i class='fa fa-send'></i></button></div>";
+                $("#divButtonInput").append(input_btn);
+            }
+        });
+    }
+
+    function VerConversacionExistente(token, email) {
+        //$("#DivMsj").remove();
+        $.ajax({
+            type: "POST",
+            url: "http://gomosystem-001-site4.etempurl.com/api/[Delivery_GetChatData]/Find",
+            dataType: 'text json',
+            data: {
+                "TokenSender": token,
+                "TokenClient": email,
+                "IdClient": 0 //ViewBag.id_cliente
+            },
+
+            success: function (response) {
+                $("#divButtonInput").html("");
+
+                var VarDivMsj = $("#DivMsj");
+                VarDivMsj.html("");
+                $("#token_client").text("0");
+                $("#label_client").text("SOPORTE");
+                if (response.data != null) {
+                    $.each(response.data, function (i, item) {
+                        var msj = "<div style=' width:100%'>";
+                        if (item.messageClient != "" && item.messageClient != undefined) {
+                            msj += "<label style='float:left; width:auto;' class='msjChatYou'>" + item.messageClient + "</label><br />";
+                        }
+                        if (item.messageSender != "" && item.messageSender != undefined) {
+                            msj += "<label style='float:right; width:auto;' class='msjChatMe'>" + item.messageSender + "</label><br />";
+                        }
+                        msj += "</div>";
+
+                        VarDivMsj.append(msj);
+                    });
+                    $("#token_client").text(response.data[0].tokenClient);
+                    $("#label_client").text("SOPORTE - " + response.data[0].tokenClient + " ");
+
+                    if (response.data[0].tokenClient != null && response.data[0].tokenClient != undefined) {
+                        var input = "<br /><div class='column_responsive_10'><input name='" + token + "' type='text' class='form-control' id='input_msj' placeholder='Escriba un mensaje...' /></div>";
+                        $("#divButtonInput").append(input);
+                    }
+
+                    //$('#input_msj').keypress(function (event) {
+                    //    var keycode = (event.keyCode ? event.keyCode : event.which);
+                    //    if (keycode == '13') {
+                    //        var email = $("#labelEmail").text();
+                    //        var token = $("#input_msj").attr("name");
+                    //        var token_client = "";
+                    //        try {
+                    //            token_client = response.data[length].TokenClient;
+                    //        } catch (e) {
+
+                    //        }
+                    //        EnviarMensaje(token, token_client);
+                    //    }
+                    //});
+                }
+                else {
+                    var input = "<br /><div class='column_responsive_10'><input name='" + token + "' type='text' class='form-control' id='input_msj' placeholder='Escriba un mensaje...'/></div>";
+                    $("#divButtonInput").append(input);
+                    //$('#input_msj').keypress(function (event) {
+                    //    var keycode = (event.keyCode ? event.keyCode : event.which);
+                    //    if (keycode == '13') {
+                    //        var email = $("#labelEmail").text();
+                    //        var token = $("#input_msj").attr("name");
+                    //        EnviarMensaje(token, "0");
+                    //    }
+                    //});
+                }
+
+                var token_sender = $("#input_msj").attr("name");
+                var token_client = "0";
+                try {
+                    token_client = response.data[0].TokenClient;
+                } catch (e) {
+                }
+
+                VarDivMsj.scrollTop(VarDivMsj.prop("scrollHeight"));
+                var input_btn = 
+                    //"<div class='col-md-10'><input name='" + token + "' type='text' class='form-control' id='input_msj' /></div>" +
+                    "<div class='column_responsive_2'><button onclick='EnviarMensajeInput(\"" + token_sender + "\",\"" + token_client + "\")' class='btn buttonChat'><i class='fa fa-send'></i></button></div>";
+                $("#divButtonInput").append(input_btn);
+            }
+        });
+    }
+
+
+
+    function VerConversacionRefresh(token, email) {
+        //$("#DivMsj").remove();
+        $.ajax({
+            type: "POST",
+            url: "http://gomosystem-001-site4.etempurl.com/api/[Delivery_GetChatData]/Find",
+            dataType: 'text json',
+            data: {
+                "TokenSender": token,
+                "TokenClient": email,
+                "IdClient": 0 //ViewBag.id_cliente
+            },
+
+            success: function (response) {
+                //var DivMsj = "<div class='msjs_box' id='DivMsj'></div>";
+                //$("#divChatConversacion").append(DivMsj);
+
+                var VarDivMsj = $("#DivMsj");
+                VarDivMsj.html("");
+                $("#token_client").text("0");
+                $("#label_client").text("SOPORTE");
+                if (response.data != null) {
+                    $.each(response.data, function (i, item) {
+                        var msj = "<div style=' width:100%'>";
+                        if (item.messageClient != "" && item.messageClient != undefined) {
+                            msj += "<label style='float:left; width:auto;' class='msjChatYou'>" + item.messageClient + "</label><br />";
+                        }
+                        if (item.messageSender != "" && item.messageSender != undefined) {
+                            msj += "<label style='float:right; width:auto;' class='msjChatMe'>" + item.messageSender + "</label><br />";
+                        }
+                        msj += "</div>";
+
+                        VarDivMsj.append(msj);
+                    });
+                    $("#token_client").text(response.data[0].tokenClient);
+                    $("#label_client").text("SOPORTE - " + response.data[0].tokenClient + " ");
+
+                    if (response.data[0].tokenClient != undefined || response.data[0].tokenClient != null) {
+                        var tok_client = response.data[0].tokenClient;
+                        VerConversacionExistenteRefresh(token, tok_client);
+                    }
+                    else {
+                        //var input = "<br /><div class='col-md-10'><input name='" + token + "' type='text' class='form-control' id='input_msj' placeholder='Escriba un mensaje...'/></div>";
+                        //$("#divChatConversacion").append(input);
+                    }
+
+                    //$('#input_msj').keypress(function (event) {
+                    //    var keycode = (event.keyCode ? event.keyCode : event.which);
+                    //    if (keycode == '13') {
+                    //        var email = $("#labelEmail").text();
+                    //        var token = $("#input_msj").attr("name");
+                    //        var token_client = "";
+                    //        try {
+                    //            token_client = response.data[0].TokenClient;
+                    //        } catch (e) {
+
+                    //        }
+                    //        EnviarMensaje(token, token_client);
+                    //    }
+                    //});
+                }
+                else {
+                    //var input = "<br /><div class='column_responsive_10'><input name='" + token + "' type='text' class='form-control' id='input_msj' placeholder='Escriba un mensaje...'/></div>";
+                    //$("#divButtonInput").append(input);
+                    //$('#input_msj').keypress(function (event) {
+                    //    var keycode = (event.keyCode ? event.keyCode : event.which);
+                    //    if (keycode == '13') {
+                    //        var email = $("#labelEmail").text();
+                    //        var token = $("#input_msj").attr("name");
+                    //        EnviarMensaje(token, "0");
+                    //    }
+                    //});
+                }
+
+                var token_sender = $("#input_msj").attr("name");
+                var token_client = "0";
+                try {
+                    token_client = response.data[0].TokenClient;
+                } catch (e) {
+                }
+
+                VarDivMsj.scrollTop(VarDivMsj.prop("scrollHeight"));
+                //var input_btn = "<div class='column_responsive_2'><button onclick='EnviarMensajeInput(\"" + token_sender + "\",\"" + token_client + "\")' class='btn buttonChat'><i class='fa fa-send'></i></button></div>";
+                //$("#divButtonInput").append(input_btn);
+            }
+        });
+    }
+
+    function VerConversacionExistenteRefresh(token, email) {
+        //alert("ok");
+        $.ajax({
+            type: "POST",
+            url: "http://gomosystem-001-site4.etempurl.com/api/[Delivery_GetChatData]/Find",
+            dataType: 'text json',
+            data: {
+                "TokenSender": token,
+                "TokenClient": email,
+                "IdClient": 0 //ViewBag.id_cliente
+            },
+
+            success: function (response) {
+                //$("#divButtonInput").html("");
+
+                var VarDivMsj = $("#DivMsj");
+                VarDivMsj.html("");
+                $("#token_client").text("0");
+                $("#label_client").text("SOPORTE");
+                if (response.data != null) {
+                    $.each(response.data, function (i, item) {
+                        var msj = "<div style=' width:100%'>";
+                        if (item.messageClient != "" && item.messageClient != undefined) {
+                            msj += "<label style='float:left; width:auto;' class='msjChatYou'>" + item.messageClient + "</label><br />";
+                        }
+                        if (item.messageSender != "" && item.messageSender != undefined) {
+                            msj += "<label style='float:right; width:auto;' class='msjChatMe'>" + item.messageSender + "</label><br />";
+                        }
+                        msj += "</div>";
+
+                        VarDivMsj.append(msj);
+                    });
+                    $("#token_client").text(response.data[0].tokenClient);
+                    $("#label_client").text("SOPORTE - " + response.data[0].tokenClient + " ");
+
+                    //if (response.data[0].tokenClient != null && response.data[0].tokenClient != undefined) {
+                    //    var input = "<br /><div class='column_responsive_10'><input name='" + token + "' type='text' class='form-control' id='input_msj' placeholder='Escriba un mensaje...' /></div>";
+                    //    $("#divButtonInput").append(input);
+                    //}
+
+                    //$('#input_msj').keypress(function (event) {
+                    //    var keycode = (event.keyCode ? event.keyCode : event.which);
+                    //    if (keycode == '13') {
+                    //        var email = $("#labelEmail").text();
+                    //        var token = $("#input_msj").attr("name");
+                    //        var token_client = "";
+                    //        try {
+                    //            token_client = response.data[length].TokenClient;
+                    //        } catch (e) {
+
+                    //        }
+                    //        EnviarMensaje(token, token_client);
+                    //    }
+                    //});
+                }
+                else {
+                    //var input = "<br /><div class='column_responsive_10'><input name='" + token + "' type='text' class='form-control' id='input_msj' placeholder='Escriba un mensaje...'/></div>";
+                    //$("#divButtonInput").append(input);
+                    //$('#input_msj').keypress(function (event) {
+                    //    var keycode = (event.keyCode ? event.keyCode : event.which);
+                    //    if (keycode == '13') {
+                    //        var email = $("#labelEmail").text();
+                    //        var token = $("#input_msj").attr("name");
+                    //        EnviarMensaje(token, "0");
+                    //    }
+                    //});
+                }
+
+                //var token_sender = $("#input_msj").attr("name");
+                //var token_client = "0";
+                //try {
+                //    token_client = response.data[0].TokenClient;
+                //} catch (e) {
+                //}
+
+                VarDivMsj.scrollTop(VarDivMsj.prop("scrollHeight"));
+                //var input_btn =
+                //    //"<div class='col-md-10'><input name='" + token + "' type='text' class='form-control' id='input_msj' /></div>" +
+                //    "<div class='column_responsive_2'><button onclick='EnviarMensajeInput(\"" + token_sender + "\",\"" + token_client + "\")' class='btn buttonChat'><i class='fa fa-send'></i></button></div>";
+                //$("#divButtonInput").append(input_btn);
+            }
+        });
+    }
+
+</script>

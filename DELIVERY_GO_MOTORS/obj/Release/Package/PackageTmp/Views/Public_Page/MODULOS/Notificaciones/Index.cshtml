@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Public_Page/MainLayout.cshtml";
+}
+
+<div class="container">
+    <h4 class="text-center">AVISOS</h4>
+
+    <div id="div_notifiaciones">
+
+    </div>
+
+
+
+    @*<div class="primary_box">
+        <p class="label_box_2" style="text-align:right;">Fecha del dia</p>
+        <h6 class="label_box_2">TEXTO_NOTIFICACION</h6>
+        <h6 class="label_box_2">Vigencia</h6>
+        <div class="row">
+            <p class="text-white">Fecha 1</p>
+            <p class="text-white">AL</p>
+            <p class="text-white">Fecha 2</p>
+
+        </div>
+    </div>*@
+
+
+</div>
+
+
+
+
+<script type="text/javascript">
+
+    $(window).on("load", function () {
+        GetNotificaciones("@ViewBag.token");
+    });
+
+
+    function GetNotificaciones(token) {
+        var div_notif = $("#div_notifiaciones");
+        div_notif.html("");
+
+        $.ajax({
+            url: "http://gomosystem-001-site4.etempurl.com/api/[Delivery_GetNotificaciones]/Find",
+            type: "POST",
+            data: {
+                "token": "@Session["ses_token"]",
+                "id_tipo": "1"
+            },
+            success: function (result) {
+                if (result.data != null) {
+                    var data = result.data;
+                    for (var i = 0; i < data.length; i++) {
+
+                        var notificacion =
+                            "<div class='primary_box'>" +
+                            "<p class='label_box_2' style='text-align:right;'>" + data[0].fecha_notificacion +"a</p >" +
+                            "<h6 class='label_box_2'>" + data[0].mensaje_estandar +"</h6 >" +
+                            "<h6 class='label_box_2'>Vigencia</h6>" +
+                            "<div class='row'>" +
+                            "<div class='text-center column_responsive_5'>" +
+                            "<label class='text-white'>" + data[0].vigencia_desde +"</label>" +
+                            "</div>" +
+                            "<div class='text-center column_responsive_1'>" +
+                            "<label class='text-white'>AL</label>" +
+                            "</div>" +
+                            "<div class='text-center column_responsive_6'>" +
+                            "<label class='text-white'>" + data[0].vigencia_hasta +"</label>" +
+                                 "</div>" +
+                            "</div>" +
+                            "</div >";
+
+                        div_notif.append(notificacion);
+                    }
+                }
+                else {
+
+                }
+            }
+        });
+    }
+
+</script>
+
+
+
+
+
+

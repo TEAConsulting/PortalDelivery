@@ -1,0 +1,6 @@
+﻿@model IEnumerable<ZPIDI_PORTAL.Models.DataBase.C_Delivery_Plataformas>
+
+@foreach (var item in Model)
+{
+    <option value="@item.id_plataforma" selected>@item.nombre_plataforma</option>
+}

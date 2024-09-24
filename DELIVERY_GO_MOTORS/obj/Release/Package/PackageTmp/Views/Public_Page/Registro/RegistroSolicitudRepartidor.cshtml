@@ -1,0 +1,268 @@
+﻿
+@{
+    ViewBag.Title = "RegistroSolicitudRepartidor";
+    Layout = "~/Views/Public_Page/MainLayout.cshtml";
+}
+
+<div class="container-fluid py-6 px-5">
+    <div class="row gx-5">
+
+        <div class="col-lg-12 mb-12 mb-lg-0">
+            <div class="mb-4">
+                <h1 class="display-5 text-uppercase mb-4 text-center">SOLICITUD</h1><br />
+
+                <h3 style="color: #F05907;">@ViewBag.msj</h3>
+            </div>
+        </div>
+        
+        <div class="col-lg-7 mb-8 mb-lg-0">
+
+            <form action="~/SOLICITUDES/RegistrarSolicitudRepartidor" method="POST" enctype="multipart/form-data">
+                @Html.AntiForgeryToken()
+                <div class="row g-3">
+
+                    <div class="col-12 col-sm-12">
+                        <input type="text" class="form-control border-1" style="height: 55px;" name="codigo_plat" value="@ViewBag.Codigo_plataforma" readonly required>
+                    </div>
+
+                    <div class="col-12 col-sm-12">
+                        <input type="text" class="form-control border-1" placeholder="Nombre" style="height: 55px;" name="nombres" required>
+                    </div>
+
+                    <div class="col-12 col-sm-6">
+                        <input type="text" class="form-control border-1" placeholder="Apellido paterno" style="height: 55px;" name="Apellido_pa" required>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <input type="text" class="form-control border-1" placeholder="Apellido materno" style="height: 55px;" name="Apellido_ma" required>
+                    </div>
+
+                    <div class="col-12 col-sm-6">
+                        <label>Genero:</label>
+                        <select class="form-control border-1" name="genero" required>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="col-12 col-sm-6">
+                        <label>Fecha de nacimiento</label>
+                        <input type="date" class="form-control border-1 " name="fecha_nat" placeholder="Fecha de nacimiento" style="height: 55px;" required>
+                    </div>
+
+                    @*----------------------------- IMAGENES --------------------------------*@
+                    <div class="col-12 col-sm-12">
+                        <label>Fotografía</label>
+                        <input type="file" class="form-control border-1" placeholder="Foto de perfil" style="height: 55px;" name="foto" id="img_foto" accept="image/png, image/jpeg"  required>
+                        <div class="text-center" id="div_img_foto"></div>
+                    </div>
+
+                    <div class="col-12 col-sm-12">
+                        <label>INE</label>
+                        <input type="file" class="form-control border-1" placeholder="INE" style="height: 55px;" name="foto" id="img_ine" accept="image/png, image/jpeg" required>
+                        <div class="text-center" id="div_img_ine"></div>
+                    </div>
+
+                    <div class="col-12 col-sm-12">
+                        <label>Licencia de conducir</label>
+                        <input type="file" class="form-control border-1" placeholder="Licencia de conduci" style="height: 55px;" name="foto" id="img_licencia" accept="image/png, image/jpeg" required>
+                        <div class="text-center" id="div_img_licencia"></div>
+                    </div>
+
+                    <div class="col-12 col-sm-12">
+                        <label>Tarjeta de circulación</label>
+                        <input type="file" class="form-control border-1" placeholder="Tarjeta de circulacion" style="height: 55px;" name="foto" id="img_tarjeta" accept="image/png, image/jpeg" required>
+                        <div class="text-center" id="div_img_tarjeta"></div>
+                    </div>
+
+                    @*---------------------------------------------------------------------------------*@
+
+
+                    <div class="col-12 col-sm-6">
+                        <input type="email" class="form-control border-1" placeholder="Correo" style="height: 55px;" name="Correo" required>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <input type="number" class="form-control border-1" placeholder="Telefono" style="height: 55px;" name="Telefono" required>
+                    </div>
+                    <div class="col-12">
+                        <textarea class="form-control border-1" rows="3" placeholder="Direccion" name="Direccion" required></textarea>
+                    </div>
+
+
+                    <div class="col-12 col-sm-6">
+                        <select class="form-control border-1" name="Estado" id="EstadosSelect" onchange="ConsultarCiudades('');" required>
+                            <option value="1">Coahuila de Zaragoza</option>
+                            <option value="2">Durango</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <select class="form-control border-1" name="Ciudad" id="CiudadesSelect" required></select>
+                    </div>
+
+                    <div class="col-12 col-sm-6">
+                        <select id="select_vehiculo" class="form-control border-1" name="TipoVehiculo" required>
+                            @{Html.RenderAction("GetVehiculos", "CATALOGOS");})
+                        </select>
+                    </div>
+
+                    <div class="col-12 col-sm-6 divVehiculo">
+                        <input type="text" class="form-control border-1" placeholder="No. de placas" style="height: 55px;" name="no_placas" required id="id_select_placas">
+                    </div>
+                    <div class="col-12 col-sm-6 divVehiculo">
+                        <input type="text" class="form-control border-1" placeholder="No. de licencia" style="height: 55px;" name="no_licencia" required id="id_select_licencia">
+                    </div>
+
+
+                    <div class="col-12">
+                        <button class="btn btn-zpidi w-100 py-3" type="submit">ENVIAR SOLICITUD</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+            @*<div class="col-lg-5 pb-5" style="min-height:400px;">
+                <div class="position-relative  h-100 ms-5">
+                    <img src="~/Content/PublicTemplate/img/repa_1.jpg" alt="website template image" class="position-absolute w-100 h-100 mt-5 ms-n5" style="object-fit:cover;">
+                </div>
+            </div>*@
+
+
+        </div>
+    </div>
+
+
+<script>
+    $(window).on("load", function () {
+        //ConsultarEstados();
+        ConsultarCiudades(1);
+    });
+
+    //--------------------RENDERIZADORES DE IMAGENES
+    $("#img_foto").on('change', function () {
+        if (typeof (FileReader) != "undefined") {
+            var image_holder = $("#div_img_foto");
+            image_holder.empty();
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $("<img />", {
+                    "src": e.target.result,
+                    "class": "thumb-image",
+                    "width": "170"
+                }).appendTo(image_holder);
+            }
+            image_holder.show();
+            reader.readAsDataURL($("#img_foto")[0].files[0]);
+        } else {
+            alert("This browser does not support FileReader.");
+        }
+    });
+
+    $("#img_ine").on('change', function () {
+        if (typeof (FileReader) != "undefined") {
+            var image_holder = $("#div_img_ine");
+            image_holder.empty();
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $("<img />", {
+                    "src": e.target.result,
+                    "class": "thumb-image",
+                    "width": "170"
+                }).appendTo(image_holder);
+            }
+            image_holder.show();
+            reader.readAsDataURL($("#img_ine")[0].files[0]);
+        } else {
+            alert("This browser does not support FileReader.");
+        }
+    });
+
+    $("#img_licencia").on('change', function () {
+        if (typeof (FileReader) != "undefined") {
+            var image_holder = $("#div_img_licencia");
+            image_holder.empty();
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $("<img />", {
+                    "src": e.target.result,
+                    "class": "thumb-image",
+                    "width": "170"
+                }).appendTo(image_holder);
+            }
+            image_holder.show();
+            reader.readAsDataURL($("#img_licencia")[0].files[0]);
+        } else {
+            alert("This browser does not support FileReader.");
+        }
+    });
+
+    $("#img_tarjeta").on('change', function () {
+        if (typeof (FileReader) != "undefined") {
+            var image_holder = $("#div_img_tarjeta");
+            image_holder.empty();
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $("<img />", {
+                    "src": e.target.result,
+                    "class": "thumb-image",
+                    "width": "170"
+                }).appendTo(image_holder);
+            }
+            image_holder.show();
+            reader.readAsDataURL($("#img_tarjeta")[0].files[0]);
+        } else {
+            alert("This browser does not support FileReader.");
+        }
+    });
+
+    //-----------------------------------------------
+
+
+
+
+
+    $('#select_vehiculo').on('change', function () {
+        if (this.value == 2) {
+            $(".divVehiculo").css("display", "none");
+            $("#div_status_sol").css("display", "block");
+            $('input[name="no_placas"]').val('');
+            $('input[name="no_licencia"]').val('');
+            $("#id_select_placas").prop('required', false);
+            $("#id_select_licencia").prop('required', false);
+        }
+        else {
+            $(".divVehiculo").css("display", "block");
+            $("#id_select_placas").prop('required', true);
+            $("#id_select_licencia").prop('required', true);
+        }
+    });
+
+    function ConsultarEstados() {
+        $.ajax({
+            url: "../CATALOGOS/ConsultarEstados",
+            traditional: true,
+            async: false,
+            type: 'post',
+            data: { },
+            success: function (result) {
+                $("#EstadosSelect").html(result);
+            }
+        });
+    }
+
+    function ConsultarCiudades(id_estado) {
+        if (id_estado == '') {
+            id_estado = $("#EstadosSelect").val();
+        }
+        $.ajax({
+            url: "../CATALOGOS/GetCiudades",
+            traditional: true,
+            async: false,
+            type: 'post',
+            data: { id_estado: id_estado },
+            success: function (result) {
+                $("#CiudadesSelect").html(result);
+            }
+        });
+    }
+
+</script>

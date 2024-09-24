@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ZPIDI_PORTAL.Models.C_Delivery_Trafico_Semaforos>
+
+<table class="table table-bordered">
+    <thead class="text-center" style="background-color:#808080;color:white;">
+        <tr>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Valor Minimo <i class="fa fa-2x fa-circle ml-2" style="color:lawngreen;"></i></th>
+            <th>Tolerancia <i class="fa fa-2x fa-circle ml-2" style="color:gold;"></i></th>
+            <th>Valor Máximo <i class="fa fa-2x fa-circle ml-2" style="color:red;"></i></th>
+        </tr>
+    </thead>
+    <tbody class="text-center">
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td style="display:none;" class="div_parametro" id="@item.id_trafico_semaforo"></td>
+            <td>@item.texto_reporte</td>
+            <td>@item.descripcion_proceso</td>
+            <td class="text-center"><div contenteditable="true" class="div_editable div_min">@item.valor_minimo</div></td>
+            <td class="text-center"><div contenteditable="true" class="div_editable div_tol">@item.tolerancia</div></td>
+            <td class="text-center"><div contenteditable="true" class="div_editable div_max">@item.valor_maximo</div></td>
+
+        </tr>
+        }
+    </tbody>
+</table>
+<hr />
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <button class="btn_zídi btn-block" onclick="ActualizarParametrosTiempos();">GUARDAR</button>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+

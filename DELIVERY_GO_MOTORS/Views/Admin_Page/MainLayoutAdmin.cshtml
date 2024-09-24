@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>GO MOTORS | DELIVERY SYSTEM</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>@ViewBag.Title</title>
+
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css" />
+    <!-- site css -->
+    <link rel="stylesheet" href="~/Content/style.css" />
+    <!-- responsive css -->
+    <link rel="stylesheet" href="~/Content/css/responsive.css" />
+    <!-- color css -->
+    <link rel="stylesheet" href="~/Content/css/color_2.css" />
+    <!-- select bootstrap -->
+    <link rel="stylesheet" href="~/Content/css/bootstrap-select.css" />
+    <!-- scrollbar css -->
+    <link rel="stylesheet" href="~/Content/css/perfect-scrollbar.css" />
+    <!-- custom css -->
+    <link rel="stylesheet" href="~/Content/css/custom.css" />
+    <!-- calendar file css -->
+    <link rel="stylesheet" href="~/Content/css/semantic.min.css" />
+
+    <link rel="stylesheet" href="~/Content/css/bootstrap-multiselect.css" />
+    <link rel="stylesheet" href="~/Content/css/animate.css" />
+    <link rel="stylesheet" href="~/Content/css/font-awesome.min.css" />
+
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.css">
+
+    <link rel="stylesheet" href="~/Content/css/iziToast.min.css" />
+    <script src="~/Content/js/iziToast.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    @Scripts.Render("~/AdminBundles/JS")
+
+    @Scripts.Render("~/AdminBundles_multiselect/JS")
+    @Scripts.Render("~/bundles/DataTable")
+
+    <style>
+        .btn-go {
+            background-color: #c21e3c !important;
+            color: white !important;
+        }
+
+        .btn-outline-go {
+            color: black;
+            background-color: transparent;
+            background-image: none;
+            border-color: #c21e3c;
+        }
+
+            .btn-outline-go:hover {
+                color: white;
+                background-color: #c21e3c;
+                border-color: #c21e3c;
+            }
+    </style>
+
+</head>
+<body class="dashboard dashboard_1">
+
+    <div class="full_container">
+        <div class="inner_container">
+            <!-- Sidebar  -->
+            <nav id="sidebar">
+                <div class="sidebar_blog_1">
+                    <div class="sidebar-header">
+                        <div class="logo_section">
+                            <a href="index.html"><img class="logo_icon img-responsive" src="~/Content/images/layout_img/logo_go_motors.png" alt="#" /></a>
+                        </div>
+                    </div>
+                    <div class="sidebar_user_info">
+                        <div class="icon_setting"></div>
+                        <div class="user_profle_side">
+                            <div class="user_img"><img class="img-responsive" src="~/Content/images/layout_img/logo_go_motors.png" alt="#" /></div>
+                            <div class="user_info">
+                                <h6>@Session["ses_nombre"] @Session["ses_apellido"]</h6>
+                                <p><span class="online_animation"></span> Online</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar_blog_2">
+                    @*<h4>General</h4>*@
+                    @{ Html.RenderAction("GetModules", "USUARIOLOGIN", new { id_rol = Session["ses_id_perfil"] }); }
+                </div>
+            </nav>
+            <!-- MENU LATERAL -->
+            <!-- right content -->
+            <div id="content">
+
+                <!-- BARRA SUPRERIOR -->
+                <div class="topbar">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="full">
+                            <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
+                            <div class="logo_section">
+                                @*<a href="index.html"><img class="img-responsive" src="images/logo/logo.png" alt="#" /></a>*@
+                            </div>
+                            <div class="right_topbar">
+                                <div class="icon_info">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a></li>
+                                        <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a></li>
+                                    </ul>
+                                    <ul class="user_profile_dd">
+                                        <li>
+                                            <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="images/layout_img/user_img.jpg" alt="" /><span class="name_user">@Session["ses_nombre"]</span></a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="profile.html">Mi perfil</a>
+                                                <a class="dropdown-item" href="help.html">Ayuda</a>
+                                                <a class="dropdown-item" onclick="CerrarSesion()"><span>Cerrar sesion</span> <i class="fa fa-sign-out"></i></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <!--FIN BARRA SUPRERIOR -->
+                <!-- DASHBOARD -->
+                <div class="midde_cont">
+                    <div class="container-fluid">
+
+                        @RenderBody()
+
+
+                    </div>
+                    <!-- footer -->
+                    <div class="container-fluid">
+                        <div class="footer">
+                            <p>
+                                Copyright © 2023 Designed by Go Motors Delivery. All rights reserved.<br><br>
+                                Distributed By: <a href="http://www.gomotors.mx//" target="htttp://gomotors.mx/">GO MOTORS</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- end dashboard inner -->
+            </div>
+        </div>
+    </div>
+
+
+
+    @*<script>var ps = new PerfectScrollbar('#sidebar');</script>*@
+</body>
+</html>
+
+
+
+<script type="text/javascript">
+    $(window).on("load", function () {
+        setInterval(ValidaSesion, 180000);
+    });
+
+    function CerrarSesion() {
+        $.ajax({
+            url: "../USUARIOLOGIN/CerrarSesion",
+            async: true,
+            type: "POST",
+            success: function (result) {
+                window.location.href = "../";
+            }
+
+        });
+    }
+
+    function ValidaSesion() {
+        $.ajax({
+            url: "../USUARIOLOGIN/ValidaSesion",
+            data: {
+            },
+            success: function (result) {
+                if (result == "0") {
+                    iziToast.show({
+                        theme: 'dark',
+                        icon: 'icon-person',
+                        title: 'El tiempo de sesión ah caducado!',
+                        message: 'Inicia sesión nuevamente',
+                        position: 'center', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter
+                        progressBarColor: '#F05907',
+                        buttons: [
+                            ['<button>Iniciar sesión</button>', function (instance, toast) {
+                                window.open('/', '_blank');
+                            }, true]
+                            //, // true to focus
+                            //['<button>Cerrar</button>', function (instance, toast) {
+                            //    instance.hide({
+                            //        transitionOut: 'fadeOutUp',
+                            //        onClosing: function (instance, toast, closedBy) {
+                            //            console.info('closedBy: ' + closedBy); // The return will be: 'closedBy: buttonName'
+                            //        }
+                            //    }, toast, 'buttonName');
+                            //}]
+                        ]
+                    });
+                }
+            }
+        });
+    }
+
+</script>
+
+
+

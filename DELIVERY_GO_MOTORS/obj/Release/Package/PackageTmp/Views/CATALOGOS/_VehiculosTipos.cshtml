@@ -1,0 +1,7 @@
+﻿@model IEnumerable<ZPIDI_PORTAL.Models.DataBase.C_Delivery_Repartidores_Vehiculos_Tipos>
+
+@foreach (var item in Model)
+{
+    <option value="@item.id_vehiculo_tipo">@item.tipo</option>
+}
+

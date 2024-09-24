@@ -1,0 +1,109 @@
+﻿
+@{
+    ViewBag.Title = "_OrdeDetail";
+    Layout = "~/Views/Public_page/MainLayout.cshtml";
+}
+
+<div class="container">
+    <div class="text-center">
+        <strong><h4>@ViewBag.fecha_orden</h4></strong>
+        <h3>ZP #@ViewBag.id_orden - Orden # @ViewBag.orden</h3>
+    </div>
+    <center id="btnPideYa"style="display:none;"><button class='btn btn-zpidi' onclick='YaLlegueOden()'>Ya llegué</button></center>
+    <hr />
+    <div id="div_detalle_repa"></div>
+    <hr />
+    <div id="div_detalle_pedido"></div>
+
+</div>
+
+
+<script>
+
+    $(window).on("load", function () {
+        GetDetallePedido();
+        GetDetalleRepartidor();
+        ValidarYaLlegue();
+    });
+
+    function YaLlegueOden() {
+        $.ajax({
+            url: "../ORDENES/YaLlegueOden",
+            type: "POST",
+            data: { id_orden: "@ViewBag.id_orden" },
+            success: function (result) {
+                if (result == -1) {
+                    iziToast.error({
+                        title: 'Error al avisar a la tienda',
+                        message: '',
+                    });
+                }
+                 if (result == 0) {
+                     $("#btnPideYa").css("display", "none");
+                     iziToast.success({
+                         title: 'Notificación enviada a la tienda',
+                         message: '',
+                     });
+                }
+
+                 if (result == 1) {
+                     iziToast.error({
+                         title: 'Estás muy lejos de la tienda',
+                         message: '',
+                     });
+                }
+
+                 if (result == 2) {
+                     iziToast.warning({
+                         title: 'Ya se avisó a la tienda',
+                         message: '',
+                     });
+                 }
+            }
+        });
+    }
+
+    function ValidarYaLlegue() {
+         $.ajax({
+             url: "../ORDENES/ValidarYaLlegue",
+            type: "POST",
+            data: { id_orden: "@ViewBag.id_orden" },
+             success: function (result) {
+                 if (result == 1) {
+                     $("#btnPideYa").css("display", "block");
+                 }
+                 else {
+                     $("#btnPideYa").css("display", "none");
+                 }
+            }
+        });
+    }
+
+    function GetDetallePedido() {
+        $.ajax({
+            url: "../ORDENES/GetDetallePedido",
+            type: "POST",
+            data: { id_orden: "@ViewBag.id_orden" },
+            success: function (result) {
+                $("#div_detalle_pedido").html(result);
+            }
+        });
+    }
+
+    function GetDetalleRepartidor() {
+        $.ajax({
+            url: "../ORDENES/GetDetalleRepartidor",
+            type: "POST",
+            data: { id_orden: "@ViewBag.id_orden" },
+            success: function (result) {
+                $("#div_detalle_repa").html(result);
+            }
+        });
+    }
+    
+</script>
+
+
+
+
+

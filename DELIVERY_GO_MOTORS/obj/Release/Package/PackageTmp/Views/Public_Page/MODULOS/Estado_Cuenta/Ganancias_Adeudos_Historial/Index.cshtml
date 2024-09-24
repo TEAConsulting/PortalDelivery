@@ -1,0 +1,144 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Public_Page/MainLayout.cshtml";
+}
+<div class="container">
+    <h4 class="text-uppercase mb-4 text-center">Ganancias & Adeudos </h4> @*<span class="text-primary">Solicitudes</span>*@
+    <h3 class="text-left">Historial de Cortes</h3>
+
+    <div class="row">
+
+        <div class="column_responsive_5">
+            <label>Desde</label>
+            <input type="date" value="@DateTime.Now.AddDays(-30).ToShortDateString()" />
+        </div>
+        <div class="column_responsive_5">
+            <label>Hasta</label>
+            <input type="date" value="@DateTime.Now.ToShortDateString()" />
+        </div>
+        <hr />
+        <div class="table-responsive">
+            <table class="table table-bordered display" id="table_historial" style="width:100%;">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Orden</th>
+                        <th>Fecha</th>
+                        <th>Semana</th>
+                        <th>Cargo</th>
+                        <th>Abono</th>
+                        <th>Ref.</th>
+                        <th>Stat</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                @*<tfoot>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Orden</th>
+                        <th>Fecha</th>
+                        <th>Semana</th>
+                        <th>Cargo</th>
+                        <th>Abono</th>
+                        <th>Ref.</th>
+                        <th>Stat</th>
+                    </tr>
+                </tfoot>*@
+            </table>
+        </div>
+
+
+        <br />
+        <div class="row">
+            <div class="column_responsive_4">
+
+            </div>
+            <div class="column_responsive_8" style="float:right;">
+                <div class="primary_box">
+                    <h2 class="label_box_4 text-center">Total MX$ 113.99</h2>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <br />
+        <div class="text-left">
+            <h3><strong>Información de Cortes</strong></h3>
+            <label>Dia de Corte: Miércoles</label>
+            <label>Próxima Fecha Corte: 2023-02-15</label>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+
+    $(window).on("load", function () {
+        testDataTable();
+        //GetEstadoCuenta();
+    });
+
+    function testDataTable() {
+        $.ajax({
+            url: "http://gomosystem-001-site4.etempurl.com/api/[Delivery_50_Get_Repartidor_EstadisticasController]/Find",
+            //crossDomain: true,
+            type: 'POST',
+            //dateType: 'json',
+            //contentType: 'application/json; charset=utf-8',
+            //dataSrc: 'data',
+            //"type": "POST",
+            "data": {
+                "token": "@ViewBag.token_repa",
+                "modo": "4"
+            },
+            success: function (res) {
+                console.log(res);
+                var res_data = res.data;
+                for (let i = 0; i < res_data.length; i++) {
+                    let tr = $('<tr/>');
+                    tr.append("<td>" + res_data[i].Nombre + "</td>");
+                    tr.append("<td>" + res_data[i].Orden + "</td>");
+                    tr.append("<td>" + res_data[i].Fecha + "</td>");
+                    tr.append("<td>" + res_data[i].Semana + "</td>");
+                    tr.append("<td>" + res_data[i].Cargo + "</td>");
+                    tr.append("<td>" + res_data[i].Abono + "</td>");
+                    tr.append("<td>" + res_data[i].Ref + "</td>");
+                    tr.append("<td>" + res_data[i].Stat + "</td>");
+                    $('tbody').append(tr)
+                }
+                $('#table_historial').DataTable();
+            }
+        });
+    }
+
+
+    function GetHistorialEstadoCuenta(){
+        $.ajax({
+            url: "http://gomosystem-001-site4.etempurl.com/api/[Delivery_50_Get_Repartidor_EstadisticasController]/Find",
+            type: "POST",
+            data: {
+                "token": "@ViewBag.token_repa",
+                "modo": "4"
+            },
+            success: function (result) {
+                if (result.data != null) {
+                    var data = result.data;
+                    
+                }
+                else {
+
+                }
+            }
+        });
+    }
+
+</script>
+
+
+
+
+
+
+

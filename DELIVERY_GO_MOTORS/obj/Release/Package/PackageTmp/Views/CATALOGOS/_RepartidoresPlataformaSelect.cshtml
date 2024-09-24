@@ -1,0 +1,19 @@
+﻿@model IEnumerable<ZPIDI_PORTAL.Models.DataBase.C_Delivery_Repartidores>
+
+<option value="0" selected>Todos</option>
+@foreach (var item in Model)
+{
+    <option value="@item.id_repartidor">@item.nombre @item.apellido</option>
+}
+
+<script>
+    try {
+        $("#select_repartidores").select2({
+            placeholder: 'NADA'
+            //dropdownParent: $("#div_repa_select")
+        });
+        }
+        catch (ex) {
+
+        }
+</script>

@@ -1,0 +1,296 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Admin_Page/MainLayoutAdmin.cshtml";
+}
+
+<style>
+
+
+    .select2-container {
+        width: 250px;
+    }
+
+    .select2-selection--multiple {
+        width: 250px;
+    }
+</style>
+
+<div id="div_header">
+
+</div>
+
+
+<button style="position:absolute;top:12%;left:95%;display:none;" class="btn btn-zpidi radius-10" onclick="ShowHideHeader(2);" id="btn_show_header">
+    <i class="fa fa-2x fa-angle-down"></i>
+</button>
+
+<button style="position:absolute;top:12%;left:95%;" class="btn btn-zpidi radius-10" onclick="ShowHideHeader(1);" id="btn_hide_header">
+    <i class="fa fa-2x fa-angle-up"></i>
+</button>
+
+<div class="row column1 counter_section" style="display:flex;">
+    <div class="col-md-12 row">
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-3">
+                    <strong>Sucursales:</strong>
+                    <select class="form-control select_multiple" multiple> @{ Html.RenderAction("ConsultarSucursalesEmpresaSelect", "CATALOGOS", new { id_empresa = 0 }); }</select>
+                </div>
+                <div class="col-md-3">
+                    <strong>Plataformas:</strong>
+                    <select id="select_plataformas" class="form-control select_multiple" multiple onchange="ConsultarRepartidoresPlataforma();">
+                        @if ((int)Session["ses_id_perfil"] == 1)
+                        {
+                            { Html.RenderAction("ConsultarPlataformas", "REPARTIDOR"); }
+                        }
+                        else
+                        {
+                            <option value="2" selected> ESTACION EXPRESS </option>
+                        }
+                    </select>
+                </div>
+                <div class="col-md-5">
+                    <strong>Repartidores:</strong>
+                    <div id="div_repa_select">
+                        <select id="select_repartidores" class="form-control" multiple="multiple"></select>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <button onclick="GetTrackingDelivery(); GetTrackingDashboard();" class="btn btn-zpidi mt-3 radius-10"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div id="div_fechas_filtro" style="display:none;">
+                    <div class="col-md-6">
+                        <strong>Desde</strong>
+                        <input type="date" id="fecha_inicio" class="form-control" />
+                    </div>
+                    <div class="col-md-6">
+                        <strong>Hasta</strong>
+                        <input type="date" id="fecha_fin" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-1">
+            <h4 class="text-left">Modo:</h4>
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="radio" name="modo_tracking" value="1" checked onclick="ShowHideModo();" /><strong> En curso</strong>
+                </div>
+                <div class="col-md-12">
+                    <input type="radio" name="modo_tracking" value="2" onclick="ShowHideModo();" /><strong> Historico</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 text-right">
+            <strong>(N) -> Negocio</strong><br />
+            <strong>(R) -> Reparto</strong><br />
+            <strong>(D) -> Delivery</strong><br />
+            <strong>(C) -> Calificaciones</strong>
+        </div>
+    </div>
+
+    <hr />
+
+    <div id="div_tracking_master" class="w-100 mt-5">
+
+    </div>
+</div>
+
+
+
+@*------------- MODAL ORDENES DEL REPARTIDOR*@
+<div class="modal fade" id="m_ordenes_repa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">CONFIRMAR AUTORIZACION</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <p id="id_repartidor" style="display:none;"></p>
+            <div class="modal-body" id="div_ordenes_repa">
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $('.select_multiple').multiselect({
+        maxHeight: 300,
+        nonSelectedText: 'Todas',
+        includeSelectAllOption: true,
+        buttonWidth: '240px',
+        selectAllText: 'Todo'
+    }).multiselect('updateButtonText');
+    $(".select_multiple").multiselect('selectAll', true);
+
+
+
+
+    var timerTracking = null;
+
+    $(window).on("load", function () {
+        var fecha_rev = new Date();
+        var day = ("0" + fecha_rev.getDate()).slice(-2);
+        var month = ("0" + (fecha_rev.getMonth() + 1)).slice(-2);
+        var today = fecha_rev.getFullYear() + "-" + (month) + "-" + (day);
+        $("#fecha_inicio").val(today);
+        $("#fecha_fin").val(today);
+
+        ConsultarRepartidoresPlataforma();
+
+        GetTrackingDelivery();
+        GetTrackingDashboard();
+        timerTracking = setInterval(function () {
+            GetTrackingDelivery();
+            GetTrackingDashboard();
+        }, 8000);
+    });
+
+    function ShowHideModo() {
+        var modo = $("input:radio[name ='modo_tracking']:checked").val();
+        if (modo == 1) {
+            $("#div_fechas_filtro").css("display", "none");
+        }
+        else {
+            $("#div_fechas_filtro").css("display", "flex");
+        }
+    }
+
+    function ShowHideHeader(modo) {
+        $("#div_header").toggle("blind", 'fast');
+        var btnHide = $("#btn_hide_header");
+        var btnShow = $("#btn_show_header");
+
+        if (modo == 1) {
+            btnShow.toggle("blind", 'fast');
+            btnHide.toggle("blind", 'fast');
+        }
+        else {
+            btnShow.toggle("blind", 'fast');
+            btnHide.toggle("blind", 'fast');
+        }
+    }
+
+    function ConsultarRepartidoresPlataforma() {
+        var id_plataformas = $("#select_plataformas").val();
+        $.ajax({
+            url: "../REPARTIDOR/ConsultarRepartidoresPlataformaSelect",
+            type: "POST",
+            data: {
+                id_plataformas: id_plataformas
+            },
+            success: function (result) {
+                $("#select_repartidores").html(result);
+                //$("#select_repartidores").select2();
+            }
+        });
+    }
+
+
+
+    function GetTrackingDelivery() {
+        var modo = $("input:radio[name ='modo_tracking']:checked").val();
+        var fecha_inicio = $("#fecha_inicio").val();
+        var fecha_fin = $("#fecha_fin").val();
+        var token = "bQBh-HIAd-BlAH-ALAA";
+        var id_plataformas = $("#select_plataformas").val();
+        $.ajax({
+            url: "../DELIVERY/GetTrackingDelivery",
+            type: "POST",
+            data: {
+                fecha_inicio: fecha_inicio,
+                fecha_fin: fecha_fin,
+                token: token,
+                modo: modo,
+                id_plataformas: id_plataformas
+            },
+            success: function (result) {
+                //$("#datatable_tracking").dataTable().fnDestroy();
+                $("#div_tracking_master").html(result);
+                //$('#datatable_tracking').DataTable({
+                //    keys: true,
+                //    ordering: false,
+                //    paging: false
+                //});
+            }
+        });
+    }
+
+
+    function GetTrackingDashboard() {
+        var modo = $("input:radio[name ='modo_tracking']:checked").val();
+        var fecha_inicio = $("#fecha_inicio").val();
+        var fecha_fin = $("#fecha_fin").val();
+        var token = "bQBh-HIAd-BlAH-ALAA";
+        var id_plataformas = $("#select_plataformas").val();
+        $.ajax({
+            url: "../DELIVERY/GetTrackingDashboard",
+            type: "POST",
+            data: {
+                fecha_inicio: fecha_inicio,
+                fecha_fin: fecha_fin,
+                token: token,
+                modo: modo,
+                id_plataformas: id_plataformas
+            },
+            success: function (result) {
+                $("#div_header").html(result);
+            }
+        });
+    }
+
+
+
+
+    //-------------------- DESASIGNACION DE REPA-----------------------
+    function ConsultarOrdenesRepartidor(id_repartidor) {
+        $.ajax({
+            url: "../MONITOR/ConsultarOrdenesRepartidor",
+            type: "POST",
+            data: { id_repartidor: id_repartidor },
+            success: function (result) {
+                $("#div_ordenes_repa").html(result);
+                $("#id_repartidor").text(id_repartidor);
+            }
+        });
+    }
+
+    function QuitarOrdenRepartidor(id_orden) {
+        $.ajax({
+            url: "../MONITOR/QuitarOrdenRepartidor",
+            type: "POST",
+            data: { id_orden: id_orden },
+            success: function (result) {
+                if (result == 0) {
+                    ConsultarOrdenesRepartidor($("#id_repartidor").text());
+                    iziToast.success({
+                        title: 'Pedido desasignado correctamente',
+                        message: '',
+                    });
+                }
+            }
+        });
+    }
+
+    //------------------------------------------------------------------
+
+
+
+
+
+</script>
+
+
+

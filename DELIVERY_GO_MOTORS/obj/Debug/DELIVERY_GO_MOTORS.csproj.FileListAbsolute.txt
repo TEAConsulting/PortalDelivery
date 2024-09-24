@@ -1,0 +1,261 @@
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\ZPIDI_PORTAL.dll.config
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\ZPIDI_PORTAL.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\ZPIDI_PORTAL.pdb
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\csc.exe
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\csc.exe.config
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\csc.rsp
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\csi.exe
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\csi.exe.config
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\csi.rsp
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\System.AppContext.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\System.Console.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\System.IO.Compression.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\System.IO.Pipes.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\System.Security.Claims.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\System.ValueTuple.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\vbc.exe
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\vbc.exe.config
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\vbc.rsp
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\VBCSCompiler.exe
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\Antlr3.Runtime.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\EntityFramework.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\EntityFramework.SqlServer.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\Newtonsoft.Json.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\System.Web.Helpers.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\System.Web.Mvc.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\System.Web.Optimization.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\System.Web.Razor.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\System.Web.WebPages.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\System.Web.WebPages.Razor.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\WebGrease.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\EntityFramework.xml
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\EntityFramework.SqlServer.xml
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\System.Web.Helpers.xml
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\System.Web.Mvc.xml
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\System.Web.Optimization.xml
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\System.Web.Razor.xml
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\System.Web.WebPages.xml
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\System.Web.WebPages.Razor.xml
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\Newtonsoft.Json.xml
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\Antlr3.Runtime.pdb
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\es\System.Web.Helpers.resources.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\es\System.Web.Mvc.resources.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\es\System.Web.Optimization.resources.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\es\System.Web.Razor.resources.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\es\System.Web.WebPages.resources.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\obj\Debug\DELIVERY_GO_MOTORS.csproj.AssemblyReference.cache
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\obj\Debug\DELIVERY_GO_MOTORS.csproj.CoreCompileInputs.cache
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\obj\Debug\DELIVERY_GO_MOTORS.csproj.CopyComplete
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\obj\Debug\ZPIDI_PORTAL.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\ZPIDI_PORTAL\obj\Debug\ZPIDI_PORTAL.pdb
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\ZPIDI_PORTAL.dll.config
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\ZPIDI_PORTAL.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\ZPIDI_PORTAL.pdb
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\csc.exe
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\csc.exe.config
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\csc.rsp
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\csi.exe
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\csi.exe.config
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\csi.rsp
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.AppContext.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Console.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.IO.Compression.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.IO.Pipes.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Security.Claims.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.ValueTuple.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\vbc.exe
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\vbc.exe.config
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\vbc.rsp
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\VBCSCompiler.exe
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\Antlr3.Runtime.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\EntityFramework.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\EntityFramework.SqlServer.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\Newtonsoft.Json.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\System.Web.Helpers.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\System.Web.Mvc.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\System.Web.Optimization.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\System.Web.Razor.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\System.Web.WebPages.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\System.Web.WebPages.Razor.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\WebGrease.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\EntityFramework.xml
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\EntityFramework.SqlServer.xml
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\System.Web.Helpers.xml
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\System.Web.Mvc.xml
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\System.Web.Optimization.xml
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\System.Web.Razor.xml
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\System.Web.WebPages.xml
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\System.Web.WebPages.Razor.xml
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\Newtonsoft.Json.xml
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\Antlr3.Runtime.pdb
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\es\System.Web.Helpers.resources.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\es\System.Web.Mvc.resources.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\es\System.Web.Optimization.resources.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\es\System.Web.Razor.resources.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\es\System.Web.WebPages.resources.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\obj\Debug\DELIVERY_GO_MOTORS.csproj.AssemblyReference.cache
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\obj\Debug\DELIVERY_GO_MOTORS.csproj.CoreCompileInputs.cache
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\obj\Debug\DELIVERY_GO_MOTORS.csproj.CopyComplete
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\obj\Debug\ZPIDI_PORTAL.dll
+C:\Users\Ivan Zamora\Documents\000 - IVAN ZAMORA\Proyecto 2\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\obj\Debug\ZPIDI_PORTAL.pdb
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\ZPIDI_PORTAL.dll.config
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\ZPIDI_PORTAL.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\ZPIDI_PORTAL.pdb
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\csc.exe
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\csc.exe.config
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\csc.rsp
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\csi.exe
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\csi.exe.config
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\csi.rsp
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.AppContext.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Console.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.IO.Compression.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.IO.Pipes.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Security.Claims.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.ValueTuple.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Xml.XPath.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\vbc.exe
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\vbc.exe.config
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\vbc.rsp
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\VBCSCompiler.exe
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\Antlr3.Runtime.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\EntityFramework.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\EntityFramework.SqlServer.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\Newtonsoft.Json.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\System.Web.Helpers.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\System.Web.Mvc.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\System.Web.Optimization.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\System.Web.Razor.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\System.Web.WebPages.Deployment.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\System.Web.WebPages.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\System.Web.WebPages.Razor.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\WebGrease.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\EntityFramework.xml
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\EntityFramework.SqlServer.xml
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\System.Web.Helpers.xml
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\System.Web.Mvc.xml
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\System.Web.Optimization.xml
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\System.Web.Razor.xml
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\System.Web.WebPages.xml
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\System.Web.WebPages.Deployment.xml
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\System.Web.WebPages.Razor.xml
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\Newtonsoft.Json.xml
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\Antlr3.Runtime.pdb
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\es\System.Web.Helpers.resources.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\es\System.Web.Mvc.resources.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\es\System.Web.Optimization.resources.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\es\System.Web.Razor.resources.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\es\System.Web.WebPages.resources.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\obj\Debug\DELIVERY_GO_MOTORS.csproj.AssemblyReference.cache
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\obj\Debug\DELIVERY_GO_MOTORS.csproj.CoreCompileInputs.cache
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\obj\Debug\DELIVERY.568C95CB.Up2Date
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\obj\Debug\ZPIDI_PORTAL.dll
+C:\Users\TEA Cordova\source\repos\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\DELIVERY_GO_MOTORS\obj\Debug\ZPIDI_PORTAL.pdb

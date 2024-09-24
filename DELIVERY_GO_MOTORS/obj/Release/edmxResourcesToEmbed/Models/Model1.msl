@@ -1,0 +1,771 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_ZPIDI_QASModelStoreContainer" CdmEntityContainer="DB_ZPIDI_QASEntities">
+    <EntitySetMapping Name="C_Delivery_a_new_register">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_a_new_register">
+        <MappingFragment StoreEntitySet="C_Delivery_a_new_register">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="id_local" ColumnName="id_local" />
+          <ScalarProperty Name="terminos" ColumnName="terminos" />
+          <ScalarProperty Name="score" ColumnName="score" />
+          <ScalarProperty Name="token" ColumnName="token" />
+          <ScalarProperty Name="permisos" ColumnName="permisos" />
+          <ScalarProperty Name="id_google" ColumnName="id_google" />
+          <ScalarProperty Name="id_facebook" ColumnName="id_facebook" />
+          <ScalarProperty Name="os" ColumnName="os" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="cp" ColumnName="cp" />
+          <ScalarProperty Name="id_perfil" ColumnName="id_perfil" />
+          <ScalarProperty Name="id_usuario_imagen" ColumnName="id_usuario_imagen" />
+          <ScalarProperty Name="id_domicilio" ColumnName="id_domicilio" />
+          <ScalarProperty Name="logeado" ColumnName="logeado" />
+          <ScalarProperty Name="phone_pwd" ColumnName="phone_pwd" />
+          <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+          <ScalarProperty Name="appname" ColumnName="appname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_Ciudad">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_Ciudad">
+        <MappingFragment StoreEntitySet="C_Delivery_Ciudad">
+          <ScalarProperty Name="cda_id" ColumnName="cda_id" />
+          <ScalarProperty Name="cda_nombre" ColumnName="cda_nombre" />
+          <ScalarProperty Name="cda_clave" ColumnName="cda_clave" />
+          <ScalarProperty Name="edo_id" ColumnName="edo_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_Estados">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_Estados">
+        <MappingFragment StoreEntitySet="C_Delivery_Estados">
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+          <ScalarProperty Name="nombre_est" ColumnName="nombre_est" />
+          <ScalarProperty Name="id_pais" ColumnName="id_pais" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_Generos">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_Generos">
+        <MappingFragment StoreEntitySet="C_Delivery_Generos">
+          <ScalarProperty Name="id_genero" ColumnName="id_genero" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="icono" ColumnName="icono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_Pais">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_Pais">
+        <MappingFragment StoreEntitySet="C_Delivery_Pais">
+          <ScalarProperty Name="pai_id" ColumnName="pai_id" />
+          <ScalarProperty Name="pai_nombre" ColumnName="pai_nombre" />
+          <ScalarProperty Name="pai_clave" ColumnName="pai_clave" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_Repartidores">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_Repartidores">
+        <MappingFragment StoreEntitySet="C_Delivery_Repartidores">
+          <ScalarProperty Name="id_repartidor" ColumnName="id_repartidor" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="rfc" ColumnName="rfc" />
+          <ScalarProperty Name="curp" ColumnName="curp" />
+          <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+          <ScalarProperty Name="no_licencia" ColumnName="no_licencia" />
+          <ScalarProperty Name="fecha_caducidad_liencia" ColumnName="fecha_caducidad_liencia" />
+          <ScalarProperty Name="id_zona" ColumnName="id_zona" />
+          <ScalarProperty Name="latitud" ColumnName="latitud" />
+          <ScalarProperty Name="longitud" ColumnName="longitud" />
+          <ScalarProperty Name="cp" ColumnName="cp" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="cve_repartidor" ColumnName="cve_repartidor" />
+          <ScalarProperty Name="token" ColumnName="token" />
+          <ScalarProperty Name="id_perfil" ColumnName="id_perfil" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="logeado" ColumnName="logeado" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="id_usuario_imagen" ColumnName="id_usuario_imagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_Repartidores_Ordenes">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_Repartidores_Ordenes">
+        <MappingFragment StoreEntitySet="C_Delivery_Repartidores_Ordenes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_order" ColumnName="id_order" />
+          <ScalarProperty Name="id_repartidor" ColumnName="id_repartidor" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_Repartidores_Status">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_Repartidores_Status">
+        <MappingFragment StoreEntitySet="C_Delivery_Repartidores_Status">
+          <ScalarProperty Name="id_status_solicitud" ColumnName="id_status_solicitud" />
+          <ScalarProperty Name="nombre_status" ColumnName="nombre_status" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="porcentaje" ColumnName="porcentaje" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_OrdenesPedidos">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_OrdenesPedidos">
+        <MappingFragment StoreEntitySet="C_Delivery_OrdenesPedidos">
+          <ScalarProperty Name="id_orden" ColumnName="id_orden" />
+          <ScalarProperty Name="id_pedido" ColumnName="id_pedido" />
+          <ScalarProperty Name="fecha_pedido" ColumnName="fecha_pedido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_Repartidores_Vehiculos_Tipos">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_Repartidores_Vehiculos_Tipos">
+        <MappingFragment StoreEntitySet="C_Delivery_Repartidores_Vehiculos_Tipos">
+          <ScalarProperty Name="icono" ColumnName="icono" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="id_vehiculo_tipo" ColumnName="id_vehiculo_tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_Usuarios_Imagen">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_Usuarios_Imagen">
+        <MappingFragment StoreEntitySet="C_Delivery_Usuarios_Imagen">
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+          <ScalarProperty Name="id_usuario_imagen" ColumnName="id_usuario_imagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_Repartidores_Solicitudes">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_Repartidores_Solicitudes">
+        <MappingFragment StoreEntitySet="C_Delivery_Repartidores_Solicitudes">
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="id_solicitud" ColumnName="id_solicitud" />
+          <ScalarProperty Name="id_repartidor" ColumnName="id_repartidor" />
+          <ScalarProperty Name="id_repartidor_solicitud" ColumnName="id_repartidor_solicitud" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_Comision_Zpidi">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_Comision_Zpidi">
+        <MappingFragment StoreEntitySet="C_Delivery_Comision_Zpidi">
+          <ScalarProperty Name="monto_fijo" ColumnName="monto_fijo" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="porcentaje_comision" ColumnName="porcentaje_comision" />
+          <ScalarProperty Name="id_zpidi_comision" ColumnName="id_zpidi_comision" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_Plataformas">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_Plataformas">
+        <MappingFragment StoreEntitySet="C_Delivery_Plataformas">
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="nombre_plataforma" ColumnName="nombre_plataforma" />
+          <ScalarProperty Name="codigo_plataforma" ColumnName="codigo_plataforma" />
+          <ScalarProperty Name="id_plataforma" ColumnName="id_plataforma" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_Menuappbar_Modules">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_Menuappbar_Modules">
+        <MappingFragment StoreEntitySet="C_Delivery_Menuappbar_Modules">
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="obj_name" ColumnName="obj_name" />
+          <ScalarProperty Name="cve_object" ColumnName="cve_object" />
+          <ScalarProperty Name="idApp" ColumnName="idApp" />
+          <ScalarProperty Name="id_menu_modulo" ColumnName="id_menu_modulo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_OrdenesPedidosCancelados">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_OrdenesPedidosCancelados">
+        <MappingFragment StoreEntitySet="C_Delivery_OrdenesPedidosCancelados">
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="fecha_cancelacion" ColumnName="fecha_cancelacion" />
+          <ScalarProperty Name="observacion" ColumnName="observacion" />
+          <ScalarProperty Name="id_tipo_cancel" ColumnName="id_tipo_cancel" />
+          <ScalarProperty Name="id_pedido" ColumnName="id_pedido" />
+          <ScalarProperty Name="id_orden" ColumnName="id_orden" />
+          <ScalarProperty Name="id_ordenPedidoCancelado" ColumnName="id_ordenPedidoCancelado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_TipoCancelacion">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_TipoCancelacion">
+        <MappingFragment StoreEntitySet="C_Delivery_TipoCancelacion">
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="descripcion_tipo" ColumnName="descripcion_tipo" />
+          <ScalarProperty Name="id_tipo_cancel" ColumnName="id_tipo_cancel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_Menuappbar_ModulesWeb">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_Menuappbar_ModulesWeb">
+        <MappingFragment StoreEntitySet="C_Delivery_Menuappbar_ModulesWeb">
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="icono" ColumnName="icono" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id_modulo_web" ColumnName="id_modulo_web" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_Menuappbar_SubModules">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_Menuappbar_SubModules">
+        <MappingFragment StoreEntitySet="C_Delivery_Menuappbar_SubModules">
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="controlador" ColumnName="controlador" />
+          <ScalarProperty Name="metodo" ColumnName="metodo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id_modulo" ColumnName="id_modulo" />
+          <ScalarProperty Name="id_modulo_sub" ColumnName="id_modulo_sub" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_Menuappbar_SubModules_Permisos">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_Menuappbar_SubModules_Permisos">
+        <MappingFragment StoreEntitySet="C_Delivery_Menuappbar_SubModules_Permisos">
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+          <ScalarProperty Name="id_modulo_sub" ColumnName="id_modulo_sub" />
+          <ScalarProperty Name="id_modulo_sub_permiso" ColumnName="id_modulo_sub_permiso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_empresas">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_empresas">
+        <MappingFragment StoreEntitySet="C_Delivery_empresas">
+          <ScalarProperty Name="activa" ColumnName="activa" />
+          <ScalarProperty Name="nombre_empresa" ColumnName="nombre_empresa" />
+          <ScalarProperty Name="id_empresa" ColumnName="id_empresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_Repartidores_Empresas_Sucursales">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_Repartidores_Empresas_Sucursales">
+        <MappingFragment StoreEntitySet="C_Delivery_Repartidores_Empresas_Sucursales">
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="id_repartidor" ColumnName="id_repartidor" />
+          <ScalarProperty Name="codigo_sucursal" ColumnName="codigo_sucursal" />
+          <ScalarProperty Name="id_empresa" ColumnName="id_empresa" />
+          <ScalarProperty Name="id_empresa_suc_repartidor" ColumnName="id_empresa_suc_repartidor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_sucursales_gps">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_sucursales_gps">
+        <MappingFragment StoreEntitySet="C_Delivery_sucursales_gps">
+          <ScalarProperty Name="long" ColumnName="long" />
+          <ScalarProperty Name="lat" ColumnName="lat" />
+          <ScalarProperty Name="id_empresa" ColumnName="id_empresa" />
+          <ScalarProperty Name="nombre_suc" ColumnName="nombre_suc" />
+          <ScalarProperty Name="codigo_sucursal" ColumnName="codigo_sucursal" />
+          <ScalarProperty Name="id_sucursal" ColumnName="id_sucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_Parametros">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_Parametros">
+        <MappingFragment StoreEntitySet="C_Delivery_Parametros">
+          <ScalarProperty Name="tipo_parametro" ColumnName="tipo_parametro" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="valor_texto" ColumnName="valor_texto" />
+          <ScalarProperty Name="valor_numerico" ColumnName="valor_numerico" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id_parametro" ColumnName="id_parametro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_Pais_Moneda">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_Pais_Moneda">
+        <MappingFragment StoreEntitySet="C_Delivery_Pais_Moneda">
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id_moneda" ColumnName="id_moneda" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_Plataformas_Configuracion">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_Plataformas_Configuracion">
+        <MappingFragment StoreEntitySet="C_Delivery_Plataformas_Configuracion">
+          <ScalarProperty Name="email_representante" ColumnName="email_representante" />
+          <ScalarProperty Name="nombre_representante" ColumnName="nombre_representante" />
+          <ScalarProperty Name="politica_zonas" ColumnName="politica_zonas" />
+          <ScalarProperty Name="id_moneda_base" ColumnName="id_moneda_base" />
+          <ScalarProperty Name="id_institucion_bancaria_default" ColumnName="id_institucion_bancaria_default" />
+          <ScalarProperty Name="cuenta_banco_clabe_18" ColumnName="cuenta_banco_clabe_18" />
+          <ScalarProperty Name="cuenta_banco_base_10" ColumnName="cuenta_banco_base_10" />
+          <ScalarProperty Name="porcentaje_comision_repa" ColumnName="porcentaje_comision_repa" />
+          <ScalarProperty Name="porcentaje_comision_mens" ColumnName="porcentaje_comision_mens" />
+          <ScalarProperty Name="porcentaje_comision_plat" ColumnName="porcentaje_comision_plat" />
+          <ScalarProperty Name="fecha_termino_contrato" ColumnName="fecha_termino_contrato" />
+          <ScalarProperty Name="fecha_inicio_contrato" ColumnName="fecha_inicio_contrato" />
+          <ScalarProperty Name="no_contrato" ColumnName="no_contrato" />
+          <ScalarProperty Name="limite_credito" ColumnName="limite_credito" />
+          <ScalarProperty Name="politica_manejo_credito" ColumnName="politica_manejo_credito" />
+          <ScalarProperty Name="dia_pago" ColumnName="dia_pago" />
+          <ScalarProperty Name="politica_dias_pago" ColumnName="politica_dias_pago" />
+          <ScalarProperty Name="politica_bloqueo_usuario" ColumnName="politica_bloqueo_usuario" />
+          <ScalarProperty Name="id_tipo_comision" ColumnName="id_tipo_comision" />
+          <ScalarProperty Name="id_tipo_cobro" ColumnName="id_tipo_cobro" />
+          <ScalarProperty Name="id_plataforma" ColumnName="id_plataforma" />
+          <ScalarProperty Name="id_pataforma_configuracion" ColumnName="id_pataforma_configuracion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_estatus_semaforo">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_estatus_semaforo">
+        <MappingFragment StoreEntitySet="C_Delivery_estatus_semaforo">
+          <ScalarProperty Name="descripcion_semaforo" ColumnName="descripcion_semaforo" />
+          <ScalarProperty Name="status_semaforo" ColumnName="status_semaforo" />
+          <ScalarProperty Name="id_orden" ColumnName="id_orden" />
+          <ScalarProperty Name="id_orden_n" ColumnName="id_orden_n" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_estatus_semaforo_log">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_estatus_semaforo_log">
+        <MappingFragment StoreEntitySet="C_Delivery_estatus_semaforo_log">
+          <ScalarProperty Name="codigo_sucursal" ColumnName="codigo_sucursal" />
+          <ScalarProperty Name="ya_llegue" ColumnName="ya_llegue" />
+          <ScalarProperty Name="lng" ColumnName="lng" />
+          <ScalarProperty Name="lat" ColumnName="lat" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="status_nuevo" ColumnName="status_nuevo" />
+          <ScalarProperty Name="status_actual" ColumnName="status_actual" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="id_orden" ColumnName="id_orden" />
+          <ScalarProperty Name="id_orden_status_log" ColumnName="id_orden_status_log" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_Semaforo">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_Semaforo">
+        <MappingFragment StoreEntitySet="C_Delivery_Semaforo">
+          <ScalarProperty Name="orden" ColumnName="orden" />
+          <ScalarProperty Name="semaforo_descripcion" ColumnName="semaforo_descripcion" />
+          <ScalarProperty Name="cve_semaforo" ColumnName="cve_semaforo" />
+          <ScalarProperty Name="id_semaforo" ColumnName="id_semaforo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_Repartidores_Ubicaciones">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_Repartidores_Ubicaciones">
+        <MappingFragment StoreEntitySet="C_Delivery_Repartidores_Ubicaciones">
+          <ScalarProperty Name="id_repartidor" ColumnName="id_repartidor" />
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="latitud" ColumnName="latitud" />
+          <ScalarProperty Name="longitud" ColumnName="longitud" />
+          <ScalarProperty Name="id_position" ColumnName="id_position" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_Distancia_dos_puntos" FunctionName="DB_ZPIDI_QASModel.Store.usp_Distancia_dos_puntos" />
+    <EntitySetMapping Name="C_Delivery_Pagos_Plataformas">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_Pagos_Plataformas">
+        <MappingFragment StoreEntitySet="C_Delivery_Pagos_Plataformas">
+          <ScalarProperty Name="id_status_pago" ColumnName="id_status_pago" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+          <ScalarProperty Name="NIP" ColumnName="NIP" />
+          <ScalarProperty Name="id_usuario_autoriza" ColumnName="id_usuario_autoriza" />
+          <ScalarProperty Name="monto_semana" ColumnName="monto_semana" />
+          <ScalarProperty Name="semana_corte" ColumnName="semana_corte" />
+          <ScalarProperty Name="fecha_corte" ColumnName="fecha_corte" />
+          <ScalarProperty Name="id_usuario_genera" ColumnName="id_usuario_genera" />
+          <ScalarProperty Name="id_plataforma" ColumnName="id_plataforma" />
+          <ScalarProperty Name="id_pago_plataforma" ColumnName="id_pago_plataforma" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_Pagos_Status">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_Pagos_Status">
+        <MappingFragment StoreEntitySet="C_Delivery_Pagos_Status">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="id_pagos_status" ColumnName="id_pagos_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_Pagos_Tipos">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_Pagos_Tipos">
+        <MappingFragment StoreEntitySet="C_Delivery_Pagos_Tipos">
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="tipo_pago" ColumnName="tipo_pago" />
+          <ScalarProperty Name="id_tipo_pago" ColumnName="id_tipo_pago" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_StartOrders">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_StartOrders">
+        <MappingFragment StoreEntitySet="C_Delivery_StartOrders">
+          <ScalarProperty Name="long" ColumnName="long" />
+          <ScalarProperty Name="lat" ColumnName="lat" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="sucursal" ColumnName="sucursal" />
+          <ScalarProperty Name="token" ColumnName="token" />
+          <ScalarProperty Name="id_order" ColumnName="id_order" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_Ordenes_Tokens">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_Ordenes_Tokens">
+        <MappingFragment StoreEntitySet="C_Delivery_Ordenes_Tokens">
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="id_orden" ColumnName="id_orden" />
+          <ScalarProperty Name="token_dyn" ColumnName="token_dyn" />
+          <ScalarProperty Name="id_delivery_tokens" ColumnName="id_delivery_tokens" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_estatus_semaforo_alias">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_estatus_semaforo_alias">
+        <MappingFragment StoreEntitySet="C_Delivery_estatus_semaforo_alias">
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="alias" ColumnName="alias" />
+          <ScalarProperty Name="id_semaforo" ColumnName="id_semaforo" />
+          <ScalarProperty Name="id_semaforo_alias" ColumnName="id_semaforo_alias" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Delivery_61_Set_Trafico_Tracking" FunctionName="DB_ZPIDI_QASModel.Store.Delivery_61_Set_Trafico_Tracking" />
+    <EntitySetMapping Name="C_Delivery_Repartidores_Solicitud">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_Repartidores_Solicitud">
+        <MappingFragment StoreEntitySet="C_Delivery_Repartidores_Solicitud">
+          <ScalarProperty Name="tarjeta_circulacion" ColumnName="tarjeta_circulacion" />
+          <ScalarProperty Name="licencia_conducir" ColumnName="licencia_conducir" />
+          <ScalarProperty Name="INE" ColumnName="INE" />
+          <ScalarProperty Name="id_plataforma" ColumnName="id_plataforma" />
+          <ScalarProperty Name="fecha_respuesta" ColumnName="fecha_respuesta" />
+          <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="id_status_solicitud" ColumnName="id_status_solicitud" />
+          <ScalarProperty Name="no_licencia" ColumnName="no_licencia" />
+          <ScalarProperty Name="no_placa" ColumnName="no_placa" />
+          <ScalarProperty Name="id_vehiculo" ColumnName="id_vehiculo" />
+          <ScalarProperty Name="id_ciudad" ColumnName="id_ciudad" />
+          <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="fecha_na" ColumnName="fecha_na" />
+          <ScalarProperty Name="sexo" ColumnName="sexo" />
+          <ScalarProperty Name="apellido_mat" ColumnName="apellido_mat" />
+          <ScalarProperty Name="apellido_pat" ColumnName="apellido_pat" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="token" ColumnName="token" />
+          <ScalarProperty Name="id_solicitud_repartidor" ColumnName="id_solicitud_repartidor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_Trafico_Tracking">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_Trafico_Tracking">
+        <MappingFragment StoreEntitySet="C_Delivery_Trafico_Tracking">
+          <ScalarProperty Name="tiempo_total_servicio" ColumnName="tiempo_total_servicio" />
+          <ScalarProperty Name="nombre_plataforma" ColumnName="nombre_plataforma" />
+          <ScalarProperty Name="id_plataforma" ColumnName="id_plataforma" />
+          <ScalarProperty Name="codigo_sucursal" ColumnName="codigo_sucursal" />
+          <ScalarProperty Name="semaforo_orden" ColumnName="semaforo_orden" />
+          <ScalarProperty Name="nombre_sucursal" ColumnName="nombre_sucursal" />
+          <ScalarProperty Name="telefono_repartidor" ColumnName="telefono_repartidor" />
+          <ScalarProperty Name="nombre_repartidor" ColumnName="nombre_repartidor" />
+          <ScalarProperty Name="id_repartidor" ColumnName="id_repartidor" />
+          <ScalarProperty Name="activa" ColumnName="activa" />
+          <ScalarProperty Name="fecha_pagada" ColumnName="fecha_pagada" />
+          <ScalarProperty Name="pagada_sn" ColumnName="pagada_sn" />
+          <ScalarProperty Name="saldo_repartidor" ColumnName="saldo_repartidor" />
+          <ScalarProperty Name="telefono_cliente" ColumnName="telefono_cliente" />
+          <ScalarProperty Name="nombre_cliente" ColumnName="nombre_cliente" />
+          <ScalarProperty Name="Calificacion_3" ColumnName="Calificacion_3" />
+          <ScalarProperty Name="Calificacion_2" ColumnName="Calificacion_2" />
+          <ScalarProperty Name="Calificacion_1" ColumnName="Calificacion_1" />
+          <ScalarProperty Name="est_reasignacion" ColumnName="est_reasignacion" />
+          <ScalarProperty Name="fec_reasignacion_2" ColumnName="fec_reasignacion_2" />
+          <ScalarProperty Name="fec_reasignacion_1" ColumnName="fec_reasignacion_1" />
+          <ScalarProperty Name="dif_25" ColumnName="dif_25" />
+          <ScalarProperty Name="sem_25" ColumnName="sem_25" />
+          <ScalarProperty Name="fec_25" ColumnName="fec_25" />
+          <ScalarProperty Name="est_25" ColumnName="est_25" />
+          <ScalarProperty Name="dif_24" ColumnName="dif_24" />
+          <ScalarProperty Name="sem_24" ColumnName="sem_24" />
+          <ScalarProperty Name="fec_24" ColumnName="fec_24" />
+          <ScalarProperty Name="est_24" ColumnName="est_24" />
+          <ScalarProperty Name="dif_23" ColumnName="dif_23" />
+          <ScalarProperty Name="sem_23" ColumnName="sem_23" />
+          <ScalarProperty Name="fec_23" ColumnName="fec_23" />
+          <ScalarProperty Name="est_23" ColumnName="est_23" />
+          <ScalarProperty Name="dif_22" ColumnName="dif_22" />
+          <ScalarProperty Name="sem_22" ColumnName="sem_22" />
+          <ScalarProperty Name="fec_22" ColumnName="fec_22" />
+          <ScalarProperty Name="est_22" ColumnName="est_22" />
+          <ScalarProperty Name="dif_21" ColumnName="dif_21" />
+          <ScalarProperty Name="sem_21" ColumnName="sem_21" />
+          <ScalarProperty Name="fec_21" ColumnName="fec_21" />
+          <ScalarProperty Name="est_21" ColumnName="est_21" />
+          <ScalarProperty Name="dif_20" ColumnName="dif_20" />
+          <ScalarProperty Name="sem_20" ColumnName="sem_20" />
+          <ScalarProperty Name="fec_20" ColumnName="fec_20" />
+          <ScalarProperty Name="est_20" ColumnName="est_20" />
+          <ScalarProperty Name="dif_19" ColumnName="dif_19" />
+          <ScalarProperty Name="sem_19" ColumnName="sem_19" />
+          <ScalarProperty Name="fec_19" ColumnName="fec_19" />
+          <ScalarProperty Name="est_19" ColumnName="est_19" />
+          <ScalarProperty Name="dif_18" ColumnName="dif_18" />
+          <ScalarProperty Name="sem_18" ColumnName="sem_18" />
+          <ScalarProperty Name="fec_18" ColumnName="fec_18" />
+          <ScalarProperty Name="est_18" ColumnName="est_18" />
+          <ScalarProperty Name="dif_17" ColumnName="dif_17" />
+          <ScalarProperty Name="sem_17" ColumnName="sem_17" />
+          <ScalarProperty Name="fec_17" ColumnName="fec_17" />
+          <ScalarProperty Name="est_17" ColumnName="est_17" />
+          <ScalarProperty Name="dif_16" ColumnName="dif_16" />
+          <ScalarProperty Name="sem_16" ColumnName="sem_16" />
+          <ScalarProperty Name="fec_16" ColumnName="fec_16" />
+          <ScalarProperty Name="est_16" ColumnName="est_16" />
+          <ScalarProperty Name="dif_15" ColumnName="dif_15" />
+          <ScalarProperty Name="sem_15" ColumnName="sem_15" />
+          <ScalarProperty Name="fec_15" ColumnName="fec_15" />
+          <ScalarProperty Name="est_15" ColumnName="est_15" />
+          <ScalarProperty Name="dif_14" ColumnName="dif_14" />
+          <ScalarProperty Name="sem_14" ColumnName="sem_14" />
+          <ScalarProperty Name="fec_14" ColumnName="fec_14" />
+          <ScalarProperty Name="est_14" ColumnName="est_14" />
+          <ScalarProperty Name="dif_13" ColumnName="dif_13" />
+          <ScalarProperty Name="sem_13" ColumnName="sem_13" />
+          <ScalarProperty Name="fec_13" ColumnName="fec_13" />
+          <ScalarProperty Name="est_13" ColumnName="est_13" />
+          <ScalarProperty Name="dif_12" ColumnName="dif_12" />
+          <ScalarProperty Name="sem_12" ColumnName="sem_12" />
+          <ScalarProperty Name="fec_12" ColumnName="fec_12" />
+          <ScalarProperty Name="est_12" ColumnName="est_12" />
+          <ScalarProperty Name="dif_11" ColumnName="dif_11" />
+          <ScalarProperty Name="sem_11" ColumnName="sem_11" />
+          <ScalarProperty Name="fec_11" ColumnName="fec_11" />
+          <ScalarProperty Name="est_11" ColumnName="est_11" />
+          <ScalarProperty Name="dif_10" ColumnName="dif_10" />
+          <ScalarProperty Name="sem_10" ColumnName="sem_10" />
+          <ScalarProperty Name="fec_10" ColumnName="fec_10" />
+          <ScalarProperty Name="est_10" ColumnName="est_10" />
+          <ScalarProperty Name="dif_09" ColumnName="dif_09" />
+          <ScalarProperty Name="sem_09" ColumnName="sem_09" />
+          <ScalarProperty Name="fec_09" ColumnName="fec_09" />
+          <ScalarProperty Name="est_09" ColumnName="est_09" />
+          <ScalarProperty Name="dif_08" ColumnName="dif_08" />
+          <ScalarProperty Name="sem_08" ColumnName="sem_08" />
+          <ScalarProperty Name="fec_08" ColumnName="fec_08" />
+          <ScalarProperty Name="est_08" ColumnName="est_08" />
+          <ScalarProperty Name="dif_07" ColumnName="dif_07" />
+          <ScalarProperty Name="sem_07" ColumnName="sem_07" />
+          <ScalarProperty Name="fec_07" ColumnName="fec_07" />
+          <ScalarProperty Name="est_07" ColumnName="est_07" />
+          <ScalarProperty Name="dif_06" ColumnName="dif_06" />
+          <ScalarProperty Name="sem_06" ColumnName="sem_06" />
+          <ScalarProperty Name="fec_06" ColumnName="fec_06" />
+          <ScalarProperty Name="est_06" ColumnName="est_06" />
+          <ScalarProperty Name="dif_05" ColumnName="dif_05" />
+          <ScalarProperty Name="sem_05" ColumnName="sem_05" />
+          <ScalarProperty Name="fec_05" ColumnName="fec_05" />
+          <ScalarProperty Name="est_05" ColumnName="est_05" />
+          <ScalarProperty Name="dif_04" ColumnName="dif_04" />
+          <ScalarProperty Name="sem_04" ColumnName="sem_04" />
+          <ScalarProperty Name="fec_04" ColumnName="fec_04" />
+          <ScalarProperty Name="est_04" ColumnName="est_04" />
+          <ScalarProperty Name="dif_03" ColumnName="dif_03" />
+          <ScalarProperty Name="sem_03" ColumnName="sem_03" />
+          <ScalarProperty Name="fec_03" ColumnName="fec_03" />
+          <ScalarProperty Name="est_03" ColumnName="est_03" />
+          <ScalarProperty Name="dif_02" ColumnName="dif_02" />
+          <ScalarProperty Name="sem_02" ColumnName="sem_02" />
+          <ScalarProperty Name="fec_02" ColumnName="fec_02" />
+          <ScalarProperty Name="est_02" ColumnName="est_02" />
+          <ScalarProperty Name="dif_01" ColumnName="dif_01" />
+          <ScalarProperty Name="sem_01" ColumnName="sem_01" />
+          <ScalarProperty Name="fec_01" ColumnName="fec_01" />
+          <ScalarProperty Name="est_01" ColumnName="est_01" />
+          <ScalarProperty Name="fecha_pedido" ColumnName="fecha_pedido" />
+          <ScalarProperty Name="id_pedido" ColumnName="id_pedido" />
+          <ScalarProperty Name="id_orden" ColumnName="id_orden" />
+          <ScalarProperty Name="id_trafico_tracking" ColumnName="id_trafico_tracking" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_Delivery_Trafico_Semaforos">
+      <EntityTypeMapping TypeName="DB_ZPIDI_QASModel.C_Delivery_Trafico_Semaforos">
+        <MappingFragment StoreEntitySet="C_Delivery_Trafico_Semaforos">
+          <ScalarProperty Name="configurable" ColumnName="configurable" />
+          <ScalarProperty Name="tolerancia" ColumnName="tolerancia" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="descripcion_proceso" ColumnName="descripcion_proceso" />
+          <ScalarProperty Name="valor_maximo" ColumnName="valor_maximo" />
+          <ScalarProperty Name="valor_minimo" ColumnName="valor_minimo" />
+          <ScalarProperty Name="estatus_posicion" ColumnName="estatus_posicion" />
+          <ScalarProperty Name="texto_reporte" ColumnName="texto_reporte" />
+          <ScalarProperty Name="semaforo_nombre_corto" ColumnName="semaforo_nombre_corto" />
+          <ScalarProperty Name="semaforo_descripcion" ColumnName="semaforo_descripcion" />
+          <ScalarProperty Name="cve_semaforo" ColumnName="cve_semaforo" />
+          <ScalarProperty Name="id_semaforo" ColumnName="id_semaforo" />
+          <ScalarProperty Name="id_trafico_semaforo" ColumnName="id_trafico_semaforo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Delivery_61_Get_Trafico_Tracking" FunctionName="DB_ZPIDI_QASModel.Store.Delivery_61_Get_Trafico_Tracking">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB_ZPIDI_QASModel.Delivery_61_Get_Trafico_Tracking_Result">
+          <ScalarProperty Name="id_orden" ColumnName="id_orden" />
+          <ScalarProperty Name="nombre_sucursal" ColumnName="nombre_sucursal" />
+          <ScalarProperty Name="nombre_plataforma" ColumnName="nombre_plataforma" />
+          <ScalarProperty Name="fecha_pedido" ColumnName="fecha_pedido" />
+          <ScalarProperty Name="est_01" ColumnName="est_01" />
+          <ScalarProperty Name="fec_01" ColumnName="fec_01" />
+          <ScalarProperty Name="sem_01" ColumnName="sem_01" />
+          <ScalarProperty Name="dif_01" ColumnName="dif_01" />
+          <ScalarProperty Name="est_02" ColumnName="est_02" />
+          <ScalarProperty Name="fec_02" ColumnName="fec_02" />
+          <ScalarProperty Name="sem_02" ColumnName="sem_02" />
+          <ScalarProperty Name="dif_02" ColumnName="dif_02" />
+          <ScalarProperty Name="est_03" ColumnName="est_03" />
+          <ScalarProperty Name="fec_03" ColumnName="fec_03" />
+          <ScalarProperty Name="sem_03" ColumnName="sem_03" />
+          <ScalarProperty Name="dif_03" ColumnName="dif_03" />
+          <ScalarProperty Name="est_04" ColumnName="est_04" />
+          <ScalarProperty Name="fec_04" ColumnName="fec_04" />
+          <ScalarProperty Name="sem_04" ColumnName="sem_04" />
+          <ScalarProperty Name="dif_04" ColumnName="dif_04" />
+          <ScalarProperty Name="est_05" ColumnName="est_05" />
+          <ScalarProperty Name="fec_05" ColumnName="fec_05" />
+          <ScalarProperty Name="sem_05" ColumnName="sem_05" />
+          <ScalarProperty Name="dif_05" ColumnName="dif_05" />
+          <ScalarProperty Name="est_06" ColumnName="est_06" />
+          <ScalarProperty Name="fec_06" ColumnName="fec_06" />
+          <ScalarProperty Name="sem_06" ColumnName="sem_06" />
+          <ScalarProperty Name="dif_06" ColumnName="dif_06" />
+          <ScalarProperty Name="est_07" ColumnName="est_07" />
+          <ScalarProperty Name="fec_07" ColumnName="fec_07" />
+          <ScalarProperty Name="sem_07" ColumnName="sem_07" />
+          <ScalarProperty Name="dif_07" ColumnName="dif_07" />
+          <ScalarProperty Name="est_08" ColumnName="est_08" />
+          <ScalarProperty Name="fec_08" ColumnName="fec_08" />
+          <ScalarProperty Name="sem_08" ColumnName="sem_08" />
+          <ScalarProperty Name="dif_08" ColumnName="dif_08" />
+          <ScalarProperty Name="est_09" ColumnName="est_09" />
+          <ScalarProperty Name="fec_09" ColumnName="fec_09" />
+          <ScalarProperty Name="sem_09" ColumnName="sem_09" />
+          <ScalarProperty Name="dif_09" ColumnName="dif_09" />
+          <ScalarProperty Name="est_10" ColumnName="est_10" />
+          <ScalarProperty Name="fec_10" ColumnName="fec_10" />
+          <ScalarProperty Name="sem_10" ColumnName="sem_10" />
+          <ScalarProperty Name="dif_10" ColumnName="dif_10" />
+          <ScalarProperty Name="est_11" ColumnName="est_11" />
+          <ScalarProperty Name="fec_11" ColumnName="fec_11" />
+          <ScalarProperty Name="sem_11" ColumnName="sem_11" />
+          <ScalarProperty Name="dif_11" ColumnName="dif_11" />
+          <ScalarProperty Name="est_12" ColumnName="est_12" />
+          <ScalarProperty Name="fec_12" ColumnName="fec_12" />
+          <ScalarProperty Name="sem_12" ColumnName="sem_12" />
+          <ScalarProperty Name="dif_12" ColumnName="dif_12" />
+          <ScalarProperty Name="est_13" ColumnName="est_13" />
+          <ScalarProperty Name="fec_13" ColumnName="fec_13" />
+          <ScalarProperty Name="sem_13" ColumnName="sem_13" />
+          <ScalarProperty Name="dif_13" ColumnName="dif_13" />
+          <ScalarProperty Name="est_14" ColumnName="est_14" />
+          <ScalarProperty Name="fec_14" ColumnName="fec_14" />
+          <ScalarProperty Name="sem_14" ColumnName="sem_14" />
+          <ScalarProperty Name="dif_14" ColumnName="dif_14" />
+          <ScalarProperty Name="est_15" ColumnName="est_15" />
+          <ScalarProperty Name="fec_15" ColumnName="fec_15" />
+          <ScalarProperty Name="sem_15" ColumnName="sem_15" />
+          <ScalarProperty Name="dif_15" ColumnName="dif_15" />
+          <ScalarProperty Name="est_16" ColumnName="est_16" />
+          <ScalarProperty Name="fec_16" ColumnName="fec_16" />
+          <ScalarProperty Name="sem_16" ColumnName="sem_16" />
+          <ScalarProperty Name="dif_16" ColumnName="dif_16" />
+          <ScalarProperty Name="est_17" ColumnName="est_17" />
+          <ScalarProperty Name="fec_17" ColumnName="fec_17" />
+          <ScalarProperty Name="sem_17" ColumnName="sem_17" />
+          <ScalarProperty Name="dif_17" ColumnName="dif_17" />
+          <ScalarProperty Name="est_18" ColumnName="est_18" />
+          <ScalarProperty Name="fec_18" ColumnName="fec_18" />
+          <ScalarProperty Name="sem_18" ColumnName="sem_18" />
+          <ScalarProperty Name="dif_18" ColumnName="dif_18" />
+          <ScalarProperty Name="est_19" ColumnName="est_19" />
+          <ScalarProperty Name="fec_19" ColumnName="fec_19" />
+          <ScalarProperty Name="sem_19" ColumnName="sem_19" />
+          <ScalarProperty Name="dif_19" ColumnName="dif_19" />
+          <ScalarProperty Name="est_20" ColumnName="est_20" />
+          <ScalarProperty Name="fec_20" ColumnName="fec_20" />
+          <ScalarProperty Name="sem_20" ColumnName="sem_20" />
+          <ScalarProperty Name="dif_20" ColumnName="dif_20" />
+          <ScalarProperty Name="est_21" ColumnName="est_21" />
+          <ScalarProperty Name="fec_21" ColumnName="fec_21" />
+          <ScalarProperty Name="sem_21" ColumnName="sem_21" />
+          <ScalarProperty Name="dif_21" ColumnName="dif_21" />
+          <ScalarProperty Name="est_22" ColumnName="est_22" />
+          <ScalarProperty Name="fec_22" ColumnName="fec_22" />
+          <ScalarProperty Name="sem_22" ColumnName="sem_22" />
+          <ScalarProperty Name="dif_22" ColumnName="dif_22" />
+          <ScalarProperty Name="est_23" ColumnName="est_23" />
+          <ScalarProperty Name="fec_23" ColumnName="fec_23" />
+          <ScalarProperty Name="sem_23" ColumnName="sem_23" />
+          <ScalarProperty Name="dif_23" ColumnName="dif_23" />
+          <ScalarProperty Name="est_24" ColumnName="est_24" />
+          <ScalarProperty Name="fec_24" ColumnName="fec_24" />
+          <ScalarProperty Name="sem_24" ColumnName="sem_24" />
+          <ScalarProperty Name="dif_24" ColumnName="dif_24" />
+          <ScalarProperty Name="est_25" ColumnName="est_25" />
+          <ScalarProperty Name="fec_25" ColumnName="fec_25" />
+          <ScalarProperty Name="sem_25" ColumnName="sem_25" />
+          <ScalarProperty Name="dif_25" ColumnName="dif_25" />
+          <ScalarProperty Name="fec_reasignacion_1" ColumnName="fec_reasignacion_1" />
+          <ScalarProperty Name="fec_reasignacion_2" ColumnName="fec_reasignacion_2" />
+          <ScalarProperty Name="Calificacion_1" ColumnName="Calificacion_1" />
+          <ScalarProperty Name="Calificacion_2" ColumnName="Calificacion_2" />
+          <ScalarProperty Name="Calificacion_3" ColumnName="Calificacion_3" />
+          <ScalarProperty Name="nombre_cliente" ColumnName="nombre_cliente" />
+          <ScalarProperty Name="telefono_cliente" ColumnName="telefono_cliente" />
+          <ScalarProperty Name="nombre_repartidor" ColumnName="nombre_repartidor" />
+          <ScalarProperty Name="telefono_repartidor" ColumnName="telefono_repartidor" />
+          <ScalarProperty Name="semaforo_orden" ColumnName="semaforo_orden" />
+          <ScalarProperty Name="id_repartidor" ColumnName="id_repartidor" />
+          <ScalarProperty Name="tiempo_total_servicio" ColumnName="tiempo_total_servicio" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Delivery_61_Get_Trafico_Tracking_Dashboard" FunctionName="DB_ZPIDI_QASModel.Store.Delivery_61_Get_Trafico_Tracking_Dashboard">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB_ZPIDI_QASModel.Delivery_61_Get_Trafico_Tracking_Dashboard_Result">
+          <ScalarProperty Name="no_ordenes_dia" ColumnName="no_ordenes_dia" />
+          <ScalarProperty Name="no_ordenes_iniciadas" ColumnName="no_ordenes_iniciadas" />
+          <ScalarProperty Name="no_ordenes_mostrador" ColumnName="no_ordenes_mostrador" />
+          <ScalarProperty Name="no_ordenes_transito" ColumnName="no_ordenes_transito" />
+          <ScalarProperty Name="no_ordenes_entregadas" ColumnName="no_ordenes_entregadas" />
+          <ScalarProperty Name="no_ordenes_no_entregadas" ColumnName="no_ordenes_no_entregadas" />
+          <ScalarProperty Name="no_repartidores_conectados" ColumnName="no_repartidores_conectados" />
+          <ScalarProperty Name="no_repartidores_en_transito" ColumnName="no_repartidores_en_transito" />
+          <ScalarProperty Name="no_repartidores_sin_ordenes" ColumnName="no_repartidores_sin_ordenes" />
+          <ScalarProperty Name="prom_tiempo_servicio_promedio_entrega" ColumnName="prom_tiempo_servicio_promedio_entrega" />
+          <ScalarProperty Name="prom_tiempo_negocio" ColumnName="prom_tiempo_negocio" />
+          <ScalarProperty Name="prom_tiempo_preparacion" ColumnName="prom_tiempo_preparacion" />
+          <ScalarProperty Name="prom_tiempo_asignacion" ColumnName="prom_tiempo_asignacion" />
+          <ScalarProperty Name="prom_tiempo_reparto_zpidi" ColumnName="prom_tiempo_reparto_zpidi" />
+          <ScalarProperty Name="prom_tiempo_reparto_plataformas" ColumnName="prom_tiempo_reparto_plataformas" />
+          <ScalarProperty Name="ordenes_entregadas_a_tiempo" ColumnName="ordenes_entregadas_a_tiempo" />
+          <ScalarProperty Name="prom_tiempo_entrega_a_tiempo" ColumnName="prom_tiempo_entrega_a_tiempo" />
+          <ScalarProperty Name="venta_del_dia" ColumnName="venta_del_dia" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

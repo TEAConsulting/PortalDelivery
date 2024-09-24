@@ -1,0 +1,24 @@
+﻿@model IEnumerable<ZPIDI_PORTAL.Models.C_Delivery_Repartidores>
+
+@if (Model.Count() > 0)
+{
+    foreach (var item in Model)
+    {
+        <div class="container">
+            <div class="row">
+                <div class="column_responsive_3 text-center">
+                    <img src="http://quesipizzasmx-001-site19.dtempurl.com/repa_pizzas.png" style="background-position: center;background-repeat: no-repeat;background-size: cover;" width="70" />
+                </div>
+                <div class="column_responsive_9">
+                    <h5><strong>Repartidor</strong></h5>
+                    <h5>@item.nombre @item.apellido</h5>
+                    @*<strong>Telefono: @item.telefono</strong>*@
+                </div>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <h4 class="text-danger">Buscando repartidor...</h4>
+}

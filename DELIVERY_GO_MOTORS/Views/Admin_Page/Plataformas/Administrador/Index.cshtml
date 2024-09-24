@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Admin_Page/MainLayoutAdmin.cshtml";
+}
+
+<div class="page_title">
+    <h3 class=" text-uppercase mb-4 text-center">Configurador de plataformas</h3>
+</div>
+
+
+<div class="row column1 counter_section">
+    <div class="row" id="div_table_plataformas">
+
+    </div>
+</div>
+
+
+<div class="modal fade" id="m_configuracion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" id="div_config_edit">
+
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+
+    $(window).on("load", function () {
+        ConsultarConfiguracionesPlataformas();
+    });
+
+    function ConsultarConfiguracionesPlataformas() {
+        $.ajax({
+            url: "../PLATAFORMAS/ConsultarConfiguracionesPlataformas",
+            type: "POST",
+            data: {  },
+            success: function (result) {
+                $("#div_table_plataformas").html(result);
+            }
+        });
+    }
+
+    function EditarConfiguracionPlataforma(id_config) {
+        $.ajax({
+            url: "../PLATAFORMAS/EditarConfiguracionPlataforma",
+            type: "POST",
+            data: { id_config: id_config},
+            success: function (result) {
+                $("#m_configuracion").modal("show");
+                $("#div_config_edit").html(result);
+            }
+        });
+    }
+
+
+    function ActualizarConfiguracionPlataforma(id_config) {
+        var porc_zpidi = $("#porc_zpidi").text();
+        var porc_msj = $("#porc_msj").text();
+        var porc_repa = $("#porc_repa").text();
+
+        var suma = parseFloat(porc_zpidi) + parseFloat(porc_msj) + parseFloat(porc_repa);
+        if (suma != 100) {
+            iziToast.error({
+                title: 'La suma de los porcentajes debe ser el 100%',
+                message: '',
+            });
+            return false;
+        }
+        $.ajax({
+            url: "../PLATAFORMAS/ActualizarConfiguracionPlataforma",
+            type: "POST",
+            data: {
+                id_config: id_config,
+                porc_zpidi: porc_zpidi,
+                porc_msj: porc_msj,
+                porc_repa: porc_repa
+            },
+            success: function (result) {
+                if (result == "True") {
+                    iziToast.success({
+                        title: 'Configuración actualizada correctamente',
+                        message: '',
+                    });
+                    $("#m_configuracion").modal("hide");
+                    ConsultarConfiguracionesPlataformas();
+                }
+                else {
+                    iziToast.error({
+                        title: 'Ocurrio un error al ejecutar la operación',
+                        message: '',
+                    });
+                }
+            }
+        });
+    }
+</script>
+
+
+
+

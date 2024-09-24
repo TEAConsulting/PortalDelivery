@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Public_Page/MainLayout.cshtml";
+}
+<style>
+    .btn_cancel {
+        line-height: 5.5vh;
+        margin-top: 2vh;
+        border-radius: 20%;
+    }
+</style>
+
+<div class="container">
+
+    <div class="col-sm-12" id="dviOrdenes">
+
+    </div>
+
+    <div class="card text-white mb-3" >
+        <div class="card-header">
+            <h2 class="text-center mt-3">Reporte de orden</h2>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="column_responsive_8">
+                    <h3>Orden #@ViewBag.id_orden</h3>
+                    @*<h3>Folio #@ViewBag.id_pedido</h3>*@
+                    <h4 id="lbl_negocio"></h4>
+                    <h5 id="lbl_cliente"></h5>
+                    <h4 id="lbl_monto"></h4>
+                </div>
+                <div class="column_responsive_4 text-center">
+                    <h6 id="lbl_fecha"></h6>
+                </div>
+            </div><hr />
+            
+            <div class="container">
+                <h5>Motivo</h5>
+                <select class="form-control bg-secondary text-white" id="id_tipo_cancelacion">
+                    @{Html.RenderAction("ConsultarTiposCancelacion", "CATALOGOS");})
+                </select>
+                <br />
+                <h5>Observaciones</h5>
+                <textarea class="form-control bg-secondary text-white" rows="3" placeholder="Observaciones" id="obs_txt"></textarea>
+            </div>
+            <hr />
+            <div class="text-center">
+                <button id="btn_cancelar" class="btn btn-zpidi" onclick="CancelarOrden()">Enviar reporte</button>
+            </div>
+
+            
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<script type="text/javascript">
+
+    $(window).on("load", function () {
+        GetOrderDetail();
+    });
+
+    function GetOrderDetail() {
+        $.ajax({
+            url: "http://gomosystem-001-site4.etempurl.com/api/[Delivery_Get_OrderAcceptReject]/Find",
+            type: "POST",
+            data: {
+                //"token": "@Session["ses_token"]"
+                "Id_order": "@ViewBag.id_orden"
+            },
+            success: function (result) {
+                if (result.data != null) {
+                    $("#lbl_negocio").text(result.data[0].peds[0].marca[0].negocio);
+                    $("#lbl_cliente").text(result.data[0].peds[0].marca[0].cliente);
+
+                    $("#lbl_monto").text("$ " + result.data[0].peds[0].apagar);
+
+                    var fecha = result.data[0].peds[0].fecha;
+                    var res = fecha.split("T");
+
+                    $("#lbl_fecha").text(res[0] + " | " + res[1]);
+                }
+                else {
+
+                }
+            }
+        });
+    }
+
+    function CancelarOrden() {
+        var tipo_cancelacion = $("#id_tipo_cancelacion").val()
+        var observaciones = $("#obs_txt").val();
+        var id_tipo_cancelacion = parseInt(tipo_cancelacion);
+
+        $.ajax({
+            url: "http://gomosystem-001-site4.etempurl.com/api/[Delivery_Cancelacion_ZP_CCController]/Find",
+            type: "POST",
+            dataType: 'text json',
+            data: {
+                "id_orden": @ViewBag.id_orden,
+                "id_tipoCancelacion": id_tipo_cancelacion,
+                "observaciones": observaciones
+            },
+            success: function (result) {
+                $("#btn_cancelar").css("display", "none");
+                iziToast.success({
+                    title: 'Solicitud enviada correctamente!',
+                    message: '',
+                    theme: 'light', // dark
+                    color: 'orange', // blue, red, green, yellow
+                    position: 'bottomCenter',
+                });
+            }
+        });
+    }
+
+
+
+</script>
+
+

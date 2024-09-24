@@ -1,0 +1,102 @@
+﻿@model IEnumerable<ZPIDI_PORTAL.Models.C_Delivery_Repartidores>
+@using System.Globalization;
+
+<div class="modal-header">
+    <div style="width:30%;">
+        @*if (Model.FirstOrDefault().id_status_solicitud != 3)
+        {
+            <button type="button" class="btn btn-success circle" onclick="MarcarSolicitudLeida(@Model.FirstOrDefault().id_solicitud_repartidor)">Afiliar</button>
+            <button type="button" class="btn btn-danger circle" onclick="RechazarSolicitud(@Model.FirstOrDefault().id_solicitud_repartidor)" data-dismiss="modal">Rechazar</button>
+        }*@
+    </div>
+    <button type="button" class="close btn btn-danger circle" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+@foreach (var item in Model)
+{
+    var soli = item.C_Delivery_Repartidores_Solicitudes.FirstOrDefault().C_Delivery_Repartidores_Solicitud;
+    var vehiculo = soli.C_Delivery_Repartidores_Vehiculos_Tipos;
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-3 text-center">
+                <h6>Fecha de solicitud:</h6>
+                <h5> @item.fecha_registro.Value.Date.ToString("d MMMM yyyy", CultureInfo.CreateSpecificCulture("es-MX"))</h5>
+                <img width="150" src="@soli.foto" />
+            </div>
+            <div class="col-md-9">
+                <center><h3 class="text-uppercase mb-3" id="m_solicitud_d_aria">Solicitud del repartidor</h3></center>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="font-weight-bold">@item.nombre @item.apellido</h3>
+                    </div>
+
+                    <div class="col-md-12 row mt-3">
+                        <div class="col-md-8 mt-2">
+                            <div class="row col-md-12">
+                                <h5 class="text-center">CONTACTO</h5>
+                            </div><br />
+
+                            <div class="col-md-12">
+                                <h6 class="label-input">Telefono</h6>
+                                <p>@item.telefono</p>
+                            </div><br />
+
+                            <div class="col-md-12">
+                                <h6 class="label-input">Correo</h6>
+                                <p>@item.email</p>
+                            </div><br />
+
+                            <div class="col-md-12">
+                                <h6 class="label-input">Direccion</h6>
+                                <p>@soli.direccion</p>
+                            </div><br />
+                        </div>
+
+                        <div class="col-md-4 text-right">
+                            @if (soli.C_Delivery_Plataformas != null)
+                            {
+                                <div>
+                                    <label class="label-input">Plataforma: @soli.C_Delivery_Plataformas.nombre_plataforma</label>
+                                </div>
+                            }
+
+                            <div>
+                                <label class="label-input">Tipo de Vehiculo</label>
+                                <p style="color:@vehiculo.color">@vehiculo.tipo  <i class="@vehiculo.icono"></i>
+                            </div>
+
+                            <div>
+                                <label class="label-input">No. Licencia</label>
+                                <p class="label-input">@item.no_licencia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <h3 class="text-uppercase mb-3 text-center" id="m_solicitud_d_aria">DOCUMENTACION</h3>
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <strong>INE</strong>
+                        <a href="@soli.INE" target="_blank" data-toggle="tooltip" data-placement="top" title="Ver imagen"><img src="@soli.INE" width="150" style="border-radius: 10%;" /></a>
+                    </div>
+
+                    <div class="col-md-4 text-center">
+                        <strong>Licencia</strong>
+                        <a href="@soli.licencia_conducir" target="_blank" data-toggle="tooltip" data-placement="top" title="Ver imagen"><img src="@soli.licencia_conducir" width="150" style="border-radius: 10%;" /></a>
+                    </div>
+
+                    <div class="col-md-4 text-center">
+
+                        <strong>Tarjeta de circulación</strong>
+                        <a href="@soli.tarjeta_circulacion" target="_blank" data-toggle="tooltip" data-placement="top" title="Ver imagen"><img src="@soli.tarjeta_circulacion" width="150" style="border-radius: 10%;" /></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+
+

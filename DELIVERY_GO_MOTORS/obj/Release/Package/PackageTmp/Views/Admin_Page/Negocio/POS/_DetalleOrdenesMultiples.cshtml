@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ZPIDI_PORTAL.Models.DataBase.C_Delivery_Ordenes_Negocios>
+@{ 
+    decimal total_asignacion = 0;
+}
+
+<div class="table-responsive-sm table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Cliente</th>
+                <th>Monto</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                var cliente = item.C_Delivery_Negocios_Telefonos_Clientes_Direcciones.C_Delivery_Negocios_Clientes;
+                <tr>
+                    <th>@item.id_orden</th>
+                    <th>
+                        <strong>@cliente.nombre</strong>
+                        <label>@cliente.telefono</label>
+                    </th>
+                    <th>$@item.monto</th>
+                </tr>
+                total_asignacion += (decimal)item.monto;
+            }
+        </tbody>
+    </table>
+</div>
+
+<h3 style="margin:0px;" class="text-center"><strong>Total: $@total_asignacion </strong></h3>

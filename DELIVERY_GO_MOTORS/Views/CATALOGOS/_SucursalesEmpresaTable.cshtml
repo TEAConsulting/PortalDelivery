@@ -1,0 +1,25 @@
+﻿@model IEnumerable<ZPIDI_PORTAL.Models.DataBase.C_Delivery_sucursales_gps>
+
+<div style="height:500px;overflow:scroll;overflow-x:hidden;">
+    <table class="table table-striped" id="datatable_sucursales" data-toggle="table" data-search="true">
+        <thead>
+            <tr>
+                <td>Codigo</td>
+                <td>Nombre</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.codigo_sucursal</td>
+                    <td>@item.nombre_suc</td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>
+
+
+

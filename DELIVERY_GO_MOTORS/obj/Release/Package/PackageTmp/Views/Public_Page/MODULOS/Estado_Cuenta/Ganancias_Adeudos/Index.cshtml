@@ -1,0 +1,118 @@
+﻿@{
+    ViewBag.Title = "Estatus_cuenta";
+    Layout = "~/Views/Public_Page/MainLayout.cshtml";
+}
+
+<div class="container">
+    <h4 class="text-uppercase mb-4 text-center">Ganancias & Adeudos </h4> @*<span class="text-primary">Solicitudes</span>*@
+    <h3 class="text-left">Saldo pendiente</h3>
+    <div class="primary_box">
+        <h2 class="label_box_1 text-center" id="saldo_pendiente"></h2>
+    </div>
+
+    <div class="row">
+        <div class="column_responsive_6 text-center">
+            <h6 class="pt-3"><a href="../ESTADOCUENTA_Z/Ganancias_Adeudos_Historial"><<   HISTORIAL   >></a></h6>
+        </div>
+        <div class="column_responsive_6">
+            <button class="btn btn-lg btn-danger ml-5" onclick="RefrescarSaldoPendiente()">Refrescar</button>
+        </div>
+    </div>
+    <br />
+
+    <h3 class="text-left">Ingresos</h3>
+    <h5>Semana (Semana desde- hasta)</h5>
+    <div class="primary_box">
+        <h2 class="label_box_1 text-center" id="saldo_semana"></h2>
+    </div>
+
+    <div class="row">
+        <div class="column_responsive_6 text-center">
+            <h5>Entregas Base</h5>
+            <h3><strong id="entregas_base"></strong></h3>
+            <h5 class="text-center">Devoluciones o Reembolsos</h5>
+            <h3><strong id="devoluciones_o_reembolsos"></strong></h3>
+        </div>
+
+        <div class="column_responsive_6 text-center">
+            <h5>Premios</h5>
+            <h3><strong id="premios"></strong></h3>
+            <h5 class="text-center">Propinas</h5>
+            <h3><strong id="propinas"></strong></h3>
+        </div>
+    </div>
+
+    <div class="row text-center">
+        <div class="column_responsive_7 text-left">
+            <br />
+            <h5>Saldo en Efectivo</h5>
+            <hr />
+            <h5>Diferencia de Ingreso</h5>
+            <h4>Total Hoy:</h4>
+        </div>
+        <div class="column_responsive_4">
+            <br />
+            <button class="btn btn-warning text-dark" id="saldo_en_efectivo"></button>
+            <hr />
+            <button class="btn btn-warning text-dark" id="saldo_ingreso_efectivo"></button>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+<script>
+    $(window).on("load", function () {
+        GetEstadoCuenta("@ViewBag.token_repa");
+    });
+
+    function GetEstadoCuenta(token) {
+        $.ajax({
+            url: "http://gomosystem-001-site4.etempurl.com/api/[Delivery_50_Get_Repartidor_EstadisticasController]/Find",
+            type: "POST",
+            data: {
+                "token": token,
+                "modo": "2"
+            },
+            success: function (result) {
+                if (result.data != null) {
+                    var data = result.data;
+                    $("#saldo_pendiente").text("MX$ " + data[0].saldo_pendiente);
+                    $("#saldo_semana").text("MX$ " + data[0].saldo_semana);
+                    $("#entregas_base").text("+ " + data[0].entregas_base);
+                    $("#devoluciones_o_reembolsos").text("+ " + data[0].devoluciones_o_reembolsos);
+                    $("#premios").text("+ " + data[0].premios);
+                    $("#propinas").text("+ " + data[0].propinas);
+                    $("#saldo_en_efectivo").text("MX$ " + data[0].saldo_en_efectivo);
+                    $("#saldo_ingreso_efectivo").text("MX$ " + data[0].saldo_ingreso_efectivo);
+                }
+                else {
+
+                }
+            }
+        });
+    }
+
+    function RefrescarSaldoPendiente() {
+        $.ajax({
+            url: "http://gomosystem-001-site4.etempurl.com/api/[Delivery_50_Get_Repartidor_EstadisticasController]/Find",
+            type: "POST",
+            data: {
+                "token": "@ViewBag.token_repa",
+                "modo": "2"
+            },
+            success: function (result) {
+                if (result.data != null) {
+                    var data = result.data;
+                    $("#saldo_pendiente").text("MX$ " + data[0].saldo_pendiente);
+                }
+                else {
+
+                }
+            }
+        });
+    }
+
+</script>

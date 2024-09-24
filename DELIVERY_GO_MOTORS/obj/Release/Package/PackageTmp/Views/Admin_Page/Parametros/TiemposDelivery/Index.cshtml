@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Admin_Page/MainLayoutAdmin.cshtml";
+}
+
+<style>
+    .div_editable {
+        background-color: #F5945F !important;
+        color: white;
+        text-align: center;
+        height: 35px;
+        font-size: 20px;
+        line-height: 30px;
+        border-radius:10%;
+    }
+</style>
+
+<div class="row column1 counter_section">
+    <h3 class="text-center">Configurador Tiepos de Delivery</h3>
+    <hr />
+    <div id="div_tiempos">
+
+    </div>
+</div>
+
+<script>
+
+    $(window).on("load", function () {
+        ParametrosTiemposDelivery();
+        //timerTracking = setInterval(function () {
+        //    GetTrackingDelivery();
+        //    GetTrackingDashboard();
+        //}, 8000);
+    });
+
+    function ParametrosTiemposDelivery() {
+        $.ajax({
+            url: "../PARAMETROS/ParametrosTiemposDelivery",
+            type: "POST",
+            success: function (result) {
+                $("#div_tiempos").html(result);
+            }
+        });
+    }
+
+    function ActualizarParametrosTiempos() {
+        var count = 0;
+        var id_parametros = [];
+        var val_min = [];
+        var val_max = [];
+        var val_tol = [];
+
+        var inputs = $(".div_parametro");
+        inputs.each(function () {
+            id_parametros[count] = $(this).attr("id");
+            count++;
+        });
+        count = 0;
+
+        var inputs = $(".div_min");
+        inputs.each(function () {
+            val_min[count] = $(this).text();
+            count++;
+        });
+        count = 0;
+
+        var inputs = $(".div_max");
+        inputs.each(function () {
+            val_max[count] = $(this).text();
+            count++;
+        });
+        count = 0;
+
+        var inputs = $(".div_tol");
+        inputs.each(function () {
+            val_tol[count] = $(this).text();
+            count++;
+        });
+
+        $.ajax({
+            url: "../PARAMETROS/ActualizarParametrosTiempos",
+            type: "POST",
+            data: {
+                id_parametros: id_parametros,
+                val_min: val_min,
+                val_max: val_max,
+                tolerancia: val_tol
+            },
+            success: function (result) {
+                if (result == "True") {
+                    ParametrosTiemposDelivery();
+                    iziToast.success({
+                        title: 'Parametros guardados correctamente!',
+                        message: '',
+                    });
+                }
+                else {
+                    iziToast.error({
+                        title: 'Ocurrió un problema al ejecutar la operación',
+                        message: '',
+                    });
+                }
+            }
+        });
+    }
+
+
+</script>
+
+
+

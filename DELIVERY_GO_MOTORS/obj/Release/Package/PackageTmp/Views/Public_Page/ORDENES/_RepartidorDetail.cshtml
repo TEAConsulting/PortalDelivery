@@ -1,0 +1,27 @@
+﻿@model IEnumerable<ZPIDI_PORTAL.Models.C_Delivery_Repartidores>
+
+@foreach (var item in Model)
+{
+    <div class="row">
+        <div class="column_responsive_5">
+            @try
+            {<img src="@item.C_Delivery_Repartidores_Solicitudes.FirstOrDefault().C_Delivery_Repartidores_Solicitud.foto" style="width:100%;" />}
+            catch (Exception) { <img src="http://gomosystem-001-site4.etempurl.com/Imagenes/default.png" style="width:100%;" />}
+        </div>
+        <div class="column_responsive_7 text-left">
+            <h3><strong>@item.nombre.ToUpper() @item.apellido.ToUpper()</strong></h3>
+            <h6><strong>MI CLAVE</strong></h6>
+            <h3><strong>@item.cve_repartidor</strong></h3>
+        </div>
+    </div>
+                }
+
+
+
+
+
+
+
+
+
+

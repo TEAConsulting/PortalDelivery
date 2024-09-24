@@ -1,0 +1,30 @@
+﻿@model IEnumerable<ZPIDI_PORTAL.Models.C_Delivery_Repartidores_Solicitud>
+
+<table class="table table-bordered ">
+    <thead class="text-center">
+        <tr>
+            <td>ID</td>
+            <td>Solicitante</td>
+            <td>Fecha</td>
+            <td>Vehiculo</td>
+            <td>Status</td>
+            <td>Detalle</td>
+        </tr>
+    </thead>
+    <tbody class="text-center">
+        @foreach (var sol in Model)
+        {
+        <tr>
+            <td>@sol.id_solicitud_repartidor</td>
+            <td>@sol.nombre @sol.apellido_pat @sol.apellido_mat <br /> @sol.email</td>
+            <td>@sol.fecha_registro</td>
+            <td style="color:@sol.C_Delivery_Repartidores_Vehiculos_Tipos.color"><i class="@sol.C_Delivery_Repartidores_Vehiculos_Tipos.icono"></i> @sol.C_Delivery_Repartidores_Vehiculos_Tipos.tipo</td>
+            <td> <button class="btn btn-xs circle" style="color:white; background-color:@sol.C_Delivery_Repartidores_Status.color">@sol.C_Delivery_Repartidores_Status.nombre_status</button></td>
+
+            <td>
+                <button class="btn btn-primary circle" onclick="VerSolicitudDetalle(@sol.id_solicitud_repartidor)" data-toggle="modal" data-target="#m_solicitud_d"><i class="fa fa-bars"></i></button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

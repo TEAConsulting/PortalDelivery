@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ZPIDI_PORTAL.Models.DataBase.C_Delivery_Negocios_Telefonos_Clientes_Direcciones>
+
+<style>
+    .lbl_cliente_div {
+        margin: 0px;
+    }
+
+    .div_cliente_card_new {
+        text-align: left;
+        color: black !important;
+        margin-top: 15px;
+        padding: 18px;
+        font-weight: bold;
+        width: 100%;
+        max-width: 100%;
+        height: 100px;
+        /*float: left;*/
+        margin: 0;
+        border: 2px solid #F05907;
+        border-radius: 8px;
+        -webkit-background-clip: padding-box;
+        -webkit-box-shadow: 0 0 8px rgba(0,0,0,0.3);
+        -moz-box-shadow: 0 0 8px rgba(0,0,0,0.3);
+        border-radius: 8px 8px 8px 8px;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.6);
+    }
+</style>
+
+
+@if (Model.Count() > 0)
+{
+    foreach (var item in Model)
+    {
+        var cliente = item.C_Delivery_Negocios_Clientes;
+        var direccion = item.C_Delivery_Negocios_Direcciones;
+
+        <div class="div_cliente_card_new">
+            <div class="row" style="margin-left:2px;">
+                <input type="radio" name="radio_direccion_dir" value="@item.id_telefono_cliente_direccion"
+                       onclick="SeleccionarClienteRegistrado('@cliente.nombre','@direccion.calle','@direccion.numero','@direccion.colonia','@direccion.ciudad', '@direccion.latitud', '@direccion.longitud', @item.id_telefono);" />
+                <h3 class="lbl_cliente_div"><strong style="margin:0px;margin-left:5px;">@cliente.nombre</strong></h3>
+            </div>
+            <label class="lbl_cliente_div">@direccion.calle @direccion.numero @direccion.colonia @direccion.ciudad</label>
+        </div>
+    }
+    <br />
+    <input type="radio" name="radio_direccion_dir" value="-1" onclick="SeleccionarNuevaDireccion(@Model.FirstOrDefault().id_telefono);"  style="margin-top: 10px;margin-left:20px;"/><strong>Agregar dirección</strong>
+}
+else
+{
+    <div class="div_cliente_card_new">
+        <input type="radio" name="radio_direccion_dir" value="0" onclick="SeleccionarNuevoCliente();" /><strong>Nuevo cliente</strong>
+    </div>
+
+
+}
+

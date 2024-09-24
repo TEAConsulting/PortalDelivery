@@ -1,0 +1,8 @@
+﻿@model IEnumerable<ZPIDI_PORTAL.Models.DataBase.C_Delivery_TipoCancelacion>
+
+@foreach (var item in Model)
+{
+    <option value="@item.id_tipo_cancel">@item.descripcion_tipo</option>
+}
+
+

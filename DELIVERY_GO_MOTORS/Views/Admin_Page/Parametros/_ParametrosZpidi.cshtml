@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ZPIDI_PORTAL.Models.C_Delivery_Parametros>
+
+<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Configuración de parametros</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <table class="table table-striped">
+        @foreach (var item in Model.Where(x => x.id_parametro != 1002))
+        {
+            <tr>
+                <td><strong>- @item.descripcion</strong></td>
+                <td><div contenteditable="true" class="div_editable" id="@item.id_parametro">@Convert.ToInt32(item.valor_numerico)</div></td>
+            </tr>
+        }
+    </table>
+
+    <div>
+        <strong style="color: black;">- Estatus en el que se activará la alarma de notificaciones:</strong>
+        <div style="display:block;" class="ml-5">
+            <br />
+            <input type="radio" name="status_parametro" value="2" /> <label>Al registrar la orden (Recibido en sucursal)</label><br />
+            <input type="radio" name="status_parametro" value="13" /> <label>Al iniciar la preparación (En cocina)</label><br />
+            <input type="radio" name="status_parametro" value="3" /> <label>Al terminar la preparación (listo para asignación)</label>
+        </div>
+    </div>
+    <hr />
+
+    <div class="text-center">
+        <button class="btn btn-zpidi " onclick="GuardarParametrosZPIDI();">Guardar parametros</button>
+    </div>
+    
+</div>
+@*<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-primary">Save changes</button>
+</div>*@
+
+<script>
+
+    var id_status_parametro = @Model.Where(x => x.id_parametro == 1002).FirstOrDefault().valor_numerico;
+    $("input[name=status_parametro][value=" + id_status_parametro + "]").attr('checked', 'checked');
+</script>

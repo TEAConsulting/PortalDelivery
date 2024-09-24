@@ -1,0 +1,89 @@
+﻿@using System.Globalization;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Public_Page/MainLayout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <h4 class="text-uppercase mb-1 text-center">Mi perfil</h4> @*<span class="text-primary">Solicitudes</span>*@
+        <h6 class="text-left">Actualiza tus datos personales</h6>
+    </div>
+
+    <div>
+        <h5>Nombres</h5>
+        <input type="text" value="@Session["ses_nombre"]" class="form-control" />
+
+        <br />
+        <h5>Apellidos</h5>
+        <input type="text" value="@Session["ses_apellido"]" class="form-control" />
+
+        <br />
+        <h5>E-mai</h5>
+        <input type="text" value="@Session["ses_email"]" class="form-control" />
+
+        <br />
+        <h5>Celular</h5>
+        <div class="row">
+            <div class="column_responsive_3">
+                <select class="form-control">
+                    <option value="+52">+52</option>
+                </select>
+            </div>
+            <div class="column_responsive_9">
+                <input type="number" value="@Session["ses_telefono"]" />
+            </div>
+        </div>
+
+        <br />
+        <h5>Fecha de nacimiento</h5>
+        <input type="date" class="form-control" />
+
+        <br />
+        <h5>Sexo</h5>
+        <div class="row">
+            <div class="column_responsive_6 row">
+                <div class="row">
+                    <span>Hombre  <input type="radio" name="inputsexo" checked/></span>
+
+                </div>
+            </div>
+            <div class="column_responsive_6 row">
+                <span>Mujer <input type="radio" name="inputsexo" /></span>
+            </div>
+        </div>
+
+        <br />
+        <h5>Vehiculo</h5>
+        <span>Bicicleta <input type="radio" name="inputvehiculo" /></span>
+        <span style="margin-left:10%;">Moto <input type="radio" name="inputvehiculo" checked/></span>
+        <span style="margin-left:10%;">Carro <input type="radio" name="inputvehiculo" /></span>
+
+    </div>
+    <hr />
+
+    @*<div class="text-center">
+        <img src="@Session["ses_foto"]" width="250" /><br />
+        <a class="text-uppercase fw-bold" style="font-size: 26px;">CAMBIAR FOTO</a>
+        <input type="file" name="foto" class="form-control mt-3" />
+    </div>
+    <div class="col-sm-12 mt-4 text-left">
+        <h5 class="w-100 text-right">Fecha de registro:  <span class="text-primary">@Convert.ToDateTime(Session["ses_fecha_registro"]).Date.ToString("d MMMM yyyy", CultureInfo.CreateSpecificCulture("es-MX"))</span></h5>
+
+        <h2 class="display-4 text-uppercase mb-4 text-primary">@Session["ses_nombre"] @Session["ses_apellido"]</h2>
+        <h1 class="text-uppercase">Clave de identifiación <span class="text-primary"> @Session["ses_cve_repartidor"]</span></h1>
+
+        @if ((string)Session["ses_plataforma"] != "")
+        {
+            <h3>Plataforma <span class="text-primary">@Session["ses_plataforma"]</span></h3>
+        }
+
+
+        <h4>Correo</h4>
+        <h3 class="text-primary">@Session["ses_email"]</h3>
+
+        <h3>Telefono <span class="text-primary">@Session["ses_telefono"]</span> </h3>
+
+    </div>*@
+</div>
+

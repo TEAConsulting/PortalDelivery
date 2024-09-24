@@ -1,0 +1,118 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Public_Page/MainLayout.cshtml";
+}
+
+<div class="container">
+    <h4 class="text-uppercase mb-4 text-center">ESTADO DE CUENTA </h4> @*<span class="text-primary">Solicitudes</span>*@
+    <div class="primary_box">
+        <h2 class="label_box_1" id="ingreso_hoy"></h2><br />
+        <h4 class="label_box_2" ></h4>
+        <h5 class="label_box_3" id="tiempo_conexion_hoy"></h5>
+        <h5 class="label_box_3" id="pedidos_hoy"></h5>
+    </div>
+    <hr />
+    <a href="../ESTADOCUENTA_Z/Estatus_cuenta">
+        <div class="primary_box text-center">
+            <h4 class="label_box_2">Cuentas (Activa / Bloqueada)</h4>
+        </div>
+    </a>
+    <a href="../ESTADOCUENTA_Z/Ganancias_Adeudos">
+        <div class="primary_box text-center">
+            <h4 class="label_box_2">Ganancias y Adeudos</h4>
+        </div>
+    </a>
+</div>
+
+
+<script>
+    $(window).on("load", function () {
+        GetEstadoCuenta("@ViewBag.token");
+    });
+
+
+    function testApi() {
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "https://api.example.com/endpoint", true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                console.log(xhr.responseText);
+            }
+        };
+        xhr.send(JSON.stringify({ param1: "value1", param2: "value2" }));
+
+        @*var xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://quesipizzasmx-001-site11.dtempurl.com/api/[Delivery_50_Get_Repartidor_EstadisticasController]/Find", true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                console.log(xhr.responseText);
+            }
+        };
+        xhr.send(JSON.stringify({ token: "@Session["ses_token"]", modo: "1" }));*@
+
+        @*fetch("http://quesipizzasmx-001-site11.dtempurl.com/api/[Delivery_50_Get_Repartidor_EstadisticasController]/Find", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ token: "@Session["ses_token"]", modo: "1" })
+        })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error(error));*@
+    }
+
+
+
+    function GetEstadoCuenta() {
+        $.ajax({
+            url: "http://gomosystem-001-site4.etempurl.com/api/[Delivery_50_Get_Repartidor_EstadisticasController]/Find",
+            type: "POST",
+            data: {
+                "token": "@Session["ses_token"]",
+                "modo": "1"
+            },
+            success: function (result) {
+                if (result.data != null) {
+                    var data = result.data;
+                    for (var i = 0; i < data.length; i++) {
+                        $("#ingreso_hoy").text("MX$ " + data[0].ingreso_hoy);
+                        $("#tiempo_conexion_hoy").text("Tiempo conectado: " + data[0].tiempo_conexion_hoy);
+                        $("#pedidos_hoy").text("Pedidos completados:" + data[0].pedidos_hoy);
+
+
+                        var notificacion =
+                            "<div class='primary_box'>" +
+                            "<p class='label_box_2' style='text-align:right;'>" + data[0].fecha_notificacion +"a</p >" +
+                            "<h6 class='label_box_2'>" + data[0].mensaje_estandar +"</h6 >" +
+                            "<h6 class='label_box_2'>Vigencia</h6>" +
+                            "<div class='row'>" +
+                            "<div class='text-center column_responsive_5'>" +
+                            "<label class='text-white'>" + data[0].vigencia_desde +"</label>" +
+                            "</div>" +
+                            "<div class='text-center column_responsive_1'>" +
+                            "<label class='text-white'>AL</label>" +
+                            "</div>" +
+                            "<div class='text-center column_responsive_6'>" +
+                            "<label class='text-white'>" + data[0].vigencia_hasta +"</label>" +
+                                 "</div>" +
+                            "</div>" +
+                            "</div >";
+
+                        //div_notif.append(notificacion);
+                    }
+                }
+                else {
+
+                }
+            }
+        });
+    }
+
+</script>
+
+

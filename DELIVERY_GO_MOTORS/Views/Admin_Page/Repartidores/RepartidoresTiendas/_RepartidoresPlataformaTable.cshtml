@@ -1,0 +1,30 @@
+﻿@model IEnumerable<ZPIDI_PORTAL.Models.C_Delivery_Repartidores>
+
+<div style="height:500px;overflow:scroll;overflow-x:hidden;">
+    <table class="table table-striped" id="datatable_repartidores"
+           data-toggle="table"
+           data-search="true">
+        <thead class="text-center">
+            <tr>
+                <td>
+                    Todos
+                    <input type="checkbox" name="check_repa_all" onclick="CheckAllRepas();" id="check_master_repa" />
+                </td>
+                <td>Nombre</td>
+                <td>Plataforma</td>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><input type="checkbox" name="check_repa" value="@item.id_repartidor" class="form-control check_repa" onclick="ConsultarSucursalesRepartidor()" /></td>
+                    <td>@item.nombre @item.apellido</td>
+                    <td>@item.C_Delivery_Repartidores_Solicitudes.FirstOrDefault().C_Delivery_Repartidores_Solicitud.C_Delivery_Plataformas.nombre_plataforma</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+

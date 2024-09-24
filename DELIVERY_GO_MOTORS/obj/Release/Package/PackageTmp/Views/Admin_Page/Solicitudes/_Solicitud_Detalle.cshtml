@@ -1,0 +1,109 @@
+﻿@model IEnumerable<ZPIDI_PORTAL.Models.C_Delivery_Repartidores_Solicitud>
+@using System.Globalization;
+<div class="modal-header">
+    <div style="width:30%;">
+        @if (Model.FirstOrDefault().id_status_solicitud != 3)
+        {
+            <button type="button" class="btn btn-success circle" onclick="MarcarSolicitudLeida(@Model.FirstOrDefault().id_solicitud_repartidor)">Afiliar</button>
+            <button type="button" class="btn btn-danger circle" onclick="RechazarSolicitud(@Model.FirstOrDefault().id_solicitud_repartidor)" data-dismiss="modal">Rechazar</button>
+        }
+    </div>
+    <button type="button" class="close btn btn-danger circle" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+@foreach (var item in Model)
+{
+    var status = item.C_Delivery_Repartidores_Status;
+    var vehiculo = item.C_Delivery_Repartidores_Vehiculos_Tipos;
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-3 text-center">
+                <h6>Fecha de solicitud:</h6>
+                <h5> @item.fecha_registro.Value.Date.ToString("d MMMM yyyy", CultureInfo.CreateSpecificCulture("es-MX"))</h5>
+                <img width="150" src="@item.foto" />
+            </div>
+            <div class="col-md-9">
+                <div @*class="px-4 pb-4"*@>
+                    <center><h3 class="text-uppercase mb-3" id="m_solicitud_d_aria">Solicitud del repartidor</h3></center>
+                    <div class="row">
+                        <div class="col-md-12"><h3 class="font-weight-bold">@item.nombre @item.apellido_pat @item.apellido_mat</h3></div>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col-md-8">
+                            <div class="col-md-12 row">
+                                <div class="col-md-8">
+                                    <h6 class="label-input">Fecha nacimiendo</h6>
+                                    <p>@item.fecha_na.Value.Date.ToString("dd/MM/yyyy", CultureInfo.CreateSpecificCulture("es-MX"))</p>
+
+                                    <h6 class="label-input">Correo:</h6>
+                                    <p>@item.email</p>
+
+                                    <h6 class="label-input">Direccion</h6>
+                                    <p>@item.direccion</p>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <h6 class="label-input">Genero:</h6>
+                                    <p>@item.sexo</p>
+
+                                    <h6 class="label-input">Telefono:</h6>
+                                    <p>@item.telefono</p>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        <div class="col-md-4 text-right">
+                            @if (item.C_Delivery_Plataformas != null)
+                            {
+                                <div>
+                                    <label class="label-input">Plataforma: @item.C_Delivery_Plataformas.nombre_plataforma</label>
+                                </div>
+                            }
+                            
+                            <div>
+                                <p class="label-input">Status:  <span style="color:@status.color" class="font-weight-bold text-uppercase label-input">@status.nombre_status</span><br /></p>
+                               
+                            </div>
+
+                            <div>
+                                <label class="label-input">Tipo de Vehiculo</label>
+                                <p style="color:@vehiculo.color">@vehiculo.tipo  <i class="@vehiculo.icono"></i>
+                            </div>
+
+                            <div>
+                                <label class="label-input">No. Licencia</label>
+                                <p class="label-input">@item.no_licencia</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <hr />
+
+                <h3 class="text-uppercase mb-3 text-center" id="m_solicitud_d_aria">DOCUMENTACION</h3>
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <strong>INE</strong>
+                        <a href="@item.INE" target="_blank" data-toggle="tooltip" data-placement="top" title="Ver imagen"><img src="@item.INE" width="150" style="border-radius: 10%;" /></a>
+                    </div>
+
+                    <div class="col-md-4 text-center">
+                        <strong>Licencia</strong>
+                        <a href="@item.licencia_conducir" target="_blank" data-toggle="tooltip" data-placement="top" title="Ver imagen"><img src="@item.licencia_conducir" width="150" style="border-radius: 10%;" /></a>
+                    </div>
+
+                    <div class="col-md-4 text-center">
+
+                        <strong>Tarjeta de circulación</strong>
+                        <a href="@item.tarjeta_circulacion" target="_blank" data-toggle="tooltip" data-placement="top" title="Ver imagen"><img src="@item.tarjeta_circulacion" width="150" style="border-radius: 10%;" /></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+

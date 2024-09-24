@@ -1,0 +1,542 @@
+﻿@model IEnumerable<ZPIDI_PORTAL.Models.DataBase.Delivery_61_Get_Trafico_Tracking_Result>
+
+@try
+{
+    if ((int)Session["ses_id_perfil"] == 1)
+    {
+        <div class="row">
+            <div class="col-md-5 text-center">
+                <h3><cite><strong>(N)</strong></cite></h3>
+            </div>
+            <div class="col-md-1 text-left">
+                <h3><cite><strong>(R)</strong></cite></h3>
+            </div>
+
+            <div class="col-md-1 text-left">
+                <h3><cite><strong>(N)</strong></cite></h3>
+            </div>
+            <div class="col-md-3 text-center">
+                <h3><cite><strong>(R)</strong></cite></h3>
+            </div>
+            <div class="col-md-1 text-left">
+                <h3><cite><strong>(C)</strong></cite></h3>
+            </div>
+        </div>
+
+
+        <div class="table-responsive">
+            <table class="table" id="datatable_tracking">
+                <thead>
+                    <tr class="text-center">
+                        <th></th>
+                        <th>Orden</th>
+                        <th>Sucursal</th>
+                        <th>Recibido</th>
+
+                        <th>Preparando</th>
+                        <th>Terminado</th>
+                        <th style="border-left: 2px solid black;">Acepta</th>
+                        <th>Ya llegue</th>
+                        <th style="border-left: 2px solid black;">Valida Llegada</th>
+                        <th style="border-right: 2px solid black;">Asigna</th>
+                        <th>Hacia Domicilio</th>
+                        <th>Entregada</th>
+                        <th>Pagada</th>
+                        <th>Nombre</th>
+
+                        <th style="border-left: 2px solid black;"><i class="fa fa-home"></i></th>
+                        <th><i class="fa fa-motorcycle"></i></th>
+                        <th style="border-right: 2px solid black;"><i class="fa fa-desktop"></i></th>
+                        <th>Tiempo reparto</th>
+                        <th>Liberar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr class="text-center">
+
+                            @if (item.semaforo_orden == 2)
+                            {
+                                <th style="color:#e5d200;"><i class="fa fa-2x fa-circle"></i></th>}
+
+                            else if (item.semaforo_orden == 3)
+                            {
+                                <th style="color:red;"><i class="fa fa-2x fa-circle"></i></th>}
+
+                            else
+                            {
+                                <th style="color:lawngreen;"><i class="fa fa-2x fa-circle"></i></th>}
+
+
+                            <td>@item.id_orden</td>
+                            <td>@item.nombre_sucursal</td>
+
+                            @try
+                            {
+                                <td>@item.fecha_pedido.Value.ToString("hh:mm tt").Replace('p', ' ').Replace('a', ' ').Replace('.', ' ')</td>
+                            }
+                            catch (Exception) { }
+
+
+                            @*<!--INICIO-->
+                                @if (item.est_01 == "2")
+                                {
+                                    <th style="color:#e5d200;">@item.dif_01</th>}
+                                @if (item.est_01 == "3")
+                                {
+                                    <th style="color:red;">@item.dif_01</th>}
+                                else
+                                {
+                                    <th style="color:darkgray;">@item.dif_01</th>}
+
+                                <!--TERMINADA-->
+                                @if (item.est_02 == "2")
+                                {
+                                    <th style="color:#e5d200;">@item.dif_02</th>}
+                                @if (item.est_02 == "3")
+                                {
+                                    <th style="color:red;">@item.dif_02</th>}
+                                else
+                                {
+                                    <th style="color:darkgray;">@item.dif_02</th>}
+
+
+                                <!--REPA ACEPTA-->
+                                @if (item.est_04 == "2")
+                                {
+                                    <th style="color:#e5d200; border-left: 2px solid black;">@item.dif_04</th>}
+                                @if (item.est_04 == "3")
+                                {
+                                    <th style="color:red; border-left: 2px solid black;">@item.dif_04</th>}
+                                else
+                                {
+                                    <th style="color:darkgray; border-left: 2px solid black;">@item.dif_04</th>}
+
+                                <!--LLEGADA REPA-->
+                                @if (item.est_06 == "2")
+                                {
+                                    <th style="color:#e5d200;">@item.dif_06</th>}
+                                @if (item.est_06 == "3")
+                                {
+                                    <th style="color:red;">@item.dif_06</th>}
+                                else
+                                {
+                                    <th style="color:darkgray;">@item.dif_06</th>}
+
+                                <!--VALIDA LLEGADA-->
+                                @if (item.est_17 == "2")
+                                {
+                                    <th style="color:#e5d200;border-left: 2px solid black;">@item.dif_17</th>}
+                                @if (item.est_17 == "3")
+                                {
+                                    <th style="color:red;border-left: 2px solid black;">@item.dif_17</th>}
+                                else
+                                {
+                                    <th style="color:darkgray;border-left: 2px solid black;">@item.dif_17</th>}
+
+                                <!--ASIGNACION-->
+                                @if (item.est_07 == "2")
+                                {
+                                    <th style="color:#e5d200;border-right: 2px solid black;">@item.dif_07</th>}
+                                @if (item.est_07 == "3")
+                                {
+                                    <th style="color:red;border-right: 2px solid black;">@item.dif_07</th>}
+                                else
+                                {
+                                    <th style="color:darkgray;border-right: 2px solid black;">@item.dif_07</th>}
+
+
+                                <!--SALIDA DOMICILIO-->
+                                @if (item.est_08 == "2")
+                                {
+                                    <th style="color:#e5d200;">@item.dif_08</th>}
+                                @if (item.est_08 == "3")
+                                {
+                                    <th style="color:red;">@item.dif_08</th>}
+                                else
+                                {
+                                    <th style="color:darkgray;">@item.dif_08</th>}
+
+                                <!--ENTREGADA-->
+                                @if (item.est_09 == "2")
+                                {
+                                    <th style="color:#e5d200;">@item.dif_09</th>}
+                                @if (item.est_09 == "3")
+                                {
+                                    <th style="color:red;">@item.dif_09</th>}
+                                else
+                                {
+                                    <th style="color:darkgray;">@item.dif_09</th>}
+
+                                <!--PAGADA-->
+                                @if (item.est_10 == "2")
+                                {
+                                    <th style="color:#e5d200;">@item.dif_10</th>}
+                                @if (item.est_10 == "3")
+                                {
+                                    <th style="color:red;">@item.dif_10</th>}
+                                else
+                                {
+                                    <th style="color:darkgray;">@item.dif_10</th>}*@
+
+                            @try
+                            {
+                                var color = "darkgray";
+                                if (item.est_01 == "3")
+                                {
+                                    color = "red";
+                                }
+                                else if (item.est_01 == "2")
+                                {
+                                    color = "#e5d200";
+                                }
+                                <td style="color:@color">@item.fec_01.Value.ToString("hh:mm tt")</td>
+                            }
+                            catch (Exception) { }
+
+
+                            @try
+                            {
+                                var color = "darkgray";
+                                if (item.est_02 == "3")
+                                {
+                                    color = "red";
+                                }
+                                else if (item.est_02 == "2")
+                                {
+                                    color = "#e5d200";
+                                }
+                                <td style="color:@color">@item.fec_02.Value.ToString("hh:mm tt")</td>
+                            }
+                            catch (Exception) { }
+
+
+                            @try
+                            {
+                                var color = "darkgray";
+                                if (item.est_04 == "3")
+                                {
+                                    color = "red";
+                                }
+                                else if (item.est_04 == "2")
+                                {
+                                    color = "#e5d200";
+                                }
+                                <td style="border-left: 2px solid black; color:@color">@item.fec_04.Value.ToString("hh:mm tt")</td>
+                            }
+                            catch (Exception) { }
+
+                            @try
+                            {
+                                var color = "darkgray";
+                                if (item.est_06 == "3")
+                                {
+                                    color = "red";
+                                }
+                                else if (item.est_06 == "2")
+                                {
+                                    color = "#e5d200";
+                                }
+                                <td style="color:@color;">@item.fec_06.Value.ToString("hh:mm tt")</td>
+                            }
+                            catch (Exception) { }
+
+                            @try
+                            {
+                                var color = "darkgray";
+                                if (item.est_17 == "3")
+                                {
+                                    color = "red";
+                                }
+                                else if (item.est_17 == "2")
+                                {
+                                    color = "#e5d200";
+                                }
+                                <td style="color:@color;border-left:2px solid black;">@item.fec_17.Value.ToString("hh:mm tt")</td>
+                            }
+                            catch (Exception) { }
+
+                            
+
+                            @try
+                            {
+                                var color = "darkgray";
+                                if (item.est_07 == "3")
+                                {
+                                    color = "red";
+                                }
+                                else if (item.est_07 == "2")
+                                {
+                                    color = "#e5d200";
+                                }
+                                <td style="color:@color">@item.fec_07.Value.ToString("hh:mm tt")</td>
+                            }
+                            catch (Exception) { }
+
+                            @try
+                            {
+                                var color = "darkgray";
+                                if (item.est_08 == "3")
+                                {
+                                    color = "red";
+                                }
+                                else if (item.est_08 == "2")
+                                {
+                                    color = "#e5d200";
+                                }
+                                <td style="color:@color;border-left:2px solid black;">@item.fec_08.Value.ToString("hh:mm tt")</td>
+                            }
+                            catch (Exception) { }
+
+                            @try
+                            {
+                                var color = "darkgray";
+                                if (item.est_09 == "3")
+                                {
+                                    color = "red";
+                                }
+                                else if (item.est_09 == "2")
+                                {
+                                    color = "#e5d200";
+                                }
+                                <td style="color:@color;">@item.fec_09.Value.ToString("hh:mm tt")</td>
+                            }
+                            catch (Exception) { }
+
+                            @try
+                            {
+                                var color = "darkgray";
+                                if (item.est_10 == "3")
+                                {
+                                    color = "red";
+                                }
+                                else if (item.est_10 == "2")
+                                {
+                                    color = "#e5d200";
+                                }
+                                <td style="color:@color">@item.fec_10.Value.ToString("hh:mm tt")</td>
+                            }
+                            catch (Exception) { }
+
+                            <td>@item.nombre_repartidor</td>
+
+
+                            @*------------------------CALIFICACION NEGOCIO*@
+                            @if (item.Calificacion_1 == 2)
+                            {
+                                <th style="color:#e5d200;border-left: 2px solid black;"><i class="fa fa-2x fa-circle"></i></th>
+                            }
+                            else if (item.Calificacion_1 == 3)
+                            {
+                                <th style="color:red;border-left: 2px solid black;"><i class="fa fa-2x fa-circle"></i></th>
+                            }
+                            else
+                            {
+                                <th style="color:lawngreen;border-left: 2px solid black;"><i class="fa fa-2x fa-circle"></i></th>}
+
+
+                            @*------------------------CALIFICACION REPARTIDOR*@
+                            @if (item.Calificacion_2 == 2)
+                            {
+                                <th style="color:#e5d200;"><i class="fa fa-2x fa-circle"></i></th>}
+
+                            else if (item.Calificacion_2 == 3)
+                            {
+                                <th style="color:red;"><i class="fa fa-2x fa-circle"></i></th>}
+
+                            else
+                            {
+                                <th style="color:lawngreen;"><i class="fa fa-2x fa-circle"></i></th>}
+
+
+                            @*-----------------------CALIFICACION DELIVERY*@
+                            @if (item.Calificacion_3 == 2)
+                            {
+                                <th style="color:#e5d200;border-right: 2px solid black;"><i class="fa fa-2x fa-circle"></i></th>}
+
+                            @if (item.Calificacion_3 == 3)
+                            {
+                                <th style="color:red;border-right: 2px solid black;"><i class="fa fa-2x fa-circle"></i></th>}
+
+                            else
+                            {
+                                <th style="color:lawngreen;border-right: 2px solid black;"><i class="fa fa-2x fa-circle"></i></th>}
+
+
+                            <th>
+                            @item.tiempo_total_servicio
+                            </th>
+
+                            <th>
+                                @if (item.id_repartidor != null)
+                                {
+                                    <button class="btn btn-zpidi radius-10" data-toggle='modal' data-target='#m_ordenes_repa' onclick="ConsultarOrdenesRepartidor(@item.id_repartidor)"><i class="fa fa-hand-grab-o"></i></button>
+                                }
+                            </th>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+
+    else
+    {
+
+        <div class="table-responsive">
+            <table class="table" id="datatable_tracking">
+                <thead>
+                    <tr class="text-center">
+                        <th></th>
+                        <th>Orden</th>
+                        <th>Sucursal</th>
+                        <th style="border-left: 2px solid black;">Acepta</th>
+                        <th>Ya llegue</th>
+                        <th>Hacia Domicilio</th>
+                        <th>Entregada</th>
+                        <th>Pagada</th>
+                        <th>Nombre</th>
+                        <th style="border-left: 2px solid black;"><i class="fa fa-motorcycle"></i></th>
+                        <th>Tiempo reparto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr class="text-center">
+
+                            @if (item.semaforo_orden == 2)
+                            {
+                                <th style="color:#e5d200;"><i class="fa fa-2x fa-circle"></i></th>}
+
+                            else if (item.semaforo_orden == 3)
+                            {
+                                <th style="color:red;"><i class="fa fa-2x fa-circle"></i></th>}
+
+                            else
+                            {
+                                <th style="color:lawngreen;"><i class="fa fa-2x fa-circle"></i></th>}
+
+
+                            <td>@item.id_orden</td>
+                            <td>@item.nombre_sucursal</td>
+
+                            <!--REPA ACEPTA-->
+                            @try
+                            {
+                                var color = "darkgray";
+                                if (item.est_04 == "3")
+                                {
+                                    color = "red";
+                                }
+                                else if(item.est_04 == "2")
+                                {
+                                    color = "#e5d200";
+                                }
+                                <td style="border-left: 2px solid black; color:@color">@item.fec_04.Value.ToString("hh:mm tt")</td>
+                            }
+                            catch (Exception) { }
+
+                            <!--YA LLEGUE-->
+                            @try
+                            {
+                                var color = "darkgray";
+                                if (item.est_06 == "3")
+                                {
+                                    color = "red";
+                                }
+                                else if(item.est_06 == "2")
+                                {
+                                    color = "#e5d200";
+                                }
+                                <td style="color:@color">@item.fec_06.Value.ToString("hh:mm tt")</td>
+                            }
+                            catch (Exception) { }
+
+
+                            <!--HACIA DOMICILIO-->
+                            @try
+                            {
+                                var color = "darkgray";
+                                if (item.est_08 == "3")
+                                {
+                                    color = "red";
+                                }
+                                else if(item.est_08 == "2")
+                                {
+                                    color = "#e5d200";
+                                }
+                                <td style="color:@color">@item.fec_08.Value.ToString("hh:mm tt")</td>
+                            }
+                            catch (Exception) { }
+
+                            <!--ENTREGADA-->
+                            @try
+                            {
+                                var color = "darkgray";
+                                if (item.est_09 == "3")
+                                {
+                                    color = "red";
+                                }
+                                else if(item.est_09 == "2")
+                                {
+                                    color = "#e5d200";
+                                }
+                                <td style="color:@color;">@item.fec_09.Value.ToString("hh:mm tt")</td>
+                            }
+                            catch (Exception) { }
+
+                            <!--PAGADA-->
+                            @try
+                            {
+                                var color = "darkgray";
+                                if (item.est_10 == "3")
+                                {
+                                    color = "red";
+                                }
+                                else if(item.est_10 == "2")
+                                {
+                                    color = "#e5d200";
+                                }
+                                <td style="color:@color;">@item.fec_10.Value.ToString("hh:mm tt")</td>
+                            }
+                            catch (Exception) { }
+
+                            <!--NOMBRE REPA-->
+                            <td style="border-right: 2px solid black;">@item.nombre_repartidor</td>
+
+
+
+                            @*------------------------CALIFICACION REPARTIDOR*@
+                            @if (item.Calificacion_2 == 2)
+                            {
+                                <th style="color:#e5d200;"><i class="fa fa-2x fa-circle"></i></th>}
+
+                            else if (item.Calificacion_2 == 3)
+                            {
+                                <th style="color:red;"><i class="fa fa-2x fa-circle"></i></th>}
+
+                            else
+                            {
+                                <th style="color:lawngreen;"><i class="fa fa-2x fa-circle"></i></th>}
+
+
+                            <!--TIEMPO REPARTO-->
+                            <th>@item.tiempo_total_servicio</th>
+
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+
+
+}
+catch (Exception)
+{
+    <h4 class="text-center" style="color:darkorange;">No hay registros</h4>
+}

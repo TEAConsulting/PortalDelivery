@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ZPIDI_PORTAL.Models.DataBase.C_Delivery_Repartidores>
+
+<table class="table table-bordered table-active">
+    <thead class="text-center">
+        <tr>
+            <td>ID</td>
+            <td>Repartidor</td>
+            <td>Fecha ingreso</td>
+            <td>Vehiculo</td>
+            <td>Status</td>
+            <td>Detalle</td>
+        </tr>
+    </thead>
+    <tbody class="text-center">
+        @foreach (var sol in Model)
+        {
+            var vehiculo = sol.C_Delivery_Repartidores_Solicitudes.FirstOrDefault().C_Delivery_Repartidores_Solicitud.C_Delivery_Repartidores_Vehiculos_Tipos;
+            var status = sol.C_Delivery_Repartidores_Solicitudes.FirstOrDefault().C_Delivery_Repartidores_Solicitud.C_Delivery_Repartidores_Status;
+            <tr>
+                <td>@sol.id_repartidor</td>
+                <td>@sol.nombre @sol.apellido <br /> @sol.email</td>
+                <td>@sol.fecha_registro</td>
+                <td style="color:@vehiculo.color"><i class="@vehiculo.icono"></i> @vehiculo.tipo</td>
+                <td> <button class="btn btn-xs circle" style="color:white; background-color:@status.color">@status.nombre_status</button></td>
+
+                <td>
+                    <button class="btn btn-primary circle" onclick="VerInformacionRepartidor(@sol.id_repartidor)" data-toggle="modal" data-target="#m_info_repa"><i class="fa fa-bars"></i></button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,159 @@
+﻿@model IEnumerable<ZPIDI_PORTAL.Models.C_Delivery_Repartidores_Solicitud>
+@using System.Globalization;
+
+<form action="AfiliarRepartidor" method="POST" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <div class="modal-header">
+        <div style="width:30%;">
+            <button type="submit" class="btn btn-success circle">Guardar</button>
+            <label class="btn btn-danger circle" data-dismiss="modal">Descartar</label>
+        </div>
+        <button type="button" class="close btn btn-danger circle" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @foreach (var item in Model)
+    {
+        var status = item.C_Delivery_Repartidores_Status;
+        var vehiculo = item.C_Delivery_Repartidores_Vehiculos_Tipos;
+        string[] vehiculos = { "Motocicleta", "Bicicleta", "Automovil" };
+
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-3 text-center">
+                    <div style="height:80%;">
+                        <input type="number" name="id_solicitud" value="@item.id_solicitud_repartidor" hidden />
+                        <h6>Fecha de solicitud:</h6>
+                        <h5> @item.fecha_registro.Value.Date.ToString("d MMMM yyyy", CultureInfo.CreateSpecificCulture("es-MX"))</h5>
+                        <img width="150" src="@item.foto" /><br />
+                        <a class="text-uppercase fw-bold">CAMBIAR FOTO</a>
+                        <input type="file" name="foto" class="form-control mt-3" />
+                    </div>
+                    
+
+                    <div style="height:10%;">
+                        
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div @*class="px-4 pb-4"*@>
+                        <center><h3 class="text-uppercase mb-3" id="m_solicitud_d_aria">Afiliación</h3></center>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <label class="label-input">Nombre:</label>
+                                <div class="mb-3"><input type="text" name="nombres" class="form-control border-1" value="@item.nombre" placeholder="Nombre" required /></div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label class="label-input">Apellido Paterno:</label>
+                                        <input type="text" name="Apellido_pa" class="form-control border-1" value="@item.apellido_pat" placeholder="Apellido paterno" required />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="label-input">Apellido Materno:</label>
+                                        <input type="text" name="Apellido_ma" class="form-control border-1" value="@item.apellido_mat" placeholder="Apellido materno" required />
+                                    </div>
+                                    <div class="col-12 col-sm-12">
+                                        <div class="col-12 col-sm-12">
+                                            <div class="date" id="date" data-target-input="nearest">
+                                                <label class="label-input">Fecha nacimiento</label>
+                                                <input type="text" class="form-control border-1 datetimepicker-input" name="fecha_nat" required
+                                                       value="@item.fecha_na.Value.Date.ToString("dd/MM/yyyy", CultureInfo.CreateSpecificCulture("es-MX"))"
+                                                       placeholder="Fecha de nacimiento" data-target="#date" data-toggle="datetimepicker">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <label class="label-input">Usuario:</label>
+                                        <input type="text" name="Correo" class="form-control border-1" value="@item.email" required />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="label-input">Contraseña</label>
+                                        <input type="text" name="Password" class="form-control border-1" required />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="label-input">No. Cuenta</label>
+                                        <input type="text" name="no_cuenta" class="form-control border-1" />
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="label-input">Vehiculo</label>
+                                        <select id="select_vehiculo" class="form-control border-1" name="TipoVehiculo" required>
+                                            @for (int i = 0; i < vehiculos.Length; i++)
+                                            {
+                                                if (item.C_Delivery_Repartidores_Vehiculos_Tipos.tipo == vehiculos[i])
+                                                {
+                                                    <option value="@vehiculos[i]" selected>@vehiculos[i]</option> }
+                                                else
+                                                {
+                                                    <option value="@vehiculos[i]">@vehiculos[i]</option>}
+                                            }
+                                        </select>
+                                    </div>
+                                    @if (vehiculo.tipo == "Bicicleta")
+                                    {
+                                        <div class="col-md-6" style="display:none;">
+                                            <label class="label-input">No. Placas</label>
+                                            <input type="text" name="no_placas" class="form-control border-1" value=""/>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="col-md-6">
+                                            <label class="label-input">No. Placas</label>
+                                            <input type="text" name="no_placas" class="form-control border-1" value="@item.no_placa" />
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-left">
+                                @if (item.C_Delivery_Plataformas != null)
+                                {
+                                    <div>
+                                        <label class="label-input">Plataforma: @item.C_Delivery_Plataformas.nombre_plataforma</label>
+                                    </div>
+                                }
+
+                                <div>
+                                    <p class="label-input">Status: <span style="color:@status.color" class="font-weight-bold text-uppercase">@status.nombre_status</span></p>
+                                </div> 
+
+                                <label class="label-input">Genero:</label>
+                                <p>@item.sexo</p>
+
+                                <label class="label-input">Telefono:</label>
+                                <input type="number" name="telefono" class="form-control border-1" value="@item.telefono" required />
+
+                                <label class="label-input">Direccion:</label>
+                                <textarea class="form-control border-1" rows="4" name="Direccion" required>@item.direccion</textarea><br />
+
+                                <label class="label-input">Tipo de Vehiculo</label>
+                                <p style="color:@vehiculo.color">
+                                    @vehiculo.tipo  <i class="@vehiculo.icono"></i>
+
+                                @if (vehiculo.tipo == "Bicicleta")
+                                {
+                                    <div style="display:none;">
+                                        <label class="label-input">No. Licencia</label>
+                                        <input type="text" name="no_licencia" class="form-control border-1" value="" />
+                                    </div>
+                                }
+                                else
+                                {
+                                    <label class="label-input">No. Licencia</label>
+                                    <input type="text" name="no_licencia" class="form-control border-1" value="@item.no_licencia" />
+                                }
+
+                                <button class="btn btn-danger circle" onclick="RechazarSolicitud(@Model.FirstOrDefault().id_solicitud_repartidor)" data-dismiss="modal">Rechazar solicitud</button>
+                            </p>
+                            </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
+</form>
+
+

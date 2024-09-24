@@ -1,0 +1,3328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C6B9D729-06E4-47D1-899D-7CD2343849AE}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZPIDI_PORTAL</RootNamespace>
+    <AssemblyName>ZPIDI_PORTAL</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CATALOGOSController.cs" />
+    <Compile Include="Controllers\DELIVERYController.cs" />
+    <Compile Include="Controllers\LOGIN\USUARIOLOGINController.cs" />
+    <Compile Include="Controllers\MODULOSController.cs" />
+    <Compile Include="Controllers\MODULOS\ESTADOCUENTA_ZController.cs" />
+    <Compile Include="Controllers\MODULOS\TERMINOS_CONDICIONESController.cs" />
+    <Compile Include="Controllers\MONITORController.cs" />
+    <Compile Include="Controllers\NEGOCIOController.cs" />
+    <Compile Include="Controllers\ORDENESController.cs" />
+    <Compile Include="Controllers\PARAMETROSController.cs" />
+    <Compile Include="Controllers\PLATAFORMASController.cs" />
+    <Compile Include="Controllers\REPARTIDORController.cs" />
+    <Compile Include="Controllers\SOLICITUDESController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\CS_callcenter_cliente.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\CS_permisos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\CS_permisos_asignados.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\CS_roles.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\CS_sesiones_usuarios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\CS_usuarios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\CS_usuario_login.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_administrador_valores.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_administrador_valores_cobranza_movs.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_administrador_valores_d.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_administrador_valores_g.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_administrador_valores_status.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_agenda.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_agenda_d.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_agenda_status.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_agenda_tipo_actividad.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_almacenes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_almacen_insumos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_almacen_tipo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_APPCLIENT_BANNERS.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_APPCLIENT_CATEGORIAS_MENU.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_APPCLIENT_CLASIFICACIONES.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_APPCLIENT_CLIENTES.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_APPCLIENT_DIRECCIONES.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_APPCLIENT_IMAGENES_PRODUCTOS.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_APPCLIENT_NOTIFICACIONES.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_APPCLIENT_PEDIDOS.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_APPCLIENT_PRODUCTOS.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_APPCLIENT_PRODUCTOS_FAV.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_APPCLIENT_TIPOS_DIRECCIONES.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_APPCLIENT_TIPO_NOTIFICACIONES.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_APPEMP_BANNPROMOS.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_APPEMP_TOKENS.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_APPEMP_TOKENS_ESTATUS.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_APPEMP_TOKENS_PEDIDOS.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_autorizaciones_comercial.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_autorizaciones_comercial_d.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_autorizaciones_empleados_cobro.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_autorizaciones_responsables.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_autorizaciones_tipos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_autorizaciones_tipo_permiso_roles.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_autorizacion_acciones.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_autorizacion_mensajeria.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_autorizacion_motivos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_autorizacion_motivos_tracking.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_autorizacion_respuestas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_autorizacion_solicitudes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_autorizacion_tipo_permisos_nip.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_autorizacion_usuarios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_autorizadores_nip.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_beronna_clientes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_beronna_pedidos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_bonos_sucursales_d.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_bonos_sucursales_g.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_bonos_sucursales_g_roles.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_bo_almacen.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_backorder.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_bo_backorder_clicks_ajustes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_backorder_concentrado.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_backorder_concentrado_porcentajes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_backorder_concentrado_suc.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_backorder_criterios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_backorder_entregas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_backorder_entregas_gral.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_backorder_insumos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_backorder_log_cambios_entregas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_backorder_log_status.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_backorder_param_clasif.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_backorder_param_clasif_insumos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_backorder_param_entrega.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_backorder_param_especialidad.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_backorder_porcentajes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_backorder_porcentajes_proteccion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_backorder_porcentaje_prorrateo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_backorder_productos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_backorder_reemplazo_d.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_backorder_reemplazo_g.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_backorder_remplazos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_backorder_semanas_calculadas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_backorder_sucursales.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_backorder_sucursales_dias.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_backorder_tracking.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_bo_calculo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_bo_calculo_pe.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_desvios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_desvios_detalle.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_bo_diafestivo_ap.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_dias.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_bo_diasfestivos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_dias_anios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_dias_festivos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_dia_inicio.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_dia_inicio_detalle.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_bo_g.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_historico_detalle.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_historico_maestro.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_insumos_embalajes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_meses_tipo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_bo_mov_estatus.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_bo_mov_tipo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_bo_orden.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_bo_porc_df.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_rutas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_rutas_clasificaciones.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_rutas_sucursales.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_bo_semanas_anios_historicos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_bo_semanas_cat.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_bo_semanas_dias.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_bo_semanas_meses.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_bo_semanas_no_dias.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_bo_semanas_trans_c1.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_bo_semanas_trans_c3.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_bo_semanas_trans_f2.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_bo_semanas_trans_par.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_bo_semanas_trans_reg.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_bo_semanas_trans_rp.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_subrutas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_sucursales_dias_semana.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_bo_suc_ir.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_tipos_mes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_validador_parametro.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_VentasDiariasProducto.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_BO_ventas_estandar.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_cajas_cambio_turno.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_cajas_g.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_cajas_movimientos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_cajas_movimientos_cancelados.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_cajas_nombres.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_cajas_retiro_dias.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_cajas_retiro_valores.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_cajas_sucursales.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_cajas_sucursales_comercial.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_cajas_tipo_mov.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_cajas_tipo_mov_sucursales.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_caja_comercial_cambio_turno.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_caja_comercial_movimientos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_caja_usuario.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_catalogo_consecutivos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_catalogo_sn.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_catalogo_tamanos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_CFDI_CancelacionesFactura.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_CFDI_Cancelaciones_LOGS.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_CFDI_Clasi_Promos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_CFDI_Cliente.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_CFDI_Empresas_Datos_Fis.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_CFDI_Estados.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_CFDI_EstadosMunicipios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_CFDI_Estatus_Logs.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_CFDI_Facturas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_CFDI_Factura_Estatus.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_CFDI_Formas_Pago.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_cfdi_informacion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_CFDI_LOGS.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_CFDI_Marcas_Alias.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_CFDI_Municipios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_CFDI_Sucursales_CodigoPostal.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_CFDI_Sucursal_Consec.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_ciudades.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_ciudades_call.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_clientes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_clientes_direccion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_clientes_telefono.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_cobranza_corte_d.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_cobranza_corte_g.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_cobranza_movs.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_cobranza_tabulador.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_cobranza_tipo_movimientos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_cobranza_tipo_status.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_colonias_mx.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_comisiones_comercial.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_comisiones_productos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Compac_Departamentos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Compac_Departamentos_Sucursales.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Compac_Empleados_a_Procesar.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Compac_Puestos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_compras_destinos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_compras_estatus.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_compras_firmantes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_compras_hoja.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_compras_leyendas_condiciones.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_compras_mes_trans_c1.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_compras_mes_trans_c3.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_compras_mes_trans_f2.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_compras_mov_almacen.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_compras_orden.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_compras_orden_articulos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_compras_tipo_leyenda.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_conciliacion_cobro_d.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_conciliacion_cobro_g.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_costos_domicilio.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_cp_mexico.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_credito_distribuidor_empleados.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_credito_estatus_cuenta.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_credito_movimientos_wallet.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_credito_tipos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_cuenta_status.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Anios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_App.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Asignacion_Pedidos_Repartidores.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_a_new_register.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Calles.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Categorias.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Ciudad.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Clientes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Cliente_Direcciones.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Colonias.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Colonias_Tipo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Colores_Vehiculos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Comisiones.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Comision_Zpidi.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Conversations.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_CorreosTemplates.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Costo_Envio.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Domicilios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_empresas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Empresas_Categorias.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_empresas_logo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Empresas_Politicas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Estados.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_estatus_semaforo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_estatus_semaforo_alias.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_estatus_semaforo_log.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_fechas_nacimiento.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Generos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Img_Ingredientes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Img_Productos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Logos_App.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Marcas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Marca_Comision_Pagos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Marca_Empresas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Mensajes_Whatsapp.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Menuappbar.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Menuappbar_Modules.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Menuappbar_ModulesWeb.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Menuappbar_Perfil_Modulo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Menuappbar_SubModules.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Menuappbar_SubModules_Permisos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Negocios_Clientes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Negocios_Direcciones.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Negocios_Telefonos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Negocios_Telefonos_Clientes_Direcciones.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Negocios_Tracking_Status.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Notificacion_entregas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Notificacion_mensaje.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Notificacion_msg_auto.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Notificacion_tipo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_OrdenesPedidos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_OrdenesPedidosCancelados.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Ordenes_Bloqueo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Ordenes_Negocios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Ordenes_Pagos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Ordenes_Pagos_Formas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Ordenes_Tokens.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Ordenes_Tracking_Asignaciones.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_OrderDetail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Orders.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Pagos_Impuestos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Pagos_Plataformas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Pagos_Plataformas_Corte.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Pagos_Programados.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Pagos_Programados_Bancos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Pagos_Programados_Cuentas_Pago.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Pagos_Programados_Cuentas_Tipo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Pagos_Programados_Detalle.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Pagos_Programados_Detalle_Aclaracion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Pagos_Programados_Dispersion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Pagos_Programados_Dispersion_Plataformas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Pagos_Programados_Extraordinarios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Pagos_Programados_Motivos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Pagos_Programados_Tipos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Pagos_Repartidores.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Pagos_Servicio_Zpidi.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Pagos_Status.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Pagos_Tipos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Pais.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Pais_Impuestos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Pais_Moneda.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Parametros.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Params.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Perfiles.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Plataformas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Plataformas_Configuracion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Pool_Notificaciones.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Pool_Notificaciones_Alcance.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Pool_Notificaciones_Config.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Pool_Notificaciones_Frecuencia.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Pool_Notificaciones_Tipo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Pre_Orders.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Pronosticos_Pagos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Pronosticos_PagosDetail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Rate.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Reasons.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Repartidores.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_RepartidoresColonias.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Repartidores_Actualiza_Domicilio.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Repartidores_Cuentas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Repartidores_Disponibles.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Repartidores_Docs.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Repartidores_Documentacion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Repartidores_Documentacion_Tipo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Repartidores_Empresas_Sucursales.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Repartidores_Ordenes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Repartidores_Ordenes_Reportes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Repartidores_p.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Repartidores_Pagos_Conceptos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Repartidores_Solicitud.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Repartidores_Solicitudes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Repartidores_Status.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Repartidores_Ubicaciones.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Repartidores_Vehiculos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Repartidores_Vehiculos_Tipos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Repartidor_Vehiculo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Semaforo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Semanas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Servicios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Setup_Empresas_Suc_Ser_Plat.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Splash_Images.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_StartOrders.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Status.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Sucursales_Direcciones.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_sucursales_gps.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_TablaErrores.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_TipoCancelacion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Tipos_Cuotas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Trafico_Semaforos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Trafico_Tracking.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Trafico_Tracking_Log.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Usuarios_Imagen.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Usuarios_Sucursales.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Vehiculo_p.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Zonas_Cuadrantes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Zonas_Reparto.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Zonas_Reparto_Perimetros.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Delivery_Zona_Gps.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_descuentos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_dias_semana.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_direcciones.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_direcciones_3_.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_direcciones_mx.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_direcciones_sucursales.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_dvy_repartidores_dia_descanso.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_dvy_zonas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_dvy_zonas_repartidores.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_dvy_zonas_sucursales.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_empleados.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_empleados_cargos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_empleados_cargo_motivos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_empleados_estados.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_empleados_niveles.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_empleados_saldo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_empleados_team_card.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_empleados_tipo_sangre.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_empleados_tmp.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_empleados_visible.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_empresas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_empresas_servicios_contratados.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_empresas_sucursales.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_empresas_tipo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_encuestas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_encuestas_registro_d.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_encuestas_registro_g.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_encuestas_sucursal.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_encuesta_preguntas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_encuesta_preguntas_subcategoria.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_encuesta_respuestas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_encuesta_rol.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_entidades.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_equipo_sucursal.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_estados.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_estados_call.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_eventos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_facturas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_frases.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_grupo_aplica_operacion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_grupo_difusion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_grupo_productos_codigos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_grupo_productos_codigos_movs.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_grupo_productos_codigos_telefonos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_grupo_productos_d.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_grupo_productos_destino_social.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_grupo_productos_destino_telefonos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_grupo_productos_dias.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_grupo_productos_g.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_grupo_productos_marcas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_grupo_productos_prods.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_grupo_productos_subclases.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_grupo_productos_sucursales.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_grupo_productos_tipos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_guias.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_HD_area.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_HD_Categoria.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_HD_categorias_prioridades.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_HD_CorreosDepartamentos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_HD_departamentos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_HD_evidencia_reporte.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_HD_evidencia_solucion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_HD_evidencia_ticket.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_HD_grupos_especialistas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_HD_grupos_personas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_HD_modulos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_HD_modulos_sub.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_HD_modulos_sub_permisos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_HD_soluciones.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_HD_status_ticket.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_HD_subArea.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_HD_Ticket.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_HD_ticket_detalle.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_HD_tipo_vista.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_HD_usuario_tipo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_HD_usuario_tipo_roles.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_HD_valoracion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_horas_dia.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_impresion_cocina.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_impresion_log.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_impresion_parametros.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_impresion_sucursales.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_impresion_tipos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_impresion_tipo_marca.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_impresion_tipo_sucursal.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_impuestos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_impuesto_producto.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Indicadores_Tiempos_Estandar.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_insumos_criticos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_insumos_criticos_dias_inventario.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_insumos_criticos_tipos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_insumo_cat.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_insumo_cat_log_d.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_insumo_cat_log_g.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_insumo_clasificacion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_insumo_mov_log.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_insumo_mov_masivo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_insumo_mov_masivo_d.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_insumo_mov_status.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_insumo_mov_suc_d.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_insumo_mov_suc_g.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_insumo_presentacion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_insumo_subclasificacion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_insumo_sucursal.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_insumo_tipos_backorder.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_insumo_tipos_backorder_nombres.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_insumo_tipo_empaque.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_insumo_tipo_envase.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_insumo_tipo_inventario.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_insumo_tipo_mov.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_insumo_tipo_mov_clasificacion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_insumo_tipo_mov_clasificacion_marca.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_insumo_tipo_mov_rol.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_inventario_ingredientada.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_inventario_sucursal_tipo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_inventario_suc_d.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_inventario_suc_g.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_login_empleados.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_log_acciones.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_log_autorizaciones_nip.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_log_errores_sistema.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_log_modificaciones_g.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_log_pedidos_externos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_log_pedidos_repartidor.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_log_servicio_delivery.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_log_solicitudes_server.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_log_versiones.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_log_versiones_detalle.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_marcas_datos_fiscales.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_marcas_direcciones.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_marcas_g.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_marcas_sociedades.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_medios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_mensajeria.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_mensajeria_destinatarios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_menu.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_menu_secciones.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_mesas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_mesas_status.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_mesas_sucursales.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_mesa_tipo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_microsip_bajas_log.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_microsip_cambios_empleados.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_microsip_cambios_log.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_microsip_cambio_depa_cajeros_estatus.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_microsip_dptos_sucursales.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_microsip_empleados_cambio_depa_cajeros.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_microsip_empleados_no_registrados.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_microsip_puestos_roles.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_modulos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_modulos_sub.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_modulos_sub_permisos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_modulos_tipo_permisos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_municipios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_notificaciones_mensajes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_notificaciones_subtipos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_notificaciones_tipo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_pago_tipo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_paises.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_pantallas_web.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_parametros.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_parametros_configuracion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_parametros_empresa.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_parametros_marcas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_parametros_sucursales.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_parametro_ingredientadas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_pedidos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_pedidos_comercial.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_pedidos_comercial_d.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_pedidos_d.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_pedidos_descuentos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_pedidos_descuentos_comercial.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_pedidos_empleados.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_pedidos_productos_cancelados.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_pedidos_propinas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_pedidos_ticket_status.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_pedidos_tipo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_pedidos_vehiculo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_pedido_comercial_descuentos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_pedido_tiempo_recepcion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_plan_comercial.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_plan_comercial_d.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_plan_comercial_facturacion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_plan_comercial_facturacion_d.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_plan_comercial_productos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_plan_comercial_programacion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_pos_caja_cambioturno.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_pos_caja_cambioturno_insumos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_pos_caja_movs.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_preguntas_web.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_presentaciones.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_produccion_acciones_previas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_produccion_generada.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_produccion_generada_d.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_productos_cat.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_productos_cat_log_d.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_productos_cat_log_g.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_productos_clase.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_productos_especialidades.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_productos_marca.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_productos_plataforma_d.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_productos_plataforma_g.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_productos_precios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_productos_sucursal.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_producto_base_tipo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_producto_clasificacion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_producto_clasificacion_base.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_producto_presentacion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_producto_subclasificacion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_producto_tipo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_proveedores.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_rappi_log_tracking.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_rappi_ordenes_g.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_rappi_ordenes_pedidos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_rappi_parametros.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_rappi_productos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_rappi_sucursales.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_rappi_tipo_status.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_recepcion_pedido.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_recetas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_recetas_log_d.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Repartidores_Sucursales.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_roles_movimientos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_Semanas_Años.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_servicios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_servicios_modulos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_servicios_roles.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_servicios_sucursal.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_servicios_tipo_contrato.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_servicios_tipo_recoleccion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sociedades.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sociedades_empresas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_solicitudes_repartidor.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_solicitudes_repartidor_status.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_status_pedido_recepcion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_subrecetas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_subrecetas_d.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_subzonas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sucursales.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sucursales_colonias.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sucursales_config.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sucursales_credito.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sucursales_direcciones.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sucursales_estatus_credito.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sucursales_ip.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sucursales_marcas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sucursales_masterkey.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sucursales_pool_clasificaciones.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sucursales_pool_division_impresion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sucursales_pool_impresoras.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sucursales_preparadas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sucursales_razones.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sucursales_reparto.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sucursales_reparto_log.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sucursales_warmer.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sucursales_zonas_entregas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sucursal_status_motivo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_actas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_actas_diferencia.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_arqueos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_cajeros.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_cat_desglose_billetes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_cat_desglose_denominacion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_cat_desglose_monedas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_clientes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_cliente_servicios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_depositos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_deposito_billetes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_deposito_envases.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_deposito_monedas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_destinos_entrega.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_documentos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_empresa_servicios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_empresa_servicios_contratados.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_facturar_a.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_nominas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_nominas_billetes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_nominas_envases.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_nominas_monedas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_ordenes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_orden_billetes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_orden_envases.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_orden_monedas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_recepcion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_recepcion_billetes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_recepcion_monedas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_servicios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_sessiones_captura.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_terminales.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_tipo_moneda.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_tipo_nominacion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_sval_tipo_servicios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_tabla_d_puebas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_TA_Estatus_Transacciones.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_TA_LOGS.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_TA_Marcas_Comercio.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_TA_MatchTokens.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_TA_Pedidos_Transacciones.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_TA_Sucursales_Terminales.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_TA_Transacciones.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_team_card_movs.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_team_card_tipo_movs.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_telefonos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_tickets.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_tipos_codigo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_tipo_alertas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_tipo_alerta_rol.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_tipo_asentamientos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_tipo_cierre_comercial.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_tipo_entrega.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_tipo_logo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_tipo_logo_rol.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_tipo_recepcion_pedido.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_tipo_vista.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_token_parametros.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_tracking_status.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_tracking_status_log.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_tracking_tiempos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_tracking_tiempos_general.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_unidades_medida.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_usuarios_corporativo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_usuarios_delivery.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_usuarios_grupos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_usuarios_mesas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_usuarios_perfil_incentivos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_usuarios_perfil_incentivos_rangos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_usuarios_perfil_incentivos_roles.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_usuarios_roles.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_usuarios_roles_montos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_usuarios_roles_multi.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_usuarios_servicios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_usuarios_subzonas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_usuarios_sucursales.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_usuarios_sucursales_extra.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_usuarios_tipo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_usuarios_turnos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_usuarios_turnos_comercial.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_usuarios_zonas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_ventas_cierre_comercial_g.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_ventas_cierre_conceptos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_ventas_cierre_d.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_ventas_cierre_d1.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_ventas_cierre_d2.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_ventas_cierre_d3.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_ventas_cierre_d5.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_ventas_cierre_d6.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_ventas_cierre_d_cobros.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_ventas_cierre_d_cobros_nip.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_ventas_cierre_g.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_ventas_cierre_inventario.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_ventas_cierre_tipo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_ventas_cierre_transito.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_ventas_d.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_ventas_drop.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_ventas_drop_comercial.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_ventas_drop_parametros.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_ventas_g.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_ventas_i.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_ventas_pagos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_ventas_pagos_comercial.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_ventas_pedido_comercial.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_ventas_pedido_comercial_d.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_ventas_status.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_ventas_tipo.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_vex_plan_meta.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_vex_plan_meta_b1.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_vex_plan_meta_b2.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_vex_plan_meta_b3.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_vex_plan_meta_g.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_vex_plan_meta_mes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_vex_plan_meta_params.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_vex_plan_meta_segmento_semana.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_warmer_d.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_warmer_g.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_warmer_preparadas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_warmer_productos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_warmer_status.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_warmer_sucursales.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_web_log.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_zonas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_zonas_almacenaje.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_zonas_entrega.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_zonas_marcas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_zonas_plantas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_zonas_precio.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_zonas_sucursales.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\C_zona_almacen_suc.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\Delivery_61_Get_Trafico_Tracking_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\Delivery_61_Get_Trafico_Tracking_Rev1_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\ELMAH_Error.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\M_callcenter_clientes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\M_callcenter_clientes_adicionales.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\PruPedUno.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\P_encuesta_1.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\P_opciones.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\P_Usuarios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\sqlmapoutput.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\sysdiagrams.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\UserLevelPermissions.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataBase\UserLevels.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Login_Client.cs" />
+    <Compile Include="Models\ModulosUsuario.cs" />
+    <Compile Include="Models\PermisosUsuario.cs" />
+    <Compile Include="Models\SubmodulosUsuario.cs" />
+    <Compile Include="SimpleJson.cs" />
+    <Compile Include="Models\UsuarioLogin.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\select\select2.min.css" />
+    <Content Include="Content\images\layout_img\LogoLogin.jpg" />
+    <Content Include="Content\images\layout_img\LogoOficial.jpg" />
+    <Content Include="Content\images\layout_img\logo_go_motors.png" />
+    <Content Include="Content\ImgSolicitudes\Firma_Victor_Mascorro.jpg" />
+    <Content Include="Content\js\bootstrap-table-es-MX.js" />
+    <Content Include="Content\css\animate.css" />
+    <Content Include="Content\css\baguetteBox.min.css" />
+    <Content Include="Content\css\bootstrap-grid.css" />
+    <Content Include="Content\css\bootstrap-grid.min.css" />
+    <Content Include="Content\css\bootstrap-multiselect.css" />
+    <Content Include="Content\css\bootstrap-reboot.css" />
+    <Content Include="Content\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\css\bootstrap-select.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\calendar.css" />
+    <Content Include="Content\css\calendar.min.css" />
+    <Content Include="Content\css\color_2.css" />
+    <Content Include="Content\css\custom.css" />
+    <Content Include="Content\css\flaticon.css" />
+    <Content Include="Content\css\font-awesome.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\iziToast.min.css" />
+    <Content Include="Content\css\jquery.fancybox.css" />
+    <Content Include="Content\css\jquery.fancybox.min.css" />
+    <Content Include="Content\css\layout_img\bg1.png" />
+    <Content Include="Content\css\layout_img\error.png" />
+    <Content Include="Content\css\layout_img\map_icon.png" />
+    <Content Include="Content\css\layout_img\pattern.png" />
+    <Content Include="Content\css\layout_img\pattern_h.png" />
+    <Content Include="Content\css\layout_img\zpidi_logo.png" />
+    <Content Include="Content\css\owl.carousel.css" />
+    <Content Include="Content\css\perfect-scrollbar.css" />
+    <Content Include="Content\css\responsive.css" />
+    <Content Include="Content\css\semantic.min.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\css\buttons.bootstrap.css" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\css\buttons.bootstrap.min.css" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\css\buttons.bootstrap4.css" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\css\buttons.bootstrap4.min.css" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\css\buttons.bootstrap5.css" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\css\buttons.bootstrap5.min.css" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\css\buttons.bulma.css" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\css\buttons.bulma.min.css" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\css\buttons.dataTables.css" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\css\buttons.dataTables.min.css" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\css\buttons.foundation.css" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\css\buttons.foundation.min.css" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\css\buttons.jqueryui.css" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\css\buttons.jqueryui.min.css" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\css\buttons.semanticui.css" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\css\buttons.semanticui.min.css" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\js\buttons.bootstrap.js" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\js\buttons.bootstrap.min.js" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\js\buttons.bootstrap4.js" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\js\buttons.bootstrap4.min.js" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\js\buttons.bootstrap5.js" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\js\buttons.bootstrap5.min.js" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\js\buttons.bulma.js" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\js\buttons.bulma.min.js" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\js\buttons.colVis.js" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\js\buttons.colVis.min.js" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\js\buttons.dataTables.js" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\js\buttons.dataTables.min.js" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\js\buttons.foundation.js" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\js\buttons.foundation.min.js" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\js\buttons.html5.js" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\js\buttons.html5.min.js" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\js\buttons.jqueryui.js" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\js\buttons.jqueryui.min.js" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\js\buttons.print.js" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\js\buttons.print.min.js" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\js\buttons.semanticui.js" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\js\buttons.semanticui.min.js" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\js\dataTables.buttons.js" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\js\dataTables.buttons.min.js" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\css\dataTables.bootstrap.css" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\css\dataTables.bootstrap.min.css" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\css\dataTables.bootstrap4.css" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\css\dataTables.bootstrap4.min.css" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\css\dataTables.bootstrap5.css" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\css\dataTables.bootstrap5.min.css" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\css\dataTables.bulma.css" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\css\dataTables.bulma.min.css" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\css\dataTables.dataTables.css" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\css\dataTables.dataTables.min.css" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\css\dataTables.foundation.css" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\css\dataTables.foundation.min.css" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\css\dataTables.jqueryui.css" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\css\dataTables.jqueryui.min.css" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\css\dataTables.semanticui.css" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\css\dataTables.semanticui.min.css" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\css\jquery.dataTables.css" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\css\jquery.dataTables.min.css" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\images\sort_asc.png" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\images\sort_asc_disabled.png" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\images\sort_both.png" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\images\sort_desc.png" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\images\sort_desc_disabled.png" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\js\dataTables.bootstrap.js" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\js\dataTables.bootstrap.min.js" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\js\dataTables.bootstrap4.js" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\js\dataTables.bootstrap4.min.js" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\js\dataTables.bootstrap5.js" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\js\dataTables.bootstrap5.min.js" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\js\dataTables.bulma.js" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\js\dataTables.bulma.min.js" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\js\dataTables.dataTables.js" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\js\dataTables.dataTables.min.js" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\js\dataTables.foundation.js" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\js\dataTables.foundation.min.js" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\js\dataTables.jqueryui.js" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\js\dataTables.jqueryui.min.js" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\js\dataTables.semanticui.js" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\js\dataTables.semanticui.min.js" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\js\jquery.dataTables.js" />
+    <Content Include="Content\DataTable\DataTables-1.12.1\js\jquery.dataTables.min.js" />
+    <Content Include="Content\DataTable\datatables.css" />
+    <Content Include="Content\DataTable\datatables.js" />
+    <Content Include="Content\DataTable\datatables.min.css" />
+    <Content Include="Content\DataTable\datatables.min.js" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\css\fixedColumns.bootstrap.css" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\css\fixedColumns.bootstrap.min.css" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\css\fixedColumns.bootstrap4.css" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\css\fixedColumns.bootstrap4.min.css" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\css\fixedColumns.bootstrap5.css" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\css\fixedColumns.bootstrap5.min.css" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\css\fixedColumns.bulma.css" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\css\fixedColumns.bulma.min.css" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\css\fixedColumns.dataTables.css" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\css\fixedColumns.dataTables.min.css" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\css\fixedColumns.foundation.css" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\css\fixedColumns.foundation.min.css" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\css\fixedColumns.jqueryui.css" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\css\fixedColumns.jqueryui.min.css" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\css\fixedColumns.semanticui.css" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\css\fixedColumns.semanticui.min.css" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\js\dataTables.fixedColumns.js" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\js\dataTables.fixedColumns.min.js" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\js\fixedColumns.bootstrap.js" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\js\fixedColumns.bootstrap.min.js" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\js\fixedColumns.bootstrap4.js" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\js\fixedColumns.bootstrap4.min.js" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\js\fixedColumns.bootstrap5.js" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\js\fixedColumns.bootstrap5.min.js" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\js\fixedColumns.bulma.js" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\js\fixedColumns.bulma.min.js" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\js\fixedColumns.dataTables.js" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\js\fixedColumns.dataTables.min.js" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\js\fixedColumns.foundation.js" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\js\fixedColumns.foundation.min.js" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\js\fixedColumns.jqueryui.js" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\js\fixedColumns.jqueryui.min.js" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\js\fixedColumns.semanticui.js" />
+    <Content Include="Content\DataTable\FixedColumns-4.1.0\js\fixedColumns.semanticui.min.js" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\css\fixedHeader.bootstrap.css" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\css\fixedHeader.bootstrap.min.css" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\css\fixedHeader.bootstrap4.css" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\css\fixedHeader.bootstrap4.min.css" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\css\fixedHeader.bootstrap5.css" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\css\fixedHeader.bootstrap5.min.css" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\css\fixedHeader.bulma.css" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\css\fixedHeader.bulma.min.css" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\css\fixedHeader.dataTables.css" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\css\fixedHeader.dataTables.min.css" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\css\fixedHeader.foundation.css" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\css\fixedHeader.foundation.min.css" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\css\fixedHeader.jqueryui.css" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\css\fixedHeader.jqueryui.min.css" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\css\fixedHeader.semanticui.css" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\css\fixedHeader.semanticui.min.css" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\js\dataTables.fixedHeader.js" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\js\dataTables.fixedHeader.min.js" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\js\fixedHeader.bootstrap.js" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\js\fixedHeader.bootstrap.min.js" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\js\fixedHeader.bootstrap4.js" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\js\fixedHeader.bootstrap4.min.js" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\js\fixedHeader.bootstrap5.js" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\js\fixedHeader.bootstrap5.min.js" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\js\fixedHeader.bulma.js" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\js\fixedHeader.bulma.min.js" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\js\fixedHeader.dataTables.js" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\js\fixedHeader.dataTables.min.js" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\js\fixedHeader.foundation.js" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\js\fixedHeader.foundation.min.js" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\js\fixedHeader.jqueryui.js" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\js\fixedHeader.jqueryui.min.js" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\js\fixedHeader.semanticui.js" />
+    <Content Include="Content\DataTable\FixedHeader-3.2.4\js\fixedHeader.semanticui.min.js" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\css\keyTable.bootstrap.css" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\css\keyTable.bootstrap.min.css" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\css\keyTable.bootstrap4.css" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\css\keyTable.bootstrap4.min.css" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\css\keyTable.bootstrap5.css" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\css\keyTable.bootstrap5.min.css" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\css\keyTable.bulma.css" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\css\keyTable.bulma.min.css" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\css\keyTable.dataTables.css" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\css\keyTable.dataTables.min.css" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\css\keyTable.foundation.css" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\css\keyTable.foundation.min.css" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\css\keyTable.jqueryui.css" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\css\keyTable.jqueryui.min.css" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\css\keyTable.semanticui.css" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\css\keyTable.semanticui.min.css" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\js\dataTables.keyTable.js" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\js\dataTables.keyTable.min.js" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\js\keyTable.bootstrap.js" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\js\keyTable.bootstrap.min.js" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\js\keyTable.bootstrap4.js" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\js\keyTable.bootstrap4.min.js" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\js\keyTable.bootstrap5.js" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\js\keyTable.bootstrap5.min.js" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\js\keyTable.bulma.js" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\js\keyTable.bulma.min.js" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\js\keyTable.dataTables.js" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\js\keyTable.dataTables.min.js" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\js\keyTable.foundation.js" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\js\keyTable.foundation.min.js" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\js\keyTable.jqueryui.js" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\js\keyTable.jqueryui.min.js" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\js\keyTable.semanticui.js" />
+    <Content Include="Content\DataTable\KeyTable-2.7.0\js\keyTable.semanticui.min.js" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\css\responsive.bootstrap.css" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\css\responsive.bootstrap.min.css" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\css\responsive.bootstrap4.css" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\css\responsive.bootstrap4.min.css" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\css\responsive.bootstrap5.css" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\css\responsive.bootstrap5.min.css" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\css\responsive.bulma.css" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\css\responsive.bulma.min.css" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\css\responsive.dataTables.css" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\css\responsive.dataTables.min.css" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\css\responsive.foundation.css" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\css\responsive.foundation.min.css" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\css\responsive.jqueryui.css" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\css\responsive.jqueryui.min.css" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\css\responsive.semanticui.css" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\css\responsive.semanticui.min.css" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\js\dataTables.responsive.js" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\js\dataTables.responsive.min.js" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\js\responsive.bootstrap.js" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\js\responsive.bootstrap.min.js" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\js\responsive.bootstrap4.js" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\js\responsive.bootstrap4.min.js" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\js\responsive.bootstrap5.js" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\js\responsive.bootstrap5.min.js" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\js\responsive.bulma.js" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\js\responsive.bulma.min.js" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\js\responsive.dataTables.js" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\js\responsive.dataTables.min.js" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\js\responsive.foundation.js" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\js\responsive.foundation.min.js" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\js\responsive.jqueryui.js" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\js\responsive.jqueryui.min.js" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\js\responsive.semanticui.js" />
+    <Content Include="Content\DataTable\Responsive-2.3.0\js\responsive.semanticui.min.js" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\css\searchBuilder.bootstrap.css" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\css\searchBuilder.bootstrap.min.css" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\css\searchBuilder.bootstrap4.css" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\css\searchBuilder.bootstrap4.min.css" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\css\searchBuilder.bootstrap5.css" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\css\searchBuilder.bootstrap5.min.css" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\css\searchBuilder.bulma.css" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\css\searchBuilder.bulma.min.css" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\css\searchBuilder.dataTables.css" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\css\searchBuilder.dataTables.min.css" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\css\searchBuilder.foundation.css" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\css\searchBuilder.foundation.min.css" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\css\searchBuilder.jqueryui.css" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\css\searchBuilder.jqueryui.min.css" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\css\searchBuilder.semanticui.css" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\css\searchBuilder.semanticui.min.css" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\js\dataTables.searchBuilder.js" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\js\dataTables.searchBuilder.min.js" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\js\searchBuilder.bootstrap.js" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\js\searchBuilder.bootstrap.min.js" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\js\searchBuilder.bootstrap4.js" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\js\searchBuilder.bootstrap4.min.js" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\js\searchBuilder.bootstrap5.js" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\js\searchBuilder.bootstrap5.min.js" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\js\searchBuilder.bulma.js" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\js\searchBuilder.bulma.min.js" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\js\searchBuilder.dataTables.js" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\js\searchBuilder.dataTables.min.js" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\js\searchBuilder.foundation.js" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\js\searchBuilder.foundation.min.js" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\js\searchBuilder.jqueryui.js" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\js\searchBuilder.jqueryui.min.js" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\js\searchBuilder.semanticui.js" />
+    <Content Include="Content\DataTable\SearchBuilder-1.3.4\js\searchBuilder.semanticui.min.js" />
+    <Content Include="Content\DataTable\Select-1.4.0\css\select.bootstrap.css" />
+    <Content Include="Content\DataTable\Select-1.4.0\css\select.bootstrap.min.css" />
+    <Content Include="Content\DataTable\Select-1.4.0\css\select.bootstrap4.css" />
+    <Content Include="Content\DataTable\Select-1.4.0\css\select.bootstrap4.min.css" />
+    <Content Include="Content\DataTable\Select-1.4.0\css\select.bootstrap5.css" />
+    <Content Include="Content\DataTable\Select-1.4.0\css\select.bootstrap5.min.css" />
+    <Content Include="Content\DataTable\Select-1.4.0\css\select.bulma.css" />
+    <Content Include="Content\DataTable\Select-1.4.0\css\select.bulma.min.css" />
+    <Content Include="Content\DataTable\Select-1.4.0\css\select.dataTables.css" />
+    <Content Include="Content\DataTable\Select-1.4.0\css\select.dataTables.min.css" />
+    <Content Include="Content\DataTable\Select-1.4.0\css\select.foundation.css" />
+    <Content Include="Content\DataTable\Select-1.4.0\css\select.foundation.min.css" />
+    <Content Include="Content\DataTable\Select-1.4.0\css\select.jqueryui.css" />
+    <Content Include="Content\DataTable\Select-1.4.0\css\select.jqueryui.min.css" />
+    <Content Include="Content\DataTable\Select-1.4.0\css\select.semanticui.css" />
+    <Content Include="Content\DataTable\Select-1.4.0\css\select.semanticui.min.css" />
+    <Content Include="Content\DataTable\Select-1.4.0\js\dataTables.select.js" />
+    <Content Include="Content\DataTable\Select-1.4.0\js\dataTables.select.min.js" />
+    <Content Include="Content\DataTable\Select-1.4.0\js\select.bootstrap.js" />
+    <Content Include="Content\DataTable\Select-1.4.0\js\select.bootstrap.min.js" />
+    <Content Include="Content\DataTable\Select-1.4.0\js\select.bootstrap4.js" />
+    <Content Include="Content\DataTable\Select-1.4.0\js\select.bootstrap4.min.js" />
+    <Content Include="Content\DataTable\Select-1.4.0\js\select.bootstrap5.js" />
+    <Content Include="Content\DataTable\Select-1.4.0\js\select.bootstrap5.min.js" />
+    <Content Include="Content\DataTable\Select-1.4.0\js\select.bulma.js" />
+    <Content Include="Content\DataTable\Select-1.4.0\js\select.bulma.min.js" />
+    <Content Include="Content\DataTable\Select-1.4.0\js\select.dataTables.js" />
+    <Content Include="Content\DataTable\Select-1.4.0\js\select.dataTables.min.js" />
+    <Content Include="Content\DataTable\Select-1.4.0\js\select.foundation.js" />
+    <Content Include="Content\DataTable\Select-1.4.0\js\select.foundation.min.js" />
+    <Content Include="Content\DataTable\Select-1.4.0\js\select.jqueryui.js" />
+    <Content Include="Content\DataTable\Select-1.4.0\js\select.jqueryui.min.js" />
+    <Content Include="Content\DataTable\Select-1.4.0\js\select.semanticui.js" />
+    <Content Include="Content\DataTable\Select-1.4.0\js\select.semanticui.min.js" />
+    <Content Include="Content\fonts\flaticon.css" />
+    <Content Include="Content\fonts\flaticon.html" />
+    <Content Include="Content\fonts\Flaticon.svg" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\images\layout_img\bg1.png" />
+    <Content Include="Content\images\layout_img\ciudadf.jpg" />
+    <Content Include="Content\images\layout_img\ciudad_2.jpg" />
+    <Content Include="Content\images\layout_img\deliverymen.jpg" />
+    <Content Include="Content\images\layout_img\error.png" />
+    <Content Include="Content\images\layout_img\pattern.png" />
+    <Content Include="Content\images\layout_img\pattern_h.png" />
+    <Content Include="Content\images\layout_img\map_icon.png" />
+    <Content Include="Content\images\right_arrow.png" />
+    <Content Include="Content\js\analyser.js" />
+    <Content Include="Content\js\animate.js" />
+    <Content Include="Content\js\bootstrap-multiselect.js" />
+    <Content Include="Content\js\bootstrap-select.js" />
+    <Content Include="Content\js\bootstrap-table-contextmenu.js" />
+    <Content Include="Content\js\bootstrap-table.js" />
+    <Content Include="Content\js\bootstrap-table.min.js" />
+    <Content Include="Content\js\bootstrap.bundle.js" />
+    <Content Include="Content\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\js\bootstrap.js" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\calendar.js" />
+    <Content Include="Content\js\calendar.min.js" />
+    <Content Include="Content\js\Chart.bundle.js" />
+    <Content Include="Content\js\Chart.bundle.min.js" />
+    <Content Include="Content\js\Chart.js" />
+    <Content Include="Content\js\Chart.min.js" />
+    <Content Include="Content\js\chart_custom_style1.js" />
+    <Content Include="Content\js\chart_custom_style2.js" />
+    <Content Include="Content\js\custom.js" />
+    <Content Include="Content\js\custom_chart.js" />
+    <Content Include="Content\js\DataTable\buttons.bootstrap.min.css" />
+    <Content Include="Content\js\DataTable\buttons.bootstrap.min.js" />
+    <Content Include="Content\js\DataTable\buttons.html5.min.js" />
+    <Content Include="Content\js\DataTable\buttons.print.min.js" />
+    <Content Include="Content\js\DataTable\dataTables.bootstrap.js" />
+    <Content Include="Content\js\DataTable\dataTables.buttons.min.js" />
+    <Content Include="Content\js\DataTable\dataTables.fixedHeader.min.js" />
+    <Content Include="Content\js\DataTable\dataTables.keyTable.min.js" />
+    <Content Include="Content\js\DataTable\dataTables.responsive.min.js" />
+    <Content Include="Content\js\DataTable\dataTables.scroller.min.js" />
+    <Content Include="Content\js\DataTable\fixedHeader.bootstrap.min.css" />
+    <Content Include="Content\js\DataTable\jquery.dataTables.min.css" />
+    <Content Include="Content\js\DataTable\jquery.dataTables.min.js" />
+    <Content Include="Content\js\DataTable\jszip.min.js" />
+    <Content Include="Content\js\DataTable\pdfmake.min.js" />
+    <Content Include="Content\js\DataTable\responsive.bootstrap.min.css" />
+    <Content Include="Content\js\DataTable\responsive.bootstrap.min.js" />
+    <Content Include="Content\js\DataTable\scroller.bootstrap.min.css" />
+    <Content Include="Content\js\DataTable\vfs_fonts.js" />
+    <Content Include="Content\js\iziToast.min.js" />
+    <Content Include="Content\js\jquery-3.3.1.min.js" />
+    <Content Include="Content\js\jquery.fancybox.js" />
+    <Content Include="Content\js\jquery.fancybox.min.js" />
+    <Content Include="Content\js\jquery.min.js" />
+    <Content Include="Content\js\owl.carousel.js" />
+    <Content Include="Content\js\perfect-scrollbar.min.js" />
+    <Content Include="Content\js\popper.min.js" />
+    <Content Include="Content\js\select\select2.full.js" />
+    <Content Include="Content\js\semantic.min.js" />
+    <Content Include="Content\js\settings.html" />
+    <Content Include="Content\js\utils.js" />
+    <Content Include="Content\modules\zingchart-3d.min.js" />
+    <Content Include="Content\modules\zingchart-animation.min.js" />
+    <Content Include="Content\modules\zingchart-api-annotations.min.js" />
+    <Content Include="Content\modules\zingchart-api-rules.min.js" />
+    <Content Include="Content\modules\zingchart-api.min.js" />
+    <Content Include="Content\modules\zingchart-area.min.js" />
+    <Content Include="Content\modules\zingchart-area3d.min.js" />
+    <Content Include="Content\modules\zingchart-boxplot.min.js" />
+    <Content Include="Content\modules\zingchart-bubble.min.js" />
+    <Content Include="Content\modules\zingchart-bubblepie.min.js" />
+    <Content Include="Content\modules\zingchart-calendar.min.js" />
+    <Content Include="Content\modules\zingchart-chord.min.js" />
+    <Content Include="Content\modules\zingchart-core.min.js" />
+    <Content Include="Content\modules\zingchart-csv.min.js" />
+    <Content Include="Content\modules\zingchart-debug.min.js" />
+    <Content Include="Content\modules\zingchart-dragging.min.js" />
+    <Content Include="Content\modules\zingchart-errorbars.min.js" />
+    <Content Include="Content\modules\zingchart-export.min.js" />
+    <Content Include="Content\modules\zingchart-gauge.min.js" />
+    <Content Include="Content\modules\zingchart-grid.min.js" />
+    <Content Include="Content\modules\zingchart-guide.min.js" />
+    <Content Include="Content\modules\zingchart-hbar.min.js" />
+    <Content Include="Content\modules\zingchart-hbar3d.min.js" />
+    <Content Include="Content\modules\zingchart-hbubble.min.js" />
+    <Content Include="Content\modules\zingchart-hbullet.min.js" />
+    <Content Include="Content\modules\zingchart-hfunnel.min.js" />
+    <Content Include="Content\modules\zingchart-history.min.js" />
+    <Content Include="Content\modules\zingchart-hscatter.min.js" />
+    <Content Include="Content\modules\zingchart-legend.min.js" />
+    <Content Include="Content\modules\zingchart-line.min.js" />
+    <Content Include="Content\modules\zingchart-line3d.min.js" />
+    <Content Include="Content\modules\zingchart-maps-afg.min.js" />
+    <Content Include="Content\modules\zingchart-maps-ago.min.js" />
+    <Content Include="Content\modules\zingchart-maps-alb.min.js" />
+    <Content Include="Content\modules\zingchart-maps-and.min.js" />
+    <Content Include="Content\modules\zingchart-maps-are.min.js" />
+    <Content Include="Content\modules\zingchart-maps-arg.min.js" />
+    <Content Include="Content\modules\zingchart-maps-arm.min.js" />
+    <Content Include="Content\modules\zingchart-maps-aus.min.js" />
+    <Content Include="Content\modules\zingchart-maps-aut.min.js" />
+    <Content Include="Content\modules\zingchart-maps-aze.min.js" />
+    <Content Include="Content\modules\zingchart-maps-bdi.min.js" />
+    <Content Include="Content\modules\zingchart-maps-bel.min.js" />
+    <Content Include="Content\modules\zingchart-maps-ben.min.js" />
+    <Content Include="Content\modules\zingchart-maps-bfa.min.js" />
+    <Content Include="Content\modules\zingchart-maps-bgr.min.js" />
+    <Content Include="Content\modules\zingchart-maps-bih.min.js" />
+    <Content Include="Content\modules\zingchart-maps-blr.min.js" />
+    <Content Include="Content\modules\zingchart-maps-bol.min.js" />
+    <Content Include="Content\modules\zingchart-maps-bra.min.js" />
+    <Content Include="Content\modules\zingchart-maps-brn.min.js" />
+    <Content Include="Content\modules\zingchart-maps-btn.min.js" />
+    <Content Include="Content\modules\zingchart-maps-bwa.min.js" />
+    <Content Include="Content\modules\zingchart-maps-caf.min.js" />
+    <Content Include="Content\modules\zingchart-maps-can.min.js" />
+    <Content Include="Content\modules\zingchart-maps-che.min.js" />
+    <Content Include="Content\modules\zingchart-maps-chl.min.js" />
+    <Content Include="Content\modules\zingchart-maps-chn.min.js" />
+    <Content Include="Content\modules\zingchart-maps-civ.min.js" />
+    <Content Include="Content\modules\zingchart-maps-cmr.min.js" />
+    <Content Include="Content\modules\zingchart-maps-cod.min.js" />
+    <Content Include="Content\modules\zingchart-maps-cog.min.js" />
+    <Content Include="Content\modules\zingchart-maps-col.min.js" />
+    <Content Include="Content\modules\zingchart-maps-cri.min.js" />
+    <Content Include="Content\modules\zingchart-maps-cub.min.js" />
+    <Content Include="Content\modules\zingchart-maps-cyp.min.js" />
+    <Content Include="Content\modules\zingchart-maps-cze.min.js" />
+    <Content Include="Content\modules\zingchart-maps-deu.min.js" />
+    <Content Include="Content\modules\zingchart-maps-dnk.min.js" />
+    <Content Include="Content\modules\zingchart-maps-ecu.min.js" />
+    <Content Include="Content\modules\zingchart-maps-egy.min.js" />
+    <Content Include="Content\modules\zingchart-maps-esp.min.js" />
+    <Content Include="Content\modules\zingchart-maps-espL2.min.js" />
+    <Content Include="Content\modules\zingchart-maps-est.min.js" />
+    <Content Include="Content\modules\zingchart-maps-eth.min.js" />
+    <Content Include="Content\modules\zingchart-maps-fin.min.js" />
+    <Content Include="Content\modules\zingchart-maps-fra.min.js" />
+    <Content Include="Content\modules\zingchart-maps-fraL2.min.js" />
+    <Content Include="Content\modules\zingchart-maps-gab.min.js" />
+    <Content Include="Content\modules\zingchart-maps-gbr.min.js" />
+    <Content Include="Content\modules\zingchart-maps-gbrL2.min.js" />
+    <Content Include="Content\modules\zingchart-maps-geojson.min.js" />
+    <Content Include="Content\modules\zingchart-maps-gha.min.js" />
+    <Content Include="Content\modules\zingchart-maps-gmb.min.js" />
+    <Content Include="Content\modules\zingchart-maps-gnb.min.js" />
+    <Content Include="Content\modules\zingchart-maps-grc.min.js" />
+    <Content Include="Content\modules\zingchart-maps-gtm.min.js" />
+    <Content Include="Content\modules\zingchart-maps-guf.min.js" />
+    <Content Include="Content\modules\zingchart-maps-guy.min.js" />
+    <Content Include="Content\modules\zingchart-maps-hrv.min.js" />
+    <Content Include="Content\modules\zingchart-maps-hun.min.js" />
+    <Content Include="Content\modules\zingchart-maps-ind.min.js" />
+    <Content Include="Content\modules\zingchart-maps-irl.min.js" />
+    <Content Include="Content\modules\zingchart-maps-irn.min.js" />
+    <Content Include="Content\modules\zingchart-maps-isl.min.js" />
+    <Content Include="Content\modules\zingchart-maps-isr.min.js" />
+    <Content Include="Content\modules\zingchart-maps-ita.min.js" />
+    <Content Include="Content\modules\zingchart-maps-jpn.min.js" />
+    <Content Include="Content\modules\zingchart-maps-kaz.min.js" />
+    <Content Include="Content\modules\zingchart-maps-ken.min.js" />
+    <Content Include="Content\modules\zingchart-maps-kor.min.js" />
+    <Content Include="Content\modules\zingchart-maps-kwt.min.js" />
+    <Content Include="Content\modules\zingchart-maps-lao.min.js" />
+    <Content Include="Content\modules\zingchart-maps-lbr.min.js" />
+    <Content Include="Content\modules\zingchart-maps-lie.min.js" />
+    <Content Include="Content\modules\zingchart-maps-ltu.min.js" />
+    <Content Include="Content\modules\zingchart-maps-lux.min.js" />
+    <Content Include="Content\modules\zingchart-maps-lva.min.js" />
+    <Content Include="Content\modules\zingchart-maps-mda.min.js" />
+    <Content Include="Content\modules\zingchart-maps-mex.min.js" />
+    <Content Include="Content\modules\zingchart-maps-mkd.min.js" />
+    <Content Include="Content\modules\zingchart-maps-mne.min.js" />
+    <Content Include="Content\modules\zingchart-maps-moz.min.js" />
+    <Content Include="Content\modules\zingchart-maps-nam.min.js" />
+    <Content Include="Content\modules\zingchart-maps-ncl.min.js" />
+    <Content Include="Content\modules\zingchart-maps-nga.min.js" />
+    <Content Include="Content\modules\zingchart-maps-nld.min.js" />
+    <Content Include="Content\modules\zingchart-maps-nor.min.js" />
+    <Content Include="Content\modules\zingchart-maps-nzl.min.js" />
+    <Content Include="Content\modules\zingchart-maps-omn.min.js" />
+    <Content Include="Content\modules\zingchart-maps-pak.min.js" />
+    <Content Include="Content\modules\zingchart-maps-pan.min.js" />
+    <Content Include="Content\modules\zingchart-maps-per.min.js" />
+    <Content Include="Content\modules\zingchart-maps-phl.min.js" />
+    <Content Include="Content\modules\zingchart-maps-png.min.js" />
+    <Content Include="Content\modules\zingchart-maps-pol.min.js" />
+    <Content Include="Content\modules\zingchart-maps-prt.min.js" />
+    <Content Include="Content\modules\zingchart-maps-qat.min.js" />
+    <Content Include="Content\modules\zingchart-maps-rou.min.js" />
+    <Content Include="Content\modules\zingchart-maps-rus.min.js" />
+    <Content Include="Content\modules\zingchart-maps-rwa.min.js" />
+    <Content Include="Content\modules\zingchart-maps-sen.min.js" />
+    <Content Include="Content\modules\zingchart-maps-slv.min.js" />
+    <Content Include="Content\modules\zingchart-maps-srb.min.js" />
+    <Content Include="Content\modules\zingchart-maps-sur.min.js" />
+    <Content Include="Content\modules\zingchart-maps-svk.min.js" />
+    <Content Include="Content\modules\zingchart-maps-svn.min.js" />
+    <Content Include="Content\modules\zingchart-maps-swe.min.js" />
+    <Content Include="Content\modules\zingchart-maps-tha.min.js" />
+    <Content Include="Content\modules\zingchart-maps-tjk.min.js" />
+    <Content Include="Content\modules\zingchart-maps-topojson.min.js" />
+    <Content Include="Content\modules\zingchart-maps-tun.min.js" />
+    <Content Include="Content\modules\zingchart-maps-tur.min.js" />
+    <Content Include="Content\modules\zingchart-maps-twn.min.js" />
+    <Content Include="Content\modules\zingchart-maps-uga.min.js" />
+    <Content Include="Content\modules\zingchart-maps-ukr.min.js" />
+    <Content Include="Content\modules\zingchart-maps-ury.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_ak.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_al.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_ar.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_az.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_ca.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_co.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_ct.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_dc.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_de.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_fl.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_ga.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_hi.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_ia.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_id.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_il.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_in.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_ks.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_ky.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_la.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_ma.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_md.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_me.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_mi.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_mn.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_mo.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_ms.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_mt.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_nc.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_nd.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_ne.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_nh.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_nj.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_nm.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_nv.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_ny.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_oh.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_ok.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_or.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_pa.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_ri.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_sc.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_sd.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_tn.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_tx.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_ut.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_va.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_vt.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_wa.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_wi.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_wv.min.js" />
+    <Content Include="Content\modules\zingchart-maps-usa_wy.min.js" />
+    <Content Include="Content\modules\zingchart-maps-uzb.min.js" />
+    <Content Include="Content\modules\zingchart-maps-ven.min.js" />
+    <Content Include="Content\modules\zingchart-maps-vnm.min.js" />
+    <Content Include="Content\modules\zingchart-maps-world-continents.min.js" />
+    <Content Include="Content\modules\zingchart-maps-world-countries.min.js" />
+    <Content Include="Content\modules\zingchart-maps-yem.min.js" />
+    <Content Include="Content\modules\zingchart-maps-zaf.min.js" />
+    <Content Include="Content\modules\zingchart-maps-zmb.min.js" />
+    <Content Include="Content\modules\zingchart-maps-zwe.min.js" />
+    <Content Include="Content\modules\zingchart-maps.min.js" />
+    <Content Include="Content\modules\zingchart-navpie.min.js" />
+    <Content Include="Content\modules\zingchart-nestedpie.min.js" />
+    <Content Include="Content\modules\zingchart-objects.min.js" />
+    <Content Include="Content\modules\zingchart-pareto.min.js" />
+    <Content Include="Content\modules\zingchart-patterns.min.js" />
+    <Content Include="Content\modules\zingchart-piano.min.js" />
+    <Content Include="Content\modules\zingchart-pie.min.js" />
+    <Content Include="Content\modules\zingchart-pie3d.min.js" />
+    <Content Include="Content\modules\zingchart-populationpyramid.min.js" />
+    <Content Include="Content\modules\zingchart-preview.min.js" />
+    <Content Include="Content\modules\zingchart-r.min.js" />
+    <Content Include="Content\modules\zingchart-radar.min.js" />
+    <Content Include="Content\modules\zingchart-range.min.js" />
+    <Content Include="Content\modules\zingchart-rankflow.min.js" />
+    <Content Include="Content\modules\zingchart-refresh.min.js" />
+    <Content Include="Content\modules\zingchart-scalemarkers.min.js" />
+    <Content Include="Content\modules\zingchart-scatter.min.js" />
+    <Content Include="Content\modules\zingchart-scroll.min.js" />
+    <Content Include="Content\modules\zingchart-selection-tool.min.js" />
+    <Content Include="Content\modules\zingchart-selection.min.js" />
+    <Content Include="Content\modules\zingchart-stock.min.js" />
+    <Content Include="Content\modules\zingchart-stream.min.js" />
+    <Content Include="Content\modules\zingchart-svg-simple-selection.min.js" />
+    <Content Include="Content\modules\zingchart-toolbar3d.min.js" />
+    <Content Include="Content\modules\zingchart-tooltip.min.js" />
+    <Content Include="Content\modules\zingchart-treemap.min.js" />
+    <Content Include="Content\modules\zingchart-varea.min.js" />
+    <Content Include="Content\modules\zingchart-vbar.min.js" />
+    <Content Include="Content\modules\zingchart-vbar3d.min.js" />
+    <Content Include="Content\modules\zingchart-vbullet.min.js" />
+    <Content Include="Content\modules\zingchart-venn.min.js" />
+    <Content Include="Content\modules\zingchart-vfunnel.min.js" />
+    <Content Include="Content\modules\zingchart-vline.min.js" />
+    <Content Include="Content\modules\zingchart-waterfall.min.js" />
+    <Content Include="Content\modules\zingchart-wordcloud.min.js" />
+    <Content Include="Content\modules\zingchart-xy.min.js" />
+    <Content Include="Content\modules\zingchart-yx.min.js" />
+    <Content Include="Content\modules\zingchart-zoom.min.js" />
+    <Content Include="Content\PublicTemplate\css\bootstrap.min.css" />
+    <Content Include="Content\PublicTemplate\css\style.css" />
+    <Content Include="Content\PublicTemplate\img\repa_1.jpg" />
+    <Content Include="Content\PublicTemplate\img\zpidi_logo.png" />
+    <Content Include="Content\PublicTemplate\js\main.js" />
+    <Content Include="Content\PublicTemplate\lib\easing\easing.js" />
+    <Content Include="Content\PublicTemplate\lib\easing\easing.min.js" />
+    <Content Include="Content\PublicTemplate\lib\isotope\isotope.pkgd.js" />
+    <Content Include="Content\PublicTemplate\lib\isotope\isotope.pkgd.min.js" />
+    <Content Include="Content\PublicTemplate\lib\lightbox\css\lightbox.css" />
+    <Content Include="Content\PublicTemplate\lib\lightbox\css\lightbox.min.css" />
+    <Content Include="Content\PublicTemplate\lib\lightbox\images\close.png" />
+    <Content Include="Content\PublicTemplate\lib\lightbox\images\loading.gif" />
+    <Content Include="Content\PublicTemplate\lib\lightbox\images\next.png" />
+    <Content Include="Content\PublicTemplate\lib\lightbox\images\prev.png" />
+    <Content Include="Content\PublicTemplate\lib\lightbox\js\lightbox.js" />
+    <Content Include="Content\PublicTemplate\lib\lightbox\js\lightbox.min.js" />
+    <Content Include="Content\PublicTemplate\lib\lightbox\links.php" />
+    <Content Include="Content\PublicTemplate\lib\owlcarousel\assets\ajax-loader.gif" />
+    <Content Include="Content\PublicTemplate\lib\owlcarousel\assets\owl.carousel.css" />
+    <Content Include="Content\PublicTemplate\lib\owlcarousel\assets\owl.carousel.min.css" />
+    <Content Include="Content\PublicTemplate\lib\owlcarousel\assets\owl.theme.default.css" />
+    <Content Include="Content\PublicTemplate\lib\owlcarousel\assets\owl.theme.default.min.css" />
+    <Content Include="Content\PublicTemplate\lib\owlcarousel\assets\owl.theme.green.css" />
+    <Content Include="Content\PublicTemplate\lib\owlcarousel\assets\owl.theme.green.min.css" />
+    <Content Include="Content\PublicTemplate\lib\owlcarousel\assets\owl.video.play.png" />
+    <Content Include="Content\PublicTemplate\lib\owlcarousel\owl.carousel.js" />
+    <Content Include="Content\PublicTemplate\lib\owlcarousel\owl.carousel.min.js" />
+    <Content Include="Content\PublicTemplate\lib\tempusdominus\css\tempusdominus-bootstrap-4.css" />
+    <Content Include="Content\PublicTemplate\lib\tempusdominus\css\tempusdominus-bootstrap-4.min.css" />
+    <Content Include="Content\PublicTemplate\lib\tempusdominus\js\moment-timezone.min.js" />
+    <Content Include="Content\PublicTemplate\lib\tempusdominus\js\moment.min.js" />
+    <Content Include="Content\PublicTemplate\lib\tempusdominus\js\tempusdominus-bootstrap-4.js" />
+    <Content Include="Content\PublicTemplate\lib\tempusdominus\js\tempusdominus-bootstrap-4.min.js" />
+    <Content Include="Content\PublicTemplate\lib\waypoints\links.php" />
+    <Content Include="Content\PublicTemplate\lib\waypoints\waypoints.min.js" />
+    <Content Include="Content\style.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Models\DataBase\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DataBase\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\css\bootstrap-grid.css.map" />
+    <Content Include="Content\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\css\bootstrap.css.map" />
+    <Content Include="Content\css\bootstrap.min.css.map" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\css\common.scss" />
+    <Content Include="Content\DataTable\Buttons-2.2.3\css\mixins.scss" />
+    <Content Include="Content\fonts\Flaticon.eot" />
+    <Content Include="Content\fonts\Flaticon.ttf" />
+    <Content Include="Content\fonts\Flaticon.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\fonts\_flaticon.scss" />
+    <Content Include="Content\images\.DS_Store" />
+    <Content Include="Content\js\bootstrap.bundle.js.map" />
+    <Content Include="Content\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Content\js\bootstrap.js.map" />
+    <Content Include="Content\js\bootstrap.min.js.map" />
+    <Content Include="Content\modules\.DS_Store" />
+    <Content Include="Content\PublicTemplate\lib\owlcarousel\LICENSE" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\bootstrap-grid.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\bootstrap-reboot.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\bootstrap-utilities.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\bootstrap.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\forms\_floating-labels.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\forms\_form-check.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\forms\_form-control.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\forms\_form-range.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\forms\_form-select.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\forms\_form-text.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\forms\_input-group.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\forms\_labels.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\forms\_validation.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\helpers\_clearfix.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\helpers\_colored-links.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\helpers\_position.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\helpers\_ratio.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\helpers\_stretched-link.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\helpers\_text-truncation.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\helpers\_visually-hidden.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\mixins\_alert.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\mixins\_border-radius.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\mixins\_box-shadow.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\mixins\_breakpoints.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\mixins\_buttons.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\mixins\_caret.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\mixins\_clearfix.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\mixins\_color-scheme.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\mixins\_container.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\mixins\_deprecate.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\mixins\_forms.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\mixins\_gradients.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\mixins\_grid.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\mixins\_image.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\mixins\_list-group.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\mixins\_lists.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\mixins\_pagination.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\mixins\_reset-text.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\mixins\_resize.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\mixins\_table-variants.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\mixins\_text-truncate.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\mixins\_transition.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\mixins\_utilities.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\mixins\_visually-hidden.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\utilities\_api.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\vendor\_rfs.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_accordion.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_alert.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_badge.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_breadcrumb.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_button-group.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_buttons.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_card.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_carousel.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_close.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_containers.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_dropdown.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_forms.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_functions.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_grid.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_helpers.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_images.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_list-group.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_mixins.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_modal.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_nav.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_navbar.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_offcanvas.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_pagination.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_popover.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_progress.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_reboot.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_root.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_spinners.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_tables.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_toasts.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_tooltip.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_transitions.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_type.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_utilities.scss" />
+    <Content Include="Content\PublicTemplate\scss\bootstrap\scss\_variables.scss" />
+    <Content Include="Content\images\layout_img\.DS_Store" />
+    <Content Include="Content\css\layout_img\.DS_Store" />
+    <EntityDeploy Include="Models\DataBase\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DataBase\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Public_Page\MainLayout.cshtml" />
+    <Content Include="Views\Public_Page\Registro\RegistroSolicitudRepartidor.cshtml" />
+    <Content Include="Views\Admin_Page\Solicitudes\Admin_Solicitudes.cshtml" />
+    <Content Include="Views\Admin_Page\Solicitudes\_SolicitudesTable.cshtml" />
+    <Content Include="Views\Admin_Page\Solicitudes\_Solicitud_Detalle.cshtml" />
+    <Content Include="Views\Admin_Page\Solicitudes\_Solicitud_DetalleLeida.cshtml" />
+    <Content Include="Views\Admin_Page\Solicitudes\_RepartidoresTable.cshtml" />
+    <Content Include="Views\Admin_Page\Solicitudes\_RepartidoresInfo.cshtml" />
+    <Content Include="Views\Admin_Page\MainLayoutAdmin.cshtml" />
+    <Content Include="Views\Admin_Page\Login\LoginIndex.cshtml" />
+    <Content Include="Views\Admin_Page\ErrrorViewAdmin.cshtml" />
+    <Content Include="Views\Admin_Page\Home\Index.cshtml" />
+    <Content Include="Views\Admin_Page\_ModulosMenu.cshtml" />
+    <Content Include="Views\Admin_Page\DefaultView.cshtml" />
+    <Content Include="Views\Admin_Page\MonitorRepartidores\Index.cshtml" />
+    <Content Include="Views\Admin_Page\Repartidores\RepartidoresTiendas\Index.cshtml" />
+    <Content Include="Views\Admin_Page\Repartidores\RepartidoresTiendas\_RepartidoresPlataformaTable.cshtml" />
+    <Content Include="Views\CATALOGOS\_EmpresasSelect.cshtml" />
+    <Content Include="Views\Admin_Page\Repartidores\RepartidoresTiendas\_RepartidoresSucursalesTable.cshtml" />
+    <Content Include="Views\Admin_Page\Parametros\_ParametrosZpidi.cshtml" />
+    <Content Include="Views\Admin_Page\Plataformas\Administrador\Index.cshtml" />
+    <Content Include="Views\Admin_Page\Plataformas\Administrador\_ConfiguracionesPlataformas.cshtml" />
+    <Content Include="Views\Admin_Page\Plataformas\Administrador\_EditarConfiguracion.cshtml" />
+    <Content Include="Views\Admin_Page\MonitorRepartidores\_CierresGenerados.cshtml" />
+    <Content Include="Views\Admin_Page\MonitorRepartidores\_HistorialCierres.cshtml" />
+    <Content Include="Views\Admin_Page\MonitorRepartidores\_OrdenesRepartidor.cshtml" />
+    <Content Include="Views\Admin_Page\DELIVERY\Index.cshtml" />
+    <Content Include="Views\Admin_Page\DELIVERY\_TrackingDelivery.cshtml" />
+    <Content Include="Views\CATALOGOS\_RepartidoresPlataformaSelect.cshtml" />
+    <Content Include="Views\Admin_Page\DELIVERY\_TrackingDashboard.cshtml" />
+    <Content Include="Views\Admin_Page\Parametros\TiemposDelivery\Index.cshtml" />
+    <Content Include="Views\Admin_Page\Parametros\TiemposDelivery\_TiemposParametros.cshtml" />
+    <Content Include="Views\Admin_Page\Login\Login.cshtml" />
+    <Content Include="Views\Admin_Page\Negocio\POS\Index.cshtml" />
+    <Content Include="Views\Admin_Page\Negocio\POS\_ClientesDireccionesTelefono.cshtml" />
+    <Content Include="Views\Admin_Page\Negocio\POS\_DatosRepartidorZpidi.cshtml" />
+    <Content Include="Views\Admin_Page\Negocio\POS\_DetalleOrdenesMultiples.cshtml" />
+    <Content Include="Views\Admin_Page\Negocio\POS\_DetalleOrdenNegocio.cshtml" />
+    <Content Include="Views\Admin_Page\Negocio\POS\_TrackingOrdenesNegocio.cshtml" />
+    <None Include="Views\CATALOGOS\_EstadosSelect.cshtml" />
+    <Content Include="Views\CATALOGOS\_CiudadesSelect.cshtml" />
+    <Content Include="Views\CATALOGOS\_VehiculosTipos.cshtml" />
+    <Content Include="Views\Public_Page\MODULOS\_ErrorModule.cshtml" />
+    <Content Include="Views\Public_Page\MODULOS\Perfil\Index.cshtml" />
+    <Content Include="Views\Public_Page\MODULOS\Estado_Cuenta\Index.cshtml" />
+    <Content Include="Views\Public_Page\MODULOS\Notificaciones\Index.cshtml" />
+    <Content Include="Views\Public_Page\MODULOS\Terminos_Condiciones\Index.cshtml" />
+    <Content Include="Views\Public_Page\MODULOS\Chat\Index.cshtml" />
+    <Content Include="Views\Public_Page\MODULOS\Registra_Ticket\Index.cshtml" />
+    <Content Include="Views\Public_Page\MODULOS\Estado_Cuenta\EstatusCuenta\Index.cshtml" />
+    <Content Include="Views\Public_Page\MODULOS\Estado_Cuenta\Ganancias_Adeudos\Index.cshtml" />
+    <Content Include="Views\Public_Page\MODULOS\Terminos_Condiciones\Terminos_Condiciones_Uso_Socios_Repartidores.cshtml" />
+    <Content Include="Views\Public_Page\MODULOS\Terminos_Condiciones\Terminos_Condiciones_Uso_Moto.cshtml" />
+    <Content Include="Views\Public_Page\MODULOS\Cancelaciones_ordenes\index.cshtml" />
+    <Content Include="Views\CATALOGOS\_TiposCancelacion.cshtml" />
+    <Content Include="Views\Public_Page\MODULOS\Estado_Cuenta\Ganancias_Adeudos_Historial\Index.cshtml" />
+    <Content Include="Views\Public_Page\ORDENES\Index.cshtml" />
+    <Content Include="Views\Public_Page\ORDENES\_OrdenDetail.cshtml" />
+    <Content Include="Views\Public_Page\ORDENES\_RepartidorDetail.cshtml" />
+    <Content Include="Views\CATALOGOS\_PlataformasSelect.cshtml" />
+    <Content Include="Views\CATALOGOS\_SucursalesEmpresaTable.cshtml" />
+    <Content Include="Views\Public_Page\ORDENES\TrackingOrden\Index.cshtml" />
+    <Content Include="Views\Public_Page\ORDENES\TrackingOrden\_InfoPedido.cshtml" />
+    <Content Include="Views\Public_Page\ORDENES\TrackingOrden\_InfoRepartidor.cshtml" />
+    <Content Include="Views\CATALOGOS\_SucursalesEmpresaSelect.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\NEGOCIO\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>61501</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:61501/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,589 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Admin_Page/MainLayoutAdmin.cshtml";
+}
+<style>
+    .form-control {
+        margin-bottom: 5%;
+        border-radius: 6.25em;
+        text-align: center;
+        border: 1px solid #F05907 !important;
+    }
+
+        .form-control:focus {
+            border: 1px solid #F05907;
+        }
+
+    .btn-zpidi {
+        border-radius: 6.25em;
+    }
+</style>
+
+
+<div id="div_registro_orden" style="display:none;">
+    <div class="row">
+        <div class="col-md-8 column1 counter_section row">
+
+            <div class="col-md-12">
+                <button class="btn btn-zpidi"><i class="fa fa-arrow-left" onclick="ShowHideRegistro(2);"></i></button>
+                <h3 style="margin-top:5px;" class="text-center">Datos del cliente</h3>
+            </div>
+
+            <div class="col-md-12 row">
+                <div class="col-md-4">
+                    <strong>Telefono</strong>
+                    <input class="form-control input_clear" type="number" id="telefono_dir" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" />
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-block btn-zpidi text-center" onclick="BuscarCliente();">BUSCAR CLIENTE<i class="fa fa-search" style="margin-left:5px;"></i></button>
+                </div>
+
+                <input type="number" class="input_clear" id="id_telefono_dir" style="display:none;" />
+
+            </div>
+
+            <div class="col-md-12" id="div_cliente" style="margin-top:20px;overflow:scroll;overflow-x:hidden;"></div>
+
+            <div class="col-md-12" style="margin-top:30px;">
+                <div class="row col-md-12" id="div_direccion_form" style="display:none;">
+
+                    <div class="col-md-12">
+                        <strong>Nombre completo</strong>
+                        <input class="form-control input_clear input_direccion" type="text" id="nombre_dir" />
+                    </div>
+
+                    <div class="col-md-4">
+                        <strong>Calle</strong>
+                        <input class="form-control input_clear input_direccion" type="text" id="calle_dir" />
+                    </div>
+
+                    <div class="col-md-2">
+                        <strong>Número</strong>
+                        <input class="form-control input_clear input_direccion" type="number" id="no_dir" placeholder="Ej: 123" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <strong>Colonia</strong>
+                        <input class="form-control input_clear input_direccion" type="text" id="colonia_dir" />
+                    </div>
+
+                    <div class="col-md-4">
+                        <strong>Ciudad</strong>
+                        <input class="form-control input_clear input_direccion" type="text" id="ciudad_dir" />
+                    </div>
+
+                    <div class="col-md-3">
+                        <br />
+                        <button class="btn btn-block btn-zpidi text-center" onclick="GetCoordAddress();">BUSCAR <i class="fa fa-search" style="margin-left:5px;"></i></button>
+                    </div>
+                    <div class="col-md-12 column1 counter_section row" id="map" style="min-height:600px; margin-top:30px; width: -webkit-fill-available;"></div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="col-md-4 column1 counter_section row">
+            <div class="col-md-12">
+                <h3 class="text-center" style="color:#f05907;"><strong>@Session["ses_nombre_sucursal"]</strong></h3>
+                <input class="form-control" type="text" id="codigo_sucursal_orden" readonly value="@Session["ses_codigo_sucursal"]" style="display:none;" />
+            </div><br />
+
+            <div class="col-md-12 row">
+                <div style="display: none;">
+                    <div class="col-md-6">
+                        <strong>LATITUD:</strong>
+                        <input class="form-control input_clear input_direccion" type="text" id="lat_dir" readonly />
+                    </div>
+                    <div class="col-md-6">
+                        <strong>LONGITUD:</strong>
+                        <input class="form-control input_clear input_direccion" type="text" id="long_dir" readonly />
+                    </div>
+                </div>
+            </div><br />
+
+            <div class="col-md-12">
+                <strong>TIPO DE SERVICIO:</strong>
+                <select class="form-control" id="producto_orden">
+                    <option value="2351">Servicio</option>
+                </select>
+            </div><br />
+
+            <div class="col-md-12">
+                <strong>Valor de los articulos:</strong>
+                <input class="form-control input_clear" type="number" id="monto_dir" />
+            </div><br />
+
+            <div class="col-md-12">
+                <strong>Costo del envio:</strong>
+                <input class="form-control input_clear" type="number" id="costo_envio_dir" />
+            </div><br />
+
+
+            <button class="btn btn-zpidi btn-block" onclick="RegistraOrdenNegocio();">Solicitar servicio</button>
+        </div>
+    </div>
+</div>
+
+<div class="column1 counter_section row" id="div_tracking_negocio" style="display:block;">
+    <h3>Registrar orden</h3>
+    <button class="btn btn-zpidi"><i class="fa fa-plus" onclick="ShowHideRegistro(1);"></i></button>
+    <hr />
+
+    <div id="div_tracking_ordenes_curso" class="table-responsive-sm table-responsive"></div>
+
+</div>
+
+
+
+
+
+@*------------ MODAL ASIGNAR MULTIPLES ORDENES*@
+<div class="modal fade" id="m_asignacion_ordenes_negocio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document" style="width:90%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">ASIGNACION DE ORDENES</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-8 text-center">
+                        <div class="detalle_orden_negocio">
+
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center">
+
+                        <div class="col-md-12 row">
+                            <div class="col-md-4 col-lg-offset-2 text-center" style="display:none;">
+                                <strong>NO PAGADA</strong>
+                                <input type="radio" name="status_zpidi_asignacion_multiple" value="1" class="form-control" id="radio_pago_pendiente_asignacion" checked />
+                            </div>
+                            <div class="col-md-12 text-center">
+                                <strong>Pagada en asignacion</strong>
+                                <input type="radio" name="status_zpidi_asignacion_multiple" value="3" class="form-control" id="radio_pago_pagado_asignacion" />
+                            </div>
+                        </div>
+
+                        <strong>Clave del repartidor</strong>
+                        <input type="text" class="form-control" id="cve_repartidor"/>
+                        <hr />
+                        <div id="repartidordatosZpidi"></div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=@Session["api_key"].ToString()" async>
+</script>
+
+
+<script>
+    var apiKey = '@Session["api_key"]';
+    var map;
+    var marker;
+
+    $(window).on("load", function () {
+        map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 13,
+            center: new google.maps.LatLng(25.54286208910928, -103.39960315106748),
+            //mapTypeId: google.maps.MapTypeId.ROADMAP
+            mapId: "36dd0d4f02f6d562"
+        });
+        ConsultarOrdenesCursoNegocio();
+    });
+
+    $("#cve_repartidor").keypress(function (e) {
+        var code = (e.keyCode ? e.keyCode : e.which);
+        if (code == 13) {
+            var gaffette = $("#cve_repartidor").val();
+            BuscarRepartidorZpidi(gaffette);
+        }
+    });
+
+    function ShowHideRegistro(modo) {
+        if (modo == 1) {
+            $("#div_registro_orden").css("display", "block");
+            $("#div_tracking_negocio").css("display", "none");
+        }
+        else {
+            $("#div_registro_orden").css("display", "none");
+            $("#div_tracking_negocio").css("display", "block");
+
+            $("#div_direccion_form").css("display", "none");
+            $("#div_cliente").removeAttr("style");
+            $("#div_cliente").html("");
+        }
+    }
+
+    function LimpiarCampos() {
+        $(".input_clear").val('');
+        var inputs = $(".input_clear");
+        inputs.each(function () {
+            var input = $(this);
+            if (input.val() == '') {
+                input.removeAttr("style");
+            }
+        });
+        var div_cliente = $("#div_cliente");
+        div_cliente.html("");
+        div_cliente.removeAttr("style");
+
+        $("input[name='radio_direccion_dir']").prop('checked', false);
+        $("#div_direccion_form").css("display", "none");
+    }
+
+    function BuscarCliente() {
+        var div_cliente = $("#div_cliente");
+        div_cliente.removeAttr("style");
+        var telefono = $("#telefono_dir").val();
+        $.ajax({
+            url: "../NEGOCIO/BuscarCliente",
+            type: "POST",
+            data: { telefono: telefono },
+            success: function (result) {
+                div_cliente.html(result);
+                div_cliente.css("height", "200px");
+                div_cliente.css("min-height", "200px");
+                div_cliente.css("overflow", "scroll");
+                div_cliente.css("margin-top", "10px");
+            }
+        });
+    }
+
+    function SeleccionarClienteRegistrado(nombre, calle, numero, colonia, ciudad, latitud, longitud, id_telefono) {
+        $("#div_direccion_form").css("display","block");
+        $("#id_telefono_dir").val(id_telefono);
+        $("#nombre_dir").val(nombre);
+        $("#calle_dir").val(calle);
+        $("#no_dir").val(numero);
+        $("#colonia_dir").val(colonia);
+        $("#ciudad_dir").val(ciudad);
+        $("#id_telefono_dir").val(id_telefono);
+        $("#id_telefono_dir").val(id_telefono);
+
+        $("#lat_dir").val(latitud);
+        $("#long_dir").val(longitud);
+
+        $(".input_direccion").attr('readonly', "true");
+    }
+
+    function SeleccionarNuevoCliente() {
+        $("#id_telefono_dir").val('0');
+        $("#div_direccion_form").css("display", "block");
+        $(".input_direccion").removeAttr('readonly');
+
+    }
+
+    function SeleccionarNuevaDireccion(id_telefono) {
+        $("#div_direccion_form").css("display", "block");
+        $(".input_direccion").removeAttr('readonly');
+        $("#id_telefono_dir").val(id_telefono);
+        $(".input_direccion").val('');
+    }
+
+    function RegistraOrdenNegocio() {
+        var C_Delivery_StartOrders = {};
+        var C_direcciones = {};
+
+
+        var address = "";
+        var calle = $("#calle_dir").val();
+        var no = $("#no_dir").val();
+        var colonia = $("#colonia_dir").val();
+        var ciudad = $("#ciudad_dir").val();
+        no = no.replace('#', '');
+        address += calle + " #" + no + ", " + colonia + ". " + ciudad;
+
+        var sucursal = $("#codigo_sucursal_orden").val();
+        var direccion = address;
+        var lat = $("#lat_dir").val();
+        var long = $("#long_dir").val();
+
+        var id_producto = $("#producto_orden").val();
+        var sucursal = $("#codigo_sucursal_orden").val();
+
+        var telefono = $("#telefono_dir").val();
+        var id_telefono = $("#id_telefono_dir").val();
+        var id_telefono_cliente_direccion = $("input[name='radio_direccion_dir']:checked").val();
+        var nombre_cliente = $("#nombre_dir").val();
+
+        var monto = $("#monto_dir").val();
+        var costo_envio = $("#costo_envio_dir").val();
+
+        if (lat == '' || long == '' || sucursal == '' || id_telefono_cliente_direccion == undefined || id_telefono == '' || monto == '' || costo_envio == '') {
+            var inputs = $(".input_clear");
+            inputs.each(function () {
+                var input = $(this);
+                if (input.val() == '') {
+                    input.css("border","red");
+                }
+            });
+
+            iziToast.error({
+                title: 'Revisa todos los datos',
+                message: '',
+            });
+        }
+        else {
+            C_direcciones.calle = calle;
+            C_direcciones.numero = no;
+            C_direcciones.colonia = colonia;
+            C_direcciones.ciudad = ciudad;
+            C_direcciones.latitud = lat;
+            C_direcciones.longitud = long;
+
+
+
+            C_Delivery_StartOrders.sucursal = sucursal;
+            C_Delivery_StartOrders.direccion = direccion;
+            C_Delivery_StartOrders.lat = lat;
+            C_Delivery_StartOrders.long = long;
+            C_Delivery_StartOrders.token = "CALL-CENT-ER00-ZP00";
+            $.ajax({
+                url: "../NEGOCIO/RegistraOrdenNegocio",
+                type: "POST",
+                data: {
+                    start_order: C_Delivery_StartOrders,
+                    id_producto: id_producto,
+                    id_telefono_cliente_direccion: id_telefono_cliente_direccion,
+                    nombre_cliente: nombre_cliente,
+                    telefono: telefono,
+                    C_direcciones: C_direcciones,
+                    id_telefono: id_telefono,
+                    monto: monto,
+                    costo_envio: costo_envio
+                },
+                success: function (result) {
+                    if (result == "True") {
+                        LimpiarCampos();
+                        ShowHideRegistro(2);
+                        ConsultarOrdenesCursoNegocio();
+                        iziToast.success({
+                            title: 'Orden enviada correctamente',
+                            message: '',
+                        });
+                    }
+                    else {
+                        iziToast.error({
+                            title: 'Ocurrió un error al acualizar la contraseña',
+                            message: '',
+                        });
+                    }
+                }
+            });
+        }
+
+    }
+
+
+    function ConsultarOrdenesCursoNegocio() {
+        $.ajax({
+            url: "../NEGOCIO/ConsultarOrdenesCursoNegocio",
+            type: "POST",
+            data: {  },
+            success: function (result) {
+                $("#div_tracking_ordenes_curso").html(result);
+            }
+        });
+    }
+
+
+    function ConsultarOrdenNegocio(id_orden_negocio) {
+        $.ajax({
+            url: "../NEGOCIO/ConsultarOrdenNegocio",
+            type: "POST",
+            data: { id_orden_negocio: id_orden_negocio},
+            success: function (result) {
+                $("#m_asignacion_ordenes_negocio").modal("show");
+                $(".detalle_orden_negocio").html(result);
+            }
+        });
+    }
+
+
+
+    function CambiarStatusOrdenNegocio(id_orden_negocio, id_orden, id_tracking_status) {
+        $.ajax({
+            url: "../NEGOCIO/CambiarStatusOrdenNegocio",
+            data: { id_orden_negocio: id_orden_negocio, id_orden: id_orden, id_tracking_status: id_tracking_status },
+            type: "POST",
+            success: function (result) {
+                ConsultarOrdenesCursoNegocio();
+            }
+        });
+    }
+
+    function BuscarRepartidorZpidi (cve) {
+        $.ajax({
+            url: "../NEGOCIO/BuscarRepartidorZpidi",
+            data: { cve: cve },
+            success: function (result) {
+                $("#repartidordatosZpidi").html(result);
+            }
+        });
+    }
+
+    function ConsultarOrdenesMultiples() {
+        $("#radio_pago_pendiente_asignacion").click();
+        $("#gaffette_asignar_multiples_zpidi").val("");
+        $(".detalle_orden_negocio").html("");
+        //$("#obs_asignacion_multiple").val('');
+        var ordenes_asigna = [];
+        var count = 0;
+        var totalInp = $('[name="orden_asignacion"]');
+        totalInp.each(function () {
+            if ($(this).is(':checked')) {
+                ordenes_asigna[count] = $(this).attr("id");
+                count++;
+            }
+        });
+        if (ordenes_asigna.length > 0) {
+            $.ajax({
+                url: "../NEGOCIO/ConsultarOrdenesMultiples",
+                data: { ordenes_asigna: ordenes_asigna },
+                type: "POST",
+                success: function (result) {
+                    $(".detalle_orden_negocio").html(result);
+                    $("#m_asignacion_ordenes_negocio").modal("show");
+                }
+            });
+        }
+        else {
+            iziToast.error({
+                title: 'Selecciona al menos 1 pedido para asignar',
+                message: '',
+            });
+        }
+    }
+    
+    function AsignarPedidosZpidi(id_repartidor) {
+        var id_tipo_pago = 1;
+        var id_ordenes = [];
+        var count = 0;
+        var totalInp = $('[name="orden_asignacion"]');
+        totalInp.each(function () {
+            id_ordenes[count] = $(this).attr("id");
+            count++;
+        });
+
+        var id_status = $("input[name='status_zpidi_asignacion_multiple']:checked").val();
+        $.ajax({
+            url: "../NEGOCIO/AsignarRepartidorZpidiMultiple",
+            traditional: true,
+            data: {
+                id_repartidor: id_repartidor,
+                id_ordenes: id_ordenes,
+                id_tipo_pago: id_tipo_pago,
+                id_status: id_status
+                //obs: $("#obs_pago_repa_asignacion_multiple").val()
+            },
+            success: function (result) {
+                if (result == 1) {
+                    ConsultarOrdenesCursoNegocio();
+                    $("#m_asignacion_ordenes_negocio").modal('hide');
+                    iziToast.success({
+                        title: 'Pedidos asignados correctamente',
+                        message: '',
+                    });
+                }
+                if (result == "0") {
+                    iziToast.error({
+                        title: 'Una de las ordenes aun no ah sido aceptada por un repartidor',
+                        message: '',
+                    });
+                }
+                if (result == "-1") {
+                    iziToast.error({
+                        title: 'Una del las ordenes seleccionadas NO pertenecen al repartidor que se quiere asignar',
+                        //message: 'Asegurese que todos los pedidos pertenezcan al mismo repartidor',
+                        message: '',
+                    });
+                }
+                if (result == "-2") {
+                    iziToast.error({
+                        title: 'Uno las ordenes aun no han sido aceptado por un repartidor',
+                        message: '',
+                    });
+                }
+            }
+        });
+    }
+
+
+
+
+    function GetCoordAddress() {
+        var address = "";
+        var calle = $("#calle_dir").val();
+        var no = $("#no_dir").val();
+        var colonia = $("#colonia_dir").val();
+        var ciudad = $("#ciudad_dir").val();
+
+        no = no.replace('#', '');
+
+        address += calle + " #" + no + ", " + colonia + ". " + ciudad;
+        //alert(address);
+        
+        // Make the AJAX request to the Geocoding API
+        $.ajax({
+            url: 'https://maps.googleapis.com/maps/api/geocode/json',
+            data: {
+                address: address,
+                key: apiKey
+            },
+            success: function (response) {
+                var location = response.results[0].geometry.location;
+                var latitude = location.lat;
+                var longitude = location.lng;
+
+                $("#lat_dir").val(latitude);
+                $("#long_dir").val(longitude);
+
+                map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 18,
+                    center: new google.maps.LatLng(latitude, longitude),
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                });
+
+                marker = new google.maps.Marker({
+                    position: { lat: latitude, lng: longitude },
+                    map: map,
+                    draggable: true
+                });
+                marker.addListener("dragend", function () {
+                    const position = marker.getPosition();
+                    console.log("Marker Position:", position.lat(), position.lng());
+
+                    $("#lat_dir").val(position.lat());
+                    $("#long_dir").val(position.lng());
+
+                });
+
+            },
+            error: function () {
+                alert('Error occurred while geocoding.');
+            }
+        });
+    }
+
+</script>
+
+
+
+
+
+
+
+
+
+

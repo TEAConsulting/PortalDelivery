@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ZPIDI_PORTAL.Models.DataBase.C_Delivery_Menuappbar_SubModules_Permisos>
+
+@*<style>
+        .nav.nav_menu_layout > li > a:hover {
+            transition: 250ms;
+            background-color: #1ABB9C;
+        }
+    </style>*@
+
+@foreach (var item in Session["modulos"] as List<ZPIDI_PORTAL.Models.ModulosUsuario>)
+{
+    <ul class="list-unstyled components">
+        <li>
+            <a href="#module_@item.Id_modulo" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="@item.Icono" style="color: @item.Color"></i> <span>@item.Nombre_modulo</span></a>
+            <ul class="collapse list-unstyled" id="module_@item.Id_modulo">
+                @foreach (var item2 in Session["submodulos"] as List<ZPIDI_PORTAL.Models.SubmodulosUsuario>)
+                {
+                    if (item2.Id_modulo == item.Id_modulo)
+                    {
+                        if (item2.Controlador == null || item2.Funcion == null)
+                        {
+                            <li>
+                                <a href="../MODULOS/DefaultView?msj=@item2.Nombre_submodulo">@item2.Nombre_submodulo</a>
+                                @*@Html.ActionLink(item2.Nombre_submodulo, "DefaultView", "MODULOS", new { msj = item2.Nombre_submodulo.ToString() })*@
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                @Html.ActionLink(item2.Nombre_submodulo, item2.Funcion, item2.Controlador)
+                            </li>
+                        }
+                    }
+                }
+            </ul>
+        </li>
+    </ul>
+}
+<ul class="list-unstyled components">
+    <li>
+        <a href="#admin_pagos" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-money" style="color: #214162;"></i><span>Pagos a repartidores</span></a>
+        <ul class="collapse list-unstyled" id="admin_pagos">
+            <li>
+                <a href="http://quesipizzasmx-001-site17.dtempurl.com/Repartidor/AdministrarPagos">Administrador de pagos</a>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+
+
+
+
+
+
+

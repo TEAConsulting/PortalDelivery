@@ -1,0 +1,189 @@
+﻿
+@{
+    ViewBag.Title = "Admin_Solicitudes";
+    Layout = "~/Views/Admin_Page/MainLayoutAdmin.cshtml";
+}
+
+<div class="page_title">
+    <h3 class=" text-uppercase mb-4 text-center">Administracion de solicitudes </h3> @*<span class="text-primary"></span>*@
+    <h5>@ViewBag.msj</h5>
+</div>
+
+<div class="row column1 counter_section">
+    <div class="col-md-12 row">
+        <div class="col-md-2 text-center">
+            <label>Contacto:</label>
+            <select id="select_contacto" class="form-control">
+                <option id="opt_Sol" value="1">Solicitudes</option>
+                <option id="opt_Repa" value="2">Afiliados</option>
+            </select>
+        </div>
+
+        <div class="col-md-2 text-center" id="div_status_sol">
+            <label>Status</label><br />
+            <select id="select_status_sol" multiple="multiple" class="form-control border-3 select_status">
+                <option value="1" selected>Recibidas</option>
+                <option value="4" selected>Leidas</option>
+                <option value="3" selected>Rechazadas</option>
+            </select>
+        </div>
+        <div class="col-md-2 text-center" id="div_status_repa" style="display: none;">
+            <label>Status</label><br />
+            <select id="select_status_repa" multiple="multiple" class="form-control border-1 select_status">
+                <option value="4" selected>Activos</option>
+                <option value="5" selected>Suspendidos</option>
+            </select>
+        </div>
+
+        <div class="col-md-3 text-center">
+            <button class="btn btn-primary circle" onclick="ConsultarSolicitudes()"><i class="fa fa-search"></i></button>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-lg-12 table-responsive-md mt-2">
+        <div id="table_Solicitudes"></div>
+    </div>
+</div>
+
+
+
+
+<!-- Modal DETALLE DE SOLICITU-->
+<div class="modal fade" id="m_solicitud_d" tabindex="-1" role="dialog" aria-labelledby="m_solicitud_d_aria" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div id="div_solicitud_d">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal INFORMACION REPARTIDOR-->
+<div class="modal fade" id="m_info_repa" tabindex="-1" role="dialog" aria-labelledby="m_info_repa_aria" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div id="div_info_repa">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(window).on("load", function () {
+    });
+
+    $('#select_contacto').on('change', function () {
+        if (this.value == 1) {
+            $("#div_status_repa").css("display", "none");
+            $("#div_status_sol").css("display", "block");
+        }
+        if (this.value == 2) {
+            $("#div_status_sol").css("display", "none");
+            $("#div_status_repa").css("display", "block");
+        }
+    });
+
+    $('.select_status').multiselect({
+        maxHeight: 300,
+        nonSelectedText: 'Todas',
+        includeSelectAllOption: true,
+        buttonWidth: '200px',
+        selectAllText: 'Todas'
+    }).multiselect('updateButtonText');
+    $(".select_status").multiselect('selectAll', true);
+
+
+    function ConsultarSolicitudes() {
+        var tipo = $("#select_contacto").val();
+        var status = 0;
+
+        if (tipo == 1) { //SOLICITUDES
+            status = $("#select_status_sol").val();
+        }
+        else {
+            status = $("#select_status_repa").val();
+        }
+
+        $.ajax({
+            url: "../SOLICITUDES/ConsultarSolicitudes",
+            type: "POST",
+            data: {
+                tipo: tipo,
+                status: status
+            },
+            success: function (result) { $("#table_Solicitudes").html(result); }
+        });
+    }
+
+    function VerSolicitudDetalle(id_solicitud) {
+        $.ajax({
+            url: "../SOLICITUDES/VerSolicitudDetalle",
+            type: "POST",
+            data: { id_solicitud: id_solicitud },
+            success: function (result) {
+                if (result == "0") { alert("No se encontro"); }
+                else if (result == "1") { alert("Solicitud ya esta aceptada"); }
+
+                else {
+                    $("#div_solicitud_d").html(result);
+                    //$("#m_solicitud_d").modal("show");
+                }
+            }
+        });
+    }
+
+    function MarcarSolicitudLeida(id_solicitud) {
+        $.ajax({
+            url: "../SOLICITUDES/CambiarStatusSolicitud",
+            type: "POST",
+            data: { id_solicitud: id_solicitud, status: 4 },  //LEIDA
+            success: function (result) {
+                if (result == "0") { alert("No se encontro"); }
+                else if (result == "-1") { alert("Solicitud ya esta aceptada"); }
+
+                else {
+                    ConsultarSolicitudes();
+                    VerSolicitudDetalle(id_solicitud);
+                }
+            }
+        });
+    }
+
+    function RechazarSolicitud(id_solicitud) {
+        $.ajax({
+            url: "../SOLICITUDES/CambiarStatusSolicitud",
+            type: "POST",
+            data: { id_solicitud: id_solicitud, status: 3 },  //RECHAZADA
+            success: function (result) {
+                if (result == "0") { alert("No se encontro"); }
+                else if (result == "-1") { alert("Solicitud ya esta aceptada"); }
+
+                else {
+                    ConsultarSolicitudes();
+                    iziToast.success({
+                        title: 'Solicitud rechazada correctamente',
+                        message: '',
+                    });
+                }
+            }
+        });
+    }
+
+    function VerInformacionRepartidor(id_repartidor) {
+        $.ajax({
+            url: "../REPARTIDOR/VerInformacionRepartidor",
+            type: "POST",
+            data: { id_repartidor: id_repartidor },
+            success: function (result) {
+                $("#div_info_repa").html(result);
+                //$("#m_info_repa").modal("show");
+            }
+        });
+    }
+</script>
+
+

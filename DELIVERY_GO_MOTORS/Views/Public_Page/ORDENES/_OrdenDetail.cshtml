@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ZPIDI_PORTAL.Models.C_pedidos>
+
+<div>
+    <h4><strong>TIENDA: @Model.FirstOrDefault().C_sucursales.nombre</strong></h4>
+</div>
+
+<div class="container-fluid">
+    <strong>PRODUCTOS</strong>
+    <ul style="border-bottom: 1px solid black;">
+        @foreach (var item in Model.FirstOrDefault().C_pedidos_d.GroupBy(x => x.sku_producto))
+        {
+            <li>@item.Count() @item.FirstOrDefault().C_productos_cat.nombre</li>
+        }
+    </ul>
+
+    @{
+        var total_orden = Model.FirstOrDefault().C_ventas_g.FirstOrDefault().total - @Model.FirstOrDefault().costo_envio;
+        <div class="text-right">
+            <table style="width: 100%;">
+                <tr>
+                    <td><h4><strong>Subtotal:</strong></h4></td>
+                    <td><h4><strong>$@total_orden</strong></h4></td>
+                </tr>
+                <tr>
+                    <td><h4><strong>Comisión:</strong></h4></td>
+                    <td><h4><strong>$@Model.FirstOrDefault().costo_envio</strong></h4></td>
+                </tr>
+                <tr style="border-bottom:1px solid black;">
+                    <td><h4><strong>Mensajería:</strong></h4></td>
+                    <td><h4><strong>$0.00</strong></h4></td>
+                </tr>
+
+                <tr>
+                    <td><h4><strong>Total (MXN):</strong></h4></td>
+                    <td><h4><strong>$@Model.FirstOrDefault().C_ventas_g.FirstOrDefault().total</strong></h4></td>
+                </tr>
+                <tr>
+                    <td><h4><strong>Método de pago:</strong></h4></td>
+                    <td><h5><strong>@Model.FirstOrDefault().C_ventas_g.FirstOrDefault().C_ventas_pagos.FirstOrDefault().C_pago_tipo.nombre_pago_tipo</strong></h5></td>
+                </tr>
+            </table>
+        </div>
+    }
+
+</div>
+
+<div class="container-fluid" style="border-top:1px solid black;">
+    @foreach (var item in Model)
+    {
+        var dir = item.C_direcciones_mx;
+        var col = dir.C_colonias_mx;
+        var cli = item.C_clientes;
+        <div class="text-center">
+            <h4><strong>CLIENTE</strong></h4>
+            <h4><strong> @cli.nombre</strong></h4>
+            <strong>@dir.calle #@dir.numero_ext</strong><br />
+            <strong>@col.d_asenta</strong><br />
+            <strong>Entre @dir.entre_calle1 y @dir.entre_calle2</strong><br />
+            <strong>@col.d_mnpio</strong>
+        </div>
+    }
+</div>
+<hr />
+
+
+
+
+
+
+

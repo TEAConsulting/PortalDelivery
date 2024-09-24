@@ -1,0 +1,89 @@
+﻿@model IEnumerable<ZPIDI_PORTAL.Models.DataBase.Delivery_61_Get_Trafico_Tracking_Result>
+
+@foreach (var item in Model)
+{
+    <div class="row column1 counter_section">
+        <div class="row col-md-12">
+
+            @*ORDENES EN TRANSITO*@
+            <div class="col-md-3">
+                <div class="card radius-10 border-start border-0 border-3 border-info">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <p class="mb-0 text-secondary">Ordenes en tránsito</p>
+                                <h2 class="my-1 text-info">@item.no_ordenes_transito</h2>
+                                @*<p class="mb-0 font-13">+2.5% from last week</p>*@
+                            </div>
+                            <div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto">
+                                <i class="fa fa-shopping-cart"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @*REPARTIDORES EN LINEA*@
+            <div class="col-md-3">
+                <div class="card radius-10 border-start border-0 border-3 border-danger">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <p class="mb-0 text-secondary">Repartidores en linea</p>
+                                <h2 class="my-1 text-danger">@item.no_repartidores_conectados</h2>
+                                @*<p class="mb-0 font-13">+5.4% from last week</p>*@
+                            </div>
+                            <div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto">
+                                <i class="fa fa-map-marker"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @*TIEMPO PROMEDIO*@
+            <div class="col-md-3">
+                <div class="card radius-10 border-start border-0 border-3 border-warning">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <p class="mb-0 text-secondary">Tiempo promedio </p>
+                                <h2 class="my-1 text-warning">@item.prom_tiempo_entrega_a_tiempo Min</h2>
+                                @*<p class="mb-0 font-13">+8.4% from last week</p>*@
+                            </div>
+                            <div class="widgets-icons-2 rounded-circle bg-gradient-blooker text-white ms-auto">
+                                <i class="fa fa-clock-o"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @if ((int)Session["ses_id_perfil"] == 1)
+            {
+                @*ORDENES DEL DIA*@
+                <div class="col-md-3">
+                    <div class="card radius-10 border-start border-0 border-3 border-success">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div>
+                                    <p class="mb-0 text-secondary">Ordenes del dia</p>
+                                    <h2 class="my-1 text-success">@item.no_ordenes_dia</h2>
+                                    <p class="mb-0 font-13 text-success">+ $@item.venta_del_dia</p>
+                                </div>
+                                <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto">
+                                    <i class="fa fa-money"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+
+
+        </div>
+    </div>
+}
+

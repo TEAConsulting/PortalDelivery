@@ -1,0 +1,9 @@
+﻿@model IEnumerable<ZPIDI_PORTAL.Models.DataBase.C_Delivery_empresas>
+
+@foreach (var item in Model)
+{
+    <option value="@item.id_empresa" selected>@item.nombre_empresa</option>
+}
+
+
+

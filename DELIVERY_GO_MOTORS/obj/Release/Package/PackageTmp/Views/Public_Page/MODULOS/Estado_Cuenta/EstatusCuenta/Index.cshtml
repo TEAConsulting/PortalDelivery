@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "Estatus_cuenta";
+    Layout = "~/Views/Public_Page/MainLayout.cshtml";
+}
+
+<div class="container">
+    <h4 class="text-uppercase mb-4 text-center">Estatus Cuenta </h4>
+    <h3 style="margin-left: 10%;">Bloqueada</h3>
+    <div class="primary_box">
+        <h2 class="label_box_1 text-center" id="saldo_pendiente"></h2>
+        <h4 class="label_box_2 text-center">Saldo pendiente</h4><br />
+        <h4 class="label_box_2">Cuenta Bancaria:</h4>
+        <h4 class="label_box_2 text-center" id="nombre_banco1"></h4>
+        <h4 class="label_box_2 text-center" id="cuenta_banco"></h4>
+    </div>
+    <h3 class="text-center">AVISO IMPORTANTE</h3>
+    <div class="secondary_box text-center">
+        <h5>Para reportar PAGO, favor de enviar su comprobante de pago al WHATSAPP:</h5>
+        <strong>####-####</strong>
+        <h5>Comprobante de pago digital (foto).</h5><br />
+        <h5>
+            Si ya reportó pago, y su cuenta estaba bloqueada le informamos que su cuenta será establecida en un plazo de 2 hrs. a
+            partir de enviar su comprobante
+        </h5>
+    </div>
+</div>
+
+
+<script>
+    $(window).on("load", function () {
+        GetEstadoCuenta("@ViewBag.token_repa");
+    });
+
+    function GetEstadoCuenta(token) {
+        $.ajax({
+            url: "http://gomosystem-001-site4.etempurl.com/api/[Delivery_50_Get_Repartidor_EstadisticasController]/Find",
+            type: "POST",
+            data: {
+                "token": token,
+                "modo": "1"
+            },
+            success: function (result) {
+                if (result.data != null) {
+                    var data = result.data;
+                    for (var i = 0; i < data.length; i++) {
+                        $("#saldo_pendiente").text("MX$ "+data[0].saldo_pendiente);
+                        $("#cuenta_banco").text(data[0].cuenta_banco);
+                        $("#nombre_banco1").text("BANCO: " + data[0].nombre_banco1);
+
+                        
+                    }
+                }
+                else {
+
+                }
+            }
+        });
+    }
+
+</script>
+
+
+
+
+

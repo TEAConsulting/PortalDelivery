@@ -1,0 +1,10 @@
+﻿@model IEnumerable<ZPIDI_PORTAL.Models.DataBase.C_Delivery_sucursales_gps>
+
+@foreach (var item in Model)
+{
+    <option value="@item.codigo_sucursal" selected>@item.nombre_suc</option>
+}
+
+
+
+

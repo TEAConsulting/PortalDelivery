@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ZPIDI_PORTAL.Models.DataBase.C_Delivery_Ordenes_Negocios>
+
+<style>
+    .check_asignar {
+        width: 4rem;
+        height: 1.5rem;
+    }
+</style>
+
+
+<div class="text-left">
+    <button class="btn btn-zpidi" onclick="ConsultarOrdenesMultiples()">Asignar pedidos seleccionados</button>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Cliente</th>
+            <th>Dirección</th>
+            @*<th>Status</th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            var cliente = item.C_Delivery_Negocios_Telefonos_Clientes_Direcciones.C_Delivery_Negocios_Clientes;
+            var direccion = item.C_Delivery_Negocios_Telefonos_Clientes_Direcciones.C_Delivery_Negocios_Direcciones;
+            <tr>
+                <td>
+                    <strong>@item.id_orden</strong>
+                    <p>$@item.monto</p>
+                </td>
+                <td>
+                    <strong>@cliente.nombre</strong><br />
+                    <strong>@cliente.telefono</strong>
+                </td>
+                <td>
+                    <strong>@direccion.calle @direccion.numero @direccion.colonia @direccion.ciudad</strong>
+                </td>
+                @*<td>@item.C_Delivery_Negocios_Tracking_Status.nombre_status</td>*@
+                <td class="text-center">
+                    @if (item.id_tracking_status == 1 || item.id_tracking_status == 2)
+                    {
+                        <button class="btn btn-zpidi" onclick="CambiarStatusOrdenNegocio(@item.id_orden_negocio, @item.id_orden, 3)">Terminado</button>
+                    }
+                    else if (item.id_tracking_status == 3)
+                    {
+                        <input type="checkbox" name="orden_asignacion" id="@item.id_orden" class="check_asignar" /><br /><strong style="color:#24aff6">Listo para asignar</strong>
+                    }
+                    else if (item.id_tracking_status == 4)
+                    {
+                        <button class="btn btn-zpidi btn-success" @*onclick="CambiarStatusOrdenNegocio(@item.id_orden_negocio, @item.id_orden, 5)"*@>Pagar</button>
+                    }
+                    else if (item.id_tracking_status == 6)
+                    {
+                        <button class="btn btn-danger">Cancelado</button>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

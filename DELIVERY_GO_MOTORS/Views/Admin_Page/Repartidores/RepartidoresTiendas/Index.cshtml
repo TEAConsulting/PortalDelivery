@@ -1,0 +1,375 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Admin_Page/MainLayoutAdmin.cshtml";
+}
+
+<style>
+    .div_editable {
+        background-color: #F5945F !important;
+        color: white;
+        text-align: center;
+        height: 35px;
+        font-size: 20px;
+        line-height: 30px;
+        width: 120px;
+    }
+</style>
+
+<div class="page_title">
+    <h3 class=" text-uppercase mb-4 text-center">Asignador de repartidores en tiendas</h3>
+</div>
+
+<div class="row column1 counter_section">
+    <div class="row">
+        <div class="col-md-3">
+            <strong>PLATAFORMAS</strong>
+            <select id="select_plataformas" class="form-control select_multiple" onchange="ConsultarRepartidoresPlataforma()" multiple>
+                @{Html.RenderAction("ConsultarPlataformas", "REPARTIDOR"); }
+            </select>
+        </div>
+        <div class="col-md-3">
+            <strong>EMPRESAS</strong>
+            <select id="select_empresas" class="form-control select_multiple" onchange="ConsultarSucursalesEmpresa()" multiple>
+                @{Html.RenderAction("ConsultarEmpresas", "CATALOGOS"); }
+            </select>
+        </div>
+
+        <div class="col-md-6 text-right">
+            <strong>Configurar parámetros</strong><br />
+            <button class="btn btn-zpidi" onclick="ConsultarParametrosZPIDI();" data-toggle="modal" data-target="#m_parametros"><i class="fa fa-cog"></i></button>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-md-4" style="border-right: 1px solid black; ">
+            <h3><strong>REPARTIDORES</strong></h3>
+            <div id="div_repartidores"></div>
+        </div>
+
+        <div class="col-md-4">
+            <h3><strong>SUCURSALES</strong></h3>
+            <div id="div_sucursales"></div>
+        </div>
+
+        <div class="col-md-1" style="border-left: 1px solid black;border-right: 1px solid black;">
+            <div style="margin-top: 150px;">
+                <button class="btn btn-success btn-block" onclick="AsignarSucursalRepa()"><i class="fa fa-3x fa-arrow-circle-right"></i></button>
+                <hr />
+                <button class="btn btn-success btn-block" onclick="RemoverSucursalRepa()"><i class="fa fa-3x fa-arrow-circle-left"></i></button>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <h3><strong>SUCURSALES ASIGNADAS</strong></h3>
+            <div id="div_sucursales_repa"></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="m_parametros" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" id="div_parametros">
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="~/Content/js/bootstrap-table.min.js"></script>
+<script src="~/Content/js/bootstrap-table-es-MX.min.js"></script>
+<script src="~/Content/js/bootstrap-table-contextmenu.js"></script>
+<script src="~/Content/js/bootstrap-table.js"></script>
+
+<script>
+
+    $elemento = $('');
+    $elemento2 = $('');
+
+    var suc_add = '';
+    var suc_del = '';
+
+    $(window).on("load", function () {
+        ConsultarRepartidoresPlataforma();
+        ConsultarSucursalesEmpresa();
+    });
+
+        //------------------------------ REPARTIDORES
+    $('.select_multiple').multiselect({
+        maxHeight: 300,
+        nonSelectedText: 'Todas',
+        includeSelectAllOption: true,
+        buttonWidth: '200px',
+        selectAllText: 'Todas'
+    }).multiselect('updateButtonText');
+    $(".select_multiple").multiselect('selectAll', true);
+
+
+    function ConsultarRepartidoresPlataforma() {
+        var id_plataformas = $("#select_plataformas").val();
+        $.ajax({
+            url: "../REPARTIDOR/ConsultarRepartidoresPlataforma",
+            type: "POST",
+            data: {
+                id_plataformas: id_plataformas
+            },
+            success: function (result) {
+                try {
+                    $("#datatable_repartidores").dataTable().fnDestroy();
+                } catch (e) {
+
+                }
+                $("#div_repartidores").html(result);
+                $('#datatable_repartidores').DataTable({
+                    keys: true,
+                    ordering: false,
+                    paging: false
+                });                
+            }
+        });
+    }
+
+    function CheckAllRepas() {
+        if ($('#check_master_repa').is(":checked")) {
+            $('input[name="check_repa"]').prop("checked", true);
+        }
+        else {
+            $('input[name="check_repa"]').prop("checked", false);
+        }
+    }
+
+    //-------------------- TODAS LAS SUCURSALES
+    function ConsultarSucursalesEmpresa() {
+        var id_empresa = $("#select_empresas").val();
+        $.ajax({
+            url: "../CATALOGOS/ConsultarSucursalesEmpresa",
+            type: "POST",
+            data: {
+                id_empresa: id_empresa
+            },
+            success: function (result) {
+                suc_add = '';
+                $("#div_sucursales").html(result);
+                $('#datatable_sucursales').bootstrapTable({
+                    columns: [{
+                        field: 'codigo_sucursal',
+                        title: 'Codigo'
+                    }, {
+                            field: 'nombre_suc',
+                        title: 'Nombre'
+                    }]
+                });
+                $('#datatable_sucursales').on('click-row.bs.table', function (e, row, $element) {
+                    $elemento.css("background-color", "#ffffff");
+                    $element.css("background-color", "#99FFCC");
+                    $elemento = $element;
+                    suc_add = row.codigo_sucursal;
+                });
+
+            }
+        });
+
+
+    }
+
+    //-------------------- SUCURSALES ASIGNADAS
+    function ConsultarSucursalesRepartidor() {
+        var id_repartidores = [];
+        var count = 0;
+
+        var repaChecks = $('.check_repa');
+        repaChecks.each(function () {
+            if ($(this).is(":checked")) {
+                id_repartidores[count] = $(this).val();
+                count++;
+            }
+        });
+        if (id_repartidores.length == 0) {
+            $('#datatable_sucursales_repa').html('');
+        }
+        else{
+            $.ajax({
+                url: "../REPARTIDOR/ConsultarSucursalesRepartidor",
+                type: "POST",
+                data: {
+                    id_repartidores: id_repartidores
+                },
+                success: function (result) {
+                    suc_del = '';
+                    $("#div_sucursales_repa").html(result);
+                    $('#datatable_sucursales_repa').bootstrapTable({
+                        columns: [{
+                            field: 'codigo_sucursal',
+                            title: 'Codigo'
+                        }, {
+                            field: 'Nombre',
+                            title: 'Nombre'
+                        }]
+                    });
+                    $('#datatable_sucursales_repa').on('click-row.bs.table', function (e, row, $element) {
+                        $elemento2.css("background-color", "#ffffff");
+                        $element.css("background-color", "#99FFCC");
+                        $elemento2 = $element;
+                        suc_del = row.codigo_sucursal;
+                    });
+
+
+                }
+            });
+        }
+    }
+
+    function AsignarSucursalRepa() {
+        if (suc_add != '' && suc_add != undefined) {
+            var id_repartidores = [];
+            var count = 0;
+            var repaChecks = $('.check_repa');
+            repaChecks.each(function () {
+                if ($(this).is(":checked")) {
+                    id_repartidores[count] = $(this).val();
+                    count++;
+                }
+            });
+            if (id_repartidores.length > 0) {
+                $.ajax({
+                    url: "../REPARTIDOR/AsignarSucursalRepa",
+                    type: "POST",
+                    data: {
+                        id_repartidores: id_repartidores,
+                        codigo_sucursal: suc_add
+                    },
+                    success: function (result) {
+                        ConsultarSucursalesRepartidor();
+                    }
+                });
+            }
+            else {
+                iziToast.error({
+                    title: 'Selecciona 1 o mas repartidores para asignar la sucursal',
+                    message: '',
+                });
+            }
+        }
+        else {
+            iziToast.error({
+                title: 'Selecciona una sucursal para asignar',
+                message: '',
+            });
+        }
+    }
+
+    function RemoverSucursalRepa() {
+        if (suc_del != '' && suc_del != undefined) {
+            var id_repartidores = [];
+            var count = 0;
+            var repaChecks = $('.check_repa');
+            repaChecks.each(function () {
+                if ($(this).is(":checked")) {
+                    id_repartidores[count] = $(this).val();
+                    count++;
+                }
+            });
+            if (id_repartidores.length > 0) {
+                $.ajax({
+                    url: "../REPARTIDOR/RemoverSucursalRepa",
+                    type: "POST",
+                    data: {
+                        id_repartidores: id_repartidores,
+                        codigo_sucursal: suc_del
+                    },
+                    success: function (result) {
+                        ConsultarSucursalesRepartidor();
+                    }
+                });
+            }
+            else {
+                iziToast.error({
+                    title: 'Selecciona 1 o mas repartidores para remover la sucursal',
+                    message: '',
+                });
+            }
+        }
+        else {
+            iziToast.error({
+                title: 'Selecciona una sucursal para remover',
+                message: '',
+            });
+        }
+    }
+
+    //---------------------------------------------------
+
+
+    //-------------------------------- PARAMETROS
+    function ConsultarParametrosZPIDI() {
+        $.ajax({
+            url: "../PARAMETROS/ConsultarParametrosZPIDI",
+            type: "POST",
+            data: {
+            },
+            success: function (result) {
+                $("#div_parametros").html(result);
+                //$("#m_parametros").modal("show");
+            }
+        });
+    }
+
+    function GuardarParametrosZPIDI() {
+        var id_status = $('input[name=status_parametro]:checked').val();
+        if (id_status == undefined) {
+            iziToast.warning({
+                title: 'Selecciona el estatus en el que se activará la alarma de notificaciones',
+                message: '',
+            });
+        }
+        else {
+            var count = 0;
+            var id_parametros = [];
+            var valores = [];
+            var inputs = $(".div_editable");
+            inputs.each(function () {
+                id_parametros[count] = $(this).attr("id");
+                valores[count] = $(this).text();
+                count++;
+            });
+
+            //STATUS DE LOS RADIO
+            id_parametros[count] = 1002;
+            valores[count] = id_status
+
+            $.ajax({
+                url: "../PARAMETROS/GuardarParametrosZPIDI",
+                type: "POST",
+                data: {
+                    id_parametros: id_parametros,
+                    valores: valores
+                },
+                success: function (result) {
+                    if (result == "True") {
+                        $("#m_parametros").modal("hide");
+                        iziToast.success({
+                            title: 'Parametros guardados correctamente!',
+                            message: '',
+                        });
+                    }
+                    else {
+                        iziToast.error({
+                            title: 'Ocurrió un problema al ejecutar la operación',
+                            message: '',
+                        });
+                    }
+                }
+            });
+        }
+
+    }
+
+
+</script>
+
+
+
+

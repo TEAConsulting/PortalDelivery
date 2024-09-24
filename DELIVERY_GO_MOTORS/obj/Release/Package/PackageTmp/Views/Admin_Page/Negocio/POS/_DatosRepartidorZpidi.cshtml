@@ -1,0 +1,14 @@
+﻿@model IEnumerable<ZPIDI_PORTAL.Models.DataBase.C_Delivery_Repartidores>
+@using System.Web.Mvc.Html;
+
+
+@foreach (var item in Model)
+{
+
+    <label id="idempleado" style="display:none;">@item.id_repartidor</label>
+    <h3>@item.nombre @item.apellido</h3>
+
+    <button type="button" class="btn btn-zpidi btn-block" id="AsignarRepartidor" onclick="AsignarPedidosZpidi(@item.id_repartidor);">Asignar</button>
+}
+
+

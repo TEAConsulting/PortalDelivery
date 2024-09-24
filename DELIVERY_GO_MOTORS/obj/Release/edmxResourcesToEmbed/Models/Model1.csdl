@@ -1,0 +1,1183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_ZPIDI_QASModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C_Delivery_a_new_register">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="pais" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_local" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="terminos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="score" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="token" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="permisos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_google" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_facebook" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="os" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" Precision="3" />
+    <Property Name="cp" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="id_perfil" Type="Int32" />
+    <Property Name="id_usuario_imagen" Type="Int32" />
+    <Property Name="id_domicilio" Type="Int32" />
+    <Property Name="logeado" Type="Boolean" />
+    <Property Name="phone_pwd" Type="Int32" />
+    <Property Name="contrasena" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="appname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="C_Delivery_Pagos_Plataformas" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Pagos_Plataformas_C_Delivery_a_new_register" FromRole="C_Delivery_a_new_register" ToRole="C_Delivery_Pagos_Plataformas" />
+    <NavigationProperty Name="C_Delivery_Pagos_Plataformas1" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Pagos_Plataformas_C_Delivery_a_new_register1" FromRole="C_Delivery_a_new_register" ToRole="C_Delivery_Pagos_Plataformas" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Ciudad">
+    <Key>
+      <PropertyRef Name="cda_id" />
+    </Key>
+    <Property Name="cda_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cda_nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="cda_clave" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="edo_id" Type="Int32" />
+    <NavigationProperty Name="C_Delivery_Repartidores_Solicitud" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Ciudad" FromRole="C_Delivery_Ciudad" ToRole="C_Delivery_Repartidores_Solicitud" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Estados">
+    <Key>
+      <PropertyRef Name="id_estado" />
+    </Key>
+    <Property Name="id_estado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_est" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_pais" Type="Int32" />
+    <NavigationProperty Name="C_Delivery_Repartidores_Solicitud" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Estados" FromRole="C_Delivery_Estados" ToRole="C_Delivery_Repartidores_Solicitud" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Generos">
+    <Key>
+      <PropertyRef Name="id_genero" />
+    </Key>
+    <Property Name="id_genero" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="icono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Pais">
+    <Key>
+      <PropertyRef Name="pai_id" />
+    </Key>
+    <Property Name="pai_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pai_nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="pai_clave" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Repartidores">
+    <Key>
+      <PropertyRef Name="id_repartidor" />
+    </Key>
+    <Property Name="id_repartidor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="rfc" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="curp" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_registro" Type="DateTime" Precision="3" />
+    <Property Name="no_licencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_caducidad_liencia" Type="DateTime" Precision="3" />
+    <Property Name="id_zona" Type="Int32" />
+    <Property Name="latitud" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="longitud" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cp" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="Int32" />
+    <Property Name="cve_repartidor" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="token" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="id_perfil" Type="Int32" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="logeado" Type="Boolean" />
+    <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id_usuario_imagen" Type="Int32" />
+    <NavigationProperty Name="C_Delivery_Repartidores_Solicitudes" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Solicitudes_C_Delivery_Repartidores" FromRole="C_Delivery_Repartidores" ToRole="C_Delivery_Repartidores_Solicitudes" />
+    <NavigationProperty Name="C_Delivery_Repartidores_Empresas_Sucursales" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Empresas_Sucursales_C_Delivery_Repartidores" FromRole="C_Delivery_Repartidores" ToRole="C_Delivery_Repartidores_Empresas_Sucursales" />
+    <NavigationProperty Name="C_Delivery_Repartidores_Ordenes" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Ordenes_C_Delivery_Repartidores" FromRole="C_Delivery_Repartidores" ToRole="C_Delivery_Repartidores_Ordenes" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Repartidores_Ordenes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_order" Type="Int32" Nullable="false" />
+    <Property Name="id_repartidor" Type="Int32" />
+    <Property Name="status" Type="Boolean" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="C_Delivery_Repartidores" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Ordenes_C_Delivery_Repartidores" FromRole="C_Delivery_Repartidores_Ordenes" ToRole="C_Delivery_Repartidores" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Repartidores_Status">
+    <Key>
+      <PropertyRef Name="id_status_solicitud" />
+    </Key>
+    <Property Name="id_status_solicitud" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="porcentaje" Type="Int32" />
+    <Property Name="activo" Type="Boolean" />
+    <NavigationProperty Name="C_Delivery_Repartidores_Solicitud" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Repartidores_Status" FromRole="C_Delivery_Repartidores_Status" ToRole="C_Delivery_Repartidores_Solicitud" />
+  </EntityType>
+  <EntityType Name="C_Delivery_OrdenesPedidos">
+    <Key>
+      <PropertyRef Name="id_orden" />
+      <PropertyRef Name="id_pedido" />
+    </Key>
+    <Property Name="id_orden" Type="Int32" Nullable="false" />
+    <Property Name="id_pedido" Type="Int32" Nullable="false" />
+    <Property Name="fecha_pedido" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="DB_ZPIDI_QASEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C_Delivery_a_new_register" EntityType="Self.C_Delivery_a_new_register" />
+    <EntitySet Name="C_Delivery_Ciudad" EntityType="Self.C_Delivery_Ciudad" />
+    <EntitySet Name="C_Delivery_Estados" EntityType="Self.C_Delivery_Estados" />
+    <EntitySet Name="C_Delivery_Generos" EntityType="Self.C_Delivery_Generos" />
+    <EntitySet Name="C_Delivery_Pais" EntityType="Self.C_Delivery_Pais" />
+    <EntitySet Name="C_Delivery_Repartidores" EntityType="Self.C_Delivery_Repartidores" />
+    <EntitySet Name="C_Delivery_Repartidores_Ordenes" EntityType="Self.C_Delivery_Repartidores_Ordenes" />
+    <EntitySet Name="C_Delivery_Repartidores_Status" EntityType="Self.C_Delivery_Repartidores_Status" />
+    <EntitySet Name="C_Delivery_OrdenesPedidos" EntityType="Self.C_Delivery_OrdenesPedidos" />
+    <EntitySet Name="C_Delivery_Repartidores_Vehiculos_Tipos" EntityType="DB_ZPIDI_QASModel.C_Delivery_Repartidores_Vehiculos_Tipos" />
+    <EntitySet Name="C_Delivery_Usuarios_Imagen" EntityType="DB_ZPIDI_QASModel.C_Delivery_Usuarios_Imagen" />
+    <EntitySet Name="C_Delivery_Repartidores_Solicitudes" EntityType="DB_ZPIDI_QASModel.C_Delivery_Repartidores_Solicitudes" />
+    <AssociationSet Name="FK_C_Delivery_Repartidores_Solicitudes_C_Delivery_Repartidores" Association="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Solicitudes_C_Delivery_Repartidores">
+      <End Role="C_Delivery_Repartidores" EntitySet="C_Delivery_Repartidores" />
+      <End Role="C_Delivery_Repartidores_Solicitudes" EntitySet="C_Delivery_Repartidores_Solicitudes" />
+    </AssociationSet>
+    <EntitySet Name="C_Delivery_Comision_Zpidi" EntityType="DB_ZPIDI_QASModel.C_Delivery_Comision_Zpidi" />
+    <EntitySet Name="C_Delivery_Plataformas" EntityType="DB_ZPIDI_QASModel.C_Delivery_Plataformas" />
+    <EntitySet Name="C_Delivery_Menuappbar_Modules" EntityType="DB_ZPIDI_QASModel.C_Delivery_Menuappbar_Modules" />
+    <EntitySet Name="C_Delivery_OrdenesPedidosCancelados" EntityType="DB_ZPIDI_QASModel.C_Delivery_OrdenesPedidosCancelados" />
+    <EntitySet Name="C_Delivery_TipoCancelacion" EntityType="DB_ZPIDI_QASModel.C_Delivery_TipoCancelacion" />
+    <EntitySet Name="C_Delivery_Menuappbar_ModulesWeb" EntityType="DB_ZPIDI_QASModel.C_Delivery_Menuappbar_ModulesWeb" />
+    <EntitySet Name="C_Delivery_Menuappbar_SubModules" EntityType="DB_ZPIDI_QASModel.C_Delivery_Menuappbar_SubModules" />
+    <EntitySet Name="C_Delivery_Menuappbar_SubModules_Permisos" EntityType="DB_ZPIDI_QASModel.C_Delivery_Menuappbar_SubModules_Permisos" />
+    <AssociationSet Name="FK_C_Delivery_Menuappbar_SubModules_C_Delivery_Menuappbar_Modules" Association="DB_ZPIDI_QASModel.FK_C_Delivery_Menuappbar_SubModules_C_Delivery_Menuappbar_Modules">
+      <End Role="C_Delivery_Menuappbar_ModulesWeb" EntitySet="C_Delivery_Menuappbar_ModulesWeb" />
+      <End Role="C_Delivery_Menuappbar_SubModules" EntitySet="C_Delivery_Menuappbar_SubModules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_Menuappbar_SubModules_Permisos_C_Delivery_Menuappbar_SubModules" Association="DB_ZPIDI_QASModel.FK_C_Delivery_Menuappbar_SubModules_Permisos_C_Delivery_Menuappbar_SubModules">
+      <End Role="C_Delivery_Menuappbar_SubModules" EntitySet="C_Delivery_Menuappbar_SubModules" />
+      <End Role="C_Delivery_Menuappbar_SubModules_Permisos" EntitySet="C_Delivery_Menuappbar_SubModules_Permisos" />
+    </AssociationSet>
+    <EntitySet Name="C_Delivery_empresas" EntityType="DB_ZPIDI_QASModel.C_Delivery_empresas" />
+    <EntitySet Name="C_Delivery_Repartidores_Empresas_Sucursales" EntityType="DB_ZPIDI_QASModel.C_Delivery_Repartidores_Empresas_Sucursales" />
+    <EntitySet Name="C_Delivery_sucursales_gps" EntityType="DB_ZPIDI_QASModel.C_Delivery_sucursales_gps" />
+    <AssociationSet Name="FK_C_Delivery_Repartidores_Empresas_Sucursales_C_Delivery_empresas" Association="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Empresas_Sucursales_C_Delivery_empresas">
+      <End Role="C_Delivery_empresas" EntitySet="C_Delivery_empresas" />
+      <End Role="C_Delivery_Repartidores_Empresas_Sucursales" EntitySet="C_Delivery_Repartidores_Empresas_Sucursales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_Repartidores_Empresas_Sucursales_C_Delivery_Repartidores" Association="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Empresas_Sucursales_C_Delivery_Repartidores">
+      <End Role="C_Delivery_Repartidores" EntitySet="C_Delivery_Repartidores" />
+      <End Role="C_Delivery_Repartidores_Empresas_Sucursales" EntitySet="C_Delivery_Repartidores_Empresas_Sucursales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_Repartidores_Empresas_Sucursales_C_Delivery_sucursales_gps" Association="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Empresas_Sucursales_C_Delivery_sucursales_gps">
+      <End Role="C_Delivery_sucursales_gps" EntitySet="C_Delivery_sucursales_gps" />
+      <End Role="C_Delivery_Repartidores_Empresas_Sucursales" EntitySet="C_Delivery_Repartidores_Empresas_Sucursales" />
+    </AssociationSet>
+    <EntitySet Name="C_Delivery_Parametros" EntityType="DB_ZPIDI_QASModel.C_Delivery_Parametros" />
+    <EntitySet Name="C_Delivery_Pais_Moneda" EntityType="DB_ZPIDI_QASModel.C_Delivery_Pais_Moneda" />
+    <EntitySet Name="C_Delivery_Plataformas_Configuracion" EntityType="DB_ZPIDI_QASModel.C_Delivery_Plataformas_Configuracion" />
+    <AssociationSet Name="FK_C_Delivery_Plataformas_Configuracion_C_Delivery_Pais_Moneda" Association="DB_ZPIDI_QASModel.FK_C_Delivery_Plataformas_Configuracion_C_Delivery_Pais_Moneda">
+      <End Role="C_Delivery_Pais_Moneda" EntitySet="C_Delivery_Pais_Moneda" />
+      <End Role="C_Delivery_Plataformas_Configuracion" EntitySet="C_Delivery_Plataformas_Configuracion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_Plataformas_Configuracion_C_Delivery_Plataformas" Association="DB_ZPIDI_QASModel.FK_C_Delivery_Plataformas_Configuracion_C_Delivery_Plataformas">
+      <End Role="C_Delivery_Plataformas" EntitySet="C_Delivery_Plataformas" />
+      <End Role="C_Delivery_Plataformas_Configuracion" EntitySet="C_Delivery_Plataformas_Configuracion" />
+    </AssociationSet>
+    <EntitySet Name="C_Delivery_estatus_semaforo" EntityType="DB_ZPIDI_QASModel.C_Delivery_estatus_semaforo" />
+    <EntitySet Name="C_Delivery_estatus_semaforo_log" EntityType="DB_ZPIDI_QASModel.C_Delivery_estatus_semaforo_log" />
+    <EntitySet Name="C_Delivery_Semaforo" EntityType="DB_ZPIDI_QASModel.C_Delivery_Semaforo" />
+    <EntitySet Name="C_Delivery_Repartidores_Ubicaciones" EntityType="DB_ZPIDI_QASModel.C_Delivery_Repartidores_Ubicaciones" />
+    <FunctionImport Name="usp_Distancia_dos_puntos" ReturnType="Collection(Double)">
+      <Parameter Name="lat1" Mode="In" Type="Double" />
+      <Parameter Name="long1" Mode="In" Type="Double" />
+      <Parameter Name="lat2" Mode="In" Type="Double" />
+      <Parameter Name="long2" Mode="In" Type="Double" />
+    </FunctionImport>
+    <AssociationSet Name="FK_C_Delivery_estatus_semaforo_log_C_Delivery_Semaforo" Association="DB_ZPIDI_QASModel.FK_C_Delivery_estatus_semaforo_log_C_Delivery_Semaforo">
+      <End Role="C_Delivery_Semaforo" EntitySet="C_Delivery_Semaforo" />
+      <End Role="C_Delivery_estatus_semaforo_log" EntitySet="C_Delivery_estatus_semaforo_log" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_Repartidores_Ordenes_C_Delivery_Repartidores" Association="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Ordenes_C_Delivery_Repartidores">
+      <End Role="C_Delivery_Repartidores" EntitySet="C_Delivery_Repartidores" />
+      <End Role="C_Delivery_Repartidores_Ordenes" EntitySet="C_Delivery_Repartidores_Ordenes" />
+    </AssociationSet>
+    <EntitySet Name="C_Delivery_Pagos_Plataformas" EntityType="DB_ZPIDI_QASModel.C_Delivery_Pagos_Plataformas" />
+    <EntitySet Name="C_Delivery_Pagos_Status" EntityType="DB_ZPIDI_QASModel.C_Delivery_Pagos_Status" />
+    <EntitySet Name="C_Delivery_Pagos_Tipos" EntityType="DB_ZPIDI_QASModel.C_Delivery_Pagos_Tipos" />
+    <AssociationSet Name="FK_C_Delivery_Pagos_Plataformas_C_Delivery_a_new_register" Association="DB_ZPIDI_QASModel.FK_C_Delivery_Pagos_Plataformas_C_Delivery_a_new_register">
+      <End Role="C_Delivery_a_new_register" EntitySet="C_Delivery_a_new_register" />
+      <End Role="C_Delivery_Pagos_Plataformas" EntitySet="C_Delivery_Pagos_Plataformas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_Pagos_Plataformas_C_Delivery_a_new_register1" Association="DB_ZPIDI_QASModel.FK_C_Delivery_Pagos_Plataformas_C_Delivery_a_new_register1">
+      <End Role="C_Delivery_a_new_register" EntitySet="C_Delivery_a_new_register" />
+      <End Role="C_Delivery_Pagos_Plataformas" EntitySet="C_Delivery_Pagos_Plataformas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_Pagos_Plataformas_C_Delivery_Pagos_Status" Association="DB_ZPIDI_QASModel.FK_C_Delivery_Pagos_Plataformas_C_Delivery_Pagos_Status">
+      <End Role="C_Delivery_Pagos_Status" EntitySet="C_Delivery_Pagos_Status" />
+      <End Role="C_Delivery_Pagos_Plataformas" EntitySet="C_Delivery_Pagos_Plataformas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_Pagos_Plataformas_C_Delivery_Plataformas" Association="DB_ZPIDI_QASModel.FK_C_Delivery_Pagos_Plataformas_C_Delivery_Plataformas">
+      <End Role="C_Delivery_Plataformas" EntitySet="C_Delivery_Plataformas" />
+      <End Role="C_Delivery_Pagos_Plataformas" EntitySet="C_Delivery_Pagos_Plataformas" />
+    </AssociationSet>
+    <EntitySet Name="C_Delivery_StartOrders" EntityType="DB_ZPIDI_QASModel.C_Delivery_StartOrders" />
+    <AssociationSet Name="FK_C_Delivery_StartOrders_C_Delivery_sucursales_gps" Association="DB_ZPIDI_QASModel.FK_C_Delivery_StartOrders_C_Delivery_sucursales_gps">
+      <End Role="C_Delivery_sucursales_gps" EntitySet="C_Delivery_sucursales_gps" />
+      <End Role="C_Delivery_StartOrders" EntitySet="C_Delivery_StartOrders" />
+    </AssociationSet>
+    <EntitySet Name="C_Delivery_Ordenes_Tokens" EntityType="DB_ZPIDI_QASModel.C_Delivery_Ordenes_Tokens" />
+    <EntitySet Name="C_Delivery_estatus_semaforo_alias" EntityType="DB_ZPIDI_QASModel.C_Delivery_estatus_semaforo_alias" />
+    <AssociationSet Name="FK_C_Delivery_estatus_semaforo_alias_C_Delivery_Semaforo" Association="DB_ZPIDI_QASModel.FK_C_Delivery_estatus_semaforo_alias_C_Delivery_Semaforo">
+      <End Role="C_Delivery_Semaforo" EntitySet="C_Delivery_Semaforo" />
+      <End Role="C_Delivery_estatus_semaforo_alias" EntitySet="C_Delivery_estatus_semaforo_alias" />
+    </AssociationSet>
+    <FunctionImport Name="Delivery_61_Set_Trafico_Tracking">
+      <Parameter Name="TOKEN" Mode="In" Type="String" />
+      <Parameter Name="id_orden" Mode="In" Type="Int32" />
+      <Parameter Name="id_semaforo_trafico" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="C_Delivery_Repartidores_Solicitud" EntityType="DB_ZPIDI_QASModel.C_Delivery_Repartidores_Solicitud" />
+    <AssociationSet Name="FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Ciudad" Association="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Ciudad">
+      <End Role="C_Delivery_Ciudad" EntitySet="C_Delivery_Ciudad" />
+      <End Role="C_Delivery_Repartidores_Solicitud" EntitySet="C_Delivery_Repartidores_Solicitud" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Estados" Association="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Estados">
+      <End Role="C_Delivery_Estados" EntitySet="C_Delivery_Estados" />
+      <End Role="C_Delivery_Repartidores_Solicitud" EntitySet="C_Delivery_Repartidores_Solicitud" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Plataformas" Association="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Plataformas">
+      <End Role="C_Delivery_Plataformas" EntitySet="C_Delivery_Plataformas" />
+      <End Role="C_Delivery_Repartidores_Solicitud" EntitySet="C_Delivery_Repartidores_Solicitud" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Repartidores_Status" Association="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Repartidores_Status">
+      <End Role="C_Delivery_Repartidores_Status" EntitySet="C_Delivery_Repartidores_Status" />
+      <End Role="C_Delivery_Repartidores_Solicitud" EntitySet="C_Delivery_Repartidores_Solicitud" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Repartidores_Vehiculos_Tipos" Association="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Repartidores_Vehiculos_Tipos">
+      <End Role="C_Delivery_Repartidores_Vehiculos_Tipos" EntitySet="C_Delivery_Repartidores_Vehiculos_Tipos" />
+      <End Role="C_Delivery_Repartidores_Solicitud" EntitySet="C_Delivery_Repartidores_Solicitud" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_Repartidores_Solicitudes_C_Delivery_Repartidores_Solicitud" Association="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Solicitudes_C_Delivery_Repartidores_Solicitud">
+      <End Role="C_Delivery_Repartidores_Solicitud" EntitySet="C_Delivery_Repartidores_Solicitud" />
+      <End Role="C_Delivery_Repartidores_Solicitudes" EntitySet="C_Delivery_Repartidores_Solicitudes" />
+    </AssociationSet>
+    <EntitySet Name="C_Delivery_Trafico_Tracking" EntityType="DB_ZPIDI_QASModel.C_Delivery_Trafico_Tracking" />
+    <EntitySet Name="C_Delivery_Trafico_Semaforos" EntityType="DB_ZPIDI_QASModel.C_Delivery_Trafico_Semaforos" />
+    <FunctionImport Name="Delivery_61_Get_Trafico_Tracking" ReturnType="Collection(DB_ZPIDI_QASModel.Delivery_61_Get_Trafico_Tracking_Result)">
+      <Parameter Name="TOKEN" Mode="In" Type="String" />
+      <Parameter Name="fecha_desde" Mode="In" Type="String" />
+      <Parameter Name="fecha_hasta" Mode="In" Type="String" />
+      <Parameter Name="Modo" Mode="In" Type="String" />
+      <Parameter Name="RangoPlataformas" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Delivery_61_Get_Trafico_Tracking_Dashboard" ReturnType="Collection(DB_ZPIDI_QASModel.Delivery_61_Get_Trafico_Tracking_Dashboard_Result)">
+      <Parameter Name="TOKEN" Mode="In" Type="String" />
+      <Parameter Name="fecha_desde" Mode="In" Type="String" />
+      <Parameter Name="fecha_hasta" Mode="In" Type="String" />
+      <Parameter Name="Modo" Mode="In" Type="String" />
+      <Parameter Name="RangoPlataformas" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="C_Delivery_Repartidores_Vehiculos_Tipos">
+    <Key>
+      <PropertyRef Name="id_vehiculo_tipo" />
+    </Key>
+    <Property Name="id_vehiculo_tipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="activo" Type="Boolean" />
+    <Property Name="icono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="C_Delivery_Repartidores_Solicitud" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Repartidores_Vehiculos_Tipos" FromRole="C_Delivery_Repartidores_Vehiculos_Tipos" ToRole="C_Delivery_Repartidores_Solicitud" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Usuarios_Imagen">
+    <Key>
+      <PropertyRef Name="id_usuario_imagen" />
+    </Key>
+    <Property Name="id_usuario_imagen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="imagen" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Repartidores_Solicitudes">
+    <Key>
+      <PropertyRef Name="id_repartidor_solicitud" />
+    </Key>
+    <Property Name="id_repartidor_solicitud" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_repartidor" Type="Int32" />
+    <Property Name="id_solicitud" Type="Int32" />
+    <Property Name="activo" Type="Boolean" />
+    <NavigationProperty Name="C_Delivery_Repartidores" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Solicitudes_C_Delivery_Repartidores" FromRole="C_Delivery_Repartidores_Solicitudes" ToRole="C_Delivery_Repartidores" />
+    <NavigationProperty Name="C_Delivery_Repartidores_Solicitud" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Solicitudes_C_Delivery_Repartidores_Solicitud" FromRole="C_Delivery_Repartidores_Solicitudes" ToRole="C_Delivery_Repartidores_Solicitud" />
+  </EntityType>
+  <Association Name="FK_C_Delivery_Repartidores_Solicitudes_C_Delivery_Repartidores">
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Repartidores" Role="C_Delivery_Repartidores" Multiplicity="0..1" />
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Repartidores_Solicitudes" Role="C_Delivery_Repartidores_Solicitudes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Repartidores">
+        <PropertyRef Name="id_repartidor" />
+      </Principal>
+      <Dependent Role="C_Delivery_Repartidores_Solicitudes">
+        <PropertyRef Name="id_repartidor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="C_Delivery_Comision_Zpidi">
+    <Key>
+      <PropertyRef Name="id_zpidi_comision" />
+    </Key>
+    <Property Name="id_zpidi_comision" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="porcentaje_comision" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="activo" Type="Boolean" />
+    <Property Name="monto_fijo" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Plataformas">
+    <Key>
+      <PropertyRef Name="id_plataforma" />
+    </Key>
+    <Property Name="id_plataforma" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo_plataforma" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nombre_plataforma" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="activo" Type="Boolean" />
+    <NavigationProperty Name="C_Delivery_Plataformas_Configuracion" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Plataformas_Configuracion_C_Delivery_Plataformas" FromRole="C_Delivery_Plataformas" ToRole="C_Delivery_Plataformas_Configuracion" />
+    <NavigationProperty Name="C_Delivery_Pagos_Plataformas" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Pagos_Plataformas_C_Delivery_Plataformas" FromRole="C_Delivery_Plataformas" ToRole="C_Delivery_Pagos_Plataformas" />
+    <NavigationProperty Name="C_Delivery_Repartidores_Solicitud" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Plataformas" FromRole="C_Delivery_Plataformas" ToRole="C_Delivery_Repartidores_Solicitud" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Menuappbar_Modules">
+    <Key>
+      <PropertyRef Name="id_menu_modulo" />
+    </Key>
+    <Property Name="id_menu_modulo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idApp" Type="Int32" />
+    <Property Name="cve_object" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
+    <Property Name="obj_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="activo" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="C_Delivery_OrdenesPedidosCancelados">
+    <Key>
+      <PropertyRef Name="id_ordenPedidoCancelado" />
+    </Key>
+    <Property Name="id_ordenPedidoCancelado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_orden" Type="Int32" />
+    <Property Name="id_pedido" Type="Int32" />
+    <Property Name="id_tipo_cancel" Type="Int32" />
+    <Property Name="observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_cancelacion" Type="DateTime" Precision="3" />
+    <Property Name="estatus" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="C_Delivery_TipoCancelacion">
+    <Key>
+      <PropertyRef Name="id_tipo_cancel" />
+    </Key>
+    <Property Name="id_tipo_cancel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion_tipo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="estatus" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Menuappbar_ModulesWeb">
+    <Key>
+      <PropertyRef Name="id_modulo_web" />
+    </Key>
+    <Property Name="id_modulo_web" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="icono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="activo" Type="Boolean" />
+    <NavigationProperty Name="C_Delivery_Menuappbar_SubModules" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Menuappbar_SubModules_C_Delivery_Menuappbar_Modules" FromRole="C_Delivery_Menuappbar_ModulesWeb" ToRole="C_Delivery_Menuappbar_SubModules" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Menuappbar_SubModules">
+    <Key>
+      <PropertyRef Name="id_modulo_sub" />
+    </Key>
+    <Property Name="id_modulo_sub" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_modulo" Type="Int32" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="metodo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="controlador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="activo" Type="Boolean" />
+    <NavigationProperty Name="C_Delivery_Menuappbar_ModulesWeb" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Menuappbar_SubModules_C_Delivery_Menuappbar_Modules" FromRole="C_Delivery_Menuappbar_SubModules" ToRole="C_Delivery_Menuappbar_ModulesWeb" />
+    <NavigationProperty Name="C_Delivery_Menuappbar_SubModules_Permisos" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Menuappbar_SubModules_Permisos_C_Delivery_Menuappbar_SubModules" FromRole="C_Delivery_Menuappbar_SubModules" ToRole="C_Delivery_Menuappbar_SubModules_Permisos" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Menuappbar_SubModules_Permisos">
+    <Key>
+      <PropertyRef Name="id_modulo_sub_permiso" />
+    </Key>
+    <Property Name="id_modulo_sub_permiso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_modulo_sub" Type="Int32" />
+    <Property Name="id_rol" Type="Int32" />
+    <Property Name="activo" Type="Boolean" />
+    <NavigationProperty Name="C_Delivery_Menuappbar_SubModules" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Menuappbar_SubModules_Permisos_C_Delivery_Menuappbar_SubModules" FromRole="C_Delivery_Menuappbar_SubModules_Permisos" ToRole="C_Delivery_Menuappbar_SubModules" />
+  </EntityType>
+  <Association Name="FK_C_Delivery_Menuappbar_SubModules_C_Delivery_Menuappbar_Modules">
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Menuappbar_ModulesWeb" Role="C_Delivery_Menuappbar_ModulesWeb" Multiplicity="0..1" />
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Menuappbar_SubModules" Role="C_Delivery_Menuappbar_SubModules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Menuappbar_ModulesWeb">
+        <PropertyRef Name="id_modulo_web" />
+      </Principal>
+      <Dependent Role="C_Delivery_Menuappbar_SubModules">
+        <PropertyRef Name="id_modulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_Menuappbar_SubModules_Permisos_C_Delivery_Menuappbar_SubModules">
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Menuappbar_SubModules" Role="C_Delivery_Menuappbar_SubModules" Multiplicity="0..1" />
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Menuappbar_SubModules_Permisos" Role="C_Delivery_Menuappbar_SubModules_Permisos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Menuappbar_SubModules">
+        <PropertyRef Name="id_modulo_sub" />
+      </Principal>
+      <Dependent Role="C_Delivery_Menuappbar_SubModules_Permisos">
+        <PropertyRef Name="id_modulo_sub" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="C_Delivery_empresas">
+    <Key>
+      <PropertyRef Name="id_empresa" />
+    </Key>
+    <Property Name="id_empresa" Type="Int32" Nullable="false" />
+    <Property Name="nombre_empresa" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="activa" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="C_Delivery_Repartidores_Empresas_Sucursales" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Empresas_Sucursales_C_Delivery_empresas" FromRole="C_Delivery_empresas" ToRole="C_Delivery_Repartidores_Empresas_Sucursales" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Repartidores_Empresas_Sucursales">
+    <Key>
+      <PropertyRef Name="id_empresa_suc_repartidor" />
+    </Key>
+    <Property Name="id_empresa_suc_repartidor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_empresa" Type="Int32" />
+    <Property Name="codigo_sucursal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_repartidor" Type="Int32" />
+    <Property Name="activo" Type="Boolean" />
+    <NavigationProperty Name="C_Delivery_empresas" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Empresas_Sucursales_C_Delivery_empresas" FromRole="C_Delivery_Repartidores_Empresas_Sucursales" ToRole="C_Delivery_empresas" />
+    <NavigationProperty Name="C_Delivery_Repartidores" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Empresas_Sucursales_C_Delivery_Repartidores" FromRole="C_Delivery_Repartidores_Empresas_Sucursales" ToRole="C_Delivery_Repartidores" />
+    <NavigationProperty Name="C_Delivery_sucursales_gps" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Empresas_Sucursales_C_Delivery_sucursales_gps" FromRole="C_Delivery_Repartidores_Empresas_Sucursales" ToRole="C_Delivery_sucursales_gps" />
+  </EntityType>
+  <EntityType Name="C_Delivery_sucursales_gps">
+    <Key>
+      <PropertyRef Name="codigo_sucursal" />
+    </Key>
+    <Property Name="id_sucursal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo_sucursal" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nombre_suc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_empresa" Type="Int32" Nullable="false" />
+    <Property Name="lat" Type="Double" Nullable="false" />
+    <Property Name="long" Type="Double" Nullable="false" />
+    <NavigationProperty Name="C_Delivery_Repartidores_Empresas_Sucursales" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Empresas_Sucursales_C_Delivery_sucursales_gps" FromRole="C_Delivery_sucursales_gps" ToRole="C_Delivery_Repartidores_Empresas_Sucursales" />
+    <NavigationProperty Name="C_Delivery_StartOrders" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_StartOrders_C_Delivery_sucursales_gps" FromRole="C_Delivery_sucursales_gps" ToRole="C_Delivery_StartOrders" />
+  </EntityType>
+  <Association Name="FK_C_Delivery_Repartidores_Empresas_Sucursales_C_Delivery_empresas">
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_empresas" Role="C_Delivery_empresas" Multiplicity="0..1" />
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Repartidores_Empresas_Sucursales" Role="C_Delivery_Repartidores_Empresas_Sucursales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_empresas">
+        <PropertyRef Name="id_empresa" />
+      </Principal>
+      <Dependent Role="C_Delivery_Repartidores_Empresas_Sucursales">
+        <PropertyRef Name="id_empresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_Repartidores_Empresas_Sucursales_C_Delivery_Repartidores">
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Repartidores" Role="C_Delivery_Repartidores" Multiplicity="0..1" />
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Repartidores_Empresas_Sucursales" Role="C_Delivery_Repartidores_Empresas_Sucursales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Repartidores">
+        <PropertyRef Name="id_repartidor" />
+      </Principal>
+      <Dependent Role="C_Delivery_Repartidores_Empresas_Sucursales">
+        <PropertyRef Name="id_repartidor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_Repartidores_Empresas_Sucursales_C_Delivery_sucursales_gps">
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_sucursales_gps" Role="C_Delivery_sucursales_gps" Multiplicity="0..1" />
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Repartidores_Empresas_Sucursales" Role="C_Delivery_Repartidores_Empresas_Sucursales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_sucursales_gps">
+        <PropertyRef Name="codigo_sucursal" />
+      </Principal>
+      <Dependent Role="C_Delivery_Repartidores_Empresas_Sucursales">
+        <PropertyRef Name="codigo_sucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="C_Delivery_Parametros">
+    <Key>
+      <PropertyRef Name="id_parametro" />
+    </Key>
+    <Property Name="id_parametro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="valor_numerico" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="valor_texto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="tipo_parametro" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Pais_Moneda">
+    <Key>
+      <PropertyRef Name="id_moneda" />
+    </Key>
+    <Property Name="id_moneda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="clave" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
+    <Property Name="activo" Type="Boolean" />
+    <NavigationProperty Name="C_Delivery_Plataformas_Configuracion" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Plataformas_Configuracion_C_Delivery_Pais_Moneda" FromRole="C_Delivery_Pais_Moneda" ToRole="C_Delivery_Plataformas_Configuracion" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Plataformas_Configuracion">
+    <Key>
+      <PropertyRef Name="id_pataforma_configuracion" />
+    </Key>
+    <Property Name="id_pataforma_configuracion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_plataforma" Type="Int32" />
+    <Property Name="id_tipo_cobro" Type="Int32" />
+    <Property Name="id_tipo_comision" Type="Int32" />
+    <Property Name="politica_bloqueo_usuario" Type="Int32" />
+    <Property Name="politica_dias_pago" Type="Int32" />
+    <Property Name="dia_pago" Type="Int32" />
+    <Property Name="politica_manejo_credito" Type="Int32" />
+    <Property Name="limite_credito" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="no_contrato" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_inicio_contrato" Type="DateTime" Precision="3" />
+    <Property Name="fecha_termino_contrato" Type="DateTime" Precision="3" />
+    <Property Name="porcentaje_comision_plat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="porcentaje_comision_mens" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="porcentaje_comision_repa" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="cuenta_banco_base_10" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="cuenta_banco_clabe_18" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="id_institucion_bancaria_default" Type="Int32" />
+    <Property Name="id_moneda_base" Type="Int32" />
+    <Property Name="politica_zonas" Type="Int32" />
+    <Property Name="nombre_representante" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="email_representante" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="C_Delivery_Pais_Moneda" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Plataformas_Configuracion_C_Delivery_Pais_Moneda" FromRole="C_Delivery_Plataformas_Configuracion" ToRole="C_Delivery_Pais_Moneda" />
+    <NavigationProperty Name="C_Delivery_Plataformas" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Plataformas_Configuracion_C_Delivery_Plataformas" FromRole="C_Delivery_Plataformas_Configuracion" ToRole="C_Delivery_Plataformas" />
+  </EntityType>
+  <Association Name="FK_C_Delivery_Plataformas_Configuracion_C_Delivery_Pais_Moneda">
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Pais_Moneda" Role="C_Delivery_Pais_Moneda" Multiplicity="0..1" />
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Plataformas_Configuracion" Role="C_Delivery_Plataformas_Configuracion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Pais_Moneda">
+        <PropertyRef Name="id_moneda" />
+      </Principal>
+      <Dependent Role="C_Delivery_Plataformas_Configuracion">
+        <PropertyRef Name="id_moneda_base" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_Plataformas_Configuracion_C_Delivery_Plataformas">
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Plataformas" Role="C_Delivery_Plataformas" Multiplicity="0..1" />
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Plataformas_Configuracion" Role="C_Delivery_Plataformas_Configuracion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Plataformas">
+        <PropertyRef Name="id_plataforma" />
+      </Principal>
+      <Dependent Role="C_Delivery_Plataformas_Configuracion">
+        <PropertyRef Name="id_plataforma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="C_Delivery_estatus_semaforo">
+    <Key>
+      <PropertyRef Name="id_orden_n" />
+    </Key>
+    <Property Name="id_orden_n" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_orden" Type="Int32" Nullable="false" />
+    <Property Name="status_semaforo" Type="Int32" Nullable="false" />
+    <Property Name="descripcion_semaforo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="C_Delivery_estatus_semaforo_log">
+    <Key>
+      <PropertyRef Name="id_orden_status_log" />
+    </Key>
+    <Property Name="id_orden_status_log" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_orden" Type="Int32" />
+    <Property Name="fecha" Type="DateTime" Precision="3" />
+    <Property Name="status_actual" Type="Int32" />
+    <Property Name="status_nuevo" Type="Int32" />
+    <Property Name="activo" Type="Boolean" />
+    <Property Name="lat" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="lng" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ya_llegue" Type="Boolean" />
+    <Property Name="codigo_sucursal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="C_Delivery_Semaforo" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_estatus_semaforo_log_C_Delivery_Semaforo" FromRole="C_Delivery_estatus_semaforo_log" ToRole="C_Delivery_Semaforo" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Semaforo">
+    <Key>
+      <PropertyRef Name="id_semaforo" />
+    </Key>
+    <Property Name="id_semaforo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cve_semaforo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="semaforo_descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="orden" Type="Int32" />
+    <NavigationProperty Name="C_Delivery_estatus_semaforo_log" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_estatus_semaforo_log_C_Delivery_Semaforo" FromRole="C_Delivery_Semaforo" ToRole="C_Delivery_estatus_semaforo_log" />
+    <NavigationProperty Name="C_Delivery_estatus_semaforo_alias" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_estatus_semaforo_alias_C_Delivery_Semaforo" FromRole="C_Delivery_Semaforo" ToRole="C_Delivery_estatus_semaforo_alias" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Repartidores_Ubicaciones">
+    <Key>
+      <PropertyRef Name="id_position" />
+    </Key>
+    <Property Name="id_position" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="longitud" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="latitud" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="time" Type="Time" Precision="7" />
+    <Property Name="id_repartidor" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_C_Delivery_estatus_semaforo_log_C_Delivery_Semaforo">
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Semaforo" Role="C_Delivery_Semaforo" Multiplicity="0..1" />
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_estatus_semaforo_log" Role="C_Delivery_estatus_semaforo_log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Semaforo">
+        <PropertyRef Name="id_semaforo" />
+      </Principal>
+      <Dependent Role="C_Delivery_estatus_semaforo_log">
+        <PropertyRef Name="status_nuevo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_Repartidores_Ordenes_C_Delivery_Repartidores">
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Repartidores" Role="C_Delivery_Repartidores" Multiplicity="0..1" />
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Repartidores_Ordenes" Role="C_Delivery_Repartidores_Ordenes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Repartidores">
+        <PropertyRef Name="id_repartidor" />
+      </Principal>
+      <Dependent Role="C_Delivery_Repartidores_Ordenes">
+        <PropertyRef Name="id_repartidor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="C_Delivery_Pagos_Plataformas">
+    <Key>
+      <PropertyRef Name="id_pago_plataforma" />
+    </Key>
+    <Property Name="id_pago_plataforma" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_plataforma" Type="Int32" />
+    <Property Name="id_usuario_genera" Type="Int32" />
+    <Property Name="fecha_corte" Type="DateTime" Precision="3" />
+    <Property Name="semana_corte" Type="Int32" />
+    <Property Name="monto_semana" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="id_usuario_autoriza" Type="Int32" />
+    <Property Name="NIP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="activo" Type="Boolean" />
+    <Property Name="id_status_pago" Type="Int32" />
+    <NavigationProperty Name="C_Delivery_a_new_register" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Pagos_Plataformas_C_Delivery_a_new_register" FromRole="C_Delivery_Pagos_Plataformas" ToRole="C_Delivery_a_new_register" />
+    <NavigationProperty Name="C_Delivery_a_new_register1" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Pagos_Plataformas_C_Delivery_a_new_register1" FromRole="C_Delivery_Pagos_Plataformas" ToRole="C_Delivery_a_new_register" />
+    <NavigationProperty Name="C_Delivery_Pagos_Status" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Pagos_Plataformas_C_Delivery_Pagos_Status" FromRole="C_Delivery_Pagos_Plataformas" ToRole="C_Delivery_Pagos_Status" />
+    <NavigationProperty Name="C_Delivery_Plataformas" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Pagos_Plataformas_C_Delivery_Plataformas" FromRole="C_Delivery_Pagos_Plataformas" ToRole="C_Delivery_Plataformas" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Pagos_Status">
+    <Key>
+      <PropertyRef Name="id_pagos_status" />
+    </Key>
+    <Property Name="id_pagos_status" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="C_Delivery_Pagos_Plataformas" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Pagos_Plataformas_C_Delivery_Pagos_Status" FromRole="C_Delivery_Pagos_Status" ToRole="C_Delivery_Pagos_Plataformas" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Pagos_Tipos">
+    <Key>
+      <PropertyRef Name="id_tipo_pago" />
+    </Key>
+    <Property Name="id_tipo_pago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipo_pago" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="activo" Type="Boolean" />
+  </EntityType>
+  <Association Name="FK_C_Delivery_Pagos_Plataformas_C_Delivery_a_new_register">
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_a_new_register" Role="C_Delivery_a_new_register" Multiplicity="0..1" />
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Pagos_Plataformas" Role="C_Delivery_Pagos_Plataformas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_a_new_register">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="C_Delivery_Pagos_Plataformas">
+        <PropertyRef Name="id_usuario_autoriza" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_Pagos_Plataformas_C_Delivery_a_new_register1">
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_a_new_register" Role="C_Delivery_a_new_register" Multiplicity="0..1" />
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Pagos_Plataformas" Role="C_Delivery_Pagos_Plataformas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_a_new_register">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="C_Delivery_Pagos_Plataformas">
+        <PropertyRef Name="id_usuario_genera" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_Pagos_Plataformas_C_Delivery_Pagos_Status">
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Pagos_Status" Role="C_Delivery_Pagos_Status" Multiplicity="0..1" />
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Pagos_Plataformas" Role="C_Delivery_Pagos_Plataformas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Pagos_Status">
+        <PropertyRef Name="id_pagos_status" />
+      </Principal>
+      <Dependent Role="C_Delivery_Pagos_Plataformas">
+        <PropertyRef Name="id_status_pago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_Pagos_Plataformas_C_Delivery_Plataformas">
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Plataformas" Role="C_Delivery_Plataformas" Multiplicity="0..1" />
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Pagos_Plataformas" Role="C_Delivery_Pagos_Plataformas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Plataformas">
+        <PropertyRef Name="id_plataforma" />
+      </Principal>
+      <Dependent Role="C_Delivery_Pagos_Plataformas">
+        <PropertyRef Name="id_plataforma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="C_Delivery_StartOrders">
+    <Key>
+      <PropertyRef Name="id_order" />
+    </Key>
+    <Property Name="id_order" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="token" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sucursal" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" Precision="3" />
+    <Property Name="direccion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="lat" Type="Double" Nullable="false" />
+    <Property Name="long" Type="Double" Nullable="false" />
+    <NavigationProperty Name="C_Delivery_sucursales_gps" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_StartOrders_C_Delivery_sucursales_gps" FromRole="C_Delivery_StartOrders" ToRole="C_Delivery_sucursales_gps" />
+  </EntityType>
+  <Association Name="FK_C_Delivery_StartOrders_C_Delivery_sucursales_gps">
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_sucursales_gps" Role="C_Delivery_sucursales_gps" Multiplicity="1" />
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_StartOrders" Role="C_Delivery_StartOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_sucursales_gps">
+        <PropertyRef Name="codigo_sucursal" />
+      </Principal>
+      <Dependent Role="C_Delivery_StartOrders">
+        <PropertyRef Name="sucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="C_Delivery_Ordenes_Tokens">
+    <Key>
+      <PropertyRef Name="id_delivery_tokens" />
+    </Key>
+    <Property Name="id_delivery_tokens" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="token_dyn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_orden" Type="Int32" />
+    <Property Name="activo" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="C_Delivery_estatus_semaforo_alias">
+    <Key>
+      <PropertyRef Name="id_semaforo_alias" />
+    </Key>
+    <Property Name="id_semaforo_alias" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_semaforo" Type="Int32" />
+    <Property Name="alias" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="activo" Type="Boolean" />
+    <NavigationProperty Name="C_Delivery_Semaforo" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_estatus_semaforo_alias_C_Delivery_Semaforo" FromRole="C_Delivery_estatus_semaforo_alias" ToRole="C_Delivery_Semaforo" />
+  </EntityType>
+  <Association Name="FK_C_Delivery_estatus_semaforo_alias_C_Delivery_Semaforo">
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Semaforo" Role="C_Delivery_Semaforo" Multiplicity="0..1" />
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_estatus_semaforo_alias" Role="C_Delivery_estatus_semaforo_alias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Semaforo">
+        <PropertyRef Name="id_semaforo" />
+      </Principal>
+      <Dependent Role="C_Delivery_estatus_semaforo_alias">
+        <PropertyRef Name="id_semaforo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="C_Delivery_Repartidores_Solicitud">
+    <Key>
+      <PropertyRef Name="id_solicitud_repartidor" />
+    </Key>
+    <Property Name="id_solicitud_repartidor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="token" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="apellido_pat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="apellido_mat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sexo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_na" Type="DateTime" Precision="0" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="direccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_estado" Type="Int32" />
+    <Property Name="id_ciudad" Type="Int32" />
+    <Property Name="id_vehiculo" Type="Int32" />
+    <Property Name="no_placa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="no_licencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_status_solicitud" Type="Int32" />
+    <Property Name="activo" Type="Boolean" />
+    <Property Name="foto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_registro" Type="DateTime" Precision="3" />
+    <Property Name="fecha_respuesta" Type="DateTime" Precision="3" />
+    <Property Name="id_plataforma" Type="Int32" />
+    <Property Name="INE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="licencia_conducir" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="tarjeta_circulacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="C_Delivery_Ciudad" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Ciudad" FromRole="C_Delivery_Repartidores_Solicitud" ToRole="C_Delivery_Ciudad" />
+    <NavigationProperty Name="C_Delivery_Estados" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Estados" FromRole="C_Delivery_Repartidores_Solicitud" ToRole="C_Delivery_Estados" />
+    <NavigationProperty Name="C_Delivery_Plataformas" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Plataformas" FromRole="C_Delivery_Repartidores_Solicitud" ToRole="C_Delivery_Plataformas" />
+    <NavigationProperty Name="C_Delivery_Repartidores_Status" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Repartidores_Status" FromRole="C_Delivery_Repartidores_Solicitud" ToRole="C_Delivery_Repartidores_Status" />
+    <NavigationProperty Name="C_Delivery_Repartidores_Vehiculos_Tipos" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Repartidores_Vehiculos_Tipos" FromRole="C_Delivery_Repartidores_Solicitud" ToRole="C_Delivery_Repartidores_Vehiculos_Tipos" />
+    <NavigationProperty Name="C_Delivery_Repartidores_Solicitudes" Relationship="DB_ZPIDI_QASModel.FK_C_Delivery_Repartidores_Solicitudes_C_Delivery_Repartidores_Solicitud" FromRole="C_Delivery_Repartidores_Solicitud" ToRole="C_Delivery_Repartidores_Solicitudes" />
+  </EntityType>
+  <Association Name="FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Ciudad">
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Ciudad" Role="C_Delivery_Ciudad" Multiplicity="0..1" />
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Repartidores_Solicitud" Role="C_Delivery_Repartidores_Solicitud" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Ciudad">
+        <PropertyRef Name="cda_id" />
+      </Principal>
+      <Dependent Role="C_Delivery_Repartidores_Solicitud">
+        <PropertyRef Name="id_ciudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Estados">
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Estados" Role="C_Delivery_Estados" Multiplicity="0..1" />
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Repartidores_Solicitud" Role="C_Delivery_Repartidores_Solicitud" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Estados">
+        <PropertyRef Name="id_estado" />
+      </Principal>
+      <Dependent Role="C_Delivery_Repartidores_Solicitud">
+        <PropertyRef Name="id_estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Plataformas">
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Plataformas" Role="C_Delivery_Plataformas" Multiplicity="0..1" />
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Repartidores_Solicitud" Role="C_Delivery_Repartidores_Solicitud" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Plataformas">
+        <PropertyRef Name="id_plataforma" />
+      </Principal>
+      <Dependent Role="C_Delivery_Repartidores_Solicitud">
+        <PropertyRef Name="id_plataforma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Repartidores_Status">
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Repartidores_Status" Role="C_Delivery_Repartidores_Status" Multiplicity="0..1" />
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Repartidores_Solicitud" Role="C_Delivery_Repartidores_Solicitud" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Repartidores_Status">
+        <PropertyRef Name="id_status_solicitud" />
+      </Principal>
+      <Dependent Role="C_Delivery_Repartidores_Solicitud">
+        <PropertyRef Name="id_status_solicitud" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Repartidores_Vehiculos_Tipos">
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Repartidores_Vehiculos_Tipos" Role="C_Delivery_Repartidores_Vehiculos_Tipos" Multiplicity="0..1" />
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Repartidores_Solicitud" Role="C_Delivery_Repartidores_Solicitud" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Repartidores_Vehiculos_Tipos">
+        <PropertyRef Name="id_vehiculo_tipo" />
+      </Principal>
+      <Dependent Role="C_Delivery_Repartidores_Solicitud">
+        <PropertyRef Name="id_vehiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_Repartidores_Solicitudes_C_Delivery_Repartidores_Solicitud">
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Repartidores_Solicitud" Role="C_Delivery_Repartidores_Solicitud" Multiplicity="0..1" />
+    <End Type="DB_ZPIDI_QASModel.C_Delivery_Repartidores_Solicitudes" Role="C_Delivery_Repartidores_Solicitudes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Repartidores_Solicitud">
+        <PropertyRef Name="id_solicitud_repartidor" />
+      </Principal>
+      <Dependent Role="C_Delivery_Repartidores_Solicitudes">
+        <PropertyRef Name="id_solicitud" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="C_Delivery_Trafico_Tracking">
+    <Key>
+      <PropertyRef Name="id_trafico_tracking" />
+    </Key>
+    <Property Name="id_trafico_tracking" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_orden" Type="Int32" />
+    <Property Name="id_pedido" Type="Int32" />
+    <Property Name="fecha_pedido" Type="DateTime" Precision="3" />
+    <Property Name="est_01" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fec_01" Type="DateTime" Precision="3" />
+    <Property Name="sem_01" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dif_01" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="est_02" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fec_02" Type="DateTime" Precision="3" />
+    <Property Name="sem_02" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dif_02" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="est_03" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fec_03" Type="DateTime" Precision="3" />
+    <Property Name="sem_03" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dif_03" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="est_04" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fec_04" Type="DateTime" Precision="3" />
+    <Property Name="sem_04" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dif_04" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="est_05" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fec_05" Type="DateTime" Precision="3" />
+    <Property Name="sem_05" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dif_05" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="est_06" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fec_06" Type="DateTime" Precision="3" />
+    <Property Name="sem_06" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dif_06" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="est_07" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fec_07" Type="DateTime" Precision="3" />
+    <Property Name="sem_07" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dif_07" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="est_08" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fec_08" Type="DateTime" Precision="3" />
+    <Property Name="sem_08" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dif_08" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="est_09" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fec_09" Type="DateTime" Precision="3" />
+    <Property Name="sem_09" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dif_09" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="est_10" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fec_10" Type="DateTime" Precision="3" />
+    <Property Name="sem_10" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dif_10" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="est_11" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fec_11" Type="DateTime" Precision="3" />
+    <Property Name="sem_11" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dif_11" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="est_12" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fec_12" Type="DateTime" Precision="3" />
+    <Property Name="sem_12" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dif_12" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="est_13" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fec_13" Type="DateTime" Precision="3" />
+    <Property Name="sem_13" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dif_13" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="est_14" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fec_14" Type="DateTime" Precision="3" />
+    <Property Name="sem_14" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dif_14" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="est_15" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fec_15" Type="DateTime" Precision="3" />
+    <Property Name="sem_15" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dif_15" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="est_16" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fec_16" Type="DateTime" Precision="3" />
+    <Property Name="sem_16" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dif_16" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="est_17" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fec_17" Type="DateTime" Precision="3" />
+    <Property Name="sem_17" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dif_17" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="est_18" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fec_18" Type="DateTime" Precision="3" />
+    <Property Name="sem_18" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dif_18" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="est_19" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fec_19" Type="DateTime" Precision="3" />
+    <Property Name="sem_19" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dif_19" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="est_20" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fec_20" Type="DateTime" Precision="3" />
+    <Property Name="sem_20" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dif_20" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="est_21" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fec_21" Type="DateTime" Precision="3" />
+    <Property Name="sem_21" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dif_21" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="est_22" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fec_22" Type="DateTime" Precision="3" />
+    <Property Name="sem_22" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dif_22" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="est_23" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fec_23" Type="DateTime" Precision="3" />
+    <Property Name="sem_23" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dif_23" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="est_24" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fec_24" Type="DateTime" Precision="3" />
+    <Property Name="sem_24" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dif_24" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="est_25" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fec_25" Type="DateTime" Precision="3" />
+    <Property Name="sem_25" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dif_25" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="fec_reasignacion_1" Type="DateTime" Precision="3" />
+    <Property Name="fec_reasignacion_2" Type="DateTime" Precision="3" />
+    <Property Name="est_reasignacion" Type="Int32" />
+    <Property Name="Calificacion_1" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Calificacion_2" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Calificacion_3" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="nombre_cliente" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="telefono_cliente" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="saldo_repartidor" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="pagada_sn" Type="Boolean" />
+    <Property Name="fecha_pagada" Type="DateTime" Precision="3" />
+    <Property Name="activa" Type="Boolean" />
+    <Property Name="id_repartidor" Type="Int32" />
+    <Property Name="nombre_repartidor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="telefono_repartidor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nombre_sucursal" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="semaforo_orden" Type="Int32" />
+    <Property Name="codigo_sucursal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_plataforma" Type="Int32" />
+    <Property Name="nombre_plataforma" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="tiempo_total_servicio" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Trafico_Semaforos">
+    <Key>
+      <PropertyRef Name="id_trafico_semaforo" />
+    </Key>
+    <Property Name="id_trafico_semaforo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_semaforo" Type="Int32" />
+    <Property Name="cve_semaforo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="semaforo_descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="semaforo_nombre_corto" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="texto_reporte" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="estatus_posicion" Type="Int32" />
+    <Property Name="valor_minimo" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="valor_maximo" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="descripcion_proceso" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="activo" Type="Boolean" />
+    <Property Name="tolerancia" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="configurable" Type="Boolean" />
+  </EntityType>
+  <ComplexType Name="Delivery_61_Get_Trafico_Tracking_Result">
+    <Property Type="Int32" Name="id_orden" Nullable="true" />
+    <Property Type="String" Name="nombre_sucursal" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="nombre_plataforma" Nullable="true" MaxLength="150" />
+    <Property Type="DateTime" Name="fecha_pedido" Nullable="true" Precision="23" />
+    <Property Type="String" Name="est_01" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fec_01" Nullable="true" Precision="23" />
+    <Property Type="String" Name="sem_01" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="dif_01" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="est_02" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fec_02" Nullable="true" Precision="23" />
+    <Property Type="String" Name="sem_02" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="dif_02" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="est_03" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fec_03" Nullable="true" Precision="23" />
+    <Property Type="String" Name="sem_03" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="dif_03" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="est_04" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fec_04" Nullable="true" Precision="23" />
+    <Property Type="String" Name="sem_04" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="dif_04" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="est_05" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fec_05" Nullable="true" Precision="23" />
+    <Property Type="String" Name="sem_05" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="dif_05" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="est_06" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fec_06" Nullable="true" Precision="23" />
+    <Property Type="String" Name="sem_06" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="dif_06" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="est_07" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fec_07" Nullable="true" Precision="23" />
+    <Property Type="String" Name="sem_07" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="dif_07" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="est_08" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fec_08" Nullable="true" Precision="23" />
+    <Property Type="String" Name="sem_08" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="dif_08" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="est_09" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fec_09" Nullable="true" Precision="23" />
+    <Property Type="String" Name="sem_09" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="dif_09" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="est_10" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fec_10" Nullable="true" Precision="23" />
+    <Property Type="String" Name="sem_10" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="dif_10" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="est_11" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fec_11" Nullable="true" Precision="23" />
+    <Property Type="String" Name="sem_11" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="dif_11" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="est_12" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fec_12" Nullable="true" Precision="23" />
+    <Property Type="String" Name="sem_12" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="dif_12" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="est_13" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fec_13" Nullable="true" Precision="23" />
+    <Property Type="String" Name="sem_13" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="dif_13" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="est_14" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fec_14" Nullable="true" Precision="23" />
+    <Property Type="String" Name="sem_14" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="dif_14" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="est_15" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fec_15" Nullable="true" Precision="23" />
+    <Property Type="String" Name="sem_15" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="dif_15" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="est_16" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fec_16" Nullable="true" Precision="23" />
+    <Property Type="String" Name="sem_16" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="dif_16" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="est_17" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fec_17" Nullable="true" Precision="23" />
+    <Property Type="String" Name="sem_17" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="dif_17" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="est_18" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fec_18" Nullable="true" Precision="23" />
+    <Property Type="String" Name="sem_18" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="dif_18" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="est_19" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fec_19" Nullable="true" Precision="23" />
+    <Property Type="String" Name="sem_19" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="dif_19" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="est_20" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fec_20" Nullable="true" Precision="23" />
+    <Property Type="String" Name="sem_20" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="dif_20" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="est_21" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fec_21" Nullable="true" Precision="23" />
+    <Property Type="String" Name="sem_21" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="dif_21" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="est_22" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fec_22" Nullable="true" Precision="23" />
+    <Property Type="String" Name="sem_22" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="dif_22" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="est_23" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fec_23" Nullable="true" Precision="23" />
+    <Property Type="String" Name="sem_23" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="dif_23" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="est_24" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fec_24" Nullable="true" Precision="23" />
+    <Property Type="String" Name="sem_24" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="dif_24" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="est_25" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fec_25" Nullable="true" Precision="23" />
+    <Property Type="String" Name="sem_25" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="dif_25" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="fec_reasignacion_1" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="fec_reasignacion_2" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="Calificacion_1" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Calificacion_2" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Calificacion_3" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="nombre_cliente" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="telefono_cliente" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="nombre_repartidor" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="telefono_repartidor" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="semaforo_orden" Nullable="true" />
+    <Property Type="Int32" Name="id_repartidor" Nullable="true" />
+    <Property Type="Decimal" Name="tiempo_total_servicio" Nullable="true" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="Delivery_61_Get_Trafico_Tracking_Dashboard_Result">
+    <Property Type="Int32" Name="no_ordenes_dia" Nullable="true" />
+    <Property Type="Int32" Name="no_ordenes_iniciadas" Nullable="true" />
+    <Property Type="Int32" Name="no_ordenes_mostrador" Nullable="true" />
+    <Property Type="Int32" Name="no_ordenes_transito" Nullable="true" />
+    <Property Type="Int32" Name="no_ordenes_entregadas" Nullable="true" />
+    <Property Type="Int32" Name="no_ordenes_no_entregadas" Nullable="true" />
+    <Property Type="Int32" Name="no_repartidores_conectados" Nullable="true" />
+    <Property Type="Int32" Name="no_repartidores_en_transito" Nullable="true" />
+    <Property Type="Int32" Name="no_repartidores_sin_ordenes" Nullable="true" />
+    <Property Type="Decimal" Name="prom_tiempo_servicio_promedio_entrega" Nullable="true" Precision="3" Scale="2" />
+    <Property Type="Decimal" Name="prom_tiempo_negocio" Nullable="true" Precision="3" Scale="2" />
+    <Property Type="Decimal" Name="prom_tiempo_preparacion" Nullable="true" Precision="3" Scale="2" />
+    <Property Type="Decimal" Name="prom_tiempo_asignacion" Nullable="true" Precision="3" Scale="2" />
+    <Property Type="Decimal" Name="prom_tiempo_reparto_zpidi" Nullable="true" Precision="3" Scale="2" />
+    <Property Type="Decimal" Name="prom_tiempo_reparto_plataformas" Nullable="true" Precision="3" Scale="2" />
+    <Property Type="Int32" Name="ordenes_entregadas_a_tiempo" Nullable="true" />
+    <Property Type="Decimal" Name="prom_tiempo_entrega_a_tiempo" Nullable="true" Precision="3" Scale="2" />
+    <Property Type="Decimal" Name="venta_del_dia" Nullable="true" Precision="18" Scale="2" />
+  </ComplexType>
+</Schema>

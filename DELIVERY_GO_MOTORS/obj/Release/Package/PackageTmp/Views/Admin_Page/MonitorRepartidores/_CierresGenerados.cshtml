@@ -1,0 +1,42 @@
+﻿@model IEnumerable<ZPIDI_PORTAL.Models.DataBase.C_Delivery_Pagos_Plataformas>
+
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        <div class="card border-info mb-3" style="max-width: 100%;">
+            <div class="card-header">#@item.id_pago_plataforma - @item.C_Delivery_Plataformas.nombre_plataforma</div>
+            <div class="card-body text-info">
+                <div class="row">
+                    <div class="col-md-9">
+                        <h3 class="card-title">Monto: $@Math.Abs(item.monto_semana.Value) <span><i class="fa fa-money text-success"></i></span></h3>
+                        <p class="card-text">@item.observaciones</p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        @if (item.id_status_pago == 1)
+                        {
+                            <i class="fa fa-4x fa-check-circle-o" onclick="AutorizarCierre(@item.id_pago_plataforma);"></i>
+                            <label onclick="AutorizarCierre(@item.id_pago_plataforma);">AUTORIZAR</label>
+                            <h5 class="text-right" style="color:red;margin:0px">@item.C_Delivery_Pagos_Status.status</h5>
+                        }
+                        @if (item.id_status_pago == 2)
+                        {
+                            <h5 class="text-right" style="color:dodgerblue;margin:0px">@item.C_Delivery_Pagos_Status.status</h5>
+                        }
+                        @if (item.id_status_pago == 3)
+                        {
+                            <h5 class="text-right" style="color:lawngreen;margin:0px">@item.C_Delivery_Pagos_Status.status</h5>
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+else
+{
+    <h1>NO HAY CIERRES PENDIENTES</h1>
+}

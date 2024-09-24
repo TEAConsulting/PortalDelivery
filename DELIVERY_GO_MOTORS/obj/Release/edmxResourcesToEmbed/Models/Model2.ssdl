@@ -1,0 +1,741 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_CORPORATIVA_DEVModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="C_clientes">
+    <Key>
+      <PropertyRef Name="id_cliente" />
+    </Key>
+    <Property Name="id_cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="clave_cliente" Type="varchar" MaxLength="50" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="250" />
+    <Property Name="ultimacompra" Type="varchar" MaxLength="150" />
+    <Property Name="status" Type="bit" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+    <Property Name="id_facebook" Type="varchar" MaxLength="50" />
+    <Property Name="id_google" Type="varchar" MaxLength="50" />
+    <Property Name="password_web" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="C_clientes_direccion">
+    <Key>
+      <PropertyRef Name="id_cliente_direccion" />
+    </Key>
+    <Property Name="id_cliente_direccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_cliente" Type="int" />
+    <Property Name="clave_cliente" Type="varchar" MaxLength="255" />
+    <Property Name="id_direccion" Type="int" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="C_clientes_telefono">
+    <Key>
+      <PropertyRef Name="id_clientes_telefono" />
+    </Key>
+    <Property Name="id_clientes_telefono" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_cliente" Type="int" />
+    <Property Name="id_telefono" Type="int" />
+  </EntityType>
+  <EntityType Name="C_colonias_mx">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="d_codigo" Type="nvarchar(max)" />
+    <Property Name="d_asenta" Type="nvarchar(max)" />
+    <Property Name="d_tipo_asenta" Type="nvarchar(max)" />
+    <Property Name="d_mnpio" Type="nvarchar(max)" />
+    <Property Name="d_estado" Type="nvarchar(max)" />
+    <Property Name="d_ciudad" Type="nvarchar(max)" />
+    <Property Name="d_cp" Type="nvarchar(max)" />
+    <Property Name="c_estado" Type="nvarchar(max)" />
+    <Property Name="c_oficina" Type="nvarchar(max)" />
+    <Property Name="c_cp" Type="nvarchar(max)" />
+    <Property Name="c_tipo_asenta" Type="nvarchar(max)" />
+    <Property Name="c_mnpio" Type="nvarchar(max)" />
+    <Property Name="id_asenta_cpcons" Type="nvarchar(max)" />
+    <Property Name="d_zona" Type="nvarchar(max)" />
+    <Property Name="c_cve_ciudad" Type="nvarchar(max)" />
+    <Property Name="version" Type="varchar" MaxLength="50" />
+    <Property Name="codigo_sucursal" Type="varchar" MaxLength="50" />
+    <Property Name="costo_envio" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="latitud" Type="varchar" MaxLength="50" />
+    <Property Name="longitud" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="C_direcciones_mx">
+    <Key>
+      <PropertyRef Name="id_direccion" />
+    </Key>
+    <Property Name="id_direccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="calle" Type="varchar" MaxLength="500" />
+    <Property Name="numero_ext" Type="varchar" MaxLength="50" />
+    <Property Name="id_colonia" Type="int" />
+    <Property Name="entre_calle1" Type="varchar" MaxLength="150" />
+    <Property Name="entre_calle2" Type="varchar" MaxLength="150" />
+    <Property Name="referencia" Type="varchar" MaxLength="500" />
+    <Property Name="d_codigo" Type="int" />
+    <Property Name="id_asenta_cpcons" Type="int" />
+    <Property Name="id_ciudad" Type="int" />
+    <Property Name="id_estado" Type="int" />
+    <Property Name="id_colonia_mx" Type="int" />
+    <Property Name="lat" Type="numeric" Precision="18" Scale="10" />
+    <Property Name="lng" Type="numeric" Precision="18" Scale="10" />
+    <Property Name="verificada" Type="bit" />
+    <Property Name="verificada_repartidor" Type="bit" />
+  </EntityType>
+  <EntityType Name="C_empresas">
+    <Key>
+      <PropertyRef Name="id_empresa" />
+    </Key>
+    <Property Name="id_empresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo_empresa" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_tipo_empresa" Type="int" />
+    <Property Name="nombre" Type="varchar(max)" />
+    <Property Name="razon_social" Type="varchar(max)" Nullable="false" />
+    <Property Name="rfc" Type="varchar" MaxLength="50" />
+    <Property Name="direccion" Type="varchar(max)" Nullable="false" />
+    <Property Name="no" Type="nchar" MaxLength="10" />
+    <Property Name="colonia" Type="varchar" MaxLength="150" />
+    <Property Name="cp" Type="varchar" MaxLength="50" />
+    <Property Name="referencia" Type="varchar" MaxLength="150" />
+    <Property Name="telefono" Type="varchar" MaxLength="150" />
+    <Property Name="telefono_celular" Type="varchar" MaxLength="150" />
+    <Property Name="correo" Type="varchar" MaxLength="150" />
+    <Property Name="fecha_registro" Type="datetime" />
+    <Property Name="representante" Type="varchar" MaxLength="250" />
+    <Property Name="alias" Type="varchar" MaxLength="10" />
+    <Property Name="id_ciudad" Type="int" />
+    <Property Name="id_estado" Type="int" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="C_empresas_sucursales">
+    <Key>
+      <PropertyRef Name="id_empresa_sucursal" />
+    </Key>
+    <Property Name="id_empresa_sucursal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_empresa" Type="int" />
+    <Property Name="codigo_sucursal" Type="varchar" MaxLength="50" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="C_marcas_g">
+    <Key>
+      <PropertyRef Name="id_marca" />
+    </Key>
+    <Property Name="id_marca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_marca" Type="varchar" MaxLength="250" />
+    <Property Name="nombre_matriz" Type="varchar" MaxLength="250" />
+    <Property Name="fecha_registro" Type="datetime" />
+    <Property Name="logo" Type="varchar" MaxLength="250" />
+    <Property Name="sitio_web" Type="varchar" MaxLength="250" />
+    <Property Name="color" Type="varchar" MaxLength="150" />
+    <Property Name="facebook" Type="varchar" MaxLength="150" />
+    <Property Name="twitter" Type="varchar" MaxLength="150" />
+    <Property Name="status" Type="bit" />
+    <Property Name="telefono" Type="varchar" MaxLength="20" />
+    <Property Name="logo_header" Type="varchar" MaxLength="250" />
+    <Property Name="logo_body" Type="varchar" MaxLength="250" />
+    <Property Name="logo_footer" Type="varchar" MaxLength="250" />
+    <Property Name="id_tipo_marca" Type="int" />
+  </EntityType>
+  <EntityType Name="C_pago_tipo">
+    <Key>
+      <PropertyRef Name="id_pago_tipo" />
+    </Key>
+    <Property Name="id_pago_tipo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_pago_tipo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="C_pedidos">
+    <Key>
+      <PropertyRef Name="id_pedido" />
+    </Key>
+    <Property Name="id_pedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_cliente" Type="int" />
+    <Property Name="id_marca" Type="int" />
+    <Property Name="codigo_sucursal" Type="varchar" MaxLength="50" />
+    <Property Name="fecha_pedido" Type="datetime" />
+    <Property Name="fecha_entrega" Type="datetime" />
+    <Property Name="id_telefono" Type="int" />
+    <Property Name="id_direccion" Type="int" />
+    <Property Name="monto" Type="numeric" Precision="18" Scale="8" />
+    <Property Name="pago_recibido" Type="numeric" Precision="18" Scale="8" />
+    <Property Name="id_pedido_tipo" Type="int" />
+    <Property Name="id_tracking_status" Type="int" />
+    <Property Name="id_evento" Type="int" />
+    <Property Name="id_tipo_entrega" Type="int" Nullable="false" />
+    <Property Name="id_bo_g" Type="int" />
+    <Property Name="id_usuario_corporativo" Type="int" />
+    <Property Name="orden" Type="int" />
+    <Property Name="hora" Type="time" Precision="7" />
+    <Property Name="observaciones" Type="nvarchar" MaxLength="500" />
+    <Property Name="id_caja" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_mesa" Type="int" />
+    <Property Name="num_banderin" Type="varchar" MaxLength="50" />
+    <Property Name="costo_envio" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="impresion_dll" Type="bit" />
+    <Property Name="id_turno" Type="int" />
+  </EntityType>
+  <EntityType Name="C_pedidos_d">
+    <Key>
+      <PropertyRef Name="id_pedido_d" />
+    </Key>
+    <Property Name="id_pedido_d" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_pedido" Type="int" />
+    <Property Name="sku_producto" Type="varchar" MaxLength="50" />
+    <Property Name="cantidad" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="pedido_d_status" Type="bit" />
+    <Property Name="costo" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="preparar_cocina" Type="bit" />
+    <Property Name="descontar_inventario" Type="bit" />
+    <Property Name="orden" Type="int" />
+    <Property Name="warmer" Type="bit" />
+  </EntityType>
+  <EntityType Name="C_producto_clasificacion">
+    <Key>
+      <PropertyRef Name="id_producto_clasificacion" />
+    </Key>
+    <Property Name="id_producto_clasificacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_tipo_producto" Type="int" />
+    <Property Name="nombre_producto_clasificacion" Type="varchar" MaxLength="50" />
+    <Property Name="imagen_pequena" Type="varchar" MaxLength="250" />
+    <Property Name="imagen_mediana" Type="varchar" MaxLength="250" />
+    <Property Name="imagen_grande" Type="varchar" MaxLength="250" />
+    <Property Name="aplica_descuento" Type="bit" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="C_productos_cat">
+    <Key>
+      <PropertyRef Name="sku" />
+    </Key>
+    <Property Name="id_producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sku" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="plu" Type="varchar" MaxLength="50" />
+    <Property Name="codigo_barra" Type="varchar" MaxLength="50" />
+    <Property Name="nombre" Type="varchar" MaxLength="150" />
+    <Property Name="descripcion" Type="varchar(max)" />
+    <Property Name="id_producto_clasificacion" Type="int" />
+    <Property Name="id_producto_subclasificacion" Type="int" />
+    <Property Name="id_especialidad" Type="int" />
+    <Property Name="id_catalogo_tamanos" Type="int" />
+    <Property Name="existencia" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="maximo" Type="numeric" Precision="18" Scale="3" />
+    <Property Name="minimo" Type="numeric" Precision="18" Scale="3" />
+    <Property Name="id_proveedor" Type="int" />
+    <Property Name="fecha_ultima_compra" Type="datetime" />
+    <Property Name="incluir_backorder" Type="bit" />
+    <Property Name="id_unidad_medida" Type="int" />
+    <Property Name="id_producto_presentacion" Type="int" />
+    <Property Name="insumos" Type="bit" />
+    <Property Name="activo" Type="bit" />
+    <Property Name="path_imagen" Type="varchar" MaxLength="250" />
+    <Property Name="id_clase" Type="int" />
+    <Property Name="devolucion_inventario" Type="bit" />
+    <Property Name="preparacion" Type="bit" />
+    <Property Name="token_ganancia" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="aplica_token" Type="bit" />
+    <Property Name="comision_venta" Type="bit" />
+    <Property Name="monto_comision_venta" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="conciliacion" Type="bit" />
+    <Property Name="aplica_ingredientada" Type="bit" />
+  </EntityType>
+  <EntityType Name="C_sucursales">
+    <Key>
+      <PropertyRef Name="codigo_sucursal" />
+    </Key>
+    <Property Name="Id_sucursal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo_sucursal" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="150" />
+    <Property Name="latitud" Type="varchar" MaxLength="150" />
+    <Property Name="longitud" Type="varchar" MaxLength="150" />
+    <Property Name="servicio_mostrador" Type="bit" Nullable="false" />
+    <Property Name="id_motivo_servicio_mostrador" Type="int" />
+    <Property Name="servicio_reparto" Type="bit" />
+    <Property Name="id_motivo_servicio_reparto" Type="int" />
+    <Property Name="desvio" Type="bit" />
+    <Property Name="id_direccion" Type="int" />
+    <Property Name="id_empresa" Type="int" />
+    <Property Name="id_zona_precio" Type="int" />
+    <Property Name="ip" Type="varchar" MaxLength="50" />
+    <Property Name="activo" Type="bit" />
+    <Property Name="sucursal_desvio" Type="varchar" MaxLength="50" />
+    <Property Name="requiere_repartidor" Type="bit" />
+    <Property Name="hora_apertura" Type="time" Precision="7" />
+    <Property Name="hora_cierre" Type="time" Precision="7" />
+    <Property Name="id_tipo_venta" Type="int" />
+    <Property Name="servicio_rappi" Type="bit" />
+    <Property Name="autorizacion_solicitud" Type="bit" />
+  </EntityType>
+  <EntityType Name="C_telefonos">
+    <Key>
+      <PropertyRef Name="id_telefono" />
+    </Key>
+    <Property Name="id_telefono" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="telefono" Type="varchar" MaxLength="50" />
+    <Property Name="id_pregunta_web" Type="int" />
+    <Property Name="respuesta" Type="varchar" MaxLength="150" />
+    <Property Name="status" Type="bit" />
+  </EntityType>
+  <EntityType Name="C_tipo_entrega">
+    <Key>
+      <PropertyRef Name="id_tipo_entrega" />
+    </Key>
+    <Property Name="id_tipo_entrega" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_tipo_entrega" Type="varchar" MaxLength="50" />
+    <Property Name="status" Type="bit" />
+  </EntityType>
+  <EntityType Name="C_ventas_d">
+    <Key>
+      <PropertyRef Name="id_venta_d" />
+    </Key>
+    <Property Name="id_venta_d" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sku_producto" Type="varchar" MaxLength="50" />
+    <Property Name="id_venta_g" Type="int" />
+    <Property Name="cantidad" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="status" Type="bit" />
+    <Property Name="id_promocion" Type="int" />
+    <Property Name="precio" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="pagado" Type="bit" />
+    <Property Name="notas" Type="varchar" MaxLength="50" />
+    <Property Name="id_tipo_autorizacion" Type="int" />
+    <Property Name="fecha_autorizacion" Type="datetime" />
+    <Property Name="id_grupo_productos_prods" Type="int" />
+    <Property Name="preparacion" Type="bit" />
+    <Property Name="orden" Type="int" />
+    <Property Name="id_promocion_grupo" Type="int" />
+  </EntityType>
+  <EntityType Name="C_ventas_g">
+    <Key>
+      <PropertyRef Name="id_venta_g" />
+    </Key>
+    <Property Name="id_venta_g" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo_sucursal" Type="varchar" MaxLength="50" />
+    <Property Name="id_caja" Type="varchar" MaxLength="50" />
+    <Property Name="orden" Type="int" />
+    <Property Name="folio" Type="nchar" MaxLength="50" />
+    <Property Name="fecha" Type="datetime" />
+    <Property Name="id_venta_tipo" Type="int" />
+    <Property Name="id_usuario" Type="int" />
+    <Property Name="subtotal" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="id_impuesto" Type="int" />
+    <Property Name="propina" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="total" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="id_venta_status" Type="int" />
+    <Property Name="id_codigo" Type="int" />
+    <Property Name="id_pedido" Type="int" />
+    <Property Name="id_factura" Type="int" />
+    <Property Name="descuento" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="id_turno" Type="int" />
+  </EntityType>
+  <EntityType Name="C_ventas_pagos">
+    <Key>
+      <PropertyRef Name="id_pago" />
+    </Key>
+    <Property Name="id_pago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_venta" Type="int" />
+    <Property Name="total" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="fecha" Type="datetime" />
+    <Property Name="id_pago_tipo" Type="int" />
+    <Property Name="tarjeta" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK_C_clientes_direccion_C_clientes">
+    <End Role="C_clientes" Type="Self.C_clientes" Multiplicity="0..1" />
+    <End Role="C_clientes_direccion" Type="Self.C_clientes_direccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_clientes">
+        <PropertyRef Name="id_cliente" />
+      </Principal>
+      <Dependent Role="C_clientes_direccion">
+        <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_clientes_direccion_C_direcciones_mx">
+    <End Role="C_direcciones_mx" Type="Self.C_direcciones_mx" Multiplicity="0..1" />
+    <End Role="C_clientes_direccion" Type="Self.C_clientes_direccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_direcciones_mx">
+        <PropertyRef Name="id_direccion" />
+      </Principal>
+      <Dependent Role="C_clientes_direccion">
+        <PropertyRef Name="id_direccion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_clientes_telefono_C_clientes">
+    <End Role="C_clientes" Type="Self.C_clientes" Multiplicity="0..1" />
+    <End Role="C_clientes_telefono" Type="Self.C_clientes_telefono" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_clientes">
+        <PropertyRef Name="id_cliente" />
+      </Principal>
+      <Dependent Role="C_clientes_telefono">
+        <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_clientes_telefono_C_telefonos">
+    <End Role="C_telefonos" Type="Self.C_telefonos" Multiplicity="0..1" />
+    <End Role="C_clientes_telefono" Type="Self.C_clientes_telefono" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_telefonos">
+        <PropertyRef Name="id_telefono" />
+      </Principal>
+      <Dependent Role="C_clientes_telefono">
+        <PropertyRef Name="id_telefono" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_direcciones_mx_C_colonias_mx">
+    <End Role="C_colonias_mx" Type="Self.C_colonias_mx" Multiplicity="0..1" />
+    <End Role="C_direcciones_mx" Type="Self.C_direcciones_mx" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_colonias_mx">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="C_direcciones_mx">
+        <PropertyRef Name="id_colonia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_empresas_sucursales_C_empresas">
+    <End Role="C_empresas" Type="Self.C_empresas" Multiplicity="0..1" />
+    <End Role="C_empresas_sucursales" Type="Self.C_empresas_sucursales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_empresas">
+        <PropertyRef Name="id_empresa" />
+      </Principal>
+      <Dependent Role="C_empresas_sucursales">
+        <PropertyRef Name="id_empresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_empresas_sucursales_C_sucursales">
+    <End Role="C_sucursales" Type="Self.C_sucursales" Multiplicity="0..1" />
+    <End Role="C_empresas_sucursales" Type="Self.C_empresas_sucursales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_sucursales">
+        <PropertyRef Name="codigo_sucursal" />
+      </Principal>
+      <Dependent Role="C_empresas_sucursales">
+        <PropertyRef Name="codigo_sucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_pedidos_C_clientes">
+    <End Role="C_clientes" Type="Self.C_clientes" Multiplicity="0..1" />
+    <End Role="C_pedidos" Type="Self.C_pedidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_clientes">
+        <PropertyRef Name="id_cliente" />
+      </Principal>
+      <Dependent Role="C_pedidos">
+        <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_pedidos_C_direcciones_mx">
+    <End Role="C_direcciones_mx" Type="Self.C_direcciones_mx" Multiplicity="0..1" />
+    <End Role="C_pedidos" Type="Self.C_pedidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_direcciones_mx">
+        <PropertyRef Name="id_direccion" />
+      </Principal>
+      <Dependent Role="C_pedidos">
+        <PropertyRef Name="id_direccion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_pedidos_C_marcas_g">
+    <End Role="C_marcas_g" Type="Self.C_marcas_g" Multiplicity="0..1" />
+    <End Role="C_pedidos" Type="Self.C_pedidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_marcas_g">
+        <PropertyRef Name="id_marca" />
+      </Principal>
+      <Dependent Role="C_pedidos">
+        <PropertyRef Name="id_marca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_pedidos_C_sucursales">
+    <End Role="C_sucursales" Type="Self.C_sucursales" Multiplicity="0..1" />
+    <End Role="C_pedidos" Type="Self.C_pedidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_sucursales">
+        <PropertyRef Name="codigo_sucursal" />
+      </Principal>
+      <Dependent Role="C_pedidos">
+        <PropertyRef Name="codigo_sucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_pedidos_C_telefonos">
+    <End Role="C_telefonos" Type="Self.C_telefonos" Multiplicity="0..1" />
+    <End Role="C_pedidos" Type="Self.C_pedidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_telefonos">
+        <PropertyRef Name="id_telefono" />
+      </Principal>
+      <Dependent Role="C_pedidos">
+        <PropertyRef Name="id_telefono" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_pedidos_C_tipo_entrega">
+    <End Role="C_tipo_entrega" Type="Self.C_tipo_entrega" Multiplicity="1" />
+    <End Role="C_pedidos" Type="Self.C_pedidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_tipo_entrega">
+        <PropertyRef Name="id_tipo_entrega" />
+      </Principal>
+      <Dependent Role="C_pedidos">
+        <PropertyRef Name="id_tipo_entrega" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_pedidos_d_C_pedidos">
+    <End Role="C_pedidos" Type="Self.C_pedidos" Multiplicity="0..1" />
+    <End Role="C_pedidos_d" Type="Self.C_pedidos_d" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_pedidos">
+        <PropertyRef Name="id_pedido" />
+      </Principal>
+      <Dependent Role="C_pedidos_d">
+        <PropertyRef Name="id_pedido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_pedidos_d_C_productos_cat">
+    <End Role="C_productos_cat" Type="Self.C_productos_cat" Multiplicity="0..1" />
+    <End Role="C_pedidos_d" Type="Self.C_pedidos_d" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_productos_cat">
+        <PropertyRef Name="sku" />
+      </Principal>
+      <Dependent Role="C_pedidos_d">
+        <PropertyRef Name="sku_producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_productos_cat_C_producto_clasificacion">
+    <End Role="C_producto_clasificacion" Type="Self.C_producto_clasificacion" Multiplicity="0..1" />
+    <End Role="C_productos_cat" Type="Self.C_productos_cat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_producto_clasificacion">
+        <PropertyRef Name="id_producto_clasificacion" />
+      </Principal>
+      <Dependent Role="C_productos_cat">
+        <PropertyRef Name="id_producto_clasificacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_sucursales_C_sucursales">
+    <End Role="C_sucursales" Type="Self.C_sucursales" Multiplicity="0..1" />
+    <End Role="C_sucursales1" Type="Self.C_sucursales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_sucursales">
+        <PropertyRef Name="codigo_sucursal" />
+      </Principal>
+      <Dependent Role="C_sucursales1">
+        <PropertyRef Name="sucursal_desvio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_ventas_d_C_productos_cat">
+    <End Role="C_productos_cat" Type="Self.C_productos_cat" Multiplicity="0..1" />
+    <End Role="C_ventas_d" Type="Self.C_ventas_d" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_productos_cat">
+        <PropertyRef Name="sku" />
+      </Principal>
+      <Dependent Role="C_ventas_d">
+        <PropertyRef Name="sku_producto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_ventas_d_C_ventas_g">
+    <End Role="C_ventas_g" Type="Self.C_ventas_g" Multiplicity="0..1" />
+    <End Role="C_ventas_d" Type="Self.C_ventas_d" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_ventas_g">
+        <PropertyRef Name="id_venta_g" />
+      </Principal>
+      <Dependent Role="C_ventas_d">
+        <PropertyRef Name="id_venta_g" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_ventas_g_C_pedidos">
+    <End Role="C_pedidos" Type="Self.C_pedidos" Multiplicity="0..1" />
+    <End Role="C_ventas_g" Type="Self.C_ventas_g" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_pedidos">
+        <PropertyRef Name="id_pedido" />
+      </Principal>
+      <Dependent Role="C_ventas_g">
+        <PropertyRef Name="id_pedido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_ventas_g_C_sucursales">
+    <End Role="C_sucursales" Type="Self.C_sucursales" Multiplicity="0..1" />
+    <End Role="C_ventas_g" Type="Self.C_ventas_g" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_sucursales">
+        <PropertyRef Name="codigo_sucursal" />
+      </Principal>
+      <Dependent Role="C_ventas_g">
+        <PropertyRef Name="codigo_sucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_ventas_g_C_sucursales1">
+    <End Role="C_sucursales" Type="Self.C_sucursales" Multiplicity="0..1" />
+    <End Role="C_ventas_g" Type="Self.C_ventas_g" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_sucursales">
+        <PropertyRef Name="codigo_sucursal" />
+      </Principal>
+      <Dependent Role="C_ventas_g">
+        <PropertyRef Name="codigo_sucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_ventas_pagos_C_pago_tipo">
+    <End Role="C_pago_tipo" Type="Self.C_pago_tipo" Multiplicity="0..1" />
+    <End Role="C_ventas_pagos" Type="Self.C_ventas_pagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_pago_tipo">
+        <PropertyRef Name="id_pago_tipo" />
+      </Principal>
+      <Dependent Role="C_ventas_pagos">
+        <PropertyRef Name="id_pago_tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_ventas_pagos_C_ventas_g">
+    <End Role="C_ventas_g" Type="Self.C_ventas_g" Multiplicity="0..1" />
+    <End Role="C_ventas_pagos" Type="Self.C_ventas_pagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_ventas_g">
+        <PropertyRef Name="id_venta_g" />
+      </Principal>
+      <Dependent Role="C_ventas_pagos">
+        <PropertyRef Name="id_venta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DB_CORPORATIVA_DEVModelStoreContainer">
+    <EntitySet Name="C_clientes" EntityType="Self.C_clientes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_clientes_direccion" EntityType="Self.C_clientes_direccion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_clientes_telefono" EntityType="Self.C_clientes_telefono" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_colonias_mx" EntityType="Self.C_colonias_mx" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_direcciones_mx" EntityType="Self.C_direcciones_mx" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_empresas" EntityType="Self.C_empresas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_empresas_sucursales" EntityType="Self.C_empresas_sucursales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_marcas_g" EntityType="Self.C_marcas_g" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_pago_tipo" EntityType="Self.C_pago_tipo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_pedidos" EntityType="Self.C_pedidos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_pedidos_d" EntityType="Self.C_pedidos_d" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_producto_clasificacion" EntityType="Self.C_producto_clasificacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_productos_cat" EntityType="Self.C_productos_cat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_sucursales" EntityType="Self.C_sucursales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_telefonos" EntityType="Self.C_telefonos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_tipo_entrega" EntityType="Self.C_tipo_entrega" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_ventas_d" EntityType="Self.C_ventas_d" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_ventas_g" EntityType="Self.C_ventas_g" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_ventas_pagos" EntityType="Self.C_ventas_pagos" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_C_clientes_direccion_C_clientes" Association="Self.FK_C_clientes_direccion_C_clientes">
+      <End Role="C_clientes" EntitySet="C_clientes" />
+      <End Role="C_clientes_direccion" EntitySet="C_clientes_direccion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_clientes_direccion_C_direcciones_mx" Association="Self.FK_C_clientes_direccion_C_direcciones_mx">
+      <End Role="C_direcciones_mx" EntitySet="C_direcciones_mx" />
+      <End Role="C_clientes_direccion" EntitySet="C_clientes_direccion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_clientes_telefono_C_clientes" Association="Self.FK_C_clientes_telefono_C_clientes">
+      <End Role="C_clientes" EntitySet="C_clientes" />
+      <End Role="C_clientes_telefono" EntitySet="C_clientes_telefono" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_clientes_telefono_C_telefonos" Association="Self.FK_C_clientes_telefono_C_telefonos">
+      <End Role="C_telefonos" EntitySet="C_telefonos" />
+      <End Role="C_clientes_telefono" EntitySet="C_clientes_telefono" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_direcciones_mx_C_colonias_mx" Association="Self.FK_C_direcciones_mx_C_colonias_mx">
+      <End Role="C_colonias_mx" EntitySet="C_colonias_mx" />
+      <End Role="C_direcciones_mx" EntitySet="C_direcciones_mx" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_empresas_sucursales_C_empresas" Association="Self.FK_C_empresas_sucursales_C_empresas">
+      <End Role="C_empresas" EntitySet="C_empresas" />
+      <End Role="C_empresas_sucursales" EntitySet="C_empresas_sucursales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_empresas_sucursales_C_sucursales" Association="Self.FK_C_empresas_sucursales_C_sucursales">
+      <End Role="C_sucursales" EntitySet="C_sucursales" />
+      <End Role="C_empresas_sucursales" EntitySet="C_empresas_sucursales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_pedidos_C_clientes" Association="Self.FK_C_pedidos_C_clientes">
+      <End Role="C_clientes" EntitySet="C_clientes" />
+      <End Role="C_pedidos" EntitySet="C_pedidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_pedidos_C_direcciones_mx" Association="Self.FK_C_pedidos_C_direcciones_mx">
+      <End Role="C_direcciones_mx" EntitySet="C_direcciones_mx" />
+      <End Role="C_pedidos" EntitySet="C_pedidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_pedidos_C_marcas_g" Association="Self.FK_C_pedidos_C_marcas_g">
+      <End Role="C_marcas_g" EntitySet="C_marcas_g" />
+      <End Role="C_pedidos" EntitySet="C_pedidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_pedidos_C_sucursales" Association="Self.FK_C_pedidos_C_sucursales">
+      <End Role="C_sucursales" EntitySet="C_sucursales" />
+      <End Role="C_pedidos" EntitySet="C_pedidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_pedidos_C_telefonos" Association="Self.FK_C_pedidos_C_telefonos">
+      <End Role="C_telefonos" EntitySet="C_telefonos" />
+      <End Role="C_pedidos" EntitySet="C_pedidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_pedidos_C_tipo_entrega" Association="Self.FK_C_pedidos_C_tipo_entrega">
+      <End Role="C_tipo_entrega" EntitySet="C_tipo_entrega" />
+      <End Role="C_pedidos" EntitySet="C_pedidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_pedidos_d_C_pedidos" Association="Self.FK_C_pedidos_d_C_pedidos">
+      <End Role="C_pedidos" EntitySet="C_pedidos" />
+      <End Role="C_pedidos_d" EntitySet="C_pedidos_d" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_pedidos_d_C_productos_cat" Association="Self.FK_C_pedidos_d_C_productos_cat">
+      <End Role="C_productos_cat" EntitySet="C_productos_cat" />
+      <End Role="C_pedidos_d" EntitySet="C_pedidos_d" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_productos_cat_C_producto_clasificacion" Association="Self.FK_C_productos_cat_C_producto_clasificacion">
+      <End Role="C_producto_clasificacion" EntitySet="C_producto_clasificacion" />
+      <End Role="C_productos_cat" EntitySet="C_productos_cat" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_sucursales_C_sucursales" Association="Self.FK_C_sucursales_C_sucursales">
+      <End Role="C_sucursales" EntitySet="C_sucursales" />
+      <End Role="C_sucursales1" EntitySet="C_sucursales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_ventas_d_C_productos_cat" Association="Self.FK_C_ventas_d_C_productos_cat">
+      <End Role="C_productos_cat" EntitySet="C_productos_cat" />
+      <End Role="C_ventas_d" EntitySet="C_ventas_d" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_ventas_d_C_ventas_g" Association="Self.FK_C_ventas_d_C_ventas_g">
+      <End Role="C_ventas_g" EntitySet="C_ventas_g" />
+      <End Role="C_ventas_d" EntitySet="C_ventas_d" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_ventas_g_C_pedidos" Association="Self.FK_C_ventas_g_C_pedidos">
+      <End Role="C_pedidos" EntitySet="C_pedidos" />
+      <End Role="C_ventas_g" EntitySet="C_ventas_g" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_ventas_g_C_sucursales" Association="Self.FK_C_ventas_g_C_sucursales">
+      <End Role="C_sucursales" EntitySet="C_sucursales" />
+      <End Role="C_ventas_g" EntitySet="C_ventas_g" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_ventas_g_C_sucursales1" Association="Self.FK_C_ventas_g_C_sucursales1">
+      <End Role="C_sucursales" EntitySet="C_sucursales" />
+      <End Role="C_ventas_g" EntitySet="C_ventas_g" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_ventas_pagos_C_pago_tipo" Association="Self.FK_C_ventas_pagos_C_pago_tipo">
+      <End Role="C_pago_tipo" EntitySet="C_pago_tipo" />
+      <End Role="C_ventas_pagos" EntitySet="C_ventas_pagos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_ventas_pagos_C_ventas_g" Association="Self.FK_C_ventas_pagos_C_ventas_g">
+      <End Role="C_ventas_g" EntitySet="C_ventas_g" />
+      <End Role="C_ventas_pagos" EntitySet="C_ventas_pagos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

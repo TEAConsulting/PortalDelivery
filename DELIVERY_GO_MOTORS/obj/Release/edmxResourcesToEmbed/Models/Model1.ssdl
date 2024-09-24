@@ -1,0 +1,1168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_ZPIDI_QASModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="C_Delivery_a_new_register">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="250" />
+    <Property Name="apellido" Type="varchar" MaxLength="50" />
+    <Property Name="telefono" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="pais" Type="varchar" MaxLength="50" />
+    <Property Name="estado" Type="varchar" MaxLength="50" />
+    <Property Name="id_local" Type="varchar" MaxLength="50" />
+    <Property Name="terminos" Type="varchar" MaxLength="50" />
+    <Property Name="score" Type="varchar" MaxLength="50" />
+    <Property Name="token" Type="varchar" MaxLength="50" />
+    <Property Name="permisos" Type="varchar" MaxLength="50" />
+    <Property Name="id_google" Type="varchar" MaxLength="50" />
+    <Property Name="id_facebook" Type="varchar" MaxLength="50" />
+    <Property Name="os" Type="varchar" MaxLength="50" />
+    <Property Name="fecha" Type="datetime" />
+    <Property Name="cp" Type="varchar" MaxLength="25" />
+    <Property Name="id_perfil" Type="int" />
+    <Property Name="id_usuario_imagen" Type="int" />
+    <Property Name="id_domicilio" Type="int" />
+    <Property Name="logeado" Type="bit" />
+    <Property Name="phone_pwd" Type="int" />
+    <Property Name="contrasena" Type="varchar" MaxLength="50" />
+    <Property Name="appname" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Ciudad">
+    <Key>
+      <PropertyRef Name="cda_id" />
+    </Key>
+    <Property Name="cda_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cda_nombre" Type="varchar(max)" />
+    <Property Name="cda_clave" Type="varchar" MaxLength="18" />
+    <Property Name="edo_id" Type="int" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Comision_Zpidi">
+    <Key>
+      <PropertyRef Name="id_zpidi_comision" />
+    </Key>
+    <Property Name="id_zpidi_comision" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="porcentaje_comision" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="activo" Type="bit" />
+    <Property Name="monto_fijo" Type="numeric" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="C_Delivery_empresas">
+    <Key>
+      <PropertyRef Name="id_empresa" />
+    </Key>
+    <Property Name="id_empresa" Type="int" Nullable="false" />
+    <Property Name="nombre_empresa" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="activa" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Estados">
+    <Key>
+      <PropertyRef Name="id_estado" />
+    </Key>
+    <Property Name="id_estado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_est" Type="varchar" MaxLength="50" />
+    <Property Name="id_pais" Type="int" />
+  </EntityType>
+  <EntityType Name="C_Delivery_estatus_semaforo">
+    <Key>
+      <PropertyRef Name="id_orden_n" />
+    </Key>
+    <Property Name="id_orden_n" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_orden" Type="int" Nullable="false" />
+    <Property Name="status_semaforo" Type="int" Nullable="false" />
+    <Property Name="descripcion_semaforo" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="C_Delivery_estatus_semaforo_alias">
+    <Key>
+      <PropertyRef Name="id_semaforo_alias" />
+    </Key>
+    <Property Name="id_semaforo_alias" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_semaforo" Type="int" />
+    <Property Name="alias" Type="varchar" MaxLength="50" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="C_Delivery_estatus_semaforo_log">
+    <Key>
+      <PropertyRef Name="id_orden_status_log" />
+    </Key>
+    <Property Name="id_orden_status_log" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_orden" Type="int" />
+    <Property Name="fecha" Type="datetime" />
+    <Property Name="status_actual" Type="int" />
+    <Property Name="status_nuevo" Type="int" />
+    <Property Name="activo" Type="bit" />
+    <Property Name="lat" Type="varchar" MaxLength="100" />
+    <Property Name="lng" Type="varchar" MaxLength="100" />
+    <Property Name="ya_llegue" Type="bit" />
+    <Property Name="codigo_sucursal" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Generos">
+    <Key>
+      <PropertyRef Name="id_genero" />
+    </Key>
+    <Property Name="id_genero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="icono" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Menuappbar_Modules">
+    <Key>
+      <PropertyRef Name="id_menu_modulo" />
+    </Key>
+    <Property Name="id_menu_modulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idApp" Type="int" />
+    <Property Name="cve_object" Type="nchar" MaxLength="12" />
+    <Property Name="obj_name" Type="varchar" MaxLength="50" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Menuappbar_ModulesWeb">
+    <Key>
+      <PropertyRef Name="id_modulo_web" />
+    </Key>
+    <Property Name="id_modulo_web" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="icono" Type="varchar" MaxLength="50" />
+    <Property Name="color" Type="varchar" MaxLength="50" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Menuappbar_SubModules">
+    <Key>
+      <PropertyRef Name="id_modulo_sub" />
+    </Key>
+    <Property Name="id_modulo_sub" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_modulo" Type="int" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="metodo" Type="varchar" MaxLength="50" />
+    <Property Name="controlador" Type="varchar" MaxLength="50" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Menuappbar_SubModules_Permisos">
+    <Key>
+      <PropertyRef Name="id_modulo_sub_permiso" />
+    </Key>
+    <Property Name="id_modulo_sub_permiso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_modulo_sub" Type="int" />
+    <Property Name="id_rol" Type="int" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_ZPIDI_QAS.dbo.C_Delivery_Ordenes_Tokens' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="C_Delivery_Ordenes_Tokens">
+    <Key>
+      <PropertyRef Name="id_delivery_tokens" />
+    </Key>
+    <Property Name="id_delivery_tokens" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="token_dyn" Type="varchar" MaxLength="50" />
+    <Property Name="id_orden" Type="int" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_ZPIDI_QAS.dbo.C_Delivery_OrdenesPedidos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="C_Delivery_OrdenesPedidos">
+    <Key>
+      <PropertyRef Name="id_orden" />
+      <PropertyRef Name="id_pedido" />
+    </Key>
+    <Property Name="id_orden" Type="int" Nullable="false" />
+    <Property Name="id_pedido" Type="int" Nullable="false" />
+    <Property Name="fecha_pedido" Type="datetime" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_ZPIDI_QAS.dbo.C_Delivery_OrdenesPedidosCancelados' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="C_Delivery_OrdenesPedidosCancelados">
+    <Key>
+      <PropertyRef Name="id_ordenPedidoCancelado" />
+    </Key>
+    <Property Name="id_ordenPedidoCancelado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_orden" Type="int" />
+    <Property Name="id_pedido" Type="int" />
+    <Property Name="id_tipo_cancel" Type="int" />
+    <Property Name="observacion" Type="varchar(max)" />
+    <Property Name="fecha_cancelacion" Type="datetime" />
+    <Property Name="estatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Pagos_Plataformas">
+    <Key>
+      <PropertyRef Name="id_pago_plataforma" />
+    </Key>
+    <Property Name="id_pago_plataforma" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_plataforma" Type="int" />
+    <Property Name="id_usuario_genera" Type="int" />
+    <Property Name="fecha_corte" Type="datetime" />
+    <Property Name="semana_corte" Type="int" />
+    <Property Name="monto_semana" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="id_usuario_autoriza" Type="int" />
+    <Property Name="NIP" Type="varchar" MaxLength="50" />
+    <Property Name="observaciones" Type="varchar(max)" />
+    <Property Name="activo" Type="bit" />
+    <Property Name="id_status_pago" Type="int" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Pagos_Status">
+    <Key>
+      <PropertyRef Name="id_pagos_status" />
+    </Key>
+    <Property Name="id_pagos_status" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="status" Type="varchar" MaxLength="50" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Pagos_Tipos">
+    <Key>
+      <PropertyRef Name="id_tipo_pago" />
+    </Key>
+    <Property Name="id_tipo_pago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipo_pago" Type="varchar" MaxLength="50" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Pais">
+    <Key>
+      <PropertyRef Name="pai_id" />
+    </Key>
+    <Property Name="pai_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pai_nombre" Type="varchar(max)" />
+    <Property Name="pai_clave" Type="varchar" MaxLength="18" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Pais_Moneda">
+    <Key>
+      <PropertyRef Name="id_moneda" />
+    </Key>
+    <Property Name="id_moneda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="clave" Type="nchar" MaxLength="5" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Parametros">
+    <Key>
+      <PropertyRef Name="id_parametro" />
+    </Key>
+    <Property Name="id_parametro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="valor_numerico" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="valor_texto" Type="varchar(max)" />
+    <Property Name="descripcion" Type="varchar(max)" />
+    <Property Name="tipo_parametro" Type="bit" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Plataformas">
+    <Key>
+      <PropertyRef Name="id_plataforma" />
+    </Key>
+    <Property Name="id_plataforma" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo_plataforma" Type="varchar" MaxLength="50" />
+    <Property Name="nombre_plataforma" Type="varchar" MaxLength="50" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Plataformas_Configuracion">
+    <Key>
+      <PropertyRef Name="id_pataforma_configuracion" />
+    </Key>
+    <Property Name="id_pataforma_configuracion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_plataforma" Type="int" />
+    <Property Name="id_tipo_cobro" Type="int" />
+    <Property Name="id_tipo_comision" Type="int" />
+    <Property Name="politica_bloqueo_usuario" Type="int" />
+    <Property Name="politica_dias_pago" Type="int" />
+    <Property Name="dia_pago" Type="int" />
+    <Property Name="politica_manejo_credito" Type="int" />
+    <Property Name="limite_credito" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="no_contrato" Type="varchar" MaxLength="50" />
+    <Property Name="fecha_inicio_contrato" Type="datetime" />
+    <Property Name="fecha_termino_contrato" Type="datetime" />
+    <Property Name="porcentaje_comision_plat" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="porcentaje_comision_mens" Type="nchar" MaxLength="10" />
+    <Property Name="porcentaje_comision_repa" Type="nchar" MaxLength="10" />
+    <Property Name="cuenta_banco_base_10" Type="varchar" MaxLength="10" />
+    <Property Name="cuenta_banco_clabe_18" Type="varchar" MaxLength="18" />
+    <Property Name="id_institucion_bancaria_default" Type="int" />
+    <Property Name="id_moneda_base" Type="int" />
+    <Property Name="politica_zonas" Type="int" />
+    <Property Name="nombre_representante" Type="varchar" MaxLength="150" />
+    <Property Name="email_representante" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Repartidores">
+    <Key>
+      <PropertyRef Name="id_repartidor" />
+    </Key>
+    <Property Name="id_repartidor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="apellido" Type="varchar" MaxLength="50" />
+    <Property Name="rfc" Type="varchar" MaxLength="25" />
+    <Property Name="curp" Type="varchar" MaxLength="18" />
+    <Property Name="fecha_registro" Type="datetime" />
+    <Property Name="no_licencia" Type="varchar" MaxLength="50" />
+    <Property Name="fecha_caducidad_liencia" Type="datetime" />
+    <Property Name="id_zona" Type="int" />
+    <Property Name="latitud" Type="varchar" MaxLength="100" />
+    <Property Name="longitud" Type="varchar" MaxLength="100" />
+    <Property Name="cp" Type="varchar" MaxLength="25" />
+    <Property Name="status" Type="int" />
+    <Property Name="cve_repartidor" Type="nchar" MaxLength="10" />
+    <Property Name="token" Type="nvarchar(max)" />
+    <Property Name="id_perfil" Type="int" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+    <Property Name="logeado" Type="bit" />
+    <Property Name="telefono" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="id_usuario_imagen" Type="int" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Repartidores_Empresas_Sucursales">
+    <Key>
+      <PropertyRef Name="id_empresa_suc_repartidor" />
+    </Key>
+    <Property Name="id_empresa_suc_repartidor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_empresa" Type="int" />
+    <Property Name="codigo_sucursal" Type="varchar" MaxLength="50" />
+    <Property Name="id_repartidor" Type="int" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Repartidores_Ordenes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_order" Type="int" Nullable="false" />
+    <Property Name="id_repartidor" Type="int" />
+    <Property Name="status" Type="bit" Nullable="false" />
+    <Property Name="fecha" Type="datetime" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Repartidores_Solicitud">
+    <Key>
+      <PropertyRef Name="id_solicitud_repartidor" />
+    </Key>
+    <Property Name="id_solicitud_repartidor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="token" Type="varchar(max)" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="apellido_pat" Type="varchar" MaxLength="50" />
+    <Property Name="apellido_mat" Type="varchar" MaxLength="50" />
+    <Property Name="sexo" Type="varchar" MaxLength="50" />
+    <Property Name="fecha_na" Type="date" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="direccion" Type="varchar(max)" />
+    <Property Name="telefono" Type="varchar" MaxLength="50" />
+    <Property Name="id_estado" Type="int" />
+    <Property Name="id_ciudad" Type="int" />
+    <Property Name="id_vehiculo" Type="int" />
+    <Property Name="no_placa" Type="varchar" MaxLength="50" />
+    <Property Name="no_licencia" Type="varchar" MaxLength="50" />
+    <Property Name="id_status_solicitud" Type="int" />
+    <Property Name="activo" Type="bit" />
+    <Property Name="foto" Type="varchar(max)" />
+    <Property Name="fecha_registro" Type="datetime" />
+    <Property Name="fecha_respuesta" Type="datetime" />
+    <Property Name="id_plataforma" Type="int" />
+    <Property Name="INE" Type="varchar(max)" />
+    <Property Name="licencia_conducir" Type="varchar(max)" />
+    <Property Name="tarjeta_circulacion" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Repartidores_Solicitudes">
+    <Key>
+      <PropertyRef Name="id_repartidor_solicitud" />
+    </Key>
+    <Property Name="id_repartidor_solicitud" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_repartidor" Type="int" />
+    <Property Name="id_solicitud" Type="int" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Repartidores_Status">
+    <Key>
+      <PropertyRef Name="id_status_solicitud" />
+    </Key>
+    <Property Name="id_status_solicitud" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_status" Type="varchar" MaxLength="50" />
+    <Property Name="color" Type="varchar" MaxLength="50" />
+    <Property Name="porcentaje" Type="int" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Repartidores_Ubicaciones">
+    <Key>
+      <PropertyRef Name="id_position" />
+    </Key>
+    <Property Name="id_position" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="longitud" Type="nvarchar" MaxLength="80" />
+    <Property Name="latitud" Type="nvarchar" MaxLength="80" />
+    <Property Name="time" Type="time" Precision="7" />
+    <Property Name="id_repartidor" Type="int" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Repartidores_Vehiculos_Tipos">
+    <Key>
+      <PropertyRef Name="id_vehiculo_tipo" />
+    </Key>
+    <Property Name="id_vehiculo_tipo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipo" Type="varchar" MaxLength="50" />
+    <Property Name="color" Type="varchar" MaxLength="50" />
+    <Property Name="activo" Type="bit" />
+    <Property Name="icono" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Semaforo">
+    <Key>
+      <PropertyRef Name="id_semaforo" />
+    </Key>
+    <Property Name="id_semaforo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cve_semaforo" Type="nchar" MaxLength="10" />
+    <Property Name="semaforo_descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="orden" Type="int" />
+  </EntityType>
+  <EntityType Name="C_Delivery_StartOrders">
+    <Key>
+      <PropertyRef Name="id_order" />
+    </Key>
+    <Property Name="id_order" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="token" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="sucursal" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="fecha" Type="datetime" />
+    <Property Name="direccion" Type="varchar(max)" Nullable="false" />
+    <Property Name="lat" Type="float" Nullable="false" />
+    <Property Name="long" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="C_Delivery_sucursales_gps">
+    <Key>
+      <PropertyRef Name="codigo_sucursal" />
+    </Key>
+    <Property Name="id_sucursal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo_sucursal" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="nombre_suc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_empresa" Type="int" Nullable="false" />
+    <Property Name="lat" Type="float" Nullable="false" />
+    <Property Name="long" Type="float" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_ZPIDI_QAS.dbo.C_Delivery_TipoCancelacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="C_Delivery_TipoCancelacion">
+    <Key>
+      <PropertyRef Name="id_tipo_cancel" />
+    </Key>
+    <Property Name="id_tipo_cancel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion_tipo" Type="varchar" MaxLength="150" />
+    <Property Name="estatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Trafico_Semaforos">
+    <Key>
+      <PropertyRef Name="id_trafico_semaforo" />
+    </Key>
+    <Property Name="id_trafico_semaforo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_semaforo" Type="int" />
+    <Property Name="cve_semaforo" Type="varchar" MaxLength="50" />
+    <Property Name="semaforo_descripcion" Type="varchar" MaxLength="150" />
+    <Property Name="semaforo_nombre_corto" Type="varchar" MaxLength="150" />
+    <Property Name="texto_reporte" Type="varchar" MaxLength="50" />
+    <Property Name="estatus_posicion" Type="int" />
+    <Property Name="valor_minimo" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="valor_maximo" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="descripcion_proceso" Type="varchar(max)" />
+    <Property Name="activo" Type="bit" />
+    <Property Name="tolerancia" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="configurable" Type="bit" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_ZPIDI_QAS.dbo.C_Delivery_Trafico_Tracking' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="C_Delivery_Trafico_Tracking">
+    <Key>
+      <PropertyRef Name="id_trafico_tracking" />
+    </Key>
+    <Property Name="id_trafico_tracking" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_orden" Type="int" />
+    <Property Name="id_pedido" Type="int" />
+    <Property Name="fecha_pedido" Type="datetime" />
+    <Property Name="est_01" Type="varchar" MaxLength="50" />
+    <Property Name="fec_01" Type="datetime" />
+    <Property Name="sem_01" Type="varchar" MaxLength="50" />
+    <Property Name="dif_01" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="est_02" Type="varchar" MaxLength="50" />
+    <Property Name="fec_02" Type="datetime" />
+    <Property Name="sem_02" Type="varchar" MaxLength="50" />
+    <Property Name="dif_02" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="est_03" Type="varchar" MaxLength="50" />
+    <Property Name="fec_03" Type="datetime" />
+    <Property Name="sem_03" Type="varchar" MaxLength="50" />
+    <Property Name="dif_03" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="est_04" Type="varchar" MaxLength="50" />
+    <Property Name="fec_04" Type="datetime" />
+    <Property Name="sem_04" Type="varchar" MaxLength="50" />
+    <Property Name="dif_04" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="est_05" Type="varchar" MaxLength="50" />
+    <Property Name="fec_05" Type="datetime" />
+    <Property Name="sem_05" Type="varchar" MaxLength="50" />
+    <Property Name="dif_05" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="est_06" Type="varchar" MaxLength="50" />
+    <Property Name="fec_06" Type="datetime" />
+    <Property Name="sem_06" Type="varchar" MaxLength="50" />
+    <Property Name="dif_06" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="est_07" Type="varchar" MaxLength="50" />
+    <Property Name="fec_07" Type="datetime" />
+    <Property Name="sem_07" Type="varchar" MaxLength="50" />
+    <Property Name="dif_07" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="est_08" Type="varchar" MaxLength="50" />
+    <Property Name="fec_08" Type="datetime" />
+    <Property Name="sem_08" Type="varchar" MaxLength="50" />
+    <Property Name="dif_08" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="est_09" Type="varchar" MaxLength="50" />
+    <Property Name="fec_09" Type="datetime" />
+    <Property Name="sem_09" Type="varchar" MaxLength="50" />
+    <Property Name="dif_09" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="est_10" Type="varchar" MaxLength="50" />
+    <Property Name="fec_10" Type="datetime" />
+    <Property Name="sem_10" Type="varchar" MaxLength="50" />
+    <Property Name="dif_10" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="est_11" Type="varchar" MaxLength="50" />
+    <Property Name="fec_11" Type="datetime" />
+    <Property Name="sem_11" Type="varchar" MaxLength="50" />
+    <Property Name="dif_11" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="est_12" Type="varchar" MaxLength="50" />
+    <Property Name="fec_12" Type="datetime" />
+    <Property Name="sem_12" Type="varchar" MaxLength="50" />
+    <Property Name="dif_12" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="est_13" Type="varchar" MaxLength="50" />
+    <Property Name="fec_13" Type="datetime" />
+    <Property Name="sem_13" Type="varchar" MaxLength="50" />
+    <Property Name="dif_13" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="est_14" Type="varchar" MaxLength="50" />
+    <Property Name="fec_14" Type="datetime" />
+    <Property Name="sem_14" Type="varchar" MaxLength="50" />
+    <Property Name="dif_14" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="est_15" Type="varchar" MaxLength="50" />
+    <Property Name="fec_15" Type="datetime" />
+    <Property Name="sem_15" Type="varchar" MaxLength="50" />
+    <Property Name="dif_15" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="est_16" Type="varchar" MaxLength="50" />
+    <Property Name="fec_16" Type="datetime" />
+    <Property Name="sem_16" Type="varchar" MaxLength="50" />
+    <Property Name="dif_16" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="est_17" Type="varchar" MaxLength="50" />
+    <Property Name="fec_17" Type="datetime" />
+    <Property Name="sem_17" Type="varchar" MaxLength="50" />
+    <Property Name="dif_17" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="est_18" Type="varchar" MaxLength="50" />
+    <Property Name="fec_18" Type="datetime" />
+    <Property Name="sem_18" Type="varchar" MaxLength="50" />
+    <Property Name="dif_18" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="est_19" Type="varchar" MaxLength="50" />
+    <Property Name="fec_19" Type="datetime" />
+    <Property Name="sem_19" Type="varchar" MaxLength="50" />
+    <Property Name="dif_19" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="est_20" Type="varchar" MaxLength="50" />
+    <Property Name="fec_20" Type="datetime" />
+    <Property Name="sem_20" Type="varchar" MaxLength="50" />
+    <Property Name="dif_20" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="est_21" Type="varchar" MaxLength="50" />
+    <Property Name="fec_21" Type="datetime" />
+    <Property Name="sem_21" Type="varchar" MaxLength="50" />
+    <Property Name="dif_21" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="est_22" Type="varchar" MaxLength="50" />
+    <Property Name="fec_22" Type="datetime" />
+    <Property Name="sem_22" Type="varchar" MaxLength="50" />
+    <Property Name="dif_22" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="est_23" Type="varchar" MaxLength="50" />
+    <Property Name="fec_23" Type="datetime" />
+    <Property Name="sem_23" Type="varchar" MaxLength="50" />
+    <Property Name="dif_23" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="est_24" Type="varchar" MaxLength="50" />
+    <Property Name="fec_24" Type="datetime" />
+    <Property Name="sem_24" Type="varchar" MaxLength="50" />
+    <Property Name="dif_24" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="est_25" Type="varchar" MaxLength="50" />
+    <Property Name="fec_25" Type="datetime" />
+    <Property Name="sem_25" Type="varchar" MaxLength="50" />
+    <Property Name="dif_25" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="fec_reasignacion_1" Type="datetime" />
+    <Property Name="fec_reasignacion_2" Type="datetime" />
+    <Property Name="est_reasignacion" Type="int" />
+    <Property Name="Calificacion_1" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Calificacion_2" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="Calificacion_3" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="nombre_cliente" Type="varchar" MaxLength="150" />
+    <Property Name="telefono_cliente" Type="varchar" MaxLength="150" />
+    <Property Name="saldo_repartidor" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="pagada_sn" Type="bit" />
+    <Property Name="fecha_pagada" Type="datetime" />
+    <Property Name="activa" Type="bit" />
+    <Property Name="id_repartidor" Type="int" />
+    <Property Name="nombre_repartidor" Type="varchar" MaxLength="100" />
+    <Property Name="telefono_repartidor" Type="varchar" MaxLength="50" />
+    <Property Name="nombre_sucursal" Type="varchar" MaxLength="100" />
+    <Property Name="semaforo_orden" Type="int" />
+    <Property Name="codigo_sucursal" Type="varchar" MaxLength="50" />
+    <Property Name="id_plataforma" Type="int" />
+    <Property Name="nombre_plataforma" Type="varchar" MaxLength="150" />
+    <Property Name="tiempo_total_servicio" Type="numeric" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="C_Delivery_Usuarios_Imagen">
+    <Key>
+      <PropertyRef Name="id_usuario_imagen" />
+    </Key>
+    <Property Name="id_usuario_imagen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="imagen" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_C_Delivery_estatus_semaforo_alias_C_Delivery_Semaforo">
+    <End Role="C_Delivery_Semaforo" Type="Self.C_Delivery_Semaforo" Multiplicity="0..1" />
+    <End Role="C_Delivery_estatus_semaforo_alias" Type="Self.C_Delivery_estatus_semaforo_alias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Semaforo">
+        <PropertyRef Name="id_semaforo" />
+      </Principal>
+      <Dependent Role="C_Delivery_estatus_semaforo_alias">
+        <PropertyRef Name="id_semaforo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_estatus_semaforo_log_C_Delivery_Semaforo">
+    <End Role="C_Delivery_Semaforo" Type="Self.C_Delivery_Semaforo" Multiplicity="0..1" />
+    <End Role="C_Delivery_estatus_semaforo_log" Type="Self.C_Delivery_estatus_semaforo_log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Semaforo">
+        <PropertyRef Name="id_semaforo" />
+      </Principal>
+      <Dependent Role="C_Delivery_estatus_semaforo_log">
+        <PropertyRef Name="status_nuevo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_Menuappbar_SubModules_C_Delivery_Menuappbar_Modules">
+    <End Role="C_Delivery_Menuappbar_ModulesWeb" Type="Self.C_Delivery_Menuappbar_ModulesWeb" Multiplicity="0..1" />
+    <End Role="C_Delivery_Menuappbar_SubModules" Type="Self.C_Delivery_Menuappbar_SubModules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Menuappbar_ModulesWeb">
+        <PropertyRef Name="id_modulo_web" />
+      </Principal>
+      <Dependent Role="C_Delivery_Menuappbar_SubModules">
+        <PropertyRef Name="id_modulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_Menuappbar_SubModules_Permisos_C_Delivery_Menuappbar_SubModules">
+    <End Role="C_Delivery_Menuappbar_SubModules" Type="Self.C_Delivery_Menuappbar_SubModules" Multiplicity="0..1" />
+    <End Role="C_Delivery_Menuappbar_SubModules_Permisos" Type="Self.C_Delivery_Menuappbar_SubModules_Permisos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Menuappbar_SubModules">
+        <PropertyRef Name="id_modulo_sub" />
+      </Principal>
+      <Dependent Role="C_Delivery_Menuappbar_SubModules_Permisos">
+        <PropertyRef Name="id_modulo_sub" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_Pagos_Plataformas_C_Delivery_a_new_register">
+    <End Role="C_Delivery_a_new_register" Type="Self.C_Delivery_a_new_register" Multiplicity="0..1" />
+    <End Role="C_Delivery_Pagos_Plataformas" Type="Self.C_Delivery_Pagos_Plataformas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_a_new_register">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="C_Delivery_Pagos_Plataformas">
+        <PropertyRef Name="id_usuario_autoriza" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_Pagos_Plataformas_C_Delivery_a_new_register1">
+    <End Role="C_Delivery_a_new_register" Type="Self.C_Delivery_a_new_register" Multiplicity="0..1" />
+    <End Role="C_Delivery_Pagos_Plataformas" Type="Self.C_Delivery_Pagos_Plataformas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_a_new_register">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="C_Delivery_Pagos_Plataformas">
+        <PropertyRef Name="id_usuario_genera" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_Pagos_Plataformas_C_Delivery_Pagos_Status">
+    <End Role="C_Delivery_Pagos_Status" Type="Self.C_Delivery_Pagos_Status" Multiplicity="0..1" />
+    <End Role="C_Delivery_Pagos_Plataformas" Type="Self.C_Delivery_Pagos_Plataformas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Pagos_Status">
+        <PropertyRef Name="id_pagos_status" />
+      </Principal>
+      <Dependent Role="C_Delivery_Pagos_Plataformas">
+        <PropertyRef Name="id_status_pago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_Pagos_Plataformas_C_Delivery_Plataformas">
+    <End Role="C_Delivery_Plataformas" Type="Self.C_Delivery_Plataformas" Multiplicity="0..1" />
+    <End Role="C_Delivery_Pagos_Plataformas" Type="Self.C_Delivery_Pagos_Plataformas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Plataformas">
+        <PropertyRef Name="id_plataforma" />
+      </Principal>
+      <Dependent Role="C_Delivery_Pagos_Plataformas">
+        <PropertyRef Name="id_plataforma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_Plataformas_Configuracion_C_Delivery_Pais_Moneda">
+    <End Role="C_Delivery_Pais_Moneda" Type="Self.C_Delivery_Pais_Moneda" Multiplicity="0..1" />
+    <End Role="C_Delivery_Plataformas_Configuracion" Type="Self.C_Delivery_Plataformas_Configuracion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Pais_Moneda">
+        <PropertyRef Name="id_moneda" />
+      </Principal>
+      <Dependent Role="C_Delivery_Plataformas_Configuracion">
+        <PropertyRef Name="id_moneda_base" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_Plataformas_Configuracion_C_Delivery_Plataformas">
+    <End Role="C_Delivery_Plataformas" Type="Self.C_Delivery_Plataformas" Multiplicity="0..1" />
+    <End Role="C_Delivery_Plataformas_Configuracion" Type="Self.C_Delivery_Plataformas_Configuracion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Plataformas">
+        <PropertyRef Name="id_plataforma" />
+      </Principal>
+      <Dependent Role="C_Delivery_Plataformas_Configuracion">
+        <PropertyRef Name="id_plataforma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_Repartidores_Empresas_Sucursales_C_Delivery_empresas">
+    <End Role="C_Delivery_empresas" Type="Self.C_Delivery_empresas" Multiplicity="0..1" />
+    <End Role="C_Delivery_Repartidores_Empresas_Sucursales" Type="Self.C_Delivery_Repartidores_Empresas_Sucursales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_empresas">
+        <PropertyRef Name="id_empresa" />
+      </Principal>
+      <Dependent Role="C_Delivery_Repartidores_Empresas_Sucursales">
+        <PropertyRef Name="id_empresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_Repartidores_Empresas_Sucursales_C_Delivery_Repartidores">
+    <End Role="C_Delivery_Repartidores" Type="Self.C_Delivery_Repartidores" Multiplicity="0..1" />
+    <End Role="C_Delivery_Repartidores_Empresas_Sucursales" Type="Self.C_Delivery_Repartidores_Empresas_Sucursales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Repartidores">
+        <PropertyRef Name="id_repartidor" />
+      </Principal>
+      <Dependent Role="C_Delivery_Repartidores_Empresas_Sucursales">
+        <PropertyRef Name="id_repartidor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_Repartidores_Empresas_Sucursales_C_Delivery_sucursales_gps">
+    <End Role="C_Delivery_sucursales_gps" Type="Self.C_Delivery_sucursales_gps" Multiplicity="0..1" />
+    <End Role="C_Delivery_Repartidores_Empresas_Sucursales" Type="Self.C_Delivery_Repartidores_Empresas_Sucursales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_sucursales_gps">
+        <PropertyRef Name="codigo_sucursal" />
+      </Principal>
+      <Dependent Role="C_Delivery_Repartidores_Empresas_Sucursales">
+        <PropertyRef Name="codigo_sucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_Repartidores_Ordenes_C_Delivery_Repartidores">
+    <End Role="C_Delivery_Repartidores" Type="Self.C_Delivery_Repartidores" Multiplicity="0..1" />
+    <End Role="C_Delivery_Repartidores_Ordenes" Type="Self.C_Delivery_Repartidores_Ordenes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Repartidores">
+        <PropertyRef Name="id_repartidor" />
+      </Principal>
+      <Dependent Role="C_Delivery_Repartidores_Ordenes">
+        <PropertyRef Name="id_repartidor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Ciudad">
+    <End Role="C_Delivery_Ciudad" Type="Self.C_Delivery_Ciudad" Multiplicity="0..1" />
+    <End Role="C_Delivery_Repartidores_Solicitud" Type="Self.C_Delivery_Repartidores_Solicitud" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Ciudad">
+        <PropertyRef Name="cda_id" />
+      </Principal>
+      <Dependent Role="C_Delivery_Repartidores_Solicitud">
+        <PropertyRef Name="id_ciudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Estados">
+    <End Role="C_Delivery_Estados" Type="Self.C_Delivery_Estados" Multiplicity="0..1" />
+    <End Role="C_Delivery_Repartidores_Solicitud" Type="Self.C_Delivery_Repartidores_Solicitud" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Estados">
+        <PropertyRef Name="id_estado" />
+      </Principal>
+      <Dependent Role="C_Delivery_Repartidores_Solicitud">
+        <PropertyRef Name="id_estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Plataformas">
+    <End Role="C_Delivery_Plataformas" Type="Self.C_Delivery_Plataformas" Multiplicity="0..1" />
+    <End Role="C_Delivery_Repartidores_Solicitud" Type="Self.C_Delivery_Repartidores_Solicitud" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Plataformas">
+        <PropertyRef Name="id_plataforma" />
+      </Principal>
+      <Dependent Role="C_Delivery_Repartidores_Solicitud">
+        <PropertyRef Name="id_plataforma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Repartidores_Status">
+    <End Role="C_Delivery_Repartidores_Status" Type="Self.C_Delivery_Repartidores_Status" Multiplicity="0..1" />
+    <End Role="C_Delivery_Repartidores_Solicitud" Type="Self.C_Delivery_Repartidores_Solicitud" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Repartidores_Status">
+        <PropertyRef Name="id_status_solicitud" />
+      </Principal>
+      <Dependent Role="C_Delivery_Repartidores_Solicitud">
+        <PropertyRef Name="id_status_solicitud" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Repartidores_Vehiculos_Tipos">
+    <End Role="C_Delivery_Repartidores_Vehiculos_Tipos" Type="Self.C_Delivery_Repartidores_Vehiculos_Tipos" Multiplicity="0..1" />
+    <End Role="C_Delivery_Repartidores_Solicitud" Type="Self.C_Delivery_Repartidores_Solicitud" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Repartidores_Vehiculos_Tipos">
+        <PropertyRef Name="id_vehiculo_tipo" />
+      </Principal>
+      <Dependent Role="C_Delivery_Repartidores_Solicitud">
+        <PropertyRef Name="id_vehiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_Repartidores_Solicitudes_C_Delivery_Repartidores">
+    <End Role="C_Delivery_Repartidores" Type="Self.C_Delivery_Repartidores" Multiplicity="0..1" />
+    <End Role="C_Delivery_Repartidores_Solicitudes" Type="Self.C_Delivery_Repartidores_Solicitudes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Repartidores">
+        <PropertyRef Name="id_repartidor" />
+      </Principal>
+      <Dependent Role="C_Delivery_Repartidores_Solicitudes">
+        <PropertyRef Name="id_repartidor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_Repartidores_Solicitudes_C_Delivery_Repartidores_Solicitud">
+    <End Role="C_Delivery_Repartidores_Solicitud" Type="Self.C_Delivery_Repartidores_Solicitud" Multiplicity="0..1" />
+    <End Role="C_Delivery_Repartidores_Solicitudes" Type="Self.C_Delivery_Repartidores_Solicitudes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_Repartidores_Solicitud">
+        <PropertyRef Name="id_solicitud_repartidor" />
+      </Principal>
+      <Dependent Role="C_Delivery_Repartidores_Solicitudes">
+        <PropertyRef Name="id_solicitud" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_C_Delivery_StartOrders_C_Delivery_sucursales_gps">
+    <End Role="C_Delivery_sucursales_gps" Type="Self.C_Delivery_sucursales_gps" Multiplicity="1" />
+    <End Role="C_Delivery_StartOrders" Type="Self.C_Delivery_StartOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_Delivery_sucursales_gps">
+        <PropertyRef Name="codigo_sucursal" />
+      </Principal>
+      <Dependent Role="C_Delivery_StartOrders">
+        <PropertyRef Name="sucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="Delivery_61_Get_Trafico_Tracking" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TOKEN" Type="varchar" Mode="In" />
+    <Parameter Name="fecha_desde" Type="varchar" Mode="In" />
+    <Parameter Name="fecha_hasta" Type="varchar" Mode="In" />
+    <Parameter Name="Modo" Type="varchar" Mode="In" />
+    <Parameter Name="RangoPlataformas" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Delivery_61_Get_Trafico_Tracking_Dashboard" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TOKEN" Type="varchar" Mode="In" />
+    <Parameter Name="fecha_desde" Type="varchar" Mode="In" />
+    <Parameter Name="fecha_hasta" Type="varchar" Mode="In" />
+    <Parameter Name="Modo" Type="varchar" Mode="In" />
+    <Parameter Name="RangoPlataformas" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Delivery_61_Set_Trafico_Tracking" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TOKEN" Type="varchar" Mode="In" />
+    <Parameter Name="id_orden" Type="int" Mode="In" />
+    <Parameter Name="id_semaforo_trafico" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_Distancia_dos_puntos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="lat1" Type="float" Mode="In" />
+    <Parameter Name="long1" Type="float" Mode="In" />
+    <Parameter Name="lat2" Type="float" Mode="In" />
+    <Parameter Name="long2" Type="float" Mode="In" />
+  </Function>
+  <EntityContainer Name="DB_ZPIDI_QASModelStoreContainer">
+    <EntitySet Name="C_Delivery_a_new_register" EntityType="Self.C_Delivery_a_new_register" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_Ciudad" EntityType="Self.C_Delivery_Ciudad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_Comision_Zpidi" EntityType="Self.C_Delivery_Comision_Zpidi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_empresas" EntityType="Self.C_Delivery_empresas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_Estados" EntityType="Self.C_Delivery_Estados" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_estatus_semaforo" EntityType="Self.C_Delivery_estatus_semaforo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_estatus_semaforo_alias" EntityType="Self.C_Delivery_estatus_semaforo_alias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_estatus_semaforo_log" EntityType="Self.C_Delivery_estatus_semaforo_log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_Generos" EntityType="Self.C_Delivery_Generos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_Menuappbar_Modules" EntityType="Self.C_Delivery_Menuappbar_Modules" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_Menuappbar_ModulesWeb" EntityType="Self.C_Delivery_Menuappbar_ModulesWeb" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_Menuappbar_SubModules" EntityType="Self.C_Delivery_Menuappbar_SubModules" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_Menuappbar_SubModules_Permisos" EntityType="Self.C_Delivery_Menuappbar_SubModules_Permisos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_Pagos_Plataformas" EntityType="Self.C_Delivery_Pagos_Plataformas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_Pagos_Status" EntityType="Self.C_Delivery_Pagos_Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_Pagos_Tipos" EntityType="Self.C_Delivery_Pagos_Tipos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_Pais" EntityType="Self.C_Delivery_Pais" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_Pais_Moneda" EntityType="Self.C_Delivery_Pais_Moneda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_Parametros" EntityType="Self.C_Delivery_Parametros" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_Plataformas" EntityType="Self.C_Delivery_Plataformas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_Plataformas_Configuracion" EntityType="Self.C_Delivery_Plataformas_Configuracion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_Repartidores" EntityType="Self.C_Delivery_Repartidores" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_Repartidores_Empresas_Sucursales" EntityType="Self.C_Delivery_Repartidores_Empresas_Sucursales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_Repartidores_Ordenes" EntityType="Self.C_Delivery_Repartidores_Ordenes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_Repartidores_Solicitud" EntityType="Self.C_Delivery_Repartidores_Solicitud" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_Repartidores_Solicitudes" EntityType="Self.C_Delivery_Repartidores_Solicitudes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_Repartidores_Status" EntityType="Self.C_Delivery_Repartidores_Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_Repartidores_Ubicaciones" EntityType="Self.C_Delivery_Repartidores_Ubicaciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_Repartidores_Vehiculos_Tipos" EntityType="Self.C_Delivery_Repartidores_Vehiculos_Tipos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_Semaforo" EntityType="Self.C_Delivery_Semaforo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_StartOrders" EntityType="Self.C_Delivery_StartOrders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_sucursales_gps" EntityType="Self.C_Delivery_sucursales_gps" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_Trafico_Semaforos" EntityType="Self.C_Delivery_Trafico_Semaforos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_Usuarios_Imagen" EntityType="Self.C_Delivery_Usuarios_Imagen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C_Delivery_Ordenes_Tokens" EntityType="Self.C_Delivery_Ordenes_Tokens" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [C_Delivery_Ordenes_Tokens].[id_delivery_tokens] AS [id_delivery_tokens], 
+    [C_Delivery_Ordenes_Tokens].[token_dyn] AS [token_dyn], 
+    [C_Delivery_Ordenes_Tokens].[id_orden] AS [id_orden], 
+    [C_Delivery_Ordenes_Tokens].[activo] AS [activo]
+    FROM [dbo].[C_Delivery_Ordenes_Tokens] AS [C_Delivery_Ordenes_Tokens]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="C_Delivery_OrdenesPedidos" EntityType="Self.C_Delivery_OrdenesPedidos" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [C_Delivery_OrdenesPedidos].[id_orden] AS [id_orden], 
+    [C_Delivery_OrdenesPedidos].[id_pedido] AS [id_pedido], 
+    [C_Delivery_OrdenesPedidos].[fecha_pedido] AS [fecha_pedido]
+    FROM [dbo].[C_Delivery_OrdenesPedidos] AS [C_Delivery_OrdenesPedidos]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="C_Delivery_OrdenesPedidosCancelados" EntityType="Self.C_Delivery_OrdenesPedidosCancelados" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [C_Delivery_OrdenesPedidosCancelados].[id_ordenPedidoCancelado] AS [id_ordenPedidoCancelado], 
+    [C_Delivery_OrdenesPedidosCancelados].[id_orden] AS [id_orden], 
+    [C_Delivery_OrdenesPedidosCancelados].[id_pedido] AS [id_pedido], 
+    [C_Delivery_OrdenesPedidosCancelados].[id_tipo_cancel] AS [id_tipo_cancel], 
+    [C_Delivery_OrdenesPedidosCancelados].[observacion] AS [observacion], 
+    [C_Delivery_OrdenesPedidosCancelados].[fecha_cancelacion] AS [fecha_cancelacion], 
+    [C_Delivery_OrdenesPedidosCancelados].[estatus] AS [estatus]
+    FROM [dbo].[C_Delivery_OrdenesPedidosCancelados] AS [C_Delivery_OrdenesPedidosCancelados]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="C_Delivery_TipoCancelacion" EntityType="Self.C_Delivery_TipoCancelacion" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [C_Delivery_TipoCancelacion].[id_tipo_cancel] AS [id_tipo_cancel], 
+    [C_Delivery_TipoCancelacion].[descripcion_tipo] AS [descripcion_tipo], 
+    [C_Delivery_TipoCancelacion].[estatus] AS [estatus]
+    FROM [dbo].[C_Delivery_TipoCancelacion] AS [C_Delivery_TipoCancelacion]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="C_Delivery_Trafico_Tracking" EntityType="Self.C_Delivery_Trafico_Tracking" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [C_Delivery_Trafico_Tracking].[id_trafico_tracking] AS [id_trafico_tracking], 
+    [C_Delivery_Trafico_Tracking].[id_orden] AS [id_orden], 
+    [C_Delivery_Trafico_Tracking].[id_pedido] AS [id_pedido], 
+    [C_Delivery_Trafico_Tracking].[fecha_pedido] AS [fecha_pedido], 
+    [C_Delivery_Trafico_Tracking].[est_01] AS [est_01], 
+    [C_Delivery_Trafico_Tracking].[fec_01] AS [fec_01], 
+    [C_Delivery_Trafico_Tracking].[sem_01] AS [sem_01], 
+    [C_Delivery_Trafico_Tracking].[dif_01] AS [dif_01], 
+    [C_Delivery_Trafico_Tracking].[est_02] AS [est_02], 
+    [C_Delivery_Trafico_Tracking].[fec_02] AS [fec_02], 
+    [C_Delivery_Trafico_Tracking].[sem_02] AS [sem_02], 
+    [C_Delivery_Trafico_Tracking].[dif_02] AS [dif_02], 
+    [C_Delivery_Trafico_Tracking].[est_03] AS [est_03], 
+    [C_Delivery_Trafico_Tracking].[fec_03] AS [fec_03], 
+    [C_Delivery_Trafico_Tracking].[sem_03] AS [sem_03], 
+    [C_Delivery_Trafico_Tracking].[dif_03] AS [dif_03], 
+    [C_Delivery_Trafico_Tracking].[est_04] AS [est_04], 
+    [C_Delivery_Trafico_Tracking].[fec_04] AS [fec_04], 
+    [C_Delivery_Trafico_Tracking].[sem_04] AS [sem_04], 
+    [C_Delivery_Trafico_Tracking].[dif_04] AS [dif_04], 
+    [C_Delivery_Trafico_Tracking].[est_05] AS [est_05], 
+    [C_Delivery_Trafico_Tracking].[fec_05] AS [fec_05], 
+    [C_Delivery_Trafico_Tracking].[sem_05] AS [sem_05], 
+    [C_Delivery_Trafico_Tracking].[dif_05] AS [dif_05], 
+    [C_Delivery_Trafico_Tracking].[est_06] AS [est_06], 
+    [C_Delivery_Trafico_Tracking].[fec_06] AS [fec_06], 
+    [C_Delivery_Trafico_Tracking].[sem_06] AS [sem_06], 
+    [C_Delivery_Trafico_Tracking].[dif_06] AS [dif_06], 
+    [C_Delivery_Trafico_Tracking].[est_07] AS [est_07], 
+    [C_Delivery_Trafico_Tracking].[fec_07] AS [fec_07], 
+    [C_Delivery_Trafico_Tracking].[sem_07] AS [sem_07], 
+    [C_Delivery_Trafico_Tracking].[dif_07] AS [dif_07], 
+    [C_Delivery_Trafico_Tracking].[est_08] AS [est_08], 
+    [C_Delivery_Trafico_Tracking].[fec_08] AS [fec_08], 
+    [C_Delivery_Trafico_Tracking].[sem_08] AS [sem_08], 
+    [C_Delivery_Trafico_Tracking].[dif_08] AS [dif_08], 
+    [C_Delivery_Trafico_Tracking].[est_09] AS [est_09], 
+    [C_Delivery_Trafico_Tracking].[fec_09] AS [fec_09], 
+    [C_Delivery_Trafico_Tracking].[sem_09] AS [sem_09], 
+    [C_Delivery_Trafico_Tracking].[dif_09] AS [dif_09], 
+    [C_Delivery_Trafico_Tracking].[est_10] AS [est_10], 
+    [C_Delivery_Trafico_Tracking].[fec_10] AS [fec_10], 
+    [C_Delivery_Trafico_Tracking].[sem_10] AS [sem_10], 
+    [C_Delivery_Trafico_Tracking].[dif_10] AS [dif_10], 
+    [C_Delivery_Trafico_Tracking].[est_11] AS [est_11], 
+    [C_Delivery_Trafico_Tracking].[fec_11] AS [fec_11], 
+    [C_Delivery_Trafico_Tracking].[sem_11] AS [sem_11], 
+    [C_Delivery_Trafico_Tracking].[dif_11] AS [dif_11], 
+    [C_Delivery_Trafico_Tracking].[est_12] AS [est_12], 
+    [C_Delivery_Trafico_Tracking].[fec_12] AS [fec_12], 
+    [C_Delivery_Trafico_Tracking].[sem_12] AS [sem_12], 
+    [C_Delivery_Trafico_Tracking].[dif_12] AS [dif_12], 
+    [C_Delivery_Trafico_Tracking].[est_13] AS [est_13], 
+    [C_Delivery_Trafico_Tracking].[fec_13] AS [fec_13], 
+    [C_Delivery_Trafico_Tracking].[sem_13] AS [sem_13], 
+    [C_Delivery_Trafico_Tracking].[dif_13] AS [dif_13], 
+    [C_Delivery_Trafico_Tracking].[est_14] AS [est_14], 
+    [C_Delivery_Trafico_Tracking].[fec_14] AS [fec_14], 
+    [C_Delivery_Trafico_Tracking].[sem_14] AS [sem_14], 
+    [C_Delivery_Trafico_Tracking].[dif_14] AS [dif_14], 
+    [C_Delivery_Trafico_Tracking].[est_15] AS [est_15], 
+    [C_Delivery_Trafico_Tracking].[fec_15] AS [fec_15], 
+    [C_Delivery_Trafico_Tracking].[sem_15] AS [sem_15], 
+    [C_Delivery_Trafico_Tracking].[dif_15] AS [dif_15], 
+    [C_Delivery_Trafico_Tracking].[est_16] AS [est_16], 
+    [C_Delivery_Trafico_Tracking].[fec_16] AS [fec_16], 
+    [C_Delivery_Trafico_Tracking].[sem_16] AS [sem_16], 
+    [C_Delivery_Trafico_Tracking].[dif_16] AS [dif_16], 
+    [C_Delivery_Trafico_Tracking].[est_17] AS [est_17], 
+    [C_Delivery_Trafico_Tracking].[fec_17] AS [fec_17], 
+    [C_Delivery_Trafico_Tracking].[sem_17] AS [sem_17], 
+    [C_Delivery_Trafico_Tracking].[dif_17] AS [dif_17], 
+    [C_Delivery_Trafico_Tracking].[est_18] AS [est_18], 
+    [C_Delivery_Trafico_Tracking].[fec_18] AS [fec_18], 
+    [C_Delivery_Trafico_Tracking].[sem_18] AS [sem_18], 
+    [C_Delivery_Trafico_Tracking].[dif_18] AS [dif_18], 
+    [C_Delivery_Trafico_Tracking].[est_19] AS [est_19], 
+    [C_Delivery_Trafico_Tracking].[fec_19] AS [fec_19], 
+    [C_Delivery_Trafico_Tracking].[sem_19] AS [sem_19], 
+    [C_Delivery_Trafico_Tracking].[dif_19] AS [dif_19], 
+    [C_Delivery_Trafico_Tracking].[est_20] AS [est_20], 
+    [C_Delivery_Trafico_Tracking].[fec_20] AS [fec_20], 
+    [C_Delivery_Trafico_Tracking].[sem_20] AS [sem_20], 
+    [C_Delivery_Trafico_Tracking].[dif_20] AS [dif_20], 
+    [C_Delivery_Trafico_Tracking].[est_21] AS [est_21], 
+    [C_Delivery_Trafico_Tracking].[fec_21] AS [fec_21], 
+    [C_Delivery_Trafico_Tracking].[sem_21] AS [sem_21], 
+    [C_Delivery_Trafico_Tracking].[dif_21] AS [dif_21], 
+    [C_Delivery_Trafico_Tracking].[est_22] AS [est_22], 
+    [C_Delivery_Trafico_Tracking].[fec_22] AS [fec_22], 
+    [C_Delivery_Trafico_Tracking].[sem_22] AS [sem_22], 
+    [C_Delivery_Trafico_Tracking].[dif_22] AS [dif_22], 
+    [C_Delivery_Trafico_Tracking].[est_23] AS [est_23], 
+    [C_Delivery_Trafico_Tracking].[fec_23] AS [fec_23], 
+    [C_Delivery_Trafico_Tracking].[sem_23] AS [sem_23], 
+    [C_Delivery_Trafico_Tracking].[dif_23] AS [dif_23], 
+    [C_Delivery_Trafico_Tracking].[est_24] AS [est_24], 
+    [C_Delivery_Trafico_Tracking].[fec_24] AS [fec_24], 
+    [C_Delivery_Trafico_Tracking].[sem_24] AS [sem_24], 
+    [C_Delivery_Trafico_Tracking].[dif_24] AS [dif_24], 
+    [C_Delivery_Trafico_Tracking].[est_25] AS [est_25], 
+    [C_Delivery_Trafico_Tracking].[fec_25] AS [fec_25], 
+    [C_Delivery_Trafico_Tracking].[sem_25] AS [sem_25], 
+    [C_Delivery_Trafico_Tracking].[dif_25] AS [dif_25], 
+    [C_Delivery_Trafico_Tracking].[fec_reasignacion_1] AS [fec_reasignacion_1], 
+    [C_Delivery_Trafico_Tracking].[fec_reasignacion_2] AS [fec_reasignacion_2], 
+    [C_Delivery_Trafico_Tracking].[est_reasignacion] AS [est_reasignacion], 
+    [C_Delivery_Trafico_Tracking].[Calificacion_1] AS [Calificacion_1], 
+    [C_Delivery_Trafico_Tracking].[Calificacion_2] AS [Calificacion_2], 
+    [C_Delivery_Trafico_Tracking].[Calificacion_3] AS [Calificacion_3], 
+    [C_Delivery_Trafico_Tracking].[nombre_cliente] AS [nombre_cliente], 
+    [C_Delivery_Trafico_Tracking].[telefono_cliente] AS [telefono_cliente], 
+    [C_Delivery_Trafico_Tracking].[saldo_repartidor] AS [saldo_repartidor], 
+    [C_Delivery_Trafico_Tracking].[pagada_sn] AS [pagada_sn], 
+    [C_Delivery_Trafico_Tracking].[fecha_pagada] AS [fecha_pagada], 
+    [C_Delivery_Trafico_Tracking].[activa] AS [activa], 
+    [C_Delivery_Trafico_Tracking].[id_repartidor] AS [id_repartidor], 
+    [C_Delivery_Trafico_Tracking].[nombre_repartidor] AS [nombre_repartidor], 
+    [C_Delivery_Trafico_Tracking].[telefono_repartidor] AS [telefono_repartidor], 
+    [C_Delivery_Trafico_Tracking].[nombre_sucursal] AS [nombre_sucursal], 
+    [C_Delivery_Trafico_Tracking].[semaforo_orden] AS [semaforo_orden], 
+    [C_Delivery_Trafico_Tracking].[codigo_sucursal] AS [codigo_sucursal], 
+    [C_Delivery_Trafico_Tracking].[id_plataforma] AS [id_plataforma], 
+    [C_Delivery_Trafico_Tracking].[nombre_plataforma] AS [nombre_plataforma], 
+    [C_Delivery_Trafico_Tracking].[tiempo_total_servicio] AS [tiempo_total_servicio]
+    FROM [dbo].[C_Delivery_Trafico_Tracking] AS [C_Delivery_Trafico_Tracking]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_C_Delivery_estatus_semaforo_alias_C_Delivery_Semaforo" Association="Self.FK_C_Delivery_estatus_semaforo_alias_C_Delivery_Semaforo">
+      <End Role="C_Delivery_Semaforo" EntitySet="C_Delivery_Semaforo" />
+      <End Role="C_Delivery_estatus_semaforo_alias" EntitySet="C_Delivery_estatus_semaforo_alias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_estatus_semaforo_log_C_Delivery_Semaforo" Association="Self.FK_C_Delivery_estatus_semaforo_log_C_Delivery_Semaforo">
+      <End Role="C_Delivery_Semaforo" EntitySet="C_Delivery_Semaforo" />
+      <End Role="C_Delivery_estatus_semaforo_log" EntitySet="C_Delivery_estatus_semaforo_log" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_Menuappbar_SubModules_C_Delivery_Menuappbar_Modules" Association="Self.FK_C_Delivery_Menuappbar_SubModules_C_Delivery_Menuappbar_Modules">
+      <End Role="C_Delivery_Menuappbar_ModulesWeb" EntitySet="C_Delivery_Menuappbar_ModulesWeb" />
+      <End Role="C_Delivery_Menuappbar_SubModules" EntitySet="C_Delivery_Menuappbar_SubModules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_Menuappbar_SubModules_Permisos_C_Delivery_Menuappbar_SubModules" Association="Self.FK_C_Delivery_Menuappbar_SubModules_Permisos_C_Delivery_Menuappbar_SubModules">
+      <End Role="C_Delivery_Menuappbar_SubModules" EntitySet="C_Delivery_Menuappbar_SubModules" />
+      <End Role="C_Delivery_Menuappbar_SubModules_Permisos" EntitySet="C_Delivery_Menuappbar_SubModules_Permisos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_Pagos_Plataformas_C_Delivery_a_new_register" Association="Self.FK_C_Delivery_Pagos_Plataformas_C_Delivery_a_new_register">
+      <End Role="C_Delivery_a_new_register" EntitySet="C_Delivery_a_new_register" />
+      <End Role="C_Delivery_Pagos_Plataformas" EntitySet="C_Delivery_Pagos_Plataformas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_Pagos_Plataformas_C_Delivery_a_new_register1" Association="Self.FK_C_Delivery_Pagos_Plataformas_C_Delivery_a_new_register1">
+      <End Role="C_Delivery_a_new_register" EntitySet="C_Delivery_a_new_register" />
+      <End Role="C_Delivery_Pagos_Plataformas" EntitySet="C_Delivery_Pagos_Plataformas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_Pagos_Plataformas_C_Delivery_Pagos_Status" Association="Self.FK_C_Delivery_Pagos_Plataformas_C_Delivery_Pagos_Status">
+      <End Role="C_Delivery_Pagos_Status" EntitySet="C_Delivery_Pagos_Status" />
+      <End Role="C_Delivery_Pagos_Plataformas" EntitySet="C_Delivery_Pagos_Plataformas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_Pagos_Plataformas_C_Delivery_Plataformas" Association="Self.FK_C_Delivery_Pagos_Plataformas_C_Delivery_Plataformas">
+      <End Role="C_Delivery_Plataformas" EntitySet="C_Delivery_Plataformas" />
+      <End Role="C_Delivery_Pagos_Plataformas" EntitySet="C_Delivery_Pagos_Plataformas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_Plataformas_Configuracion_C_Delivery_Pais_Moneda" Association="Self.FK_C_Delivery_Plataformas_Configuracion_C_Delivery_Pais_Moneda">
+      <End Role="C_Delivery_Pais_Moneda" EntitySet="C_Delivery_Pais_Moneda" />
+      <End Role="C_Delivery_Plataformas_Configuracion" EntitySet="C_Delivery_Plataformas_Configuracion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_Plataformas_Configuracion_C_Delivery_Plataformas" Association="Self.FK_C_Delivery_Plataformas_Configuracion_C_Delivery_Plataformas">
+      <End Role="C_Delivery_Plataformas" EntitySet="C_Delivery_Plataformas" />
+      <End Role="C_Delivery_Plataformas_Configuracion" EntitySet="C_Delivery_Plataformas_Configuracion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_Repartidores_Empresas_Sucursales_C_Delivery_empresas" Association="Self.FK_C_Delivery_Repartidores_Empresas_Sucursales_C_Delivery_empresas">
+      <End Role="C_Delivery_empresas" EntitySet="C_Delivery_empresas" />
+      <End Role="C_Delivery_Repartidores_Empresas_Sucursales" EntitySet="C_Delivery_Repartidores_Empresas_Sucursales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_Repartidores_Empresas_Sucursales_C_Delivery_Repartidores" Association="Self.FK_C_Delivery_Repartidores_Empresas_Sucursales_C_Delivery_Repartidores">
+      <End Role="C_Delivery_Repartidores" EntitySet="C_Delivery_Repartidores" />
+      <End Role="C_Delivery_Repartidores_Empresas_Sucursales" EntitySet="C_Delivery_Repartidores_Empresas_Sucursales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_Repartidores_Empresas_Sucursales_C_Delivery_sucursales_gps" Association="Self.FK_C_Delivery_Repartidores_Empresas_Sucursales_C_Delivery_sucursales_gps">
+      <End Role="C_Delivery_sucursales_gps" EntitySet="C_Delivery_sucursales_gps" />
+      <End Role="C_Delivery_Repartidores_Empresas_Sucursales" EntitySet="C_Delivery_Repartidores_Empresas_Sucursales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_Repartidores_Ordenes_C_Delivery_Repartidores" Association="Self.FK_C_Delivery_Repartidores_Ordenes_C_Delivery_Repartidores">
+      <End Role="C_Delivery_Repartidores" EntitySet="C_Delivery_Repartidores" />
+      <End Role="C_Delivery_Repartidores_Ordenes" EntitySet="C_Delivery_Repartidores_Ordenes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Ciudad" Association="Self.FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Ciudad">
+      <End Role="C_Delivery_Ciudad" EntitySet="C_Delivery_Ciudad" />
+      <End Role="C_Delivery_Repartidores_Solicitud" EntitySet="C_Delivery_Repartidores_Solicitud" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Estados" Association="Self.FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Estados">
+      <End Role="C_Delivery_Estados" EntitySet="C_Delivery_Estados" />
+      <End Role="C_Delivery_Repartidores_Solicitud" EntitySet="C_Delivery_Repartidores_Solicitud" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Plataformas" Association="Self.FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Plataformas">
+      <End Role="C_Delivery_Plataformas" EntitySet="C_Delivery_Plataformas" />
+      <End Role="C_Delivery_Repartidores_Solicitud" EntitySet="C_Delivery_Repartidores_Solicitud" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Repartidores_Status" Association="Self.FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Repartidores_Status">
+      <End Role="C_Delivery_Repartidores_Status" EntitySet="C_Delivery_Repartidores_Status" />
+      <End Role="C_Delivery_Repartidores_Solicitud" EntitySet="C_Delivery_Repartidores_Solicitud" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Repartidores_Vehiculos_Tipos" Association="Self.FK_C_Delivery_Repartidores_Solicitud_C_Delivery_Repartidores_Vehiculos_Tipos">
+      <End Role="C_Delivery_Repartidores_Vehiculos_Tipos" EntitySet="C_Delivery_Repartidores_Vehiculos_Tipos" />
+      <End Role="C_Delivery_Repartidores_Solicitud" EntitySet="C_Delivery_Repartidores_Solicitud" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_Repartidores_Solicitudes_C_Delivery_Repartidores" Association="Self.FK_C_Delivery_Repartidores_Solicitudes_C_Delivery_Repartidores">
+      <End Role="C_Delivery_Repartidores" EntitySet="C_Delivery_Repartidores" />
+      <End Role="C_Delivery_Repartidores_Solicitudes" EntitySet="C_Delivery_Repartidores_Solicitudes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_Repartidores_Solicitudes_C_Delivery_Repartidores_Solicitud" Association="Self.FK_C_Delivery_Repartidores_Solicitudes_C_Delivery_Repartidores_Solicitud">
+      <End Role="C_Delivery_Repartidores_Solicitud" EntitySet="C_Delivery_Repartidores_Solicitud" />
+      <End Role="C_Delivery_Repartidores_Solicitudes" EntitySet="C_Delivery_Repartidores_Solicitudes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_C_Delivery_StartOrders_C_Delivery_sucursales_gps" Association="Self.FK_C_Delivery_StartOrders_C_Delivery_sucursales_gps">
+      <End Role="C_Delivery_sucursales_gps" EntitySet="C_Delivery_sucursales_gps" />
+      <End Role="C_Delivery_StartOrders" EntitySet="C_Delivery_StartOrders" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
