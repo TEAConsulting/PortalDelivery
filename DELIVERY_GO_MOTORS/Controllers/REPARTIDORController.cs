@@ -59,6 +59,7 @@ namespace ZPIDI_PORTAL.Controllers
                             where id_plataformas.Contains((int)sol.id_plataforma) orderby rep.nombre
                             select rep;
                 //join plat in db.C_Delivery_Plataformas on repSol.id_
+                // nota 2
                 return PartialView("../Admin_Page/Repartidores/RepartidoresTiendas/_RepartidoresPlataformaTable", repas);
             }
             catch (Exception)
